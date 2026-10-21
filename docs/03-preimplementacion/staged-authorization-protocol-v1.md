@@ -38,7 +38,7 @@ En resolución directa del **Defecto B-06** y para evitar la colisión con la no
 
 ### Nota de revisión pendiente de ratificación (REV-01 / REV-03 / REV-05 / REV-06)
 
-Este protocolo es **candidato**, no una modificación efectiva de los gates históricos. Su afirmación de «armonización» es una hipótesis que requiere contrastar `security/security-gates.md`, `security/traceability.md` y los readiness reviews. Ante discrepancias prevalece **HOLD** hasta decisión expresa de los titulares sobre precedencia documental y autoridad. El significado de G3 (permiso para comenzar código frente a permiso para fusionarlo) sigue **SIN RATIFICAR**.
+Este protocolo es **candidato**, no una modificación efectiva de los gates históricos. Su afirmación de «armonización» es una hipótesis que requiere contrastar [`security-gates.md`](../02-diseno/security/security-gates.md), [`traceability.md`](../02-diseno/security/traceability.md) y los readiness reviews. Ante discrepancias prevalece **HOLD** hasta decisión expresa de los titulares sobre precedencia documental y autoridad. El significado de G3 (permiso para comenzar código frente a permiso para fusionarlo) sigue **SIN RATIFICAR**.
 
 G2.2 plantea construir un harness mientras el estado general prohíbe código ejecutable. **No hay excepción vigente**. Antes de autorizar cualquier experimento debe definirse por escrito si se admite código desechable, lenguaje, ubicación, duración, límites de E/S, dependencias, revisión y destrucción; una autorización documental G2.1 por sí sola no permite escribir ni ejecutar ese código. Las condiciones que siguen son **propuestas de entrada**, no gates superados.
 
@@ -88,7 +88,7 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 ---
 
 ### Gate G3 — Pre-code Gate & Transición a Implementación de Software en Rust
-- **Interpretación Candidata (NO RATIFICADA):** Transición a la fase de implementación de código ejecutable en Rust; la fuente `security/security-gates.md` utiliza el criterio previo a fusionar código ejecutable. No hay precedencia decidida.
+- **Interpretación Candidata (NO RATIFICADA):** Transición a la fase de implementación de código ejecutable en Rust; la fuente [`security-gates.md`](../02-diseno/security/security-gates.md) utiliza el criterio previo a fusionar código ejecutable. No hay precedencia decidida.
 - **Propósito propuesto (NO RATIFICADO):** Evaluar el cumplimiento de todos los requisitos previos a la escritura de código (resolución de licencias `GAP-001`, revisión de modelo de amenazas `GAP-002`, ADRs aceptados `GAP-005`, Subgate G2.4 aprobado).
 - **Condiciones de Entrada (propuesta, NO RATIFICADA):** Subgate G2.4 aprobado; decisión expresa sobre `GAP-001` (licencia y derechos), `GAP-010` (autoridad y precedencia), estado y aceptación de `ADR-0001..0005`, y alcance de las verificaciones de seguridad `SEC-001..017`. **«Plan completado» no significa pruebas ejecutadas ni superadas**: distinguir especificación, ejecución, evidencia, revisión y aceptación. `SEC-015..017` siguen propuestos y no ejecutados. Los requisitos históricos de G3 pueden diferir y no quedan sustituidos por esta enumeración.
 - **Evidencia Requerida:** Lista de verificación de pre-código aprobada; resolución formal de los titulares autorizando el inicio de implementación.
