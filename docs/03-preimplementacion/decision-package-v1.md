@@ -116,10 +116,10 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
   - *Opción C:* Mantener reserva de derechos sin licencia general de reutilización mientras el titular delibera, **aunque el repositorio ya sea públicamente accesible**. La visibilidad pública no implica autorización de distribución por terceros.
 - **Costes y Complejidad:** La falta de archivo `LICENSE` (`GAP-001`) deja sin permisos generales explícitos de reutilización o redistribución. El repositorio ya es público; esto no demuestra que cada archivo carezca de avisos específicos ni determina automáticamente la titularidad de terceros.
 - **Riesgos Asociados:** Incertidumbre jurídica para colaboradores externos.
-- **Evidencia Observada:** `GAP-001` abierto en `gap-register.md`.
+- **Evidencia documental (rama PR #25):** Se ha añadido `LICENSE.md` con referencia oficial a CC BY 4.0 para documentación original y materiales no software con derechos suficientes. `gap-register.md` conserva su estado histórico OPEN; no se ha verificado inventario completo de derechos de terceros ni se ha seleccionado licencia para futuro software.
 - **Dependencias:** Ninguna.
 - **Autoridad:** Titular del proyecto (@Axlfc) en exclusiva.
-- **Recomendación Provisional (PROPUESTO):** El titular elegirá la licencia aplicable para resolver `GAP-001` considerando que el repositorio ya es público según GitHub API (2026-10-21, `visibility=public`, `license=null`); resolver titularidad, visibilidad y términos sin adoptar una licencia por defecto.
+- **Decisión expresa recibida (alcance documental):** El titular ha solicitado CC BY 4.0; se incorpora en esta PR para la documentación original y materiales no software cuyos derechos puedan licenciarse. **Pendiente:** revisar titularidad y materiales de terceros, registrar cierre o alcance residual de `GAP-001` mediante autoridad competente y decidir por separado una licencia adecuada para cualquier código futuro. El dato histórico de GitHub API (2026-10-21, `visibility=public`, `license=null`) es anterior al commit de licencia y no debe reutilizarse como estado actual.
 
 ### DEC-08 — Autorización Expresa para Código de Laboratorio y Transición G3 (SIN RATIFICAR)
 - **Opción A — HOLD / NO-GO:** No autorizar creación ni ejecución de código, harness, manifiestos Cargo, scripts o CI; mantener bloqueados los subgates y G3.
