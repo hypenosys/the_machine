@@ -10,15 +10,9 @@
 
 Cada brecha identificada en THE MACHINE se cataloga con un identificador estable (`GAP-XXX`) y se clasifica según su dominio, causa raíz, impacto, severidad y prioridad.
 
-### Dominios
-- **Arquitectura**: Abstracciones, ontologías, acoplamiento, modelos de datos y evolución.
-- **Seguridad**: Control de acceso, aislamientos, modelo de amenazas y vector de ataque.
-- **Documentación / Gobernanza**: Contradicciones, jerarquía normativa, licenciamiento y estado de ADR.
-- **Reproducibilidad / Calidad**: Pruebas, CI/CD, verficiación y determinismo.
-
 ### Escala de Severidad y Prioridad
-- **Critical / P0**: Bloqueante absoluto de seguridad o arquitectura. Impide cualquier prototipado seguro.
-- **High / P1**: Riesgo grave de diseño o inconsistencia normativa mayor. Requiere resolución previa a implementación.
+- **Critical / P0**: Bloqueante absoluto para el objetivo inmediato.
+- **High / P1**: Riesgo grave de diseño o inconsistencia normativa mayor. Requiere resolución previa a la congelación definitiva de arquitectura.
 - **Medium / P2**: Deuda técnica, ambigüedad documental o falta de especificación secundaria.
 - **Low / P3**: Mejora de accesibilidad, estilo o mantenimiento menor.
 
@@ -28,16 +22,16 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 
 | ID | Dominio | Hallazgo resumido | Severidad | Prioridad | Estado |
 |---|---|---|---|---|---|
-| **GAP-001** | Gobernanza / Licencias | Ausencia de archivo `LICENSE` y menciones contradictorias de "software libre". | Critical | P0 | Open |
-| **GAP-002** | Seguridad / Cobertura | Amenazas TH-012, TH-016 y TH-019 carecen de pruebas negativas o suites especificadas. | High | P1 | Open |
-| **GAP-003** | Arquitectura / Epistemología | Ambigüedad en la semántica del núcleo epistemológico (tiempo de validez vs tiempo de registro). | High | P1 | Open |
-| **GAP-004** | Seguridad / Modelo | Fronteras de confianza ambiguas entre el motor de persistencia y el Action Gateway. | High | P1 | Open |
-| **GAP-005** | Documentación | ADRs 0001..0005 permanecen en estado `Proposed` sin procedimiento de adopción formal. | High | P1 | Open |
-| **GAP-006** | Arquitectura / Escalabilidad | Ontología prematura en `Claim` y `Assessment` puede imponer complejidad accidental masiva. | Medium | P2 | Open |
-| **GAP-007** | Reproducibilidad | CI/CD limitado a validación documental y linting Markdown básico sin tests de especificación. | Medium | P2 | Open |
-| **GAP-008** | Seguridad / Privacidad | Estrategia de sanitización de logs (`TH-015`) indocumentada a nivel de estructura de datos. | Medium | P2 | Open |
-| **GAP-009** | Documentación | Discrepancia entre la guía para principiantes y el nivel técnico requerido en preimplementación. | Low | P3 | Open |
-| **GAP-010** | Gobernanza | Inexistencia de un proceso normativo formal para elevar candidatos a especificaciones aprobadas. | Medium | P2 | Open |
+| **GAP-001** | Gobernanza / Licencias | Ausencia de archivo `LICENSE` en la raíz. Limitación legal para redistribución pública. | Medium / Legal | P2 (P1 si se publica) | Open |
+| **GAP-002** | Seguridad / Cobertura | Amenazas TH-012, TH-016 y TH-019 carecen de pruebas especificadas en el plan global. | High | P1 (Para sistema completo) | Open |
+| **GAP-003** | Arquitectura / Especificación | `unified-specification-candidate-v0.md` menciona tiempos, pero falta especificación formal, serialización y reglas de verificación. | High | P1 | Open |
+| **GAP-004** | Seguridad / Modelo de Adversario | Falta definir modelo de adversario y anclaje de confianza para persistencia local de capacidades. | High | P1 (Para persistencia) | Open |
+| **GAP-005** | Gobernanza / ADRs | Los ADRs 0001..0005 permanecen en estado `Proposed` sin procedimiento de adopción formal. | High | P1 | Open |
+| **GAP-006** | Arquitectura / Evaluacion | El modelo de 6 entidades presenta hipótesis de complejidad accidental que requiere prueba experimental. | Medium | P2 | Open |
+| **GAP-007** | Reproducibilidad / QA | Inexistencia de flujos de CI/CD para linters Markdown y validación de enlaces relativos. | Medium | P2 | Open |
+| **GAP-008** | Seguridad / Privacidad | Estrategia de sanitización de logs indocumentada a nivel de tipos y formateadores. | Medium | P2 | Open |
+| **GAP-009** | Accesibilidad / DX | Desconexión entre el tono divulgativo de `00-empezar/` y el rigor de `03-preimplementacion/`. | Low | P3 | Open |
+| **GAP-010** | Gobernanza | Mapa de Autoridad Documental permanece como propuesta sin adopción formal. | Medium | P2 | Open |
 
 ---
 
@@ -46,101 +40,78 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 ### GAP-001 — Ausencia de archivo de licencia legal (LICENSE)
 - **ID:** GAP-001
 - **Dominio:** Gobernanza y Licenciamiento
-- **Hallazgo:** El repositorio no contiene ningún archivo `LICENSE` ni `LICENSE-APACHE`/`LICENSE-MIT`, aunque en `CONTRIBUTING.md` y `README.md` se promociona como proyecto de código abierto.
-- **Evidencia:** Inspección directa del árbol raíz del repositorio. No existen archivos de licencia.
-- **Causa probable:** Omisión inicial durante la fase de documentación y especificación teórica.
-- **Impacto:** Jurídico y de derechos de autor. Legalmente, el código y documentación sin licencia explícita se consideran bajo derechos de autor reservados ("All Rights Reserved"), impidiendo su libre reutilización o contribución pública segura.
-- **Probabilidad:** Alta (100% verificado en repositorio).
-- **Severidad:** Critical
-- **Prioridad:** P0
-- **Propuesta de corrección:** Definir y añadir el archivo de licencia correspondiente (p. ej., Dual License MIT / Apache-2.0, estándar en el ecosistema Rust).
-- **Dependencias:** Decisión del titular del proyecto.
-- **Criterio de cierre:** Presencia del archivo de licencia en la raíz y declaración explícita en `README.md`.
+- **Hallazgo:** El repositorio no contiene ningún archivo `LICENSE` ni `LICENSE-APACHE`/`LICENSE-MIT`, aunque en `CONTRIBUTING.md` y `README.md` se menciona intención de código abierto.
+- **Evidencia:** Inspección directa de la raíz del repositorio. No existen archivos de licencia.
+- **Impacto:** Jurídico y de derechos de autor para redistribución pública. Legalmente, el código y documentación sin licencia explícita se consideran bajo derechos de autor reservados ("All Rights Reserved"). **Aclaración de alcance**: Para la ejecución de un experimento o investigación privada en local, no constituye un bloqueante técnico de código, pero sí una limitación legal previa a cualquier distribución o contribución pública.
+- **Severidad:** Medium (Legal)
+- **Prioridad:** P2 para investigación privada / P1 previa a publicación abierta.
+- **Propuesta de corrección:** Requerir decisión del titular del proyecto sobre la licencia a adoptar (p. ej. Dual MIT/Apache-2.0, MPL-2.0, u otra) e integrar el archivo correspondiente.
 - **Estado:** Open
 
 ---
 
-### GAP-002 — Incobertura de pruebas negativas para amenazas TH-012, TH-016 y TH-019
+### GAP-002 — Incobertura de pruebas especificadas para amenazas TH-012, TH-016 y TH-019
 - **ID:** GAP-002
 - **Dominio:** Seguridad y Verificación
-- **Hallazgo:** Las amenazas TH-012 (Confused Deputy), TH-016 (Backup irrecuperable) y TH-019 (Insider abuse) están mapeadas a requisitos (SEC-REQ-017, SEC-REQ-015, SEC-REQ-016), pero carecen de pruebas especificadas (`SEC-XXX`) en la matriz de trazabilidad.
-- **Evidencia:** `docs/02-diseno/security/requirements.md` y `docs/02-diseno/security/traceability.md`.
-- **Causa probable:** Cierre prematuro de la matriz de requisitos antes de redactar los escenarios de prueba negativos.
-- **Impacto:** Imposibilidad de verificar si los controles propuestos frente a escalada de privilegios indirecta e incidentes de recuperación son efectivos.
-- **Probabilidad:** Alta (brecha de diseño comprobada).
+- **Hallazgo:** Las amenazas TH-012 (Confused Deputy), TH-016 (Backup irrecuperable) y TH-019 (Insider abuse) están mapeadas a requisitos en `requirements.md`, pero carecen de pruebas asignadas (`SEC-XXX`) en `traceability.md`.
+- **Evidencia:** `docs/02-diseno/security/requirements.md` y `traceability.md`.
+- **Impacto:** Faltan escenarios de prueba definidos en la planificación de seguridad global para validar dichos controles. **Aclaración de alcance**: No bloquea un primer experimento minimalista offline de dos sensores si dicho corte vertical no incluye delegación de capacidades, copias de seguridad ni roles de administración.
 - **Severidad:** High
-- **Prioridad:** P1
-- **Propuesta de corrección:** Diseñar e incorporar las especificaciones de prueba `SEC-015` (Recuperación de backups sintéticos), `SEC-016` (Separación de deberes en ops) y `SEC-017` (Prevención de Confused Deputy en delegación de capacidades).
-- **Dependencias:** Ninguna.
-- **Criterio de cierre:** Integración de los casos de prueba en `verification-plan.md` y matriz de trazabilidad actualizada.
+- **Prioridad:** P1 para el diseño completo de seguridad.
+- **Propuesta de corrección:** Diseñar e incorporar las especificaciones de prueba `SEC-015`, `SEC-016` y `SEC-017` en la planificación global de seguridad.
 - **Estado:** Open
 
 ---
 
-### GAP-003 — Ambigüedad en la semántica temporal del núcleo epistemológico
+### GAP-003 — Incompleitud en la especificación formal y serialización de tiempos
 - **ID:** GAP-003
-- **Dominio:** Arquitectura / Epistemología
-- **Hallazgo:** El modelo de `Claim` y `EvidenceLink` no distingue explícitamente entre el tiempo de validez del hecho en el mundo real (*valid time*) y el tiempo de registro en el sistema (*transaction time*).
-- **Evidencia:** `docs/03-preimplementacion/claim-semantics-v0.md` y `general-epistemic-contract-v0.md`.
-- **Causa probable:** Simplificación de la ontología epistemológica en la fase preliminar.
-- **Impacto:** Incapacidad para manejar retractaciones retroactivas, correcciones históricas o razonamiento sobre estados pasados sin corromper la auditoría inmutable.
-- **Probabilidad:** Alta en escenarios del mundo real.
+- **Dominio:** Arquitectura / Especificación Temporal
+- **Hallazgo:** Aunque `docs/03-preimplementacion/unified-specification-candidate-v0.md` (línea 35) menciona explícitamente `valid_time`, `recorded_time` y `assessed_time`, y `claim-semantics-v0.md` menciona el tiempo referido, el proyecto carece de un esquema formalizado de tipos, formato de serialización y reglas de verificación en tiempo de ejecución para consultas temporales (*time-travel queries*).
+- **Evidencia:** `docs/03-preimplementacion/unified-specification-candidate-v0.md` y `claim-semantics-v0.md`.
+- **Impacto:** Ambigüedad sobre cómo el motor de persistencia serializa y valida las marcas temporales en memoria y reposo.
 - **Severidad:** High
 - **Prioridad:** P1
-- **Propuesta de corrección:** Incorporar el paradigma Bitemporal (Valid Time vs Transaction Time) en el contrato de datos del núcleo.
-- **Dependencias:** ADR-0003.
-- **Criterio de cierre:** Especificación bitemporal integrada en `general-epistemic-contract-v0.md`.
+- **Propuesta de corrección:** Definir los tipos de datos temporales, representación ISO-8601/Unix timestamp y reglas de validación en la especificación del núcleo.
 - **Estado:** Open
 
 ---
 
-### GAP-004 — Indefinición de la frontera de confianza entre Persistencia y Action Gateway
+### GAP-004 — Indefinición del modelo de adversario y anclaje de confianza para persistencia local
 - **ID:** GAP-004
 - **Dominio:** Seguridad y Arquitectura
-- **Hallazgo:** Los límites de confianza TB-05 (Policy Engine → Action Gateway) y TB-06 (Kernel → Persistencia) no aclaran si la base de datos local puede alterar o falsificar capacidades almacenadas si el almacenamiento es manipulado en disco.
-- **Evidencia:** `docs/02-diseno/security/data-flow-diagrams.md` y `adr/0004-authorization-and-action-gateway.md`.
-- **Causa probable:** Asumir que el almacenamiento local es un entorno de confianza implícita.
-- **Impacto:** Si un atacante modifica la base de datos SQLite/Local, podría concederse permisos elevados en el Action Gateway sin pasar por la firma o verificación del kernel.
-- **Probabilidad:** Media.
+- **Hallazgo:** La protección de la persistencia local de capacidades (TB-06) carece de una definición explícita del modelo de adversario.
+- **Análisis de límites**: Si un atacante tiene control del sistema operativo host y del binario ejecutable, ninguna firma o HMAC local puede impedir la modificación del estado o las claves. El anclaje de confianza reside en los permisos del SO host e integridad del ejecutable.
+- **Evidencia:** `docs/02-diseno/security/data-flow-diagrams.md`.
+- **Impacto:** Falta de claridad sobre qué ataques locales están dentro o fuera del alcance de mitigación del software.
 - **Severidad:** High
 - **Prioridad:** P1
-- **Propuesta de corrección:** Requerir firma criptográfica o autenticación Mac (HMAC) de las capacidades e invariantes de autorización antes de persistirlas.
-- **Dependencias:** ADR-0001, ADR-0004.
-- **Criterio de cierre:** Mecanismo de integridad de capacidades en reposo documentado en ADR-0004.
+- **Propuesta de corrección:** Documentar explícitamente el modelo de adversario local y las fronteras de confianza del almacenamiento en disco en `data-flow-diagrams.md`.
 - **Estado:** Open
 
 ---
 
-### GAP-005 — Estado de ADRs estancado en "Proposed" sin procedimiento de aprobación
+### GAP-005 — Estado de ADRs en "Proposed" sin procedimiento formal de aprobación
 - **ID:** GAP-005
 - **Dominio:** Gobernanza / Arquitectura
-- **Hallazgo:** Los 5 Registros de Decisiones de Arquitectura (`ADR-0001` a `ADR-0005`) figuran como `Proposed`. No existe un protocolo claro sobre quién o mediante qué criterio cambian a `Accepted`.
+- **Hallazgo:** Los 5 Registros de Decisiones de Arquitectura (`ADR-0001` a `ADR-0005`) figuran como `Proposed`.
 - **Evidencia:** Directorio `docs/02-diseno/adr/`.
-- **Causa probable:** Falta de un rol de revisión técnica o autoridad de gobierno antes de la congelación del diseño.
-- **Impacto:** Ambigüedad sobre qué reglas de arquitectura son vinculantes y cuáles son sugerencias o borradores.
-- **Probabilidad:** Alta.
+- **Impacto:** Indefinición sobre el carácter vinculante de las decisiones propuestas.
 - **Severidad:** High
 - **Prioridad:** P1
-- **Propuesta de corrección:** Establecer la regla en `docs/02-diseno/adr/README.md` donde un ADR pasa a `Accepted` tras superar una revisión de seguridad y arquitectura formal con evidencia.
-- **Dependencias:** Ninguna.
-- **Criterio de cierre:** Cambio de estado de ADRs respaldado por registros de revisión.
+- **Propuesta de corrección:** Establecer el procedimiento de gobernanza para la transición de ADRs a `Accepted` mediante revisión formal del equipo del proyecto.
 - **Estado:** Open
 
 ---
 
-### GAP-006 — Complejidad accidental y ontología prematura
+### GAP-006 — Hipótesis de complejidad accidental en el modelo de 6 entidades
 - **ID:** GAP-006
 - **Dominio:** Arquitectura
-- **Hallazgo:** Requerir que cada afirmación simple pase por la estructura completa de 6 conceptos epistemológicos (`Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment`, `Relation`) introduce una sobrecarga masiva para casos de uso básicos.
+- **Hallazgo:** Requerir la estructura completa de 6 entidades para casos de uso atómicos es una hipótesis de sobrecarga que requiere evaluación empírica.
 - **Evidencia:** `docs/03-preimplementacion/epistemic-review-decision.md` y `general-epistemic-contract-v0.md`.
-- **Causa probable:** Inclinación hacia la generalización teórica previa al enfrentamiento con problemas concretos.
-- **Impacto:** Fricción excesiva para el desarrollo de adaptadores, degradación de rendimiento y barrera de entrada para colaboradores.
-- **Probabilidad:** Alta.
+- **Impacto:** Fricción técnica potencial durante la implementación.
 - **Severidad:** Medium
 - **Prioridad:** P2
-- **Propuesta de corrección:** Adoptar la Alternativa B (Núcleo mínimo de procedencia) donde la semántica detallada sea opcional y delegada a perfiles de dominio.
-- **Dependencias:** `architecture-review.md`.
-- **Criterio de cierre:** Aprobación de especificación simplificada.
+- **Propuesta de corrección:** Evaluar experimentalmente la Opción A frente a la Opción B mediante el primer experimento offline de dos sensores.
 - **Estado:** Open
 
 ---
@@ -148,50 +119,38 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 ### GAP-007 — Ausencia de integración continua para validaciones documentales
 - **ID:** GAP-007
 - **Dominio:** Calidad / Reproducibilidad
-- **Hallazgo:** No existen workflows de GitHub Actions (`.github/workflows`) para validar automáticamente enlaces rotos, sintaxis Markdown, trazabilidad de requisitos o validez de esquemas.
-- **Evidencia:** Inexistencia del directorio `.github/` en el árbol del proyecto.
-- **Causa probable:** Enfoque exclusivo en la producción de documentación manual.
-- **Impacto:** Riesgo constante de degradación documental, enlaces rotos y referencias desactualizadas a medida que el proyecto crezca.
-- **Probabilidad:** Alta.
+- **Hallazgo:** Inexistencia del directorio `.github/workflows` para automatizar linters de Markdown o verificadores de enlaces relativos.
+- **Evidencia:** Inspección del árbol de archivos.
+- **Impacto:** Riesgo de degradación de enlaces y formato a medida que el proyecto crezca.
 - **Severidad:** Medium
 - **Prioridad:** P2
-- **Propuesta de corrección:** Crear un workflow CI basico con `markdownlint` y comprobador de enlaces relativos.
-- **Dependencias:** Ninguna.
-- **Criterio de cierre:** Workflow de CI activo y ejecutable en repositorio.
+- **Propuesta de corrección:** Diseñar e incorporar flujos de CI/CD para comprobación de sintaxis y enlaces relativos.
 - **Estado:** Open
 
 ---
 
-### GAP-008 — Indefinición de la estructura de sanitización de logs de auditoría
+### GAP-008 — Indefinición de tipos y redactores de datos sensibles en logs
 - **ID:** GAP-008
 - **Dominio:** Seguridad / Privacidad
-- **Hallazgo:** El requisito `SEC-REQ-012` exige que los logs no revelen secretos o datos sensibles, pero no existe una especificación de qué campos se redactan ni el formato del log estructurado.
+- **Hallazgo:** `SEC-REQ-012` exige redactar secretos en logs, pero no se especifican los tipos o formateadores responsables en Rust.
 - **Evidencia:** `docs/02-diseno/adr/0005-logging-recovery-and-data-lifecycle.md`.
-- **Causa probable:** Diferimiento del diseño de esquemas de trazabilidad a la fase de implementación.
-- **Impacto:** Filtración involuntaria de credenciales o PII (información personal identificable) en los registros de auditoría durante las primeras pruebas.
-- **Probabilidad:** Media.
+- **Impacto:** Riesgo de filtración accidental en salidas de depuración si no se diseña la estrategia de tipado.
 - **Severidad:** Medium
 - **Prioridad:** P2
-- **Propuesta de corrección:** Diseñar el esquema JSON/estructurado del log definiendo tipos de datos seguros y redactores automáticos (`Redacted<T>`).
-- **Dependencias:** ADR-0005.
-- **Criterio de cierre:** Especificación de log seguro redactada en ADR-0005.
+- **Propuesta de corrección:** Especificar el uso de envoltorios de tipos para datos sensibles en las directrices de codificación.
 - **Estado:** Open
 
 ---
 
-### GAP-009 — Fricción de accesibilidad entre guía de inicio y especificación
+### GAP-009 — Discrepancia pedagógica entre itinerarios
 - **ID:** GAP-009
-- **Dominio:** Accesibilidad / Experiencia de Desarrollador
-- **Hallazgo:** `docs/00-empezar/` utiliza un lenguaje extremadamente divulgativo y simplificado ("para no programadores"), mientras que la carpeta `03-preimplementacion/` exige conceptos avanzados de epistemología, lógica formal y seguridad sin un puente conceptual claro.
-- **Evidencia:** Comparación de `docs/00-empezar/primer-experimento.md` vs `docs/03-preimplementacion/unified-specification-candidate-v0.md`.
-- **Causa probable:** Redacción orientada a dos audiencias distintas sin integrar un itinerario progresivo real.
-- **Impacto:** Desorientación de los lectores no técnicos o nuevos colaboradores al saltar del material divulgativo a las especificaciones.
-- **Probabilidad:** Alta.
+- **Dominio:** Accesibilidad / DX
+- **Hallazgo:** `docs/00-empezar/` utiliza un tono muy básico ("sin saber programar") mientras que `docs/03-preimplementacion/` utiliza terminología técnica avanzada.
+- **Evidencia:** Comparación de documentos entre ambas carpetas.
+- **Impacto:** Brecha de comprensión para nuevos colaboradores.
 - **Severidad:** Low
 - **Prioridad:** P3
-- **Propuesta de corrección:** Rearreglar el itinerario pedagógico con un nivel intermedio en `docs/01-investigacion/`.
-- **Dependencias:** `README.md`.
-- **Criterio de cierre:** Itinerario actualizado en `README.md`.
+- **Propuesta de corrección:** Armonizar las rutas de lectura en `README.md`.
 - **Estado:** Open
 
 ---
@@ -199,14 +158,10 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 ### GAP-010 — Indefinición del proceso normativo de consolidación de especificaciones
 - **ID:** GAP-010
 - **Dominio:** Gobernanza
-- **Hallazgo:** Documentos clave como `unified-specification-candidate-v0.md` y `design-freeze-candidate-v0.md` contienen títulos sugestivos de autoridad, pero el mapa de autoridad (`contract-authority-map.md`) sigue marcado como "propuesta".
+- **Hallazgo:** Documentos kandidatos de especificación conviven con propuestas sin un estado normativo claramente definido.
 - **Evidencia:** `docs/03-preimplementacion/contract-authority-map.md`.
-- **Causa probable:** Proliferación de documentos de síntesis sin una regla de resolución formal.
-- **Impacto:** Confusión sobre cuál es la especificación vigente en caso de discrepancia.
-- **Probabilidad:** Media.
+- **Impacto:** Confusión sobre cuál especificación es vinculante.
 - **Severidad:** Medium
 - **Prioridad:** P2
-- **Propuesta de corrección:** Aprobar formalmente el Mapa de Autoridad Documental mediante una decisión explícita de gobernanza.
-- **Dependencias:** Gobernanza del proyecto.
-- **Criterio de cierre:** Documento `contract-authority-map.md` marcado como `APPROVED`.
+- **Propuesta de corrección:** Aprobar el Mapa de Autoridad Documental por parte de la gobernanza del proyecto.
 - **Estado:** Open

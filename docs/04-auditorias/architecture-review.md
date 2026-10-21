@@ -1,96 +1,85 @@
-# Evaluación crítica de arquitectura y alternativas — THE MACHINE
+# Evaluación de arquitectura y alternativas — THE MACHINE
 
 **Fecha de auditoría:** Octubre de 2026
-**Auditor independiente:** Jules — Principal Software Architect & Team de Auditoría
-**Estado:** Final / Entregable de Auditoría
+**Auditor independiente:** Jules — Principal Software Architect
+**Estado:** Informe de auditoría / Propuestas de arquitectura para decisión de gobernanza
 
 ---
 
-## 1. Resumen ejecutivo
+## 1. Contexto y objeto de evaluación
 
-El presente documento constituye la evaluación crítica e independiente de la arquitectura propuesta para **THE MACHINE**. Analiza la validez, suficiencia y necesidad del núcleo epistemológico candidato (compuesto por las seis abstracciones principales: `Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment`, `Relation`), contrasta cuatro alternativas de diseño arquitectónico y evalúa los riesgos de complejidad accidental, rendimiento y mantenibilidad antes de autorizar la escritura del primer archivo de código en Rust.
+El presente documento evalúa el modelo ontológico y arquitectónico candidato de **THE MACHINE** expuesto en la especificación candidata (`docs/03-preimplementacion/unified-specification-candidate-v0.md` y `general-epistemic-contract-v0.md`).
 
----
-
-## 2. Evaluación crítica del núcleo epistemológico candidato
-
-La especificación candidata propone un núcleo ontológico uniforme para la representación del conocimiento y la evidencia, estructurado en seis entidades:
-
-1. **`Source`**: Identificador y procedencia declarada o autenticada de la información.
-2. **`Artifact`**: Datos primarios inmutables (archivos, respuestas de APIs, mediciones de sensores).
-3. **`Claim`**: Afirmación o proposición atómica extraída o derivada de un artefacto.
-4. **`EvidenceLink`**: Enlace explícito que vincula una `Claim` con uno o más `Artifact`s o `Claim`s previas.
-5. **`Assessment`**: Evaluación de validez, confianza o falsabilidad sobre una `Claim` o `EvidenceLink`.
-6. **`Relation`**: Vínculos semánticos entre entidades (causalidad, contradicción, equivalencia, superposición).
-
-### 2.1. Inconsistencias y lagunas conceptuales identificadas
-
-Tras someter el modelo a un análisis adversarial de lógica computacional y teoría de procedencia, se observan las siguientes limitaciones fundamentales:
-
-- **Falta de semántica bitemporal (Valid Time vs. Transaction Time)**:
-  El núcleo actual registra una marca de tiempo (*timestamp*). Sin embargo, no distingue entre la fecha en que una afirmación ocurrió en el mundo real (*valid time*) y la fecha en que la afirmación fue registrada en la base de conocimientos (*transaction time*). Esta laguna impide gestionar retractaciones históricas o correcciones retroactivas de datos sin destruir la trazabilidad inmutable del registro de auditoría (*append-only log*).
-
-- **Complejidad accidental masiva en casos simples**:
-  Para registrar un dato elemental (por ejemplo, "el sensor de temperatura A midió 22.5 °C a las 10:00"), el sistema exige instanciar las 6 entidades, generar hashes criptográficos y establecer enlaces de evidencia intermedios. Esta sobrecarga conceptual y computacional puede ahogar el rendimiento de ingestión y dificultar la adopción por parte de desarrolladores de dominios específicos.
-
-- **Falta de cuantificadores y semántica de negación**:
-  Una `Claim` se define como un enunciado. El sistema no especifica cómo representar proposiciones compuestas, negaciones explícitas ("X no es la causa de Y") ni cuantificadores universales o existenciales. Si la semántica de la negación se delega totalmente al texto o al dominio, el núcleo pierde la capacidad de detectar contradicciones lógicas de forma automatizada.
-
-- **Riesgo de explosión combinatoria de `Relation`s**:
-  Al permitir relaciones arbitrarias entre entidades, el grafo de conocimiento corre el riesgo de sufrir una explosión combinatoria de bordes (*edges*), complicando las consultas de procedencia (*provenance queries*) y requiriendo algoritmos de recorrido de grafos con complejidad $O(N^2)$ o superior.
+La arquitectura candidata (denominada en este informe **Opción A**) propone un núcleo ontológico uniforme para la representación del conocimiento y la evidencia, estructurado en seis entidades principales:
+1. `Source`: Identificador y procedencia declarada o autenticada.
+2. `Artifact`: Datos primarios inmutables.
+3. `Claim`: Proposición o afirmación atómica atribuida.
+4. `EvidenceLink`: Vínculo explícito entre afirmaciones y artefactos/fuentes.
+5. `Assessment`: Evaluación de validez o confianza sobre una `Claim` o `EvidenceLink`.
+6. `Relation`: Vínculos semánticos (causalidad, contradicción, equivalencia, superposición).
 
 ---
 
-## 3. Análisis comparativo de alternativas arquitectónicas
+## 2. Análisis del modelo de seis entidades (Opción A - Candidata vigente)
 
-Para determinar la estructura óptima de THE MACHINE, se evalúan minuciosamente cuatro alternativas arquitectónicas distintas:
+### 2.1. Fortalezas de la Opción A
+- **Expresividad semántica completa**: Ofrece primitivas nativas para representar explícitamente atribuciones, evaluaciones separadas de afirmaciones, enlaces de evidencia e inferencias complejas.
+- **Trazabilidad de razonamiento**: Permite auditar el proceso mediante el cual una conclusión fue construida a partir de afirmaciones primarias y evaluaciones.
+- **Modelado explícito de contradicciones y evaluaciones**: Al tratar `Assessment` y `Relation` como entidades de primer nivel, permite que dos agentes sostengan evaluaciones opuestas sobre una misma `Claim` sin corromper la afirmación original.
 
-### Opción A: Núcleo epistemológico general con adaptadores especializados (Propuesta actual)
-- **Descripción**: Un núcleo central rígido con las 6 abstracciones epistemológicas; los dominios se adaptan mediante mapeadores.
-- **Ventajas**: Uniformidad total en las consultas de auditoría y evidencia; abstracción agnóstica del dominio.
-- **Inconvenientes**: Sobreingeniería prematura, alto coste de serialización, rigidez ontológica y elevada barrera de entrada.
-- **Superficie de ataque**: Amplia (múltiples tipos de entidades expuestos a parsing y deserialización).
-- **Complejidad de mantenimiento**: Alta.
+### 2.2. Riesgos e hipótesis de fricción técnica identificados por el auditor
+- **Hipótesis de sobrecarga semántica en casos atómicos**:
+  Para registrar datos simples (por ejemplo, mediciones de sensores o entradas de logs atómicas), instanciar la estructura completa de seis entidades requiere definir múltiples identidades, hashes y enlaces de evidencia. Esto constituye una *hipótesis de complejidad accidental* que debe ser evaluada experimentalmente mediante prototipos.
+- **Serialización e índice de grafos**:
+  Representar cada proposición como un nodo en un grafo con seis tipos de bordes y entidades puede aumentar la sobrecarga de serialización, consumo de memoria y complejidad de índices en reposo si se implementa sin optimizaciones de dominio.
+- **Incertidumbre en la verificación formal bitemporal**:
+  Aunque `unified-specification-candidate-v0.md` (línea 35) menciona explícitamente la distinción entre `valid_time`, `recorded_time` y `assessed_time`, la Opción A carece aún de un esquema formalizado de consulta bitemporal (*time-travel queries*) que defina cómo se comportan las retractaciones históricas en el grafo de persistencia inmutable.
 
-### Opción B: Núcleo mínimo de procedencia y evaluación con semántica delegada (Recomendada)
-- **Descripción**: El núcleo solo gestiona dos primitivas inmutables: `Artifact` (datos con hash SHA-256/BLAKE3) y `Attestation` (afirmaciones firmadas de procedencia/evaluación con marcas temporal bitemporales). Tontos en semántica, sabios en procedencia.
-- **Ventajas**: Extrema simplicidad, máximo rendimiento, minimización de dependencias en Rust, fácil de probar y verificar formalmente.
-- **Inconvenientes**: La detección de contradicciones lógicas complejas se traslada a los módulos de dominio o motores de políticas externos.
-- **Superficie de ataque**: Mínima (superficie de manipulación de datos reducida a verificación de firmas e hashes).
-- **Complejidad de mantenimiento**: Muy baja.
+---
 
-### Opción C: Arquitectura modular basada en capacidades independientes (Micro-kernel)
-- **Descripción**: Un microkernel en Rust que solo expone el paso de mensajes y el cumplimiento de políticas de seguridad (Action Gateway); los módulos de evidencia y lógica son plugins independientes.
-- **Ventajas**: Aislamiento de fallos estricto; permite sustituir el motor epistemológico sin tocar la seguridad.
-- **Inconvenientes**: Mayor overhead de IPC (comunicación inter-proceso) y complejidad de despliegue local.
-- **Superficie de ataque**: Media (requiere sandbox para los plugins).
-- **Complejidad de mantenimiento**: Media-Alta.
+## 3. Estudio comparativo de alternativas arquitectónicas
 
-### Opción D: Event-Sourcing Criptográfico estricto (Append-Only Provenance Ledger)
-- **Descripción**: Representar toda evolución de conocimiento como un registro de eventos inmutables encadenados por hashes (similar a Git/Merkle Tree), sin abstracciones ontológicas predefinidas.
-- **Ventajas**: Reproducibilidad matemática perfecta, fácil verificación de integridad, modelo mental de persistencia extremadamente claro.
-- **Inconvenientes**: Las consultas ad-hoc o vistas proyectadas requieren construir índices secundarios explícitos.
-- **Superficie de ataque**: Mínima.
-- **Complejidad de mantenimiento**: Baja.
+A continuación se comparan cuatro enfoques arquitectónicos. La **Opción A** se conserva como la especificación candidata vigente, mientras que la **Opción B** se presenta como una **propuesta alternativa redactada por el auditor**.
+
+### Opción A: Núcleo de representación epistemológica (Candidata vigente)
+- **Descripción**: Núcleo ontológico con 6 entidades (`Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment`, `Relation`).
+- **Ventajas**: Expresividad total, auditoría detallada de razonamiento, desacoplamiento de la evaluación respecto a la afirmación.
+- **Inconvenientes / Costes**: Mayor coste de implementación inicial, potencial sobrecarga de serialización y necesidad de gestionar un grafo ontológico complejo.
+
+### Opción B: Núcleo mínimo de procedencia y evaluación delegada (PROPUESTA DEL AUDITOR)
+- **Descripción**: Reducir el núcleo inmutable a dos primitivas básicas: `Artifact` (datos con hash BLAKE3) y `Attestation` (afirmaciones firmadas de procedencia/evaluación con marcas temporal bitemporales). La semántica detallada de proposiciones, contradicciones y relaciones se delega a módulos de dominio o motores de reglas externos.
+- **Ventajas**: Extrema simplicidad de implementación en Rust, menor superficie de código en el núcleo, rápida verificación en un primer prototipo offline.
+- **Inconvenientes y Pérdidas Semánticas respecto a la Opción A**:
+  - *Pérdida de granularidad en la atribución*: Las afirmaciones individuales dentro de un documento o respuesta de modelo quedan empaquetadas en un único `Artifact`/`Attestation`, dificultando referenciar o retractar una sola frase sin re-evaluar todo el bloque.
+  - *Detección de contradicciones diferida*: El núcleo pierde la capacidad de detectar contradicciones de forma estructural o declarativa; toda detección de inconsistencias requiere ejecutar lógica de dominio externa.
+  - *Composición de evaluaciones compleja*: Evaluar la validez de una evaluación previa (*meta-assessment*) requiere encadenar atestaciones compuestas, perdiendo la claridad de la entidad nativa `Assessment`.
+
+### Opción C: Arquitectura modular basada en microkernel y capacidades
+- **Descripción**: Un microkernel en Rust que solo gestiona el paso de mensajes y el cumplimiento de políticas de seguridad (Action Gateway); las abstracciones epistemológicas se empaquetan como componentes intercambiables.
+- **Ventajas**: Aislamiento estricto de componentes; permite reemplazar el modelo de evidencia sin alterar la pasarela de seguridad.
+- **Inconvenientes**: Incremento de la complejidad de comunicación inter-proceso (IPC) y sobrecarga en ejecuciones locales desconectadas.
+
+### Opción D: Registro inmutable de eventos criptográficos (Append-Only Ledger)
+- **Descripción**: Modelo inspirado en sistemas de Event-Sourcing / Merkle Trees donde cada cambio o evaluación es un evento encadenado inmutable.
+- **Ventajas**: Reproducibilidad matemática perfecta y modelo mental de persistencia append-only sencillo.
+- **Inconvenientes**: La reconstrucción de vistas o estados actuales requiere proyecciones secundarias obligatorias.
 
 ---
 
 ## 4. Matriz comparativa de alternativas
 
-| Criterio | Opción A (Actual) | Opción B (Mínima - Recomendada) | Opción C (Microkernel) | Opción D (Merkle Ledger) |
+| Criterio | Opción A (Candidata) | Opción B (Propuesta Auditor) | Opción C (Microkernel) | Opción D (Merkle Ledger) |
 |---|---|---|---|---|
-| **Simplicidad de implementación** | Búscar / Baja | **Muy Alta** | Media | Alta |
-| **Facilidad de verificación en Rust** | Difícil | **Excelente** | Media | Excelente |
-| **Superficie de ataque de seguridad** | Grande | **Mínima** | Media | Mínima |
-| **Sobrecarga de rendimiento** | Alta | **Mínima** | Media | Muy Baja |
-| **Capacidad de evolución** | Rigida | **Muy Flexible** | Flexible | Flexible |
-| **Riesgo de sobreingeniería** | **Crítico** | Bajo | Medio | Bajo |
+| **Expresividad semántica** | **Alta** | Media / Delegada | Depende del módulo | Baja / Basada en eventos |
+| **Simplicidad de implementación en Rust** | Moderada | **Alta** | Baja | Alta |
+| **Detección nativa de contradicciones** | **Estructural** | Externa | Externa | Externa |
+| **Superficie de código en el núcleo** | Mayor | **Mínima** | Media | Mínima |
+| **Facilidad para primer prototipo offline** | Requiere más código | **Más rápida** | Requiere IPC/IPC mock | Rápida |
 
 ---
 
-## 5. Recomendación y dictamen arquitectónico
+## 5. Recomendación y decisión de gobernanza
 
-Se dictamina la **desestimación de la Opción A** en favor de una transición hacia la **Opción B (o una hibridación B + D)**.
-
-### Razón del dictamen:
-Iniciar la implementación de THE MACHINE en Rust utilizando las 6 entidades rígidas de la Opción A impondrá una pesada deuda técnica desde el primer día. Un sistema de evidencia confiable debe basarse ante todo en la **integridad de los datos primarios y sus firmas de procedencia** (Opción B/D), permitiendo que la interpretación semántica evolucione sin necesidad de migrar o corromper el motor de persistencia central.
+1. **Mantener la Opción A como especificación candidata vigente** hasta que el titular del proyecto o el proceso de gobernanza tome una decisión formal.
+2. **Considerar la Opción B como una alternativa de simplificación** para el primer experimento experimental offline (*vertical slice A*), permitiendo validar el Action Gateway y el aislamiento sin necesidad de codificar la ontología completa de seis entidades desde el primer día.
+3. **No alterar el estado de ningún ADR a `Accepted`** mediante este informe de auditoría: las decisiones de arquitectura deberán formalizarse mediante solicitudes de cambio de ADR independientes acompañadas de evidencia experimental en código.

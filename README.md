@@ -1,171 +1,128 @@
 # THE MACHINE
 
-**Plataforma local de investigación, evaluación de evidencia e ingeniería asistida por inteligencia artificial.**
+**Plataforma de investigación, evaluación de evidencia e ingeniería asistida por inteligencia artificial (en fase de diseño conceptual).**
 
 ---
 
 ## 1. Identidad y propósito
 
 ### ¿Qué es THE MACHINE?
-**THE MACHINE** es un proyecto de software libre en fase de **diseño y preimplementación** concebido para construir un laboratorio local (*Local-First*), seguro y determinista para el análisis de información, la verificación de procedencia y la automatización asistida por modelos de lenguaje (LLM/IA).
+**THE MACHINE** es un proyecto en fase de **diseño conceptual y preimplementación** concebido para explorar una arquitectura local (*Local-First*), orientada a la seguridad y determinista para el análisis de información, la verificación de procedencia y la evaluación asistida por modelos de lenguaje (LLM/IA).
 
-### ¿Qué problema pretende resolver?
-Los sistemas actuales de inteligencia artificial operan frecuentemente como "cajas negras" opacas:
-- Combinan en un mismo flujo datos no confiables con capacidad de ejecución de herramientas (*Excessive Agency*).
-- Presentan alucinaciones o afirmaciones sin respaldo como certezas verificadas.
-- Carecen de un registro inmutable de procedencia y trazabilidad que permita auditar por qué se tomó una decisión.
+### Estado de propiedad y licenciamiento
+Currently a **proyecto privado con intención de apertura pública**. El archivo de licencia legal (`LICENSE`) está pendiente de incorporación (**GAP-001**). Corresponderá al titular del proyecto evaluar y seleccionar la licencia adecuada (por ejemplo, MIT, Apache-2.0, Dual MIT/Apache-2.0, MPL-2.0 o similar) previo a cualquier distribución o apertura pública de contribuciones.
 
-THE MACHINE aborda este problema separando de forma estricta la **propuesta de un modelo** de la **autorización de una acción**, y exigiendo que todo conocimiento almacenado esté vinculado a datos primarios inmutables (*Evidence-First*).
-
-### Principios operativos
-1. **Evidence-First**: Ninguna afirmación sin evidencia verificable y rastreable.
-2. **Zero Fabrication**: Prohibido inventar datos, pruebas, fuentes o certificaciones.
-3. **Security by Design**: Límites de confianza estrictos y denegación por defecto (*deny-by-default*).
-4. **Local-First**: Operabilidad completa sin conexión a red, garantizando privacidad y soberanía de datos.
-5. **Rust-First, no dogmático**: Uso de Rust para garantizar seguridad de memoria, rendimiento y minimización paranoica de dependencias.
+### Objetivos de diseño
+El desarrollo de THE MACHINE se orienta por los siguientes **objetivos de diseño** (propiedades que se pretenden alcanzar en la arquitectura e implementación futura, no capacidades actualmente operativas):
+1. **Evidence-First**: Desacoplar afirmaciones de certezas absolutas, vinculando conocimiento a datos primarios y evaluaciones.
+2. **Zero Fabrication**: Exigir trazabilidad y prohibir la invención de fuentes, pruebas o resultados.
+3. **Security by Design**: Establecer fronteras de confianza estrictas, pasarela de acciones con política *deny-by-default* e inspección de salidas de modelos.
+4. **Local-First & Privacidad**: Diseñar la plataforma para funcionar desconectada de red, preservando la soberanía de datos del usuario.
+5. **Minimización de dependencias en Rust**: Priorizar la biblioteca estándar de Rust y auditar minuciosamente las dependencias de terceros para mitigar riesgos en la cadena de suministro (`ADR-0002`).
 
 ### ¿Qué NO es y qué todavía NO hace?
-- **NO es un producto en producción**: Se encuentra en fase de preimplementación teórica.
-- **NO contiene código ejecutable en Rust**: No existen archivos `.rs` compilados ni binarios distribuidos.
-- **NO ejecuta acciones autónomas en el sistema operativo**: El pasarela de acciones (*Action Gateway*) está diseñada pero no codificada.
-- **NO reemplaza la revisión humana**: Asiste en la estructuración de evidencia, no sustituye la responsabilidad del usuario.
+- **NO es un software en producción ni un producto terminado**.
+- **NO contiene código ejecutable en Rust**: En la versión actual del repositorio no existen archivos `.rs`, binarios compilados ni manifestos de Cargo.
+- **NO ejecuta acciones en el sistema operativo**: Las pasarelas de autorización y ejecución son especificaciones de diseño no codificadas.
+- **NO garantiza aún operabilidad desconectada ni privacidad efectiva**: Dichas propiedades son metas de diseño que deberán ser verificadas en binarios una vez iniciada la fase de código.
 
 ---
 
 ## 2. Estado real del proyecto (Cuatro Dimensiones)
 
-El estado del proyecto se evalúa con rigor mediante la auditoría integral de octubre de 2026 (`docs/04-auditorias/`):
+El estado del proyecto se evalúa objetivamente mediante la auditoría integral de octubre de 2026 (`docs/04-auditorias/`):
 
-| Dimensión / Área | Estado Documentado | Estado Implementado | Estado Verificado | Estado Real / Dictamen |
+| Dimensión / Área | Estado Documentado | Estado Implementado | Estado Verificado | Estado Real / Evaluacion de Gate |
 |---|---|---|---|---|
-| **Investigación** | Completo | N/A (Teórico) | Verificado (Red aislada) | **Sólido / Fundamentado** |
-| **Arquitectura** | Candidato v0 | 0% (Sin código) | 0% (Sin prototipo) | **En Rediseño (Opción B)** |
-| **Seguridad** | Modelo STRIDE v0 | 0% (Sin código) | 0% (Sin ejecutable) | **Diseñado / 3 Brechas en P1** |
-| **Gobernanza / Licencia** | Incompleto | N/A | 0% (Falta LICENSE) | **Bloqueante P0 (GAP-001)** |
-| **Código Rust** | No iniciado | 0% (Zero `.rs`) | 0% (Zero tests) | **No Iniciado (Deliberado)** |
-| **CI / CD** | Inexistente | 0% (Sin workflows) | 0% (Sin runner) | **Pendiente de Infraestructura** |
-| **Preparación Prototipo**| Evaluado | N/A | Evaluado en Gates | **CONDITIONAL GO (Offline)** |
+| **Documentación de inicio** | Existente | N/A (Documental) | Inspeccionada localmente | **Gate G0: PARCIAL** (Falta formalizar activos mínimos) |
+| **Investigación técnica** | Estudios preliminares | N/A (Teórico) | Bloqueado en red | **Gate G1: PARCIAL / BLOQUEADO** (Red aislada) |
+| **Arquitectura** | Candidata v0 (6 entidades) | 0% (Sin código) | 0% (Sin prototipo) | **Gate G2: BLOQUEADO** (ADRs Proposed / En revisión) |
+| **Seguridad** | Modelo STRIDE v0 | 0% (Sin código) | 0% (Sin ejecutable) | **Gate G2: BLOQUEADO** (3 brechas en matriz P1) |
+| **Gobernanza / Licencia** | En definición | N/A | Pendiente de elección | **GAP-001** (Pendiente de decisión de licencia) |
+| **Código Rust** | No iniciado | 0% (Zero `.rs`) | 0% (Zero tests) | **Gate G3: NO INICIADO** (Deliberado) |
+| **CI / CD / Tests** | Inexistente | 0% (Sin workflows) | 0% (Sin runner) | **GAP-007** (Sin infraestructura de test) |
+| **Preparación Prototipo**| Evaluado en Gates | N/A | Evaluado en Gates | **CONDITIONAL GO** (Para corte minimalista offline) |
 
 ---
 
-## 3. Arquitectura candidata
+## 3. Arquitectura candidata y propuestas de simplificación
 
-La arquitectura de THE MACHINE se estructura en tres capas principales:
+La especificación candidata principal (**Opción A**, `docs/03-preimplementacion/unified-specification-candidate-v0.md`) propone un núcleo ontológico compuesto por seis entidades: `Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment` y `Relation`.
 
-```
-+-------------------------------------------------------------------+
-|                        Entorno del Usuario                        |
-|                  Interfaz CLI / Visualización                     |
-+-------------------------------------------------------------------+
-                                  | (TB-01)
-                                  v
-+-------------------------------------------------------------------+
-|               Núcleo Epistemológico de Procedencia                |
-|  Primitivas: Artifact (Datos Hash) + Attestation (Firmas/Tiempo)  |
-+-------------------------------------------------------------------+
-                                  | (TB-03/TB-04)
-                                  v
-+-------------------------------------------------------------------+
-|            Pasarela de Acciones (Action Gateway)                  |
-|     Verificación de Capacidades / Evaluador de Políticas          |
-+-------------------------------------------------------------------+
-```
+Asimismo, el informe de auditoría (`docs/04-auditorias/architecture-review.md`) introduce como **propuesta del auditor** la **Opción B** (Núcleo Mínimo de Procedencia basado en `Artifact` + `Attestation` bitemporales), la cual plantea delegar la semántica compleja a módulos de dominio.
 
-- **Núcleo de Procedencia (Rediseño Opción B)**: Abstracción mínima inmutable que registra *Artifacts* (archivos con hash BLAKE3) y *Attestations* (afirmaciones firmadas con marcas bitemporales: *Valid Time* vs. *Transaction Time*).
-- **Pasarela de Acciones (Action Gateway - ADR-0004)**: Componente que intercepta cualquier petición de ejecución de herramientas emitida por un modelo o script, aplicando políticas de seguridad *deny-by-default*.
-
-*Nota de transparencia*: Las 6 abstracciones ontológicas complejas (`Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment`, `Relation`) están siendo simplificadas tras la auditoría técnica para evitar sobreingeniería.
+*Estado de la arquitectura*: La Opción A se mantiene como la candidata oficial en la documentación actual del proyecto. La Opción B es una propuesta en evaluación. Corresponde a la gobernanza del proyecto decidir la adopción o hibridación de estas alternativas mediante ensayos experimentales.
 
 ---
 
-## 4. Cómo empezar y rutas de lectura
+## 4. Rutas de lectura del repositorio
 
-El repositorio ofrece itinerarios adaptados al perfil del lector:
+### Ruta 1: Introducción conceptual e itinerario básico
+1. Consulte [`PHILOSOPHY.md`](PHILOSOPHY.md) para conocer la visión del proyecto.
+2. Siga el itinerario pedagógico en [`docs/00-empezar/itinerario.md`](docs/00-empezar/itinerario.md).
+3. Revise los términos clave en [`GLOSSARY.md`](GLOSSARY.md).
 
-### Ruta 1: Para personas interesadas en filosofía y concepto (Sin código)
-1. Lee [`PHILOSOPHY.md`](PHILOSOPHY.md) para comprender la visión y valores del proyecto.
-2. Explora [`docs/00-empezar/itinerario.md`](docs/00-empezar/itinerario.md) para una introducción paso a paso.
-3. Consulta [`GLOSSARY.md`](GLOSSARY.md) para familiarizarte con los términos técnicos.
+### Ruta 2: Arquitectura y especificaciones previas a código
+1. Revise la especificación candidata en [`docs/03-preimplementacion/unified-specification-candidate-v0.md`](docs/03-preimplementacion/unified-specification-candidate-v0.md).
+2. Analice la evaluación crítica de arquitectura en [`docs/04-auditorias/architecture-review.md`](docs/04-auditorias/architecture-review.md).
+3. Inspeccione las propuestas ADR en [`docs/02-diseno/adr/`](docs/02-diseno/adr/).
 
-### Ruta 2: Para investigadores y arquitectos de software
-1. Examina el informe ejecutivo de auditoría en [`docs/04-auditorias/auditoria-integral-2026-10.md`](docs/04-auditorias/auditoria-integral-2026-10.md).
-2. Lee la evaluación de arquitectura y alternativas en [`docs/04-auditorias/architecture-review.md`](docs/04-auditorias/architecture-review.md).
-3. Revisa los Registros de Decisiones de Arquitectura en [`docs/02-diseno/adr/`](docs/02-diseno/adr/).
-
-### Ruta 3: Para especialistas en ciberseguridad
-1. Consulta la matriz de seguridad y amenazas en [`docs/04-auditorias/security-review.md`](docs/04-auditorias/security-review.md).
-2. Analiza el Modelo de Amenazas STRIDE en [`docs/02-diseno/security/threat-model-v0.md`](docs/02-diseno/security/threat-model-v0.md).
-3. Revisa los Requisitos Verificables en [`docs/02-diseno/security/requirements.md`](docs/02-diseno/security/requirements.md).
+### Ruta 3: Seguridad y análisis de amenazas
+1. Consulte el Informe de Auditoría de Seguridad en [`docs/04-auditorias/security-review.md`](docs/04-auditorias/security-review.md).
+2. Lea el Modelo de Amenazas STRIDE v0 en [`docs/02-diseno/security/threat-model-v0.md`](docs/02-diseno/security/threat-model-v0.md).
+3. Examine los Requisitos Verificables en [`docs/02-diseno/security/requirements.md`](docs/02-diseno/security/requirements.md).
 
 ---
 
-## 5. Índice de documentación vigente y auditorías
+## 5. Índice de documentación y reportes de auditoría
 
-Toda la documentación técnica está organizada en el directorio `docs/`:
+Toda la documentación técnica se encuentra organizada en `docs/`:
 
-- **`docs/00-empezar/`**: Guías de inicio, conceptos pedagógicos e itinerarios de lectura.
-- **`docs/01-investigacion/`**: Estudios preliminares de aislamiento, autorización, persistencia y cadena de suministro en Rust.
-- **`docs/02-diseno/`**: Modelo de amenazas, diagramas de flujo de datos (DFD), requisitos de seguridad y registros ADR-0001 a ADR-0005.
-- **`docs/03-preimplementacion/`**: Especificaciones candidatas, análisis de consistencia, casos de aceptación y reflexiones previas a la fase de código.
-- **`docs/04-auditorias/`**: **Informes de auditoría integral de octubre de 2026**:
-  - `auditoria-integral-2026-10.md`: Informe ejecutivo consolidado.
-  - `gap-register.md`: Registro de las 10 brechas priorizadas (GAP-001 a GAP-010).
-  - `architecture-review.md`: Evaluación de alternativas (A, B, C, D) y simplificación del núcleo.
-  - `security-review.md`: Matriz de trazabilidad de seguridad y estado en 4 dimensiones.
-  - `research-evidence.md`: Fuentes y evidencias de estándares (NIST, OWASP, MITRE, SLSA, W3C).
-  - `readiness-assessment.md`: Evaluación de Readiness Gates (G0-G5) y veredicto CONDITIONAL GO.
+- **`docs/00-empezar/`**: Introducción conceptual e itinerarios para principiantes.
+- **`docs/01-investigacion/`**: Estudios de aislamiento, autorización, persistencia y cadena de suministro en Rust.
+- **`docs/02-diseno/`**: Modelo de amenazas, flujos de datos (DFD), requisitos de seguridad y registros ADR-0001 a ADR-0005 (`Proposed`).
+- **`docs/03-preimplementacion/`**: Especificaciones candidatas, consistencia, semántica de afirmaciones y casos de aceptación.
+- **`docs/04-auditorias/`**: **Entregables de la auditoría integral de octubre de 2026**:
+  - [`auditoria-integral-2026-10.md`](docs/04-auditorias/auditoria-integral-2026-10.md): Informe ejecutivo y técnico de la auditoría.
+  - [`gap-register.md`](docs/04-auditorias/gap-register.md): Registro oficial de brechas (GAP-001 a GAP-010).
+  - [`architecture-review.md`](docs/04-auditorias/architecture-review.md): Evaluación de arquitectura y comparación de Opciones A, B, C y D.
+  - [`security-review.md`](docs/04-auditorias/security-review.md): Revisión de seguridad, trazabilidad de amenazas y evaluación de riesgos.
+  - [`research-evidence.md`](docs/04-auditorias/research-evidence.md): Fuentes de investigación, marcos normativos (NIST, OWASP, MITRE, SLSA, W3C) y límites de conectividad.
+  - [`readiness-assessment.md`](docs/04-auditorias/readiness-assessment.md): Evaluación de Readiness Gates G0-G5 y veredicto CONDITIONAL GO.
 
 ---
 
-## 6. Estado de seguridad y modelo de amenazas
+## 6. Modelo de seguridad y mitigaciones propuestas
 
-La seguridad en THE MACHINE no es una capa posterior, sino el requisito de diseño primario (`ADR-0001`):
-
-- **Modelado de amenazas**: 20 amenazas catalogadas (`TH-001` a `TH-020`) abarcando prompt injection, confused deputy, exfiltración, escalada de privilegios y corrupción de almacenamiento.
+El diseño de seguridad de THE MACHINE se basa en la prevención proactiva:
+- **Modelado STRIDE v0**: 20 amenazas identificadas (`TH-001` a `TH-020`).
 - **Requisitos de seguridad**: 17 requisitos verificables (`SEC-REQ-001` a `SEC-REQ-017`).
-- **Límites de red**: Sockets de red totalmente desactivados por defecto (`Local-First`).
-- **Cadena de suministro**: Política de minimización paranoica de dependencias en Rust (`ADR-0002`).
+- **Pasarela de acciones (Action Gateway - ADR-0004)**: Intercepción de peticiones de herramientas mediante políticas *deny-by-default*.
 
-*Estado real de verificación*: Todos los controles se encuentran actualmente en estado **Diseñado** (0% implementado / 0% verificado en binarios), pendiente del inicio de la fase de código.
-
----
-
-## 7. Principales limitaciones y brechas identificadas (Gap Analysis)
-
-La auditoría independiente ha identificado 10 brechas principales que deben ser resueltas antes del prototipo:
-
-1. **GAP-001 (P0 - Critical)**: Ausencia del archivo de licencia legal (`LICENSE`) en la raíz del repositorio.
-2. **GAP-002 (P1 - High)**: Faltan especificaciones de prueba asignadas para las amenazas TH-012, TH-016 y TH-019.
-3. **GAP-003 (P1 - High)**: Falta de semántica bitemporal (*Valid Time* vs *Transaction Time*) en el registro de evidencias.
-4. **GAP-004 (P1 - High)**: Indefinición del mecanismo de firma/integridad para las capacidades almacenadas en la base de datos local.
-5. **GAP-005 (P1 - High)**: Los 5 ADRs permanecen en estado `Proposed` sin procedimiento formal de aprobación.
-
-El registro completo con los 10 hallazgos y sus criterios de cierre se encuentra en [`docs/04-auditorias/gap-register.md`](docs/04-auditorias/gap-register.md).
+*Aviso de estado*: Todos los controles de seguridad se encuentran en fase de **diseño conceptual**. No existe ninguna mitigación implementada ni verificada en código.
 
 ---
 
-## 8. Próximos hitos y hoja de ruta
+## 7. Principales brechas identificadas (Gap Register)
 
-El desarrollo avanza según la siguiente secuencia condicionada:
-
-1. **Hito 1: Gobernanza y Licencia (P0)**: Incorporar el archivo `LICENSE` (Dual MIT / Apache-2.0) y formalizar la adopción de los ADRs principales.
-2. **Hito 2: Simplificación Arquitectónica (P1)**: Aprobar el rediseño del núcleo mínimo de procedencia (Opción B) e incorporar la especificación bitemporal.
-3. **Hito 3: Cierre de Brechas de Seguridad (P1)**: Completar la asignación de pruebas en la matriz de seguridad.
-4. **Hito 4: Primer Prototipo Offline (Vertical Slice A)**: Implementar en Rust el experimento de prueba de concepto desconectado (dos sensores contradictorios) cumpliendo el veredicto CONDITIONAL GO.
-
----
-
-## 9. Contribución y gobernanza
-
-Agradecemos las contribuciones de la comunidad en forma de revisión crítica de arquitectura, modelos de seguridad y documentación.
-
-- Para conocer las pautas de participación, lee [`CONTRIBUTING.md`](CONTRIBUTING.md).
-- Toda propuesta de cambio arquitectónico debe presentarse en formato ADR siguiendo la plantilla [`docs/02-diseno/adr/TEMPLATE.md`](docs/02-diseno/adr/TEMPLATE.md).
-- No se aceptarán PRs de código funcional en Rust hasta superar formalmente las condiciones del gate G2 de diseño.
+Entre los 10 hallazgos registrados en [`docs/04-auditorias/gap-register.md`](docs/04-auditorias/gap-register.md), destacan:
+1. **GAP-001**: Licencia legal pendiente (`LICENSE`).
+2. **GAP-002**: Cobertura de pruebas pendientes para amenazas TH-012, TH-016 y TH-019 en la matriz global.
+3. **GAP-003**: Incompleitud en la especificación formal y serialización de campos temporales (`valid_time`, `recorded_time`, `assessed_time`).
+4. **GAP-004**: Indefinición del modelo de adversario y anclaje de confianza para persistencia de capacidades locales.
+5. **GAP-005**: Registros de decisión de arquitectura (ADR) en estado `Proposed`.
 
 ---
 
-## 10. Licencia
+## 8. Hitos proyectados
 
-**Estado actual**: Pendiente de incorporación formal del archivo `LICENSE` en el repositorio (**GAP-001**).
-Se propone la adopción de una **Doble Licencia MIT / Apache-2.0**, estándar en el ecosistema de software libre en Rust. Hasta que dicho archivo sea integrado en la raíz del repositorio, el contenido se presenta para revisión y auditoría pública.
+1. **Hito 1**: Decisión sobre el archivo de licencia (`GAP-001`) y adopción de la gobernanza de ADRs.
+2. **Hito 2**: Evaluación y decisión sobre la especificación del núcleo (Opción A vs. Opción B) y formalización de la semántica temporal (`GAP-003`).
+3. **Hito 3**: Asignación de pruebas pendientes en la matriz de trazabilidad de seguridad (`GAP-002`).
+4. **Hito 4**: Ejecución del primer experimento minimalista offline de dos sensores (`docs/03-preimplementacion/vertical-slice-a.md`) en cumplimiento del veredicto CONDITIONAL GO.
+
+---
+
+## 9. Gobernanza y contribuciones
+
+Actualmente el proyecto no acepta Pull Requests de código funcional en Rust. Las contribuciones se limitan a la revisión crítica de la documentación, modelos de seguridad y especificaciones de arquitectura presentadas mediante solicitudes de cambio o nuevos registros ADR (`docs/02-diseno/adr/TEMPLATE.md`).
