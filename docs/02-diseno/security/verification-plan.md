@@ -11,7 +11,7 @@
 | SEC-005 | TH-005 | Documento sobredimensionado | límite y error explícito, sin crash |
 | SEC-006 | TH-006 | Dos fuentes contradictorias | conservar ambas y marcar conflicto |
 | SEC-007 | TH-007 | Fuente suplanta identidad | rechazar o marcar no autenticada |
-| SEC-008 | TH-009 | Solicitud de borrado válida | eliminar o invalidar réplicas según política |
+| SEC-008 (BLOQUEADO PARA DATOS REALES) | TH-009 | Solicitud sintética de supresión o revocación, únicamente si el titular autoriza un oráculo y una política de retención explícitos | evaluar el resultado **solo frente a la política aprobada**; ocultación lógica o invalidación de referencias no demuestra borrado físico de copias, backups o réplicas |
 | SEC-009 | TH-010 | Permiso revocado entre propuesta y ejecución | denegar al ejecutar |
 | SEC-010 | TH-011 | Repetir solicitud con mismo identificador | no duplicar efecto |
 | SEC-011 | TH-013 | Evento truncado por fallo | detectar corrupción y recuperar/abortar |
@@ -21,6 +21,8 @@
 | SEC-015 (PROPUESTA) | TH-016 / SEC-REQ-015 | Restauración sintética desde backup válido y backup alterado; comprobar integridad, procedencia y resultado de recuperación/aborto | restaurar datos sintéticos verificables o abortar explícitamente; nunca aceptar restauración corrupta |
 | SEC-016 (PROPUESTA) | TH-019 / SEC-REQ-016 | Evaluador intenta aprobar unilateralmente cambio de regla o política sensible | rechazar sin aprobación de autoridad separada; registrar intento |
 | SEC-017 (PROPUESTA) | TH-012 / SEC-REQ-017 | Delegado solicita acción fuera de su capacidad o usando autoridad del principal | denegar confused deputy y registrar la denegación |
+
+**Límite de privacidad SEC-008:** el caso original de eliminación/restauración de historial (`F-10/E-10`) sigue **BLOQUEADO**. Esta fila no autoriza ejecutar pruebas ni implica cumplimiento del derecho de supresión, eliminación física o cobertura de réplicas; antes de evaluar se requieren decisiones del titular sobre jurisdicción, persistencia, retención, backups, alcance de la solicitud y observador independiente. Una eventual prueba sintética en memoria volátil no sustituye el caso original.
 
 **Nota de trazabilidad:** SEC-015..017 son diseños candidatos para cubrir requisitos que estaban sin prueba asignada; no se han ejecutado, no constituyen controles implementados ni cierran GAP-002. La numeración de estas propuestas requiere revisión frente a la auditoría histórica antes de ratificarse.
 
