@@ -53,7 +53,7 @@ A reviewer must validate each cited REV finding against exact files in current m
 | REV-11 (partial) | `requirements.md` SEC-REQ-015..017 were pending; `verification-plan.md` stopped at SEC-014 | CONFIRMED / PROPOSED FIX | SEC-015..017 now proposed in verification plan with correct TH-016/019/012 mapping; other traceability docs still need review |
 | REV-14 | `traceability-matrix-v1.md` F-12 previously required absence of gateway event although gateway is out of scope | CONFIRMED / DOCUMENTARY FIX | Boundary observer plus positive control specified in F-12; no test executed |
 
-**Remaining findings:** REV-01, 03, 05, 06, 13, 15, 16, 17, 18, 19, 20 remain UNVERIFIED or OWNER_DECISION / EXPERIMENT as classified above. REV-08, 10 and 11 remain PARTIAL. REV-12 and REV-14 have documentary fixes only, not empirical verification.
+**Estado de esta tabla (instantánea inicial, sustituida por el registro consolidado al final):** las anotaciones posteriores aportan evidencia adicional. No interpretar esta frase histórica como estado actual de REV-17/20 ni como cierre de REV-12/14.
 
 ## Further verified changes on this branch
 
@@ -139,3 +139,32 @@ The active `README.md` now describes the repository as publicly readable but unl
 - Source check: `precode-review-checklist.md` explicitly labels itself the **Iteración 10** snapshot and says `Repositorio privado`. It remains historical; the active README and decision documents correct this using GitHub API evidence. No retrospective edit to the snapshot.
 
 No external standards were independently fetched or version-verified in this pass; no tests were executed.
+
+## Registro consolidado de estados REV-01..20 (corte documental 2026-10-21)
+
+Este registro prevalece **solo como índice de seguimiento dentro de este documento**, no como norma frente a fuentes originales ni como ratificación. «Corrección documental» significa texto ajustado, **nunca** prueba ejecutada.
+
+| Hallazgo | Estado documental actual | Bloqueo o evidencia aún necesaria |
+|---|---|---|
+| REV-01 | DECISIÓN TITULAR | Prerrequisitos G3 compatibles con alcance experimental |
+| REV-02 | CORRECCIÓN DOCUMENTAL | Fixtures y oráculos concretos aún no aprobados |
+| REV-03 | DECISIÓN TITULAR | Excepción específica de código/harness o mantener prohibición |
+| REV-04 | CORRECCIÓN DOCUMENTAL | E-10 original continúa bloqueado |
+| REV-05 | DECISIÓN TITULAR | Definición única de G3 |
+| REV-06 | DECISIÓN TITULAR | Precedencia documental / GAP-010 |
+| REV-07 | CORRECCIÓN DOCUMENTAL | Recomendación no equivale a aprobación |
+| REV-08 | PARCIAL | Ratificar interpretación original R-FALS y sus oráculos |
+| REV-09 | PARCIAL | Fixtures normalizados del segundo dominio y serialización |
+| REV-10 | PARCIAL | Revisión de todos los espacios de nombres y traducciones |
+| REV-11 | PARCIAL | SEC-015..017 propuestas, sin ejecución ni cierre GAP-002 |
+| REV-12 | CORRECCIÓN DOCUMENTAL | Autenticidad no probada criptográficamente |
+| REV-13 | HIPÓTESIS / NO EJECUTADO | Oráculo temporal y testigo independiente |
+| REV-14 | CORRECCIÓN DOCUMENTAL / NO EJECUTADO | F-12 exige observador y control positivo independientes |
+| REV-15 | HECHO CONFIRMADO / DECISIÓN TITULAR | Repositorio público, sin licencia detectada; DEC-07 pendiente |
+| REV-16 | DECISIÓN TITULAR | Independencia, autoridad, firmas y revocación demostrables |
+| REV-17 | PARCIAL | Perfil sensor, adaptador y traducción ratificados |
+| REV-18 | DECISIÓN TITULAR | Alcance remoto e incertidumbre de efectos |
+| REV-19 | CORRECCIÓN DOCUMENTAL PARCIAL | Formato de intercambio de laboratorio no ratificado |
+| REV-20 | PARCIAL | README actualizado; referencias normativas sin edición verificada |
+
+**Regla de salida:** ningún estado de esta tabla autoriza implementación, pruebas, merge, aceptación de ADR o cambio de gate. La hoja `owner-ratification-sheet-candidate-v1.md` está en blanco y no representa consentimiento.
