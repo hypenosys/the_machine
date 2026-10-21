@@ -18,7 +18,6 @@
 | SEC-012 | TH-015 | Error incluye secreto en entrada | logs no revelan secreto |
 | SEC-013 | TH-018 | Crate no aprobado | build/revisión bloqueada |
 | SEC-014 | TH-020 | Modelo produce salida inválida | rechazo sin efecto externo |
-
 | SEC-015 (PROPUESTA) | TH-016 / SEC-REQ-015 | Restauración sintética desde backup válido y backup alterado; comprobar integridad, procedencia y resultado de recuperación/aborto | restaurar datos sintéticos verificables o abortar explícitamente; nunca aceptar restauración corrupta |
 | SEC-016 (PROPUESTA) | TH-019 / SEC-REQ-016 | Evaluador intenta aprobar unilateralmente cambio de regla o política sensible | rechazar sin aprobación de autoridad separada; registrar intento |
 | SEC-017 (PROPUESTA) | TH-012 / SEC-REQ-017 | Delegado solicita acción fuera de su capacidad o usando autoridad del principal | denegar confused deputy y registrar la denegación |
