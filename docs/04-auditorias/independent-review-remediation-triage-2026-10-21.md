@@ -162,12 +162,14 @@ Este registro prevalece **solo como índice de seguimiento dentro de este docume
 | REV-12 | CORRECCIÓN DOCUMENTAL | Autenticidad no probada criptográficamente |
 | REV-13 | HIPÓTESIS / NO EJECUTADO | Oráculo temporal y testigo independiente |
 | REV-14 | CORRECCIÓN DOCUMENTAL / NO EJECUTADO | F-12 exige observador y control positivo independientes |
-| REV-15 | HECHO CONFIRMADO / DECISIÓN TITULAR | Repositorio público, sin licencia detectada; DEC-07 pendiente |
+| REV-15 | CORRECCIÓN DOCUMENTAL / RESIDUO JURÍDICO | Repositorio público según consulta fechada; `LICENSE.md` CC BY 4.0 documental incorporada en PR #25. Pendientes derechos de terceros, licencia de software futuro y cierre GAP-001 |
 | REV-16 | DECISIÓN TITULAR | Independencia, autoridad, firmas y revocación demostrables |
 | REV-17 | PARCIAL | Perfil sensor, adaptador y traducción ratificados |
 | REV-18 | DECISIÓN TITULAR | Alcance remoto e incertidumbre de efectos |
 | REV-19 | CORRECCIÓN DOCUMENTAL PARCIAL | Formato de intercambio de laboratorio no ratificado |
 | REV-20 | PARCIAL | README actualizado; referencias normativas sin edición verificada |
+
+**Regla de actualización:** este índice incorpora la actualización posterior DEC-07 / REV-15; las frases anteriores «sin licencia detectada» quedan como observaciones del corte histórico, no como estado actual de la rama. Los estados se revisan por evidencia, no por orden de aparición de párrafos.
 
 **Regla de salida:** ningún estado de esta tabla autoriza implementación, pruebas, merge, aceptación de ADR o cambio de gate. La hoja `owner-ratification-sheet-candidate-v1.md` está en blanco y no representa consentimiento.
 
