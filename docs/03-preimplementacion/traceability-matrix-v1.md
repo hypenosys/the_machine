@@ -103,3 +103,23 @@ Para investigar las brechas identificadas en R-01 y R-07, sin afirmar cobertura 
 - **Entrada Sintética:** Emisión de `Assessment` positivo sobre el evento sintético.
 - **Resultado Esperado Observable (propuesta no ejecutada):** Un observador independiente de la frontera registra cero solicitudes de acción cuando la única entrada es un dictamen `SUPPORTED`. Un control positivo separado, con una orden operativa sintética explícita, debe producir una señal observable para demostrar que el observador funciona. Sin ambos controles, el caso queda NO EVALUABLE, nunca PASS. Esto no verifica un Action Gateway real, que permanece fuera del alcance del laboratorio.
 - **Estado:** PROPUESTO / NO EJECUTADO.
+
+---
+
+## 5. Diagnóstico candidato del oráculo y observador (no autorizado ni ejecutado)
+
+Un veredicto futuro no puede inferirse solo del valor que devuelve la arquitectura bajo prueba. Para F-11 y F-12, la revisión independiente debe disponer **antes de ejecutar** de un manifiesto de casos sintéticos, reglas versionadas, salida esperada y un canal de observación separado del componente evaluado. Esta sección define **criterios documentales de diagnóstico**, no un harness aprobado.
+
+| Señal observada en un ensayo futuro | Clasificación candidata | Regla para evitar falsos PASS |
+|---|---|---|
+| El control positivo no produce la señal esperada en el observador | `NO EVALUABLE — OBSERVADOR` | No concluir que el sistema impide fusiones o acciones; reparar y recalibrar el observador bajo nueva revisión |
+| La entrada sintética o el oráculo carecen de versión, autoridad o expectativa inequívoca | `NO EVALUABLE — ORÁCULO` | No atribuir el desacuerdo a R1/R2/C/D; fijar la especificación antes de repetir |
+| El observador funciona y una salida contradice una regla de oráculo previamente fijada | `FALLO OBSERVADO — PENDIENTE DE ATRIBUCIÓN` | Conservar entrada, salida, versión y rastro; investigar si falló representación, perfil, adaptador o harness |
+| Los controles positivos/negativos funcionan y todas las salidas coinciden con el oráculo fijado | `COINCIDENCIA EN EL CASO` | No extrapolar a cumplimiento global de R-01..R-08, aislamiento real ni seguridad de producción |
+| El registro no permite distinguir ausencia de evento de ausencia de observación | `NO EVALUABLE — VISIBILIDAD` | Nunca declarar `PASS` por silencio del registro |
+
+**Independencia exigible:** el resultado esperado no debe derivarse de la salida de la arquitectura probada; el observador no debe compartir con ella el único punto de fallo que se pretende detectar. Un control positivo debe poder activar la misma ruta de observación que el caso negativo. Documentar explícitamente cualquier dependencia compartida; si compromete la discriminación, el caso es `NO EVALUABLE`.
+
+**Trazabilidad mínima propuesta:** identificador de caso y control, revisión exacta del oráculo, versión del perfil, entradas sintéticas, orden de observación, salida y diagnóstico con atribución pendiente. La ausencia de estos datos impide declarar un resultado reproducible. No se prescribe almacenamiento duradero, conexión de red, ejecución ni mecanismo de firmas.
+
+**Autoridad y estado:** pendiente de DEC-05/06/08, GAP-010 y autorización de gates aplicables. F-10/E-10 sigue BLOQUEADO; ningún criterio de esta tabla sustituye decisiones sobre retención o borrado físico. **NO EJECUTADO · HOLD / NO-GO**.
