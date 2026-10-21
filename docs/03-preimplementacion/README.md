@@ -16,11 +16,11 @@ Para orientar la deliberación formal del titular del proyecto (@Axlfc) sin viol
 2. **[Paquete de Decisión v1](decision-package-v1.md):**
    Matriz exhaustiva `DEC-01..DEC-08` con opciones, costes, riesgos, evidencia requerida, dependencias, autoridad e idoneidad provisional.
 3. **[Contrato Comparativo v1](comparative-contract-v1.md):**
-   Especificación neutra e imparcial para comparar R1 (6 entidades), R2 (2 entidades), Híbrida C y Baseline D bajo un arnés común, oráculo independiente e independencia de marcas temporales (`valid_time`, `recorded_time`, `assessed_time`).
+   Especificación neutra e imparcial (marco candidato incompleto) para comparar R1 (6 entidades), R2 (2 entidades), Híbrida C y Baseline D bajo un arnés común, oráculo independiente e independencia de marcas temporales (`valid_time`, `recorded_time`, `assessed_time`).
 4. **[Matriz de Trazabilidad v1](traceability-matrix-v1.md):**
    Correspondencia falsable verificada entre criterios `R-01..R-08`, fixtures `F-01..F-10`, oráculos `E-01..E-10` y escenarios `L-01..L-10`, identificando huecos explícitos (**"SIN FIXTURE DIRECTO"**) y proponiendo los fixtures F-11 y F-12 sin renumerar.
 5. **[Protocolo de Autorización por Etapas v1](staged-authorization-protocol-v1.md):**
-   Desacoplamiento estricto de las puertas de autorización (Gates G0 a G5), garantizando que la aprobación documental (G0) o la ejecución de laboratorio (G1) no concedan autorización automática para la fase de código (G4).
+   Desacoplamiento estricto de las puertas de autorización (Gates G0 a G5) y subgates de laboratorio (Subgates G2.1 a G2.4), garantizando que la aprobación documental (Subgate G2.1) o la ejecución de laboratorio (Subgate G2.2) no concedan autorización automática para la fase de código (Gate G3).
 6. **[Registro de Incertidumbres v1](uncertainty-register-v1.md):**
    Catálogo activo de bloqueos reales (E-10 en estado **BLOQUEADO**), estado real de brechas (`GAP-001..GAP-010`), falta de tests ejecutados para amenazas `TH-012/016/019` (`GAP-002`) e hipótesis sin demostrar.
 
@@ -51,7 +51,7 @@ Para orientar la deliberación formal del titular del proyecto (@Axlfc) sin viol
 | B — Pasarela de acciones simuladas | Políticas y decisiones sobre acciones sin efectos externos | Ataca riesgos de autoridad | Obliga a definir identidad y semántica pronto |
 | C — Investigación de aislamiento | Harness para comparar sandboxes en SO concretos | Valida una frontera crítica | Dependencia del entorno y portabilidad |
 
-**Recomendación provisional: A**, con entrada estrictamente sintética, sin red, sin secretos, sin efectos externos y sin almacenamiento persistente en la primera prueba. Esto **no** autoriza implementarlo: primero decidir contratos, criterios y licencia.
+**Recomendación provisional: A**, con entrada strictly sintética, sin red, sin secretos, sin efectos externos y sin almacenamiento persistente en la primera prueba. Esto **no** autoriza implementarlo: primero decidir contratos, criterios y licencia.
 
 ---
 

@@ -14,8 +14,10 @@ Se catalogan las condiciones técnicas, jurídicas o normativas que impiden avan
 
 ### BLOQUEO-01 — Experimento de Privacidad y Supresión E-10 (Defecto B-08)
 - **Estado Real:** **BLOQUEADO**.
-- **Descripción:** El oráculo E-10 evalúa la supresión de contenido sensible. En la fase actual, el proyecto carece de una política formal de retención, minimización y supresión de datos adaptada a normativas de privacidad (RGPD/CCPA).
-- **Condición de Desbloqueo Limitada:** Exclusivamente se autorizará un test de simulación de comportamiento en memoria volátil (ocultación de referencias activas en el Harness), **declarando explícitamente que dicha simulación NO constituye borrado físico en disco, anonimización irreversible ni cumplimiento legal**.
+- **Análisis de Tres Dimensiones:**
+  1. *Escenario E-10 original (Supresión física en disco y cumplimiento normativo RGPD/CCPA):* Permanecer estrictamente en estado **BLOQUEADO** por falta de política formal de retención/supresión y modelo de persistencia.
+  2. *Simulación alternativa acotada en memoria volátil (ocultación de referencias activas en el Harness):* **PROPONER solicitar autorización expresa al titular** si se desea evaluar el comportamiento de referencias rotas en memoria volátil, **declarando explícitamente que dicha simulación NO constituye borrado físico en disco, anonimización irreversible ni cumplimiento legal**.
+  3. *Exclusión explícita del alcance:* Posibilidad de excluir formalmente E-10 del primer laboratorio sintético sin prometer ni certificar privacidad garantizada.
 
 ### BLOQUEO-02 — Ausencia de Licencia Legal (`GAP-001`)
 - **Estado Real:** **BLOQUEADO para distribución o contribución pública**.
@@ -54,7 +56,7 @@ En cumplimiento de las reglas metodológicas de `AGENTS.md` (Regla 2: "No invent
 - **TH-016 (Backup irrecuperable / Persistencia Inconsistente):** Se ha diseñado la especificación de prueba sintética `SEC-016`. **Estado de Ejecución: NO EJECUTADO / UNVERIFIED**.
 - **TH-019 (Insider Abuse / Alteración Unilateral de Reglas):** Se ha diseñado la especificación de prueba sintética `SEC-017`. **Estado de Ejecución: NO EJECUTADO / UNVERIFIED**.
 
-**Conclusión:** `GAP-002` se mantiene estrictamente en estado **OPEN** hasta que las pruebas propuestas sean implementadas, ejecutadas y verificadas empíricamente.
+**Conclusión:** `GAP-002` se mantiene strictly en estado **OPEN** hasta que las pruebas propuestas sean implementadas, ejecutadas y verificadas empíricamente.
 
 ---
 

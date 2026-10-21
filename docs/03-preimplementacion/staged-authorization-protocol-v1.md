@@ -8,96 +8,107 @@
 
 ---
 
-## 1. Principio de Desacoplamiento Estricto de Autoridad
+## 1. Principio de Desacoplamiento Estricto y Armonización Histórica de Gates
 
-En resolución directa de la circularidad identificada en el **Defecto B-06**, el presente protocolo establece la separación absoluta entre aprobar un protocolo de experimentación y autorizar la ejecución real del experimento o la posterior escritura de código.
+En resolución directa del **Defecto B-06** y para evitar la colisión con la nomenclatura histórica de readiness gates (`readiness-assessment.md`, `traceability.md`, `auditoria-integral-2026-10.md`), el presente protocolo **mantiene intacta la definición original de Gates G0..G5** y modela el proceso de laboratorio pre-código como **subgates explícitos** dentro del Gate G2 de Diseño.
+
+```
++---------------------------------------------------------------------------------------------------+
+| ARMONIZACIÓN DE READINESS GATES G0..G5 Y SUBGATES DE LABORATORIO PRE-CÓDIGO                      |
+|                                                                                                   |
+|  [G0: Doc/Investigación] -> [G1: Alcance] -> [G2: Diseño & Protocolo Experimental]               |
+|                                                     ├── Subgate G2.1: Aprobación Documental       |
+|                                                     ├── Subgate G2.2: Laboratorio Acotado (Harness)|
+|                                                     ├── Subgate G2.3: Obtención de Evidencia      |
+|                                                     └── Subgate G2.4: Selección de Arquitectura   |
+|                                                                                                   |
+|                                            ↓ (HOLD / NO-GO)                                       |
+|  [G3: Implementación Rust] ---------------> [G4: Despliegue] ---------> [G5: Operación]            |
++---------------------------------------------------------------------------------------------------+
+```
 
 ### Invariantes del Protocolo
-1. **Sin Transiciones Automáticas:** El cumplimiento exitoso de las condiciones de entrada/salida de una etapa **NO concede autorización automática** para avanzar a la siguiente etapa.
-2. **Autoridad Exclusiva:** Toda transición entre etapas exige una decisión de gobernanza explícita, registrada y firmada por el titular del proyecto (@Axlfc).
-3. **Reversibilidad y Parada de Emergencia:** El titular del proyecto conserva la facultad de devolver el proyecto a estado **HOLD** o reajustar cualquier etapa previa en cualquier momento.
+1. **G3 es Históricamente la Transición a Código:** Se confirma que **Gate G3 es la puerta de implementación de software en Rust**. Pasar de G2 a G3 exige el cumplimiento total de los requisitos de pre-código y una decisión expresa `GO` del titular.
+2. **Sin Transiciones Automáticas:** Ningún subgate dentro de G2 (G2.1, G2.2, G2.3, G2.4) concede autorización automática para pasar a G3 ni para escribir código Rust.
+3. **Autoridad Exclusiva:** Toda transición entre gates y subgates exige una decisión de gobernanza explícita, registrada y firmada por el titular del proyecto (@Axlfc).
 
 ---
 
-## 2. Definición de Etapas y Gates de Autorización (G0..G5)
+## 2. Definición de Gates Históricos (G0..G5) y Subgates de Laboratorio (G2.1..G2.4)
 
-El ciclo de vida del proyecto pre-código se estructura en seis puertas de autorización (*Gates*) totalmente independientes y secuenciales:
+### Gate G0 — Documentación e Investigación Preliminar
+- **Definición Histórica:** Investigación fundacional, filosofía y principios educativos.
+- **Estado:** COMPLETADO.
 
-```
-+-----------------------------------------------------------------------------------+
-| FLUJO DE GATES DE AUTORIZACIÓN POR ETAPAS (G0 -> G5)                             |
-|                                                                                   |
-|  [G0: Protocolo] ---> [G1: Lab Sintético] ---> [G2: Evidencia]                   |
-|         |                     |                      |                            |
-|     (HOLD/GO)             (HOLD/GO)              (HOLD/GO)                       |
-|         v                     v                      v                            |
-|  [G3: Arquitectura] -> [G4: Pre-Code / Rust] -> [G5: Release]                     |
-+-----------------------------------------------------------------------------------+
-```
+### Gate G1 — Delimitación de Alcance y Especificación Candidate
+- **Definición Histórica:** Delimitación de activos, fronteras de confianza y especificaciones candidatas.
+- **Estado:** COMPLETADO DOCUMENTALMENTE.
 
 ---
 
-### Gate G0 — Aprobación Documental del Protocolo y Paquete de Decisión
+### Gate G2 — Diseño de Arquitectura, Modelado de Amenazas y Protocolo Experimental (Estado Actual)
+Contiene la fase de consolidación y deliberación pre-código, articulada en cuatro subgates independientes:
+
+#### Subgate G2.1 — Aprobación Documental del Protocolo y Paquete v1
 - **Propósito:** Ratificar el marco metodológico, los contratos comparativos, la matriz de trazabilidad y las reglas de deliberación sin autorizar software ni pruebas.
 - **Condiciones de Entrada:** Entrega del Paquete de Decisión v1 (`decision-package-v1.md`), Contrato Comparativo v1 (`comparative-contract-v1.md`) y Matriz de Trazabilidad v1 (`traceability-matrix-v1.md`).
 - **Evidencia Requerida:** Consistencia interna comprobada, ausencia de contradicciones y ausencia de código ejecutable.
 - **Autoridad:** Titular del proyecto (@Axlfc).
-- **Resultado de Transición:** Aprobación del marco documental (**Gate G0 Aprobado**). El proyecto permanece en **HOLD** para las fases siguientes.
+- **Resultado:** Aprobación del marco documental (**Subgate G2.1 Aprobado**). El proyecto permanece en **HOLD**.
 
----
-
-### Gate G1 — Autorización Expresa para Laboratorio Sintético Acotado
+#### Subgate G2.2 — Autorización Expresa para Laboratorio Sintético Acotado (Harness)
 - **Propósito:** Conceder permiso acotado y exclusivo para construir y ejecutar el arnés de prueba sintético offline (*Offline Test Harness*) con datos en memoria volátil.
-- **Condiciones de Entrada:** Gate G0 formalmente aprobado; delimitación estricta del alcance (cero red, cero persistencia, cero datos reales).
+- **Condiciones de Entrada:** Subgate G2.1 formalmente aprobado; delimitación estricta del alcance (cero red, cero persistencia, cero datos reales).
 - **Evidencia Requerida:** Orden de ejecución del titular especificando los límites del laboratorio sintético.
 - **Autoridad:** Titular del proyecto (@Axlfc).
-- **Resultado de Transición:** Autorización para ejecutar el experimento de laboratorio acotado (**Gate G1 GO**). **No autoriza código de producción ni crates definitivos.**
+- **Resultado:** Permiso para ejecutar el laboratorio acotado (**Subgate G2.2 GO**). **No autoriza código de producción ni crates definitivos.**
 
----
-
-### Gate G2 — Obtención y Evaluación de Evidencia Experimental Sintética
-- **Propósito:** Recopilar y analizar de manera imparcial los resultados observables producidos por las alternativas R1, R2, Híbrida C y Baseline D ante los fixtures F-01..F-10 y R-01..R-08.
-- **Condiciones de Entrada:** Finalización de las corridas sintéticas del laboratorio G1.
-- **Evidencia Requerida:** Informe de resultados del laboratorio documentando fidelidad, sobrecarga de tipos, comportamiento ante datos incompletos y abstenciones producidas.
-- **Autoridad:** Titular del proyecto (@Axlfc) tras revisión técnica del equipo.
-- **Resultado de Transición:** Informe de evidencia experimental validado (**Gate G2 Completado**).
-
----
-
-### Gate G3 — Selección Formal de la Arquitectura de Representación
-- **Propósito:** Deliberar y seleccionar la arquitectura de representación definitiva (R1, R2, Híbrida C o D) basándose estrictamente en la evidencia experimental recopilada en G2.
-- **Condiciones de Entrada:** Gate G2 completado; matriz comparativa respaldada por datos de prueba sintética.
-- **Evidencia Requerida:** Documento de decisión de arquitectura firmado por el titular justificando la elección elegida.
+#### Subgate G2.3 — Obtención y Evaluación de Evidencia Experimental Sintética
+- **Propósito:** Recopilar y analizar los resultados observables producidos por las alternativas R1, R2, Híbrida C y Baseline D ante los fixtures sintéticos F-01..F-10.
+- **Condiciones de Entrada:** Finalización de las corridas sintéticas del laboratorio G2.2.
+- **Evidencia Requerida:** Informe de resultados del laboratorio documentando fidelidad, sobrecarga de tipos, comportamiento ante datos incompletos y abstenciones.
 - **Autoridad:** Titular del proyecto (@Axlfc).
-- **Resultado de Transición:** Elección de arquitectura ratificada (**Gate G3 Aprobado**).
+- **Resultado:** Informe de evidencia experimental validado (**Subgate G2.3 Completado**).
+
+#### Subgate G2.4 — Selección Formal de la Arquitectura de Representación
+- **Propósito:** Deliberar y seleccionar la arquitectura de representación definitiva (R1, R2, Híbrida C o D) basándose en la evidencia de G2.3.
+- **Condiciones de Entrada:** Subgate G2.3 completado; matriz comparativa respaldada por datos de prueba sintética.
+- **Evidencia Requerida:** Documento de decisión de arquitectura firmado por el titular.
+- **Autoridad:** Titular del proyecto (@Axlfc).
+- **Resultado:** Elección de arquitectura ratificada (**Subgate G2.4 Aprobado**).
 
 ---
 
-### Gate G4 — Pre-code Gate & Autorización Expresa de Implementación en Rust
-- **Propósito:** Evaluar el cumplimiento de todos los requisitos previos a la escritura de código de producción (resolución de licencias, revisión de modelo de amenazas, ADRs aceptados).
-- **Condiciones de Entrada:** Gate G3 aprobado; `GAP-001` (Licencia) resuelto; `ADR-0001..0005` sometidos a votación final; plan de pruebas de seguridad `SEC-001..017` completado.
-- **Evidencia Requerida:** Lista de verificación de pre-código aprobada; resolución formal del titular autorizando el inicio de la fase de código Rust.
+### Gate G3 — Pre-code Gate & Transición a Implementación de Software en Rust
+- **Definición Histórica:** Transición a la fase de implementación de código ejecutable en Rust.
+- **Propósito:** Evaluar el cumplimiento de todos los requisitos previos a la escritura de código (resolución de licencias `GAP-001`, revisión de modelo de amenazas `GAP-002`, ADRs aceptados `GAP-005`, Subgate G2.4 aprobado).
+- **Condiciones de Entrada:** Subgate G2.4 aprobado; `GAP-001` (Licencia) resuelto; `ADR-0001..0005` votados; plan de pruebas de seguridad `SEC-001..017` completado.
+- **Evidencia Requerida:** Lista de verificación de pre-código aprobada; resolución formal del titular autorizando el inicio de implementación.
 - **Autoridad:** Titular del proyecto (@Axlfc) en exclusiva.
-- **Resultado de Transición:** Transición a la fase de implementación (**Gate G4 GO / Transición a Código**).
+- **Estado Actual:** **HOLD / NO-GO**. Ninguna aprobación en G2 autoriza superar Gate G3.
 
 ---
 
-### Gate G5 — Verificación Post-implementación, Auditoría y Release
-- **Propósito:** Auditar el código Rust producido, verificar la ausencia de unsafe unapproved, validar suites de pruebas unitarias/integración y autorizar la publicación o release.
-- **Condiciones de Entrada:** Código Rust totalmente implementado y verificado en la fase de desarrollo.
-- **Evidencia Requerida:** Dictamen de auditoría final con veredicto PASS o PASSED WITH CONDITIONS; informe de trazabilidad al 100%.
-- **Autoridad:** Titular del proyecto (@Axlfc).
-- **Resultado de Transición:** Release pública autorizada (**Gate G5 Aprobado**).
+### Gate G4 — Despliegue, Aislamiento y Configuración de Entorno
+- **Definición Histórica:** Verificación de empaquetado, dependencias y mecanismos de aislamiento en entornos target.
+- **Estado:** BLOQUEADO.
+
+### Gate G5 — Operación, Mantenimiento y Auditoría Continua
+- **Definición Histórica:** Fase operativa del sistema.
+- **Estado:** BLOQUEADO.
 
 ---
 
-## 3. Cuadro Resumen de Dependencias entre Gates
+## 3. Cuadro Resumen de Dependencias y Estado de Gates
 
-| Gate | Nombre de la Etapa | Permite Código Rust | Requiere Autorización Expresa | Estado Actual |
+| Gate / Subgate | Nombre de la Etapa | Permite Código Rust | Requiere Autorización Expresa | Estado Actual |
 |---|---|---|---|---|
-| **G0** | Aprobación Documental del Protocolo | NO | SÍ (Titular) | **PENDIENTE DE DELIBERACIÓN** |
-| **G1** | Autorización de Laboratorio Acotado | NO (Solo Harness local) | SÍ (Titular) | **BLOQUEADO (Requiere G0)** |
-| **G2** | Obtención de Evidencia Experimental | NO | SÍ (Titular) | **BLOQUEADO (Requiere G1)** |
-| **G3** | Selección de Arquitectura | NO | SÍ (Titular) | **BLOQUEADO (Requiere G2)** |
-| **G4** | Pre-code Gate (Implementación Rust) | SÍ (Tras aprobación) | SÍ (Titular en exclusiva) | **HOLD / NO-GO** |
-| **G5** | Verificación Final y Release | SÍ | SÍ (Titular) | **BLOQUEADO (Requiere G4)** |
+| **G0** | Documentación e Investigación | NO | SÍ | COMPLETADO |
+| **G1** | Alcance y Especificación Candidate | NO | SÍ | COMPLETADO DOCUMENTALMENTE |
+| **G2.1** | Aprobación Documental del Protocolo v1 | NO | SÍ (Titular) | **PENDIENTE DE DELIBERACIÓN** |
+| **G2.2** | Autorización de Laboratorio Acotado | NO (Solo Harness local) | SÍ (Titular) | **BLOQUEADO (Requiere G2.1)** |
+| **G2.3** | Obtención de Evidencia Experimental | NO | SÍ (Titular) | **BLOQUEADO (Requiere G2.2)** |
+| **G2.4** | Selección de Arquitectura | NO | SÍ (Titular) | **BLOQUEADO (Requiere G2.3)** |
+| **G3** | Implementación Rust (Pre-code Gate) | SÍ (Tras aprobación) | SÍ (Titular en exclusiva) | **HOLD / NO-GO** |
+| **G4** | Despliegue y Aislamiento | SÍ | SÍ (Titular) | **BLOQUEADO (Requiere G3)** |
+| **G5** | Operación y Mantenimiento | SÍ | SÍ (Titular) | **BLOQUEADO (Requiere G4)** |
