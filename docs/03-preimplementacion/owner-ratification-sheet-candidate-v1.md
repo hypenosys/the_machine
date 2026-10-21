@@ -49,7 +49,7 @@ Antes de solicitar una ratificación de comparación, los titulares deben poder 
 | Intercambio y privacidad | DEC-04/06: formato sintético, límites de E/S, retención y supresión | F-10/E-10 original BLOQUEADO; simulación de memoria no prueba borrado físico |
 | Seguridad y acción | REV-18 y verificaciones SEC-015..017 aún no ejecutadas | No afirmar exactly-once, aislamiento ni separación de acción comprobados |
 | Independencia y referencias | REV-16/20: revisor acreditado y referencias normativas fechadas | No atribuir validación independiente o cumplimiento normativo |
-| Distribución | DEC-07 / GAP-001: CC BY 4.0 documental indicada por los titulares, inventario de derechos y licencia de software pendiente | El aviso `LICENSE.md` permite reutilizar **solo** materiales cubiertos; visibilidad pública no licencia contenidos de terceros ni código futuro |
+| Distribución | DEC-07 / GAP-001: CC BY 4.0 documental incorporada por instrucción recibida, inventario de derechos y licencia de software pendiente | El aviso `LICENSE.md` permite reutilizar **solo** materiales cubiertos; visibilidad pública no licencia contenidos de terceros ni código futuro |
 
 **Distinción de hitos:** la corrección documental puede preparar una decisión sobre G2.1, pero no sustituye su ratificación. Una eventual ratificación de G2.1 tampoco autoriza por sí sola G2.2, G2.3, G2.4 o G3. La excepción de código DEC-08, si alguna vez se concede, debe enumerar actividades permitidas y prohibidas; no se infiere de la aprobación de fixtures o de una PR.
 
