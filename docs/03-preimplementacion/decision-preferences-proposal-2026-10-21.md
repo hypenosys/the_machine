@@ -86,3 +86,20 @@
 | AUT-MERGE | Fusionar código revisado en rama objetivo | Evidencia de revisión competente, controles de protección, licencia resuelta y autorización expresa | Despliegue, operación ni cambio de gates por implicación |
 
 La tabla **no sustituye** las reglas históricas de G3. Hasta que exista acta de precedencia y definición de gates, cualquier colisión se resuelve manteniendo HOLD / NO-GO.
+
+## Anexo: comprobación de coherencia de autorizaciones y orden de decisión
+
+**Regla de seguridad:** un permiso tiene alcance por **actividad y entorno**, no por el nombre del gate. El hecho de que AUT-CODE esté aprobado para una rama no concede AUT-EXEC; AUT-EXEC para un entorno no permite ejecutar en otro. AUT-MERGE no implica AUT-EXEC ni despliegue. Los tres son candidatos no vigentes.
+
+| Caso límite | Interpretación candidata | Estado mientras falte acta |
+|---|---|---|
+| Se aprueba delegación técnica general, pero no el significado de G3 | El delegado coordina; no puede conceder excepciones ni reinterpretar gates | HOLD / NO-GO |
+| Se aprueba DEC-01 offline, sin DEC-05 ni DEC-08 | Hay alcance conceptual, pero faltan oráculos y excepción de código | Sin creación ni ejecución |
+| Se autoriza AUT-CODE sin AUT-EXEC | Se permitiría solo editar código dentro del alcance futuro expresamente ratificado | Compilación, tests, scripts y CI prohibidos |
+| Se autoriza AUT-EXEC sin autorizar red ni secretos | Únicamente entorno y entradas aprobados, sin expansión por conveniencia | Red y secretos excluidos |
+| GitHub informa `mergeable=true` | Señal técnica sobre conflictos, no aprobación normativa | No autoriza merge |
+| La PR documental #25 recibe aprobación | Puede habilitar merge documental si se cumplen políticas y autoridad | No altera ADR, gates ni permisos de software |
+| Un cotitular revoca o impugna delegación | Suspender decisiones nuevas en el ámbito controvertido hasta aclaración documentada; registrar efectos y decisiones ya tomadas | Sin aprobación por silencio |
+| La GPL candidata se elige sin resolver derechos de terceros | Preferencia insuficiente para licenciar materiales ajenos o dependencias incompatibles | GAP-001 sigue abierto |
+
+**Orden mínimo recomendado:** (1) revisión competente de este texto y registro de consentimiento de ambos cotitulares; (2) acta de delegación con límites; (3) acta de precedencia y definición de G3; (4) resolución de derechos/licencia y contratos del laboratorio; (5) solicitudes independientes de permisos, si se desean. Los puntos 1–4 son trabajo documental y **no autorizan** el punto 5.
