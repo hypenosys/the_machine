@@ -10,7 +10,7 @@
 **THE MACHINE** es un proyecto en fase de **diseño conceptual y preimplementación** concebido para explorar una arquitectura local (*Local-First*), orientada a la seguridad y con determinismo como hipótesis de diseño pendiente de verificación para el análisis de información, la verificación de procedencia y la evaluación asistida por modelos de lenguaje (LLM/IA).
 
 ### Estado de propiedad y licenciamiento
-**El repositorio es público**, según GitHub API consultada el 21-10-2026 (`visibility=public`, `private=false`), pero no tiene licencia de repositorio detectada (`license=null`; **GAP-001 OPEN**). Ser públicamente legible no concede por sí mismo permisos de reutilización o redistribución. El titular debe decidir visibilidad, titularidad de derechos y licencia; no se presupone una elección.
+**El repositorio era público** según GitHub API consultada el 21-10-2026 (`visibility=public`, `private=false`). La respuesta histórica `license=null` precede a la incorporación de [`LICENSE.md`](LICENSE.md) en esta rama. La documentación original y materiales no software cubiertos se ofrecen bajo CC BY 4.0; el inventario de derechos de terceros, el cierre formal de **GAP-001** y la licencia de software futuro siguen pendientes. Los cotitulares declarados son @Axlfc y @TopperH4rley; su mecanismo de ratificación continúa sin formalizarse (GAP-010).
 
 ### Entrada rápida para principiantes (sin saber programar)
 No necesitas experiencia previa en programación para comprender THE MACHINE ni para participar en la revisión de sus ideas:
@@ -27,7 +27,7 @@ El desarrollo de THE MACHINE se orienta por los siguientes **objetivos de diseñ
 
 ### ¿Qué NO es y qué todavía NO hace?
 - **NO es un software en producción ni un producto terminado**.
-- **NO contiene código ejecutable en Rust**: En la versión actual del repositorio no existen archivos `.rs`, binarios compilados ni manifiestos de Cargo.
+- **No se autoriza código Rust**: el árbol documental de esta rama no demuestra la existencia de implementación ejecutable. No se ha inspeccionado exhaustivamente el historial, todas las ramas, binarios ni entornos externos; HOLD / NO-GO no es una afirmación universal sobre ausencia de artefactos.
 - **NO ejecuta acciones en el sistema operativo**: Las pasarelas de autorización y ejecución son especificaciones de diseño no codificadas.
 - **NO garantiza aún operabilidad desconectada ni privacidad efectiva**: Dichas propiedades son metas de diseño que deberán ser verificadas en binarios una vez iniciada la fase de código.
 
