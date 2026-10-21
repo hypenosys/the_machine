@@ -72,3 +72,26 @@ A reviewer must validate each cited REV finding against exact files in current m
 - REV-14: single current state is **DOCUMENTARY FIX / NOT EXECUTED**; the earlier OPEN label was stale and is corrected above.
 
 **Still blocking review:** REV-01/03/05/06 gate and authority ratification, REV-08 original R criterion interpretation, REV-13 temporal backdating experiment, and remaining owner decisions. The documentary edits are not ratification.
+
+## Historical audit errata / source-preserving interpretation (REV-08)
+
+The historical `informe-auditoria-adversarial-2026.md` remains unchanged as an audit artifact. Its §4.2 explanations are **proposed interpretations**, not verbatim definitions of the Finch §5 criteria. The following precedence is documentary only; it does not approve a new oracle:
+
+| Original Finch criterion | Exact historical meaning | Audit gloss to treat separately | Remaining proof obligation |
+|---|---|---|---|
+| R-01 | External identity merged solely on textual coincidence | Audit adds `UNVERIFIED` and `INSUFFICIENT` provenance judgments | F-11 must prove **no identity merge**, not merely unknown authenticity; add positive twin for authorized identity link |
+| R-04 | Later knowledge backdated | Audit focuses on a mismatch between `valid_time` and `recorded_time` | Timestamp difference alone is not retroactive rewriting; require immutable registration order and explicit backdating attempt |
+| R-05 | Historical evaluation/rule overwritten without trace | Audit focuses on rejecting direct mutation of a record | Include rule and assessment versions and a historical lookup after correction, not only input rejection |
+| R-08 | Logical suppression presented as physical deletion | Audit focuses on whether E-10 is excluded or has a policy | Exclusion is correct governance, **not** falsation of a false physical-deletion claim; original E-10 stays BLOCKED |
+
+Other Finch R-02/03/06/07 mappings remain hypotheses until source-specific acceptance oracles are approved. F-11 and F-12 are proposals only. The original Finch and historical audit documents are preserved.
+
+## Temporal falsification proposal (REV-13; NOT AUTHORIZED / NOT EXECUTED)
+
+A synthetic sequence with immutable registration ordinal `seq` distinct from caller-supplied `valid_time`, `recorded_time` and `assessed_time` is proposed: record assertion A at seq=1; submit correction B at seq=2 with earlier user-provided timestamps; query knowledge **as recorded at seq=1** and at seq=2. The expected invariant is that B never appears in the seq=1 view and A's historical assessment remains attributable to its original rule version. A negative control attempts to mutate A's seq=1 payload or evaluation and must be rejected or independently detected; a positive control adds a legitimate versioned correction. `seq` is a **hypothetical laboratory ordering witness**, not a demonstrated trusted clock, tamper-resistant ledger or storage design. Define an independent observer and machine-readable oracle before G2.2. No experiment or security guarantee is claimed.
+
+## Governance residuals
+
+- REV-01/03/05/06: `staged-authorization-protocol-v1.md` now identifies the unresolved historical gate precedence, G3 meaning, and lack of any current code/harness exception. Only the owner can ratify a resolution.
+- REV-13: a negative and positive temporal oracle is proposed above, but no experimental result exists.
+- REV-08: this errata preserves the historical audit rather than silently rewriting it; criteria and proposed oracle variants remain distinct.
