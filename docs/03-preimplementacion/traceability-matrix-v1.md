@@ -16,6 +16,14 @@ En estricta atención al **Defecto B-02**, la presente matriz reconstruye de man
 - **Oráculos de Aceptación E-01..E-10** (definidos en `offline-experiment-contract-candidate-v0.md` §4).
 - **Escenarios de Ciclo de Vida y Privacidad L-01..L-10** (definidos en `evidence-lifecycle-privacy-candidate-v0.md`).
 
+### Espacios de nombres de identificadores (aclaración no normativa)
+- `F-xx`: fixtures del protocolo de decisión pre-código; `E-xx`: oráculos del contrato offline; `L-xx`: escenarios de ciclo de vida.
+- `R-FALS-xx`: alias documental para los criterios R-01..R-08 de Finch §5. No renombra los originales.
+- `R-RISK-xx`: alias documental para los riesgos R-01..R-10 del registro de riesgos de seguridad; **no equivalen** a `R-FALS-xx`.
+- `ARCH-R1`, `ARCH-R2`, `ARCH-C`, `ARCH-D`: alternativas de arquitectura, distintas de las letras A/B/C/D empleadas en categorías de decisión y de otras taxonomías históricas.
+- `CONFLICTED` es un dictamen epistemológico; `CONFLICTO` puede ser un estado del perfil de sensores. No existe equivalencia automática.
+- `UNVERIFIED`/`VERIFIED` califican procedencia; `SUPPORTED`/`REFUTED`/`CONFLICTED`/`INSUFFICIENT`/`NOT_COMPARABLE` califican evaluación. No se sustituyen entre sí.
+
 ### Reglas Metodológicas de Mapeo
 1. **Verificación de Definiciones Literales:** Ninguna correspondencia se asigna por mera asociación temática superficial. Cada vínculo exige una justificación conceptual directa y verificable basada en el texto literal de la especificación original.
 2. **Tratamiento de Ausencia de Fixtures ("SIN FIXTURE DIRECTO"):** Cuando un criterio R carece de un fixture directo en la serie F-01..F-10 o E-01..E-10, se registra explícitamente el texto **"SIN FIXTURE DIRECTO"** y se propone formalmente un nuevo caso sintético (ej. F-11, F-12), **sin renumerar ni alterar la secuencia de los fixtures preexistentes**.
