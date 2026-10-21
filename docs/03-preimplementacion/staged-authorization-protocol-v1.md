@@ -58,13 +58,13 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 
 #### Subgate G2.2 — Autorización Expresa para Laboratorio Sintético Acotado (Harness)
 - **Propósito:** Conceder permiso acotado y exclusivo para construir y ejecutar el arnés de prueba sintético offline (*Offline Test Harness*) con datos en memoria volátil.
-- **Condiciones de Entrada:** Subgate G2.1 formalmente aprobado; delimitación estricta del alcance (cero red, cero persistencia, cero datos reales).
+- **Condiciones de Entrada:** Subgate G2.1 formalmente aprobado; delimitación estricta del alcance (cero red, cero persistencia duradera, cero datos reales); fixtures sintéticos normalizados, reglas de oráculo versionadas, tolerancias explícitas y esquema de salida fijados conforme a `comparative-contract-v1.md` §1.2; resolución expresa de la distinción entre código de laboratorio y código de producto, formato de intercambio y política de dependencias. Cualquier excepción adicional requiere registro específico del titular y no se presume por la aprobación de G2.1.
 - **Evidencia Requerida:** Orden de ejecución del titular especificando los límites del laboratorio sintético.
 - **Autoridad:** Titular del proyecto (@Axlfc).
 - **Resultado:** Permiso para ejecutar el laboratorio acotado (**Subgate G2.2 GO**). **No autoriza código de producción ni crates definitivos.**
 
 #### Subgate G2.3 — Obtención y Evaluación de Evidencia Experimental Sintética
-- **Propósito:** Recopilar y analizar los resultados observables producidos por las alternativas R1, R2, Híbrida C y Baseline D ante los fixtures sintéticos F-01..F-10.
+- **Propósito:** Recopilar y analizar los resultados observables producidos por las alternativas R1, R2, Híbrida C y Baseline D ante los fixtures sintéticos F-01..F-09 y cualquier caso adicional autorizado expresamente. **F-10/E-10 original permanece BLOQUEADO** y no forma parte de la ejecución por defecto.
 - **Condiciones de Entrada:** Finalización de las corridas sintéticas del laboratorio G2.2.
 - **Evidencia Requerida:** Informe de resultados del laboratorio documentando fidelidad, sobrecarga de tipos, comportamiento ante datos incompletos y abstenciones.
 - **Autoridad:** Titular del proyecto (@Axlfc).
