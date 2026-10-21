@@ -127,3 +127,7 @@ The historical adversarial audit assigned TH-012→SEC-015, TH-016→SEC-016 and
 4. Confirm the synthetic sensor profile version and its translation contract before experimental authorization (REV-17).
 
 No owner approval, test execution, code change, merge, or GO is implied by this addendum.
+
+## REV-20 README remediation (2026-10-21)
+
+The active `README.md` now describes the repository as publicly readable but unlicensed at repository level (GitHub API observation dated 2026-10-21), qualifies determinism as an unverified design hypothesis, distinguishes SEC-015..017 candidate specifications from executed tests, and links the preserved historical adversarial audit and this nonnormative triage. The historical `precode-review-checklist.md` still says “Repositorio privado” and remains an outdated snapshot; do not treat it as current evidence. OWASP references remain general/unpinned and must not be presented as proof of a specific reviewed edition. REV-20 is **PARTIAL DOCUMENTARY FIX**, not CLOSED.
