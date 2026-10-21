@@ -26,10 +26,20 @@ Esta hoja reúne decisiones pendientes; **ninguna casilla se considera marcada**
 
 Registrar: identificador, opción elegida, razonamiento, riesgos residuales, documentos/versión exactos, autoridad del decisor, fecha, alcance temporal, condiciones de revocación y contradicciones aceptadas o resueltas. Si faltan, el estado es **PENDIENTE**, no `ACCEPTED`.
 
+## Criterios de aceptación documental para DEC-02 y DEC-05 (propuesta, sin ejecución)
+
+Antes de solicitar una ratificación de comparación, el titular debe poder identificar la **revisión exacta** del contrato `comparative-contract-v1.md` y de la matriz `traceability-matrix-v1.md`. Los criterios añadidos en la PR #25 sobre controles positivos, oráculo independiente, abstención, denominadores, cohorte fija, repeticiones y segundo dominio **son candidatos**: no se convierten en reglas aprobadas por aparecer en un commit.
+
+- **DEC-02 — comparabilidad:** confirmar R1, R2, C y D bajo las mismas entradas y perfiles, incluir un segundo dominio no sensor, fijar la unidad `(case_id, architecture_id)`, distinguir repeticiones de nuevos casos y prohibir un ganador previo. Si se reduce el alcance, documentar qué conclusión deja de ser legítima.
+- **DEC-05 — oráculos:** fijar antes de cualquier observación el inventario y revisión de casos, expectativas, abstenciones admisibles, controles positivos y negativos, y clasificación de resultados. Registrar casos no evaluables y enmiendas sin borrarlos del denominador. F-11/F-12 siguen propuestos y no ejecutados; F-10/E-10 original sigue bloqueado.
+- **Evidencia y autoridad:** documentar por separado quién propone, quién revisa y quién ratifica; si no hay independencia comprobable, declararlo. La revisión documental de la PR no equivale a aprobación del protocolo ni a autorización de pruebas.
+
+**Resultado de la comprobación documental actual:** faltan ratificación del titular, oráculos y perfiles normalizados, controles observables, autorización del laboratorio y evidencia experimental. **DEC-02/05 PENDIENTES; G2.1 PENDIENTE; G2.2 BLOQUEADO.**
+
 ## Secuencia de desbloqueo propuesta
 
 1. Resolver DEC-07 y GAP-010/G3 sin modificar unilateralmente visibilidad o licencia.
-2. Definir DEC-01..06, REV-17 y REV-18; preservar E-10 bloqueado.
+2. Definir DEC-01..06, REV-13, REV-17 y REV-18; preservar E-10 bloqueado.
 3. Deliberar DEC-08 de forma **separada**: una decisión documental no autoriza construir o ejecutar harness.
 4. Revisar de manera independiente las evidencias y decidir explícitamente sobre G2.1; G2.2..G2.4 siguen bloqueados hasta sus propias condiciones.
 
