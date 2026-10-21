@@ -1,4 +1,4 @@
-# Resumen Ejecutivo para el Titulares del Proyecto — Paquete de Decisión v1 (HOLD)
+# Resumen Ejecutivo para los Titulares del Proyecto — Paquete de Decisión v1 (HOLD)
 
 **Cotitularidad declarada:** @Axlfc y @TopperH4rley. La presente corrección identifica a ambos como titulares del proyecto; **no presume** que cualquiera pueda ratificar unilateralmente, que se exija unanimidad ni que exista delegación. La regla de decisión conjunta, acreditación de identidad y mecanismo de resolución de desacuerdos quedan pendientes de acuerdo explícito de ambos (GAP-010 / REV-16). Hasta entonces, una firma o instrucción aislada no debe interpretarse como ratificación conjunta de gates.
 
@@ -42,12 +42,12 @@ La documentación de auditoría histórica (`informe-auditoria-adversarial-2026.
 4. **`DEC-04` (Privacidad / E-10):** Mantener E-10 **BLOQUEADO** para datos reales y **PROPONER solicitar autorización expresa a los titulares** para una prueba de ocultación lógica en memoria volátil.
 5. **`DEC-05` (Oráculos):** Deliberar sobre la matriz de pruebas negativas (F-01..F-09 y R-01..R-08), con F-10/E-10 BLOQUEADO y casos adicionales sujetos a aprobación con vocabulario estandarizado (`SUPPORTED`, `REFUTED`, `CONFLICTED`, `INSUFFICIENT`, `NOT_COMPARABLE`).
 6. **`DEC-06` (Persistencia):** Diferir el motor de persistencia duradera; fijar antes de G2.2 el formato versionado de intercambio sintético y los límites de E/S.
-7. **`DEC-07` (Licencia):** Los titulares ha indicado **CC BY 4.0** y se ha añadido `LICENSE.md` en esta PR para documentación original y materiales no software con derechos suficientes. La revisión de derechos de terceros, el cierre formal de `GAP-001` y la licencia de software futuro quedan pendientes. La observación de API `license=null` de 2026-10-21 precede a esta incorporación y no describe el estado de la rama actual.
-8. **`DEC-08` (Autorización de Código):** Mantener **HOLD / NO-GO** como recomendación provisional. El paquete distingue una eventual **excepción temporal y delimitada** que solo los titulares podría autorizar expresamente por acta, separando escritura, compilación y ejecución; ninguna está autorizada ahora. Aprobar documentación, G2.1 o una PR **no autoriza código, pruebas ni G3**.
+7. **`DEC-07` (Licencia):** Se ha recibido la instrucción de incorporar **CC BY 4.0** y se ha añadido `LICENSE.md` en esta PR para documentación original y materiales no software con derechos suficientes. La revisión de derechos de terceros, el cierre formal de `GAP-001` y la licencia de software futuro quedan pendientes. La observación de API `license=null` de 2026-10-21 precede a esta incorporación y no describe el estado de la rama actual.
+8. **`DEC-08` (Autorización de Código):** Mantener **HOLD / NO-GO** como recomendación provisional. El paquete distingue una eventual **excepción temporal y delimitada** que solo los titulares podrían autorizar expresamente por acta, separando escritura, compilación y ejecución; ninguna está autorizada ahora. Aprobar documentación, G2.1 o una PR **no autoriza código, pruebas ni G3**.
 
 ---
 
-## 4. Opciones de Acción Inmediata para el Titular (@Axlfc y @TopperH4rley)
+## 4. Opciones de Acción Inmediata para los Cotitulares (@Axlfc y @TopperH4rley)
 
 Los titulares dispone de tres alternativas claras de decisión:
 
