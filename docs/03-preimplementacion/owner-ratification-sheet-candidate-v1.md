@@ -24,6 +24,11 @@ Esta hoja reúne decisiones pendientes; **ninguna casilla se considera marcada**
 | REV-18 | ¿Se excluyen efectos remotos o se diseñan estados UNKNOWN y reconciliación? | Fuera del laboratorio / contrato remoto futuro separado | No afirmar exactly-once |
 | REV-20 | ¿Qué versiones normativas se emplearán? | Referencias fechadas verificadas / referencias orientativas sin mapeos estables | No afirmar cobertura normativa específica |
 
+
+## Preferencias registradas para deliberación (21-10-2026; no ratificadas)
+
+La propuesta detallada está en [decision-preferences-proposal-2026-10-21.md](decision-preferences-proposal-2026-10-21.md). Se recibieron preferencias por **delegación formal revocable a @Axlfc**, **separación de permisos para escribir/ejecutar/fusionar código**, **evaluación de GPL-3.0 para software futuro** y **primer corte offline con datos sintéticos**. No constituyen acta de ambos cotitulares, aceptación del delegado ni aprobación de DEC-01/02/07, GAP-010 o G3. La variante GPL-3.0-only frente a GPL-3.0-or-later queda pendiente; CC BY 4.0 documental no cambia. AUT-CODE, AUT-EXEC y AUT-MERGE son etiquetas candidatas, **ninguna concedida**.
+
 ## Evidencia exigible por decisión
 
 Registrar: identificador, opción elegida, razonamiento, riesgos residuales, documentos/versión exactos, autoridad del decisor, fecha, alcance temporal, condiciones de revocación y contradicciones aceptadas o resueltas. Si faltan, el estado es **PENDIENTE**, no `ACCEPTED`.
