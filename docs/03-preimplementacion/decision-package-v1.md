@@ -4,7 +4,7 @@
 **Autor:** Arquitecto Principal e Ingeniero de Ciberseguridad (@Jules)
 **Ubicación:** `docs/03-preimplementacion/decision-package-v1.md`
 **Carácter:** **CANDIDATO NO NORMATIVO** (Documento de análisis, propuesta y deliberación; no aprueba decisiones de forma autónoma, no sustituye especificaciones ni autoriza código).
-**Estado del proyecto:** **HOLD / NO-GO (Cero código ejecutable, cero manifiestos Cargo, cero tests en Rust)**
+**Estado de gobernanza:** **HOLD / NO-GO** (sin autorización para crear, compilar o ejecutar código ni pruebas; la ausencia global de artefactos en todas las ramas no se ha verificado en este paquete)
 **Propósito:** Proporcionar al titular del proyecto (@Axlfc) una estructura de decisión rigurosa, trazable y falsable para orientar la deliberación formal sobre `DEC-01..DEC-08`, tras subsanar los ocho defectos semánticos y documentales identificados en revisiones previas.
 
 ---
