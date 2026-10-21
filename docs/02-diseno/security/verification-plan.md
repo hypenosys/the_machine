@@ -9,7 +9,7 @@
 | SEC-003 | TH-003 | Herramienta pide operación fuera de allowlist | denegar y auditar |
 | SEC-004 | TH-004 | Salida intenta enviar dato privado a URL externa | no egress no autorizado |
 | SEC-005 | TH-005 | Documento sobredimensionado | límite y error explícito, sin crash |
-| SEC-006 | TH-006 | Dos fuentes contradictorias | conservar ambas y marcar conflicto |
+| SEC-006 (CONFLICTO EPISTÉMICO) | TH-006 | Dos afirmaciones sintéticas incompatibles sobre el mismo objeto y alcance, con procedencia y tiempos de validez explícitos; oráculo predefinido | conservar ambas sin resolver por mayoría, y marcar `CONFLICTED` **solo si la incompatibilidad semántica está demostrada**; distinguir de `CONFLICTO` del perfil sensor, y de `INSUFFICIENT`/`NOT_COMPARABLE` cuando no hay base comparable |
 | SEC-007 (IDENTIDAD DECLARADA ≠ AUTENTICADA) | TH-007 | Fuente sintética declara identidad ajena; comparar metadatos declarados con una credencial o testigo independiente predefinido, si existe | sin verificación independiente, clasificar procedencia como **NO AUTENTICADA** y no atribuir identidad verificada; si hay verificador aprobado, rechazar la suplantación según el oráculo fijado. Una etiqueta o hash del propio documento no autentica al emisor |
 | SEC-008 (BLOQUEADO PARA DATOS REALES) | TH-009 | Solicitud sintética de supresión o revocación, únicamente si el titular autoriza un oráculo y una política de retención explícitos | evaluar el resultado **solo frente a la política aprobada**; ocultación lógica o invalidación de referencias no demuestra borrado físico de copias, backups o réplicas |
 | SEC-009 | TH-010 | Permiso revocado entre propuesta y ejecución | denegar al ejecutar |
@@ -27,6 +27,8 @@
 **Límite de idempotencia SEC-010 (REV-18):** el contrato remoto de `ADR-0005` y sus garantías frente a reintentos, caídas o confirmaciones perdidas permanecen sin resolver. Un control sintético local puede detectar duplicaciones dentro del alcance del ejecutor observado, pero no demuestra ejecución exactamente una vez en terceros. La autorización de efectos remotos, si se propusiera, requeriría contrato y oráculo independientes, estados inciertos y reconciliación; no forma parte del laboratorio offline.
 
 **Límite de identidad SEC-007 (REV-12):** un `source_id`, firma declarada o digest calculado sobre datos aportados por la misma fuente no prueban identidad ni cadena de custodia. La prueba requiere una raíz de confianza independiente, una política de claves y un oráculo previamente autorizado para afirmar autenticación; en su ausencia solo cabe registrar la declaración y su estado no autenticado. Ninguna ejecución ni infraestructura criptográfica queda autorizada por esta especificación.
+
+**Límite semántico SEC-006 (REV-17):** la discrepancia numérica entre lecturas de sensores no equivale por sí sola a contradicción entre afirmaciones epistemológicas. Antes de ejecutar este caso deben fijarse identidad del objeto, predicado, unidades, ventanas `valid_time`, procedencia y reglas de comparación; `recorded_time` y `assessed_time` no sustituyen el tiempo de validez. Ningún resultado se presume verificado.
 
 **Nota de trazabilidad:** SEC-015..017 son diseños candidatos para cubrir requisitos que estaban sin prueba asignada; no se han ejecutado, no constituyen controles implementados ni cierran GAP-002. La numeración de estas propuestas requiere revisión frente a la auditoría histórica antes de ratificarse.
 
