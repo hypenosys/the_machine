@@ -113,10 +113,10 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 |---|---|---|---|---|
 | **G0** | Documentación e Investigación | NO | SÍ | EVALUACIÓN HISTÓRICA CONDICIONAL |
 | **G1** | Alcance y Especificación Candidate | NO | SÍ | EVALUACIÓN HISTÓRICA CONDICIONAL |
-| **G2.1** | Aprobación Documental del Protocolo v1 | NO | SÍ (Titular) | **PENDIENTE DE DELIBERACIÓN** |
-| **G2.2** | Autorización de Laboratorio Acotado | NO; posible excepción de harness solo con orden separada | SÍ (Titular) | **BLOQUEADO (Requiere G2.1 y excepción específica)** |
-| **G2.3** | Obtención de Evidencia Experimental | NO | SÍ (Titular) | **BLOQUEADO (Requiere G2.2)** |
-| **G2.4** | Selección de Arquitectura | NO | SÍ (Titular) | **BLOQUEADO (Requiere G2.3)** |
-| **G3** | Interpretación candidata: transición a implementación Rust | NO ACTUALMENTE; condicionado a definición de G3 ratificada y autorización expresa separada | SÍ (Titular en exclusiva) | **HOLD / NO-GO; DEFINICIÓN SIN RATIFICAR** |
-| **G4** | Despliegue y Aislamiento | NO ACTUALMENTE; hipotético tras gates y autorizaciones aplicables | SÍ (Titular) | **BLOQUEADO (Requiere G3)** |
-| **G5** | Operación y Mantenimiento | NO ACTUALMENTE; hipotético tras gates y autorizaciones aplicables | SÍ (Titular) | **BLOQUEADO (Requiere G4)** |
+| **G2.1** | Aprobación Documental del Protocolo v1 | NO | SÍ (Cotitulares; procedimiento pendiente de ratificación) | **PENDIENTE DE DELIBERACIÓN** |
+| **G2.2** | Autorización de Laboratorio Acotado | NO; posible excepción de harness solo con orden separada | SÍ (Cotitulares; procedimiento pendiente de ratificación) | **BLOQUEADO (Requiere G2.1 y excepción específica)** |
+| **G2.3** | Obtención de Evidencia Experimental | NO | SÍ (Cotitulares; procedimiento pendiente de ratificación) | **BLOQUEADO (Requiere G2.2)** |
+| **G2.4** | Selección de Arquitectura | NO | SÍ (Cotitulares; procedimiento pendiente de ratificación) | **BLOQUEADO (Requiere G2.3)** |
+| **G3** | Interpretación candidata: transición a implementación Rust | NO ACTUALMENTE; condicionado a definición de G3 ratificada y autorización expresa separada | SÍ (Cotitulares; procedimiento pendiente de ratificación) | **HOLD / NO-GO; DEFINICIÓN SIN RATIFICAR** |
+| **G4** | Despliegue y Aislamiento | NO ACTUALMENTE; hipotético tras gates y autorizaciones aplicables | SÍ (Cotitulares; procedimiento pendiente de ratificación) | **BLOQUEADO (Requiere G3)** |
+| **G5** | Operación y Mantenimiento | NO ACTUALMENTE; hipotético tras gates y autorizaciones aplicables | SÍ (Cotitulares; procedimiento pendiente de ratificación) | **BLOQUEADO (Requiere G4)** |
