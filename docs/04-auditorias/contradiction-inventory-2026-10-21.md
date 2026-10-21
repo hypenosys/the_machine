@@ -1,6 +1,6 @@
 # Inventario transversal de contradicciones — revisión documental de PR #25
 
-**Corte:** 21-10-2026. **Alcance:** árbol de la rama `docs/independent-review-remediation-20261021`, 87 archivos Markdown inventariados mediante GitHub Tree API (no truncado) y revisados por patrones de autoridad, licencia, estado de ejecución, gates y evidencia. La búsqueda por patrones **no constituye una prueba exhaustiva de equivalencia semántica** ni inspección de todas las ramas, enlaces, cifras y fórmulas. **Estado:** registro de auditoría documental, NO RATIFICADO; HOLD / NO-GO.
+**Corte:** 21-10-2026. **Alcance:** árbol de la rama `docs/independent-review-remediation-20261021`, 87 archivos Markdown inventariados mediante GitHub Tree API (no truncado) en el corte inicial; este número **no es** el recuento de archivos modificados de la PR y revisados por patrones de autoridad, licencia, estado de ejecución, gates y evidencia. La búsqueda por patrones **no constituye una prueba exhaustiva de equivalencia semántica** ni inspección de todas las ramas, enlaces, cifras y fórmulas. **Estado:** registro de auditoría documental, NO RATIFICADO; HOLD / NO-GO.
 
 ## Método y regla de clasificación
 
