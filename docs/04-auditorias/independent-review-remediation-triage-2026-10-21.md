@@ -37,9 +37,9 @@
 
 No Rust, Cargo, executable harness, CI, security experiment, accepted ADR, GO, or merge is authorized by this PR. G2.1 remains pending and G2.2 blocked.
 
-## Next action
+## Next action (updated after documentary corrections)
 
-A reviewer must validate each cited REV finding against exact files in current master, correct only **verified** documentary contradictions in a separate change set, and return a concise owner ratification sheet. Do not silently rewrite historical documents or claim that unverified ZIP assertions were independently reproduced.
+The initial instruction to prepare a separate documentary change set has been superseded: this same draft PR now contains scoped documentary corrections and an unfilled owner-ratification sheet. The **current** per-finding status is the consolidated REV-01..20 index below, not the initial triage tables. Before requesting merge, independently check the full diff against the original sources and the residual obligations in that index; do not silently rewrite historical documents or claim that the owner's ZIP review was independently reproduced in full.
 
 ## Verified remediation log (current PR branch; 2026-10-21)
 
@@ -139,6 +139,8 @@ The active `README.md` now describes the repository as publicly readable but unl
 - Source check: `precode-review-checklist.md` explicitly labels itself the **Iteración 10** snapshot and says `Repositorio privado`. It remains historical; the active README and decision documents correct this using GitHub API evidence. No retrospective edit to the snapshot.
 
 No external standards were independently fetched or version-verified in this pass; no tests were executed.
+
+**Nota de lectura:** las tablas anteriores se conservan como historial cronológico de la remediación y pueden reflejar estados intermedios. Para el estado vigente de cada REV, usar únicamente el índice consolidado que sigue, junto con las actualizaciones posteriores; ante discrepancia, prevalece el estado más restrictivo y se requiere nueva revisión documental.
 
 ## Registro consolidado de estados REV-01..20 (corte documental 2026-10-21)
 
