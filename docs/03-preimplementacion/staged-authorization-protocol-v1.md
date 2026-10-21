@@ -34,6 +34,12 @@ En resolución directa del **Defecto B-06** y para evitar la colisión con la no
 
 ---
 
+### Nota de revisión pendiente de ratificación (REV-01 / REV-03 / REV-05 / REV-06)
+
+Este protocolo es **candidato**, no una modificación efectiva de los gates históricos. Su afirmación de «armonización» es una hipótesis que requiere contrastar `security/security-gates.md`, `security/traceability.md` y los readiness reviews. Ante discrepancias prevalece **HOLD** hasta decisión expresa del titular sobre precedencia documental y autoridad. El significado de G3 (permiso para comenzar código frente a permiso para fusionarlo) sigue **SIN RATIFICAR**.
+
+G2.2 plantea construir un harness mientras el estado general prohíbe código ejecutable. **No hay excepción vigente**. Antes de autorizar cualquier experimento debe definirse por escrito si se admite código desechable, lenguaje, ubicación, duración, límites de E/S, dependencias, revisión y destrucción; una autorización documental G2.1 por sí sola no permite escribir ni ejecutar ese código. Las condiciones que siguen son **propuestas de entrada**, no gates superados.
+
 ## 2. Definición de Gates Históricos (G0..G5) y Subgates de Laboratorio (G2.1..G2.4)
 
 ### Gate G0 — Documentación e Investigación Preliminar
@@ -65,10 +71,10 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 
 #### Subgate G2.3 — Obtención y Evaluación de Evidencia Experimental Sintética
 - **Propósito:** Recopilar y analizar los resultados observables producidos por las alternativas R1, R2, Híbrida C y Baseline D ante los fixtures sintéticos F-01..F-09 y cualquier caso adicional autorizado expresamente. **F-10/E-10 original permanece BLOQUEADO** y no forma parte de la ejecución por defecto.
-- **Condiciones de Entrada:** Finalización de las corridas sintéticas del laboratorio G2.2.
-- **Evidencia Requerida:** Informe de resultados del laboratorio documentando fidelidad, sobrecarga de tipos, comportamiento ante datos incompletos y abstenciones.
+- **Condiciones de Entrada (propuesta):** Existencia de corridas sintéticas autorizadas, con evidencia íntegra y reproducible identificada por versión de fixtures, reglas, entorno y resultados observados. Una ejecución terminada no equivale a PASS ni habilita automáticamente G2.3.
+- **Evidencia Requerida (propuesta):** Informe de resultados por arquitectura y fixture con entrada, oráculo previo, salida, controles positivos/negativos, fallos, abstenciones, versión del entorno y limitaciones; registrar FAIL y NO EVALUABLE sin ocultarlos.
 - **Autoridad:** Titular del proyecto (@Axlfc).
-- **Resultado:** Informe de evidencia experimental validado (**Subgate G2.3 Completado**).
+- **Resultado (propuesto):** Informe revisado con fallos y límites explícitos; la valoración de evidencia no constituye selección de arquitectura ni ratificación automática de G2.3.
 
 #### Subgate G2.4 — Selección Formal de la Arquitectura de Representación
 - **Propósito:** Deliberar y seleccionar la arquitectura de representación definitiva (R1, R2, Híbrida C o D) basándose en la evidencia de G2.3.
