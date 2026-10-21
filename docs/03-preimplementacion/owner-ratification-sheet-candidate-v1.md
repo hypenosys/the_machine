@@ -64,6 +64,25 @@ Una futura decisión expresa del titular no debe entenderse como permiso permane
 
 **Estado actual:** no hay permisos ni gates ratificados que revocar. Este texto describe únicamente cómo deberían delimitarse decisiones futuras; no crea un mecanismo operativo, una política legal ni autoridad nueva. **HOLD / NO-GO**.
 
+## Acta de ratificación futura: campos mínimos sin cumplimentar
+
+La siguiente plantilla **no es un acta emitida**. No contiene firma, fecha de aprobación ni identidad verificada del decisor. Sirve para evitar que un comentario, una aprobación de PR o un silencio se interpreten como autorización.
+
+| Campo obligatorio | Valor actual |
+|---|---|
+| Identificador de decisión o gate | **PENDIENTE** |
+| Autoridad y competencia acreditadas | **PENDIENTE** |
+| Opción aprobada y alternativas descartadas | **PENDIENTE** |
+| Revisión exacta de documentos, casos y perfiles afectados | **PENDIENTE** |
+| Actividades permitidas y prohibidas; entorno y datos autorizados | **PENDIENTE** |
+| Riesgos residuales y contradicciones expresamente aceptadas | **PENDIENTE** |
+| Revisión independiente y conflictos de interés declarados | **PENDIENTE** |
+| Vigencia, caducidad y condiciones de suspensión o revocación | **PENDIENTE** |
+| Fecha, medio de constancia y referencia al registro de decisión | **PENDIENTE** |
+| Efecto sobre G2.1/G2.2/G2.3/G2.4/G3, especificado uno por uno | **NINGUNO — SIN RATIFICAR** |
+
+**Regla de interpretación:** no inferir consentimiento de una casilla vacía, del transcurso del tiempo, de un merge, de una revisión favorable o de la aprobación de otro gate. Un acta futura deberá enlazar la evidencia concreta que sustenta cada afirmación y declarar expresamente qué permanece bloqueado. La presencia de esta plantilla no constituye evidencia de aprobación.
+
 ## Secuencia de desbloqueo propuesta
 
 1. Resolver DEC-07 y GAP-010/G3 sin modificar unilateralmente visibilidad o licencia.
