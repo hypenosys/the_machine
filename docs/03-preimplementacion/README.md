@@ -56,4 +56,4 @@ Para orientar la deliberación formal de los cotitulares (@Axlfc y @TopperH4rley
 ---
 
 ## Regla de Parada y Prohibiciones
-No abrir PR de código, no crear crates, no añadir dependencias, no ejecutar pruebas invasivas y no aceptar ADR por inercia. La siguiente intervención debe ser una revisión consciente por parte del titular del paquete de decisión v1.
+No abrir PR de código, no crear crates, no añadir dependencias, no ejecutar pruebas invasivas y no aceptar ADR por inercia. La siguiente intervención debe ser una revisión consciente por parte de los cotitulares del paquete de decisión v1.
