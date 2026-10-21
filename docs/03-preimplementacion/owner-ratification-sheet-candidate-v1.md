@@ -12,7 +12,7 @@ Esta hoja reúne decisiones pendientes; **ninguna casilla se considera marcada**
 | DEC-04 | ¿Qué política de retención, supresión y restauración aplica? | Política concreta / excluir por completo | F-10/E-10 original BLOQUEADO |
 | DEC-05 | ¿Qué fixtures y oráculos versionados se autorizan? | F-01..09 y negativos aprobados / revisar alcance | Ninguna ejecución |
 | DEC-06 | ¿Qué intercambio sintético, formato, E/S y dependencias se permiten? | Especificación limitada / no laboratorio | No hay permiso implícito para persistencia duradera |
-| DEC-07 | ¿Es intencional que el repositorio sea público? ¿Qué licencia y derechos corresponden? | Mantener público con términos decididos / revisar visibilidad | GAP-001 OPEN; no licencia adoptada |
+| DEC-07 | **Instrucción recibida:** CC BY 4.0 para la documentación original; ¿qué materiales y titulares tienen derechos suficientes y qué licencia se aplicaría al software futuro? | Mantener la licencia documental incorporada en `LICENSE.md`, inventariar excepciones/terceros y decidir por separado sobre software y visibilidad | Licencia documental incorporada en la PR; `GAP-001` pendiente de revisión de alcance y cierre formal |
 | DEC-08 | ¿Se autoriza una excepción temporal para código de laboratorio? | Excepción con lenguaje, límites, duración y revocación / no excepción | Prohibición total de código sigue vigente |
 | GAP-010 | ¿Cuál es la precedencia normativa de documentos y quién ratifica gates? | Acta explícita de autoridad / mantener HOLD | G2.1 pendiente |
 | G3 | ¿G3 regula iniciar código o fusionarlo? | Definición ratificada y relación con excepciones / sin cambio | Interpretaciones históricas en conflicto |
@@ -47,7 +47,7 @@ Antes de solicitar una ratificación de comparación, el titular debe poder iden
 | Intercambio y privacidad | DEC-04/06: formato sintético, límites de E/S, retención y supresión | F-10/E-10 original BLOQUEADO; simulación de memoria no prueba borrado físico |
 | Seguridad y acción | REV-18 y verificaciones SEC-015..017 aún no ejecutadas | No afirmar exactly-once, aislamiento ni separación de acción comprobados |
 | Independencia y referencias | REV-16/20: revisor acreditado y referencias normativas fechadas | No atribuir validación independiente o cumplimiento normativo |
-| Distribución | DEC-07 / GAP-001: derechos, visibilidad y licencia decididos por titular | Publicación visible no concede automáticamente licencia de reutilización |
+| Distribución | DEC-07 / GAP-001: CC BY 4.0 documental indicada por el titular, inventario de derechos y licencia de software pendiente | El aviso `LICENSE.md` permite reutilizar **solo** materiales cubiertos; visibilidad pública no licencia contenidos de terceros ni código futuro |
 
 **Distinción de hitos:** la corrección documental puede preparar una decisión sobre G2.1, pero no sustituye su ratificación. Una eventual ratificación de G2.1 tampoco autoriza por sí sola G2.2, G2.3, G2.4 o G3. La excepción de código DEC-08, si alguna vez se concede, debe enumerar actividades permitidas y prohibidas; no se infiere de la aprobación de fixtures o de una PR.
 
@@ -85,7 +85,7 @@ La siguiente plantilla **no es un acta emitida**. No contiene firma, fecha de ap
 
 ## Secuencia de desbloqueo propuesta
 
-1. Resolver DEC-07 y GAP-010/G3 sin modificar unilateralmente visibilidad o licencia.
+1. Registrar el alcance de CC BY 4.0 documental ya incorporado en esta PR, revisar derechos de terceros y licencia de futuro software (DEC-07 / GAP-001); resolver por separado GAP-010/G3 sin alterar unilateralmente la visibilidad.
 2. Definir DEC-01..06, REV-13, REV-17 y REV-18; preservar E-10 bloqueado.
 3. Deliberar DEC-08 de forma **separada**: una decisión documental no autoriza construir o ejecutar harness.
 4. Revisar de manera independiente las evidencias y decidir explícitamente sobre G2.1; G2.2..G2.4 siguen bloqueados hasta sus propias condiciones.
