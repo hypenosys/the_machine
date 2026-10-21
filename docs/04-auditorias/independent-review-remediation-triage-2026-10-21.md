@@ -51,9 +51,9 @@ A reviewer must validate each cited REV finding against exact files in current m
 | REV-08 (partial) | `precode-decision-protocol-v0.md` F-03/F-10 and `offline-experiment-contract-candidate-v0.md` E-03/E-10 differ from `traceability-matrix-v1.md` | CONFIRMED / PARTIAL FIX | Restored F-03 provenance-only and F-10 privacy/history meaning in matrix; remaining R mapping still requires review |
 | REV-09 | `precode-decision-protocol-v0.md` comparative criteria included second domain, serialization/versioning and coupling absent from `comparative-contract-v1.md` §4.2 | CONFIRMED / DOCUMENTARY FIX | Added explicit cross-domain, lifecycle and coupling criteria; no experiments performed |
 | REV-11 (partial) | `requirements.md` SEC-REQ-015..017 were pending; `verification-plan.md` stopped at SEC-014 | CONFIRMED / PROPOSED FIX | SEC-015..017 now proposed in verification plan with correct TH-016/019/012 mapping; other traceability docs still need review |
-| REV-14 | `traceability-matrix-v1.md` F-12 requires absence of gateway event but gateway is out of scope | CONFIRMED / OPEN | Add independent boundary observer and positive control; not yet applied |
+| REV-14 | `traceability-matrix-v1.md` F-12 previously required absence of gateway event although gateway is out of scope | CONFIRMED / DOCUMENTARY FIX | Boundary observer plus positive control specified in F-12; no test executed |
 
-**Remaining findings:** REV-01, 03, 05, 06, 10, 12, 13, 15, 16, 17, 18, 19, 20 remain UNVERIFIED or OWNER_DECISION / EXPERIMENT as classified above. No claim of exhaustive remediation.
+**Remaining findings:** REV-01, 03, 05, 06, 13, 15, 16, 17, 18, 19, 20 remain UNVERIFIED or OWNER_DECISION / EXPERIMENT as classified above. REV-08, 10 and 11 remain PARTIAL. REV-12 and REV-14 have documentary fixes only, not empirical verification.
 
 ## Further verified changes on this branch
 
@@ -64,3 +64,11 @@ A reviewer must validate each cited REV finding against exact files in current m
 | REV-14 | F-12 in traceability v1 required no event in an out-of-scope Action Gateway. Now specifies independent boundary observation and a positive control; without them outcome is NOT EVALUABLE | DOCUMENTARY FIX; F-12 still PROPOSED / NOT EXECUTED |
 
 **Review warning:** This branch also changes gate prerequisites and test proposals; it must be independently reviewed against historical gate definitions and threat-to-requirement traceability before merge. No implicit G2.1 ratification.
+
+## Review follow-up (2026-10-21)
+
+- REV-11: `docs/02-diseno/security/traceability.md` now links TH-012/016/019 to SEC-REQ-017/015/016 and proposed SEC-017/015/016; none executed.
+- REV-09: `comparative-contract-v1.md` now references the preexisting `A6/A7`, `HET-002` and `HET-003` second-domain cases, distinguishing conceptual expectations from unapproved machine-readable fixtures.
+- REV-14: single current state is **DOCUMENTARY FIX / NOT EXECUTED**; the earlier OPEN label was stale and is corrected above.
+
+**Still blocking review:** REV-01/03/05/06 gate and authority ratification, REV-08 original R criterion interpretation, REV-13 temporal backdating experiment, and remaining owner decisions. The documentary edits are not ratification.
