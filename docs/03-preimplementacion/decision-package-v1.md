@@ -84,14 +84,14 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 - **Evidencia Observada:** E-10 figura como **BLOQUEADO** en `offline-experiment-contract-candidate-v0.md` (§4).
 - **Dependencias:** DEC-01, Política de Seguridad y Privacidad.
 - **Autoridad:** Titular del proyecto (@Axlfc).
-- **Recomendación Provisional (PROPUESTO):** Mantener E-10 original en estado **BLOQUEADO** para datos reales, y **PROPONER solicitar autorización expresa al titular** si se desea evaluar una simulación lógica acotada en memoria volátil under exención limitada.
+- **Recomendación Provisional (PROPUESTO):** Mantener E-10 original en estado **BLOQUEADO** para datos reales, y **PROPONER solicitar autorización expresa al titular** si se desea evaluar una simulación lógica acotada en memoria volátil bajo una autorización específica y limitada.
 
 ### DEC-05 — Oráculos de Falsación Negativos y Pruebas
 - **Opciones Evaluadas:**
-  - *Opción A:* Deliberación sobre la matriz de oráculos sintéticos F-01..F-09, E-01..E-09, L-01..L-10 y R-01..R-08; F-10/E-10 original permanece BLOQUEADO y F-11/F-12 son propuestas independientes, empleando la taxonomía estandarizada (`SUPPORTED`, `REFUTED`, `CONFLICTED`, `INSUFFICIENT`, `NOT_COMPARABLE`) y distinguiendo dictamens de errores internos del sistema (`INTERNAL_FAILURE`, `MALFORMED`).
+  - *Opción A:* Deliberación sobre la matriz de oráculos sintéticos F-01..F-09, E-01..E-09, L-01..L-10 y R-01..R-08; F-10/E-10 original permanece BLOQUEADO y F-11/F-12 son propuestas independientes, empleando la taxonomía estandarizada (`SUPPORTED`, `REFUTED`, `CONFLICTED`, `INSUFFICIENT`, `NOT_COMPARABLE`) y distinguiendo dictámenes de errores internos del sistema (`INTERNAL_FAILURE`, `MALFORMED`).
   - *Opción B:* Validación basada únicamente en casos de éxito (happy path).
 - **Costes y Complejidad:** Requiere construir oráculos de abstención (`NOT_COMPARABLE`, `INSUFFICIENT`) y detección de contradicción (`CONFLICTED`).
-- **Riesgos Asociados:** Sin oráculos negativos, el sistema puede inflar la certeza o validar fuentes no autenticadas.
+- **Riesgos Asociados:** Sin oráculos negativos, el sistema puede inflar la certeza o tratar procedencia no verificada como autenticada.
 - **Evidencia Requerida:** Matriz de trazabilidad v1 (`traceability-matrix-v1.md`).
 - **Dependencias:** DEC-01, DEC-02.
 - **Autoridad:** Titular del proyecto (@Axlfc).
