@@ -20,9 +20,9 @@ Se catalogan las condiciones técnicas, jurídicas o normativas que impiden avan
   3. *Exclusión explícita del alcance:* Posibilidad de excluir formalmente E-10 del primer laboratorio sintético sin prometer ni certificar privacidad garantizada.
 
 ### BLOQUEO-02 — Ausencia de Licencia Legal (`GAP-001`)
-- **Estado Real:** **BLOQUEADO para distribución o contribución pública**.
+- **Estado Real:** **REPOSITORIO PÚBLICO SIN LICENCIA DETECTADA; distribución y contribuciones externas sin permisos claros**. GitHub API `repos/hypenosys/the_machine` (consulta 2026-10-21): `visibility=public`, `private=false`, `license=null`. Esto no demuestra ausencia de avisos de derechos en archivos individuales ni concede permisos de reutilización.
 - **Descripción:** El repositorio carece de archivo `LICENSE`. Jurídicamente, todo el contenido permanece bajo derechos de autor reservados (*All Rights Reserved*).
-- **Condición de Desbloqueo:** Elección e incorporación formal del archivo de licencia por parte del titular (@Axlfc) en `DEC-07`.
+- **Condición de Desbloqueo:** Decisión expresa del titular sobre visibilidad, derechos de terceros y licencia en `DEC-07`, seguida de publicación de los términos elegidos. No cambiar visibilidad ni adoptar licencia automáticamente.
 
 ### BLOQUEO-03 — Autoridad Normativa Indefinida (`GAP-010`)
 - **Estado Real:** **BLOQUEADO para la adopción normativa de especificaciones**.
@@ -52,9 +52,9 @@ Se catalogan las condiciones técnicas, jurídicas o normativas que impiden avan
 
 En cumplimiento de las reglas metodológicas de `AGENTS.md` (Regla 2: "No inventar pruebas"), se aclara la distinción estricta entre una **propuesta de especificación de test** y una **prueba ejecutada**:
 
-- **TH-012 (Confused Deputy):** Se ha diseñado la especificación de prueba sintética `SEC-015` en la documentación. **Estado de Ejecución: NO EJECUTADO / UNVERIFIED**.
-- **TH-016 (Backup irrecuperable / Persistencia Inconsistente):** Se ha diseñado la especificación de prueba sintética `SEC-016`. **Estado de Ejecución: NO EJECUTADO / UNVERIFIED**.
-- **TH-019 (Insider Abuse / Alteración Unilateral de Reglas):** Se ha diseñado la especificación de prueba sintética `SEC-017`. **Estado de Ejecución: NO EJECUTADO / UNVERIFIED**.
+- **TH-012 (Confused Deputy):** Prueba candidata `SEC-017` vinculada a `SEC-REQ-017` en `security/verification-plan.md` y `security/traceability.md`. **PROPUESTA / NO EJECUTADA**. El informe adversarial histórico usaba otro número; no confundirlo con la asignación candidata actual.
+- **TH-016 (Backup irrecuperable / Persistencia Inconsistente):** Prueba candidata `SEC-015` vinculada a `SEC-REQ-015` para restauración de backup. **PROPUESTA / NO EJECUTADA**. La antigua `SEC-016` del informe adversarial comprobaba corrupción en carga, que no demuestra recuperabilidad.
+- **TH-019 (Insider Abuse / Alteración Unilateral de Reglas):** Prueba candidata `SEC-016` vinculada a `SEC-REQ-016` para separación de autoridad. **PROPUESTA / NO EJECUTADA**.
 
 **Conclusión:** `GAP-002` se mantiene estrictamente en estado **OPEN** hasta que las pruebas propuestas sean implementadas, ejecutadas y verificadas empíricamente.
 
