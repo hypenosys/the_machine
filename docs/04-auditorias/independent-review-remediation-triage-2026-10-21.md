@@ -3,7 +3,7 @@
 **Date:** 2026-10-21  
 **Status:** CANDIDATE / NON-NORMATIVE · HOLD / NO-GO  
 **Base:** master at `0015cd33243827a0eb99c533107c8480055ebd0f`  
-**Source:** Independent technical review supplied by the project owner (REV-01..REV-20). Its ZIP-based findings are **claims to verify**, not automatically accepted facts. This document does not alter ADRs, approve G2.1/G2.2, authorize code, or close gaps.
+**Source:** Independent technical review supplied in the project conversation (REV-01..REV-20); its authorship and reviewer independence have not been independently verified. Its ZIP-based findings are **claims to verify**, not automatically accepted facts. This document does not alter ADRs, approve G2.1/G2.2, authorize code, or close gaps.
 
 ## Actionable classification
 
@@ -92,7 +92,7 @@ A synthetic sequence with immutable registration ordinal `seq` distinct from cal
 
 ## Governance residuals
 
-- REV-01/03/05/06: `staged-authorization-protocol-v1.md` now identifies the unresolved historical gate precedence, G3 meaning, and lack of any current code/harness exception. Only the owner can ratify a resolution.
+- REV-01/03/05/06: `staged-authorization-protocol-v1.md` now identifies the unresolved historical gate precedence, G3 meaning, and lack of any current code/harness exception. Only the cotitulares, through a ratified authority process, can resolve this normatively.
 - REV-13: a negative and positive temporal oracle is proposed above, but no experimental result exists.
 - REV-08: this errata preserves the historical audit rather than silently rewriting it; criteria and proposed oracle variants remain distinct.
 
@@ -108,7 +108,7 @@ The historical adversarial audit assigned TH-012→SEC-015, TH-016→SEC-016 and
 
 - `decision-package-v1.md` and `executive-summary-v1.md` no longer recommend adopting the blocked original F-10/E-10 in the initial experiment. Original E-10 stays BLOCKED; additional F-11/F-12 remain candidate-only.
 - DEC-06 distinguishes synthetic laboratory interchange and versioned input/output from deferred durable database selection. No persistence technology or dependency is approved.
-- DEC-07 and the executive summary now reflect the **already public** repository and absent detected repository license, rather than treating public availability as a future event.
+- DEC-07 and the executive summary reflect the **already public** repository; the original API observation `license=null` preceded the subsequent incorporation of `LICENSE.md` with CC BY 4.0 for original documentation in this PR. Third-party rights, future software licensing and GAP-001 closure remain open.
 - The executive summary no longer claims historical gate harmonization is complete. `security/security-gates.md` explicitly defines G3 as **before merging executable code**, while `staged-authorization-protocol-v1.md` frames G3 as **before writing Rust code**. Both remain unratified and unreconciled; do not silently pick either as binding.
 
 **Residual:** REV-01/03/05/06/15/16/17/18/19/20 require remaining owner decisions or targeted verification. This pass is editorial/documentary only and does not change the HOLD status.
@@ -130,7 +130,7 @@ No owner approval, test execution, code change, merge, or GO is implied by this 
 
 ## REV-20 README remediation (2026-10-21)
 
-The active `README.md` now describes the repository as publicly readable but unlicensed at repository level (GitHub API observation dated 2026-10-21), qualifies determinism as an unverified design hypothesis, distinguishes SEC-015..017 candidate specifications from executed tests, and links the preserved historical adversarial audit and this nonnormative triage. The historical `precode-review-checklist.md` still says “Repositorio privado” and remains an outdated snapshot; do not treat it as current evidence. OWASP references remain general/unpinned and must not be presented as proof of a specific reviewed edition. REV-20 is **PARTIAL DOCUMENTARY FIX**, not CLOSED.
+The active `README.md` now describes the repository as publicly readable (GitHub API observation dated 2026-10-21) and the later documentary CC BY 4.0 license in `LICENSE.md`, qualifies determinism as an unverified design hypothesis, distinguishes SEC-015..017 candidate specifications from executed tests, and links the preserved historical adversarial audit and this nonnormative triage. The historical `precode-review-checklist.md` still says “Repositorio privado” and remains an outdated snapshot; do not treat it as current evidence. OWASP references remain general/unpinned and must not be presented as proof of a specific reviewed edition. REV-20 is **PARTIAL DOCUMENTARY FIX**, not CLOSED.
 
 ## Decision handoff and reference hygiene (REV-16 / REV-20)
 
