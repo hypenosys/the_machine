@@ -36,6 +36,21 @@ Antes de solicitar una ratificación de comparación, el titular debe poder iden
 
 **Resultado de la comprobación documental actual:** faltan ratificación del titular, oráculos y perfiles normalizados, controles observables, autorización del laboratorio y evidencia experimental. **DEC-02/05 PENDIENTES; G2.1 PENDIENTE; G2.2 BLOQUEADO.**
 
+## Matriz de dependencias para deliberación (no equivale a autorización)
+
+| Dependencia | Evidencia o decisión mínima pendiente | Consecuencia mientras falte |
+|---|---|---|
+| Autoridad documental | GAP-010: precedencia de fuentes, titular competente, acta explícita y alcance | Ningún documento candidato desplaza a los originales ni ratifica gates |
+| Alcance y permisos | DEC-01 y DEC-08 separados: delimitar laboratorio, excepción de código y su revocación | Aprobar alcance conceptual no autoriza construir ni ejecutar |
+| Comparación | DEC-02, DEC-05 y REV-17: segundo dominio, perfiles, oráculos y controles versionados | No existe comparación ejecutable ni ganador legítimo |
+| Tiempo y atribución | DEC-03 y REV-13: frontera E/S, reloj inyectado y eventual testigo independiente | Determinismo y resistencia a retrodatación no demostrados |
+| Intercambio y privacidad | DEC-04/06: formato sintético, límites de E/S, retención y supresión | F-10/E-10 original BLOQUEADO; simulación de memoria no prueba borrado físico |
+| Seguridad y acción | REV-18 y verificaciones SEC-015..017 aún no ejecutadas | No afirmar exactly-once, aislamiento ni separación de acción comprobados |
+| Independencia y referencias | REV-16/20: revisor acreditado y referencias normativas fechadas | No atribuir validación independiente o cumplimiento normativo |
+| Distribución | DEC-07 / GAP-001: derechos, visibilidad y licencia decididos por titular | Publicación visible no concede automáticamente licencia de reutilización |
+
+**Distinción de hitos:** la corrección documental puede preparar una decisión sobre G2.1, pero no sustituye su ratificación. Una eventual ratificación de G2.1 tampoco autoriza por sí sola G2.2, G2.3, G2.4 o G3. La excepción de código DEC-08, si alguna vez se concede, debe enumerar actividades permitidas y prohibidas; no se infiere de la aprobación de fixtures o de una PR.
+
 ## Secuencia de desbloqueo propuesta
 
 1. Resolver DEC-07 y GAP-010/G3 sin modificar unilateralmente visibilidad o licencia.
