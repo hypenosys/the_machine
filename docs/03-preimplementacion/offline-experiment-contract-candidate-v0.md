@@ -61,7 +61,7 @@ Esta tabla especifica **capacidades observables**, no exige seis estructuras fí
 4. Resolver E-10 o excluirlo expresamente del primer corte con justificación y seguimiento.
 5. Fijar límites de recursos, plataforma, toolchain y procedimiento de reproducción.
 6. Revisar amenazas del corte y pruebas negativas; documentar riesgos residuales y responsables.
-7. Determinar licencia antes de distribución pública y estado de ADR relevantes o excepciones limitadas.
+7. Verificar alcance y derechos de la licencia documental CC BY 4.0 ya incorporada en `LICENSE.md`, y decidir por separado licencia del software futuro antes de distribuirlo; registrar estado de ADR relevantes o excepciones limitadas. La publicación actual del repositorio no equivale a autorización de experimentos.
 8. Registrar decisión **GO expresa de los cotitulares, conforme a un mecanismo de gobernanza ratificado,** si, y solo si, los criterios de `readiness-review.md` quedan satisfechos o exceptuados formalmente.
 
 **Estado final:** CONTRACT CANDIDATE / HOLD. Este documento **no autoriza Rust, Cargo, CI ni cambios de ADR**.
