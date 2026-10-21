@@ -4,7 +4,7 @@
 **Autor:** Arquitecto Principal e Ingeniero de Ciberseguridad (@Jules)
 **Ubicación:** `docs/03-preimplementacion/traceability-matrix-v1.md`
 **Carácter:** **CANDIDATO NO NORMATIVO** (Matriz de trazabilidad y correspondencia de pruebas sintéticas pre-código).
-**Estado del proyecto:** **HOLD / NO-GO (Cero código ejecutable, cero manifiestos Cargo)**
+**Estado de gobernanza:** **HOLD / NO-GO** (sin autorización para escribir, compilar o ejecutar código; esta matriz no acredita la ausencia de código o manifiestos Cargo en todas las ramas del repositorio)
 
 ---
 
@@ -74,7 +74,7 @@ A continuación se consolida la matriz completa de los diez fixtures sintéticos
 
 | ID Fixture | Precondición y Entrada Sintética | Resultado Esperado Observable | Oráculo E Mapeado | Escenario L Mapeado | Estado de Ejecución |
 |---|---|---|---|---|---|
-| **F-01** | Dos mediciones sintéticas en mismo instante/ámbito con valores incompatibles | Detección de conflicto, preservación de ambas lecturas y estado `CONFLICTED` | **E-01** | N/A | **NO EJECUTADO** |
+| **F-01** | Dos mediciones sintéticas en mismo instante/ámbito con valores incompatibles | Preservar ambas lecturas y detectar incompatibilidad **según el oráculo del perfil**. `CONFLICTO` (sensor) y `CONFLICTED` (dictamen epistemológico) son salidas distintas: ninguna traducción entre ellas está aprobada; no exigir `CONFLICTED` por la mera diferencia numérica | **E-01** | N/A | **NO EJECUTADO** |
 | **F-02** | Dos valores con unidades o alcances no comparables sin regla de conversión | Abstención de juicio y respuesta estructurada `NOT_COMPARABLE` | **E-02** | N/A | **NO EJECUTADO** |
 | **F-03** | Fuente no autenticada declara un hecho pretendiendo ser autenticada | Marcado de procedencia como `UNVERIFIED`; no elevar a `VERIFIED` por autodeclaración. El fixture original no exige un dictamen epistémico `INSUFFICIENT`. | **E-03** | **L-08 (Indirecto)** | **NO EJECUTADO** |
 | **F-04** | Dos informes sintéticos derivados de una misma fuente primaria común | Identificación de ancestro común; no contar como corroboración independiente | **E-04** | **L-03** | **NO EJECUTADO** |
