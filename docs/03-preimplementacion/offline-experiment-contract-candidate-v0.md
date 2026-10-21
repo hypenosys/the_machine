@@ -62,6 +62,6 @@ Esta tabla especifica **capacidades observables**, no exige seis estructuras fí
 5. Fijar límites de recursos, plataforma, toolchain y procedimiento de reproducción.
 6. Revisar amenazas del corte y pruebas negativas; documentar riesgos residuales y responsables.
 7. Determinar licencia antes de distribución pública y estado de ADR relevantes o excepciones limitadas.
-8. Registrar decisión **GO expresa del titular** si, y solo si, los criterios de `readiness-review.md` quedan satisfechos o exceptuados formalmente.
+8. Registrar decisión **GO expresa de los cotitulares, conforme a un mecanismo de gobernanza ratificado,** si, y solo si, los criterios de `readiness-review.md` quedan satisfechos o exceptuados formalmente.
 
 **Estado final:** CONTRACT CANDIDATE / HOLD. Este documento **no autoriza Rust, Cargo, CI ni cambios de ADR**.
