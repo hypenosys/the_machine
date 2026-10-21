@@ -35,7 +35,7 @@ Se catalogan las condiciones técnicas, jurídicas o normativas que impiden avan
 
 | ID Brecha | Dominio | Severidad | Estado Real | Riesgo Residual Vigente |
 |---|---|---|---|---|
-| **GAP-001** | Gobernanza / Licencias | Medium | **OPEN** | Imposibilidad legal de aceptar contribuciones o publicar código de forma abierta. |
+| **GAP-001** | Gobernanza / Licencias | Medium | **OPEN** | Repositorio ya público sin licencia detectada: permisos generales de reutilización y contribución externa sin aclarar; DEC-07 pendiente. |
 | **GAP-002** | Seguridad / Cobertura | High | **OPEN** | Amenazas TH-012, TH-016 y TH-019 carecen de pruebas ejecutadas en el plan global. |
 | **GAP-003** | Arquitectura / Tiempo | High | **OPEN** | Falta de esquema formal de serialización y parsing de marcas bitemporales en Rust. |
 | **GAP-004** | Seguridad / Adversario | High | **OPEN** | Inexistencia de anclaje de confianza si un atacante posee privilegios locales en el host. |
@@ -70,4 +70,4 @@ A fin de erradicar afirmaciones absolutas o injustificadas (Defecto B-05), se cl
 | **Inmutabilidad del historial** | Propiedad Deseada | **HIPÓTESIS** | Depende del diseño de la estructura de datos en memoria; no protege contra corrupción de disco o RAM. |
 | **Cero superficie de ataque** | Afirmación Errónea | **FALSO / ELIMINADO** | Todo software posee superficie de ataque; la meta es minimizar el privilegio local. |
 | **Aislamiento absoluto de seguridad** | Afirmación Errónea | **FALSO / ELIMINADO** | Las fronteras entre Evaluador y Acción son lógicas; no constituyen un sandbox de memoria de SO. |
-| **Fidelidad de representación** | Propiedad Deseada | **HIPÓTESIS A PROBAR** | Requiere la corrida exitosa de los fixtures F-01..F-10 en el laboratorio sintético. |
+| **Fidelidad de representación** | Propiedad Deseada | **HIPÓTESIS A PROBAR** | Requiere pruebas autorizadas sobre F-01..F-09 y los casos adicionales expresamente aprobados; F-10/E-10 original permanece BLOQUEADO. |
