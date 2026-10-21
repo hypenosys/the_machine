@@ -8,7 +8,7 @@ Esta hoja reúne decisiones pendientes; **ninguna casilla se considera marcada**
 |---|---|---|---|
 | DEC-01 | ¿Limitar el primer corte a datos sintéticos, offline, sin efectos externos? | Sí / cambiar alcance documentando nuevos riesgos | Sin autorización de experimento |
 | DEC-02 | ¿Comparar R1, R2, C y D, con segundo dominio y sin ganador previo? | Comparación completa / reducir con justificación | G2.2 bloqueado |
-| DEC-03 | ¿Qué autoridad tendrá el orden de registro y el tiempo inyectado? | Testigo independiente definido / limitar afirmaciones temporales | REV-13 no verificable |
+| DEC-03 | ¿Se delimita el núcleo puro sin E/S ni acceso al reloj, con E/S sintética en el harness? | Núcleo funcional y harness delimitado / abstracciones de E/S con riesgos explícitos | Frontera núcleo–harness pendiente; determinismo no demostrado |
 | DEC-04 | ¿Qué política de retención, supresión y restauración aplica? | Política concreta / excluir por completo | F-10/E-10 original BLOQUEADO |
 | DEC-05 | ¿Qué fixtures y oráculos versionados se autorizan? | F-01..09 y negativos aprobados / revisar alcance | Ninguna ejecución |
 | DEC-06 | ¿Qué intercambio sintético, formato, E/S y dependencias se permiten? | Especificación limitada / no laboratorio | No hay permiso implícito para persistencia duradera |
@@ -16,6 +16,7 @@ Esta hoja reúne decisiones pendientes; **ninguna casilla se considera marcada**
 | DEC-08 | ¿Se autoriza una excepción temporal para código de laboratorio? | Excepción con lenguaje, límites, duración y revocación / no excepción | Prohibición total de código sigue vigente |
 | GAP-010 | ¿Cuál es la precedencia normativa de documentos y quién ratifica gates? | Acta explícita de autoridad / mantener HOLD | G2.1 pendiente |
 | G3 | ¿G3 regula iniciar código o fusionarlo? | Definición ratificada y relación con excepciones / sin cambio | Interpretaciones históricas en conflicto |
+| REV-13 / tiempo | ¿Cómo distinguir orden de registro real de un `recorded_time` inyectado? | Testigo independiente / limitar las afirmaciones temporales | R-04 y resistencia a retrodatación no demostrados |
 | REV-16 | ¿Cómo se acredita independencia de autoría, revisión y aprobación? | Revisores distintos con evidencia / declarar revisión no independiente | No atribuir revisión independiente |
 | REV-17 | ¿Se versiona por separado perfil sensor y contrato genérico? | Adaptador, UTC, tolerancias y estados ratificados / diferir | No comparar semánticas incompatibles |
 | REV-18 | ¿Se excluyen efectos remotos o se diseñan estados UNKNOWN y reconciliación? | Fuera del laboratorio / contrato remoto futuro separado | No afirmar exactly-once |
