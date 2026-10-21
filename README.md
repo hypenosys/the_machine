@@ -7,10 +7,10 @@
 ## 1. Identidad y propósito
 
 ### ¿Qué es THE MACHINE?
-**THE MACHINE** es un proyecto en fase de **diseño conceptual y preimplementación** concebido para explorar una arquitectura local (*Local-First*), orientada a la seguridad y determinista para el análisis de información, la verificación de procedencia y la evaluación asistida por modelos de lenguaje (LLM/IA).
+**THE MACHINE** es un proyecto en fase de **diseño conceptual y preimplementación** concebido para explorar una arquitectura local (*Local-First*), orientada a la seguridad y con determinismo como hipótesis de diseño pendiente de verificación para el análisis de información, la verificación de procedencia y la evaluación asistida por modelos de lenguaje (LLM/IA).
 
 ### Estado de propiedad y licenciamiento
-**Actualmente es un proyecto privado con intención de apertura pública**. El archivo de licencia legal (`LICENSE`) está pendiente de incorporación (**GAP-001**). Corresponderá al titular del proyecto evaluar y seleccionar la licencia adecuada (por ejemplo, MIT, Apache-2.0, Dual MIT/Apache-2.0, MPL-2.0 u otra) previo a cualquier distribución o apertura pública de contribuciones.
+**El repositorio es público**, según GitHub API consultada el 21-10-2026 (`visibility=public`, `private=false`), pero no tiene licencia de repositorio detectada (`license=null`; **GAP-001 OPEN**). Ser públicamente legible no concede por sí mismo permisos de reutilización o redistribución. El titular debe decidir visibilidad, titularidad de derechos y licencia; no se presupone una elección.
 
 ### Entrada rápida para principiantes (sin saber programar)
 No necesitas experiencia previa en programación para comprender THE MACHINE ni para participar en la revisión de sus ideas:
@@ -93,7 +93,9 @@ Toda la documentación técnica se encuentra organizada en `docs/`:
   - [`architecture-review.md`](docs/04-auditorias/architecture-review.md): Evaluación de arquitectura y comparación de Opciones A, B, C y D.
   - [`security-review.md`](docs/04-auditorias/security-review.md): Revisión de seguridad, trazabilidad de amenazas y evaluación de riesgos.
   - [`research-evidence.md`](docs/04-auditorias/research-evidence.md): Fuentes de investigación, marcos normativos (NIST, OWASP, MITRE, SLSA, W3C) y límites de conectividad.
-  - [`readiness-assessment.md`](docs/04-auditorias/readiness-assessment.md): Evaluación de Readiness Gates G0-G5 y recomendación CONDITIONAL GO.
+  - [`readiness-assessment.md`](docs/04-auditorias/readiness-assessment.md): Evaluación histórica de Readiness Gates G0-G5; cualquier recomendación CONDITIONAL GO no es autorización.
+  - [`informe-auditoria-adversarial-2026.md`](docs/04-auditorias/informe-auditoria-adversarial-2026.md): Informe adversarial histórico, preservado como fuente, no norma ratificada.
+  - [`independent-review-remediation-triage-2026-10-21.md`](docs/04-auditorias/independent-review-remediation-triage-2026-10-21.md): Seguimiento candidato de hallazgos REV-01..20 en la PR documental #25; no sustituye decisiones del titular.
 
 ---
 
@@ -112,7 +114,7 @@ El diseño de seguridad de THE MACHINE se basa en la prevención proactiva:
 
 Entre los 10 hallazgos registrados en [`docs/04-auditorias/gap-register.md`](docs/04-auditorias/gap-register.md), destacan:
 1. **GAP-001**: Licencia legal pendiente (`LICENSE`).
-2. **GAP-002**: Cobertura de pruebas pendientes para amenazas TH-012, TH-016 y TH-019 en la matriz global.
+2. **GAP-002**: SEC-015..017 están documentadas como pruebas candidatas para TH-016, TH-019 y TH-012 respectivamente; ninguna ha sido ejecutada o verificada.
 3. **GAP-003**: Incompleitud en la especificación formal y serialización de campos temporales (`valid_time`, `recorded_time`, `assessed_time`).
 4. **GAP-004**: Indefinición del modelo de adversario y anclaje de confianza para persistencia de capacidades locales.
 5. **GAP-005**: Registros de decisión de arquitectura (ADR) en estado `Proposed`.
@@ -123,7 +125,7 @@ Entre los 10 hallazgos registrados en [`docs/04-auditorias/gap-register.md`](doc
 
 1. **Hito 1**: Decisión sobre el archivo de licencia (`GAP-001`) y adopción de la gobernanza de ADRs.
 2. **Hito 2**: Evaluación y decisión sobre la especificación del núcleo (Opción A vs. Opción B) y formalización de la semántica temporal (`GAP-003`).
-3. **Hito 3**: Asignación de pruebas pendientes en la matriz de trazabilidad de seguridad (`GAP-002`).
+3. **Hito 3**: Revisión y autorización de las pruebas candidatas SEC-015..017; su existencia documental no cierra `GAP-002`.
 4. **Hito 4**: Decisión expresa del titular para evaluar la recomendación de un primer experimento minimalista offline de dos sensores (`docs/03-preimplementacion/vertical-slice-a.md`).
 
 ---
