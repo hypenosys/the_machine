@@ -172,6 +172,12 @@ Este registro prevalece **solo como índice de seguimiento dentro de este docume
 **Regla de salida:** ningún estado de esta tabla autoriza implementación, pruebas, merge, aceptación de ADR o cambio de gate. La hoja `owner-ratification-sheet-candidate-v1.md` está en blanco y no representa consentimiento.
 
 
+## Actualización posterior — DEC-07 / REV-15 (licencia documental CC BY 4.0)
+
+**Observación histórica preservada:** la consulta a GitHub del 21-10-2026 que devolvió `license=null` es anterior a la incorporación de `LICENSE.md` en esta rama. No debe citarse como prueba de ausencia de licencia **actual** en la PR. La instrucción expresa del titular fue añadir **CC BY 4.0**, implementada mediante un aviso de licencia documental y referencia al texto oficial. Se ha sincronizado la elección en README, paquete de decisiones, resumen ejecutivo y hoja de ratificación candidata.
+
+**Estado actualizado de REV-15:** **CORRECCIÓN DOCUMENTAL / RESIDUO JURÍDICO**. Ya existe una licencia documental candidata en la PR; no se ha inventariado ni acreditado la titularidad de todos los materiales, ni se ha decidido licencia para código futuro. `GAP-001` conserva su estado histórico OPEN hasta la verificación y cierre formal competente. Ningún commit licencia contenido de terceros sin derechos suficientes. Esta actualización **prevalece para el seguimiento REV-15** sobre las frases históricas anteriores «sin licencia detectada» o «DEC-07 pendiente»; esas frases solo describen el corte anterior a la licencia.
+
 ## Revisión cruzada posterior: DEC-03, comparación y autoridad (documental)
 
 Se contrastaron las entradas vigentes de `owner-ratification-sheet-candidate-v1.md`, `decision-package-v1.md` y `executive-summary-v1.md` en la rama de la PR #25. Se detectó y corrigió una **colisión de identificador**: la primera hoja atribuía a **DEC-03** la autoridad temporal del registro, mientras los otros dos documentos reservaban **DEC-03** para la frontera núcleo puro/harness. La hoja vuelve a asignar DEC-03 a E/S y registra la cuestión del testigo de orden por separado como **REV-13**. La corrección es editorial; no ratifica ni una ni otra decisión.
