@@ -70,7 +70,7 @@ Fuentes contrastadas en `master`: `finch-consolidation-troubleshooting-candidate
 
 ## 3. Matriz Completa de Fixtures F-01..F-10 y Oráculos E-01..E-10
 
-A continuación se consolida la matriz completa de los diez fixtures sintéticos originales, indicando su oráculo de aceptación, escenario de ciclo de vida asociado y estado de ejecución real:
+A continuación se consolida la matriz documental de los diez fixtures sintéticos originales, indicando su oráculo candidato, escenario de ciclo de vida asociado y estado de ejecución. **Las expectativas son interpretaciones propuestas y no sustituyen los textos originales de F/E.** En particular, F-01 no demuestra por sí mismo el dictamen epistemológico `CONFLICTED`, ni el perfil sensor convierte automáticamente su estado `CONFLICTO` en un veredicto del núcleo general:
 
 | ID Fixture | Precondición y Entrada Sintética | Resultado Esperado Observable | Oráculo E Mapeado | Escenario L Mapeado | Estado de Ejecución |
 |---|---|---|---|---|---|
