@@ -4,7 +4,7 @@
 **Para:** Titular del Proyecto (@Axlfc)
 **De:** Arquitecto Principal e Ingeniero de Ciberseguridad (@Jules)
 **Ubicación:** `docs/03-preimplementacion/executive-summary-v1.md`
-**Estado del repositorio:** **HOLD / NO-GO (Cero código ejecutable, cero manifiestos Cargo)**
+**Estado de gobernanza:** **HOLD / NO-GO** (ninguna autorización de código, compilación o ejecución; esta síntesis no certifica la ausencia universal de artefactos en todas las ramas)
 **Objetivo:** Proporcionar al titular una síntesis directa de dos páginas sobre la subsanación de defectos documentales, el estado real del proyecto y las opciones de deliberación inmediata.
 
 ---
