@@ -39,7 +39,7 @@ La arquitectura candidata (denominada en este informe **Opción A**) propone un 
 
 ## 3. Estudio comparativo de alternativas arquitectónicas
 
-A continuación se comparan cuatro enfoques arquitectónicos. La **Opción A** se conserva como especificación de referencia para la comparación, **no como arquitectura seleccionada o ratificada**; la **Opción B** es una **propuesta alternativa redactada por el auditor**. En el contrato comparativo posterior, estas opciones se denominan R1 (seis entidades) y R2 (dos entidades); las opciones C y D de este informe son **conceptos históricos distintos** de «Híbrida C» y «Baseline D» del contrato comparativo, por lo que no debe presumirse equivalencia sin mapeo explícito.
+A continuación se comparan cuatro enfoques arquitectónicos **de este informe histórico**, no cuatro identificadores intercambiables con el contrato comparativo posterior. La **Opción A** se conserva como especificación de referencia para la comparación, **no como arquitectura seleccionada o ratificada**; la **Opción B** es una **propuesta alternativa redactada por el auditor**. En el contrato comparativo posterior, estas opciones se denominan R1 (seis entidades) y R2 (dos entidades); las opciones C y D de este informe son **conceptos históricos distintos** de «Híbrida C» y «Baseline D» del contrato comparativo, por lo que no debe presumirse equivalencia sin mapeo explícito.
 
 ### Opción A: Núcleo de representación epistemológica (Candidata vigente)
 - **Descripción**: Núcleo ontológico con 6 entidades (`Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment`, `Relation`).
@@ -75,7 +75,7 @@ A continuación se comparan cuatro enfoques arquitectónicos. La **Opción A** s
 |---|---|---|---|---|
 | **Expresividad semántica** | **Alta (Diseño)** | Media / Delegada | Depende del módulo | Basada en eventos |
 | **Simplicidad de implementación en Rust** | Moderada | **Alta (Proyectada)** | Baja | Alta |
-| **Detección nativa de contradicciones** | **Estructural** | Externa | Externa | Externa |
+| **Detección nativa de contradicciones** | **Representación estructural; detección pendiente de reglas y oráculo** | Externa | Externa | Externa |
 | **Superficie de código en el núcleo** | Mayor | **Mínima** | Media | Mínima |
 | **Facilidad para primer prototipo offline** | Requiere más código | **Más rápida** | Requiere IPC mock | Rápida |
 
@@ -84,6 +84,6 @@ A continuación se comparan cuatro enfoques arquitectónicos. La **Opción A** s
 ## 5. Recomendación y decisión de gobernanza
 
 1. **Mantener la Opción A como referencia documental candidata, sin selección vigente de arquitectura**, hasta que los cotitulares del proyecto, mediante un proceso de gobernanza ratificado, adopten una decisión formal. El «corte A» del README de preimplementación es un alcance funcional, no una decisión sobre R1.
-2. **Considerar la Opción B como una alternativa de simplificación** para evaluar en un experimento offline (*vertical slice A*), permitiendo probar la pasarela de seguridad sin necesidad de codificar la ontología completa de seis entidades desde el primer día.
+2. **Considerar la Opción B como alternativa de simplificación para una eventual evaluación documental o experimental autorizada** del corte funcional A. El contrato posterior propone R2 (Artifact + Attestation) como alternativa de dos entidades; no se ha autorizado construir el laboratorio ni la pasarela de seguridad, ni se ha demostrado que esta última sea necesaria para el corte offline sin efectos externos.
 3. **Aclaración de algoritmos y firmas**: La mención de algoritmos de hash (como BLAKE3 o SHA-256) en este informe se ofrece a título de ejemplo de diseño y no constituye una ratificación oficial de elecciones criptográficas.
 4. **No alterar el estado de ningún ADR a `Accepted`** mediante este informe de auditoría: las decisiones de arquitectura deberán formalizarse mediante solicitudes de cambio de ADR independientes acompañadas de evidencia experimental en código.
