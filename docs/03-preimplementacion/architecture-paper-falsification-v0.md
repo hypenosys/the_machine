@@ -80,7 +80,7 @@ Datos sintéticos: `S1` sin autenticar produce `A1@v1`; `A2@v1` y `A3@v1` citan 
 
 ## Decisiones aún bloqueadas
 - Selección A/B/C/D, contrato de datos, esquema temporal, política de borrado, criterios de equivalencia por dominio, errores, límites de recursos, plataforma y dependencias.
-- Antes de un posible GO: formalizar un **contrato de experimento** y las pruebas negativas, resolver o exceptuar explícitamente las condiciones del readiness review, y obtener autorización expresa del titular.
+- Antes de un posible GO: formalizar un **contrato de experimento** y las pruebas negativas, resolver o exceptuar explícitamente las condiciones del readiness review, y obtener autorización expresa de los cotitulares conforme a un mecanismo de gobernanza ratificado.
 - **No iniciar Rust, Cargo, CI ni aceptar ADR** como consecuencia automática de esta revisión.
 
 **Veredicto:** CONTINUAR INVESTIGACIÓN DOCUMENTAL. **HOLD / NO-GO para código.**
