@@ -4,7 +4,7 @@
 **Autor:** Arquitecto Principal e Ingeniero de Ciberseguridad (@Jules)
 **Ubicación:** `docs/03-preimplementacion/uncertainty-register-v1.md`
 **Carácter:** **CANDIDATO NO NORMATIVO** (Registro de incertidumbres, brechas y riesgos pre-código).
-**Estado del proyecto:** **HOLD / NO-GO (Cero código ejecutable, cero manifiestos Cargo)**
+**Estado de gobernanza:** **HOLD / NO-GO** para escribir, compilar o ejecutar código. No se certifica la ausencia de artefactos en todas las ramas.
 
 ---
 
@@ -16,18 +16,18 @@ Se catalogan las condiciones técnicas, jurídicas o normativas que impiden avan
 - **Estado Real:** **BLOQUEADO**.
 - **Análisis de Tres Dimensiones:**
   1. *Escenario E-10 original (Supresión física en disco y cumplimiento normativo RGPD/CCPA):* Permanecer estrictamente en estado **BLOQUEADO** por falta de política formal de retención/supresión y modelo de persistencia.
-  2. *Simulación alternativa acotada en memoria volátil (ocultación de referencias activas en el Harness):* **PROPONER solicitar autorización expresa al titular** si se desea evaluar el comportamiento de referencias rotas en memoria volátil, **declarando explícitamente que dicha simulación NO constituye borrado físico en disco, anonimización irreversible ni cumplimiento legal**.
+  2. *Simulación alternativa acotada en memoria volátil (ocultación de referencias activas en el Harness):* **PROPONER solicitar autorización expresa a los cotitulares** si se desea evaluar el comportamiento de referencias rotas en memoria volátil, **declarando explícitamente que dicha simulación NO constituye borrado físico en disco, anonimización irreversible ni cumplimiento legal**.
   3. *Exclusión explícita del alcance:* Posibilidad de excluir formalmente E-10 del primer laboratorio sintético sin prometer ni certificar privacidad garantizada.
 
-### BLOQUEO-02 — Ausencia de Licencia Legal (`GAP-001`)
-- **Estado Real:** **REPOSITORIO PÚBLICO SIN LICENCIA DETECTADA; distribución y contribuciones externas sin permisos claros**. GitHub API `repos/hypenosys/the_machine` (consulta 2026-10-21): `visibility=public`, `private=false`, `license=null`. Esto no demuestra ausencia de avisos de derechos en archivos individuales ni concede permisos de reutilización.
+### BLOQUEO-02 — Alcance y ratificación de la licencia (`GAP-001`)
+- **Estado Real:** **REPOSITORIO PÚBLICO; LICENCIA DOCUMENTAL CC BY 4.0 INCORPORADA EN ESTA PR; ALCANCE JURÍDICO PENDIENTE**. La consulta GitHub API del 21-10-2026 (`visibility=public`, `license=null`) es histórica y anterior a `LICENSE.md`; no describe la rama actual. Quedan pendientes revisión de derechos de terceros, licencia de código futuro y cierre formal.
 - **Descripción:** El repositorio carece de archivo `LICENSE`. Jurídicamente, todo el contenido permanece bajo derechos de autor reservados (*All Rights Reserved*).
-- **Condición de Desbloqueo:** Decisión expresa del titular sobre visibilidad, derechos de terceros y licencia en `DEC-07`, seguida de publicación de los términos elegidos. No cambiar visibilidad ni adoptar licencia automáticamente.
+- **Condición de Desbloqueo:** Revisión por los cotitulares de derechos de terceros, alcance de CC BY 4.0 documental y licencia del software futuro, con cierre formal de GAP-001 cuando corresponda. No modificar visibilidad unilateralmente.
 
 ### BLOQUEO-03 — Autoridad Normativa Indefinida (`GAP-010`)
 - **Estado Real:** **BLOQUEADO para la adopción normativa de especificaciones**.
-- **Descripción:** La existencia de propuestas de decisión (incluyendo este paquete v1) no sustituye el procedimiento de autoridad normativa ni la ratificación por parte del titular.
-- **Condición de Desbloqueo:** Aprobación explícita del Mapa de Autoridad Documental y precedencia de normas por el titular.
+- **Descripción:** La existencia de propuestas de decisión (incluyendo este paquete v1) no sustituye el procedimiento de autoridad normativa ni la ratificación por parte de los cotitulares.
+- **Condición de Desbloqueo:** Aprobación explícita del Mapa de Autoridad Documental y precedencia de normas por los cotitulares.
 
 ---
 
@@ -35,7 +35,7 @@ Se catalogan las condiciones técnicas, jurídicas o normativas que impiden avan
 
 | ID Brecha | Dominio | Severidad | Estado Real | Riesgo Residual Vigente |
 |---|---|---|---|---|
-| **GAP-001** | Gobernanza / Licencias | Medium | **OPEN** | Repositorio ya público sin licencia detectada: permisos generales de reutilización y contribución externa sin aclarar; DEC-07 pendiente. |
+| **GAP-001** | Gobernanza / Licencias | Medium | **OPEN** | Repositorio público con `LICENSE.md` documental CC BY 4.0 en la PR; pendientes alcance de derechos, licencia de código futuro y cierre formal DEC-07/GAP-001. |
 | **GAP-002** | Seguridad / Cobertura | High | **OPEN** | Amenazas TH-012, TH-016 y TH-019 carecen de pruebas ejecutadas en el plan global. |
 | **GAP-003** | Arquitectura / Tiempo | High | **OPEN** | Falta de esquema formal de serialización y parsing de marcas bitemporales en Rust. |
 | **GAP-004** | Seguridad / Adversario | High | **OPEN** | Inexistencia de anclaje de confianza si un atacante posee privilegios locales en el host. |
