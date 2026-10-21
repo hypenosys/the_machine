@@ -88,7 +88,7 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 ### Gate G3 — Pre-code Gate & Transición a Implementación de Software en Rust
 - **Interpretación Candidata (NO RATIFICADA):** Transición a la fase de implementación de código ejecutable en Rust; la fuente `security/security-gates.md` utiliza el criterio previo a fusionar código ejecutable. No hay precedencia decidida.
 - **Propósito propuesto (NO RATIFICADO):** Evaluar el cumplimiento de todos los requisitos previos a la escritura de código (resolución de licencias `GAP-001`, revisión de modelo de amenazas `GAP-002`, ADRs aceptados `GAP-005`, Subgate G2.4 aprobado).
-- **Condiciones de Entrada:** Subgate G2.4 aprobado; `GAP-001` (Licencia) resuelto; `ADR-0001..0005` votados; plan de pruebas de seguridad `SEC-001..017` completado.
+- **Condiciones de Entrada (propuesta, NO RATIFICADA):** Subgate G2.4 aprobado; decisión expresa sobre `GAP-001` (licencia y derechos), `GAP-010` (autoridad y precedencia), estado y aceptación de `ADR-0001..0005`, y alcance de las verificaciones de seguridad `SEC-001..017`. **«Plan completado» no significa pruebas ejecutadas ni superadas**: distinguir especificación, ejecución, evidencia, revisión y aceptación. `SEC-015..017` siguen propuestos y no ejecutados. Los requisitos históricos de G3 pueden diferir y no quedan sustituidos por esta enumeración.
 - **Evidencia Requerida:** Lista de verificación de pre-código aprobada; resolución formal del titular autorizando el inicio de implementación.
 - **Autoridad:** Titular del proyecto (@Axlfc) en exclusiva.
 - **Estado Actual:** **HOLD / NO-GO**. Ninguna aprobación en G2 autoriza superar Gate G3.
