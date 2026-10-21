@@ -4,10 +4,21 @@
 
 ## Cobertura nominal de amenazas
 - TH-001..TH-011 y TH-013..TH-020 tienen al menos un requisito propuesto en [requirements.md](requirements.md).
-- TH-012 se cubre mediante SEC-REQ-017, **sin prueba asignada**.
-- TH-016 y TH-019 tienen requisitos **sin prueba asignada**.
+- TH-012 se vincula a SEC-REQ-017 y a la prueba candidata SEC-017, **PROPUESTA / NO EJECUTADA**.
+- TH-016 se vincula a SEC-REQ-015 y a la prueba candidata SEC-015, **PROPUESTA / NO EJECUTADA**.
+- TH-019 se vincula a SEC-REQ-016 y a la prueba candidata SEC-016, **PROPUESTA / NO EJECUTADA**.
 - Los escenarios de permisos y egress necesitan controles operativos concretos antes de que puedan probarse.
 - El listado de 20 amenazas no es exhaustivo: requiere nueva revisión por arquitectura y despliegue.
+
+## Trazabilidad adicional propuesta (no validación)
+
+| Amenaza | Requisito | Prueba candidata | Estado de prueba | Cobertura pretendida |
+|---|---|---|---|---|
+| TH-012 | SEC-REQ-017 | SEC-017 | PROPOSED / NOT RUN | Delegación sin confused deputy |
+| TH-016 | SEC-REQ-015 | SEC-015 | PROPOSED / NOT RUN | Restauración de backup sintético |
+| TH-019 | SEC-REQ-016 | SEC-016 | PROPOSED / NOT RUN | Separación de deberes en cambios sensibles |
+
+No se infiere que la existencia de un enlace cubra operacionalmente una amenaza, ni que SEC-015..017 estén aprobados. Las demás pruebas permanecen sujetas a sus condiciones originales.
 
 ## Estados separados
 | Estado | Significado |
