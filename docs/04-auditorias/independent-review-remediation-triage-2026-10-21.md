@@ -54,3 +54,13 @@ A reviewer must validate each cited REV finding against exact files in current m
 | REV-14 | `traceability-matrix-v1.md` F-12 requires absence of gateway event but gateway is out of scope | CONFIRMED / OPEN | Add independent boundary observer and positive control; not yet applied |
 
 **Remaining findings:** REV-01, 03, 05, 06, 10, 12, 13, 15, 16, 17, 18, 19, 20 remain UNVERIFIED or OWNER_DECISION / EXPERIMENT as classified above. No claim of exhaustive remediation.
+
+## Further verified changes on this branch
+
+| REV | Evidence and outcome | Status |
+|---|---|---|
+| REV-10 | Original `offline-experiment-contract-candidate-v0.md` §3 lists five errors; comparative v1 previously listed two. Comparative v1 now preserves all five; traceability v1 distinguishes `R-FALS` from `R-RISK` and separates provenance from epistemic result | PARTIAL FIX; other vocabulary collisions require owner review |
+| REV-12 | Comparative v1 described R2 using a signature while the laboratory lacks key management and does not evaluate cryptographic authentication. Now verification is fixture-supplied for all representations; cryptography excluded from comparison | DOCUMENTARY FIX; no security proof |
+| REV-14 | F-12 in traceability v1 required no event in an out-of-scope Action Gateway. Now specifies independent boundary observation and a positive control; without them outcome is NOT EVALUABLE | DOCUMENTARY FIX; F-12 still PROPOSED / NOT EXECUTED |
+
+**Review warning:** This branch also changes gate prerequisites and test proposals; it must be independently reviewed against historical gate definitions and threat-to-requirement traceability before merge. No implicit G2.1 ratification.
