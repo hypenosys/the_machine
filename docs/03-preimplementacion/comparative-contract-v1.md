@@ -56,7 +56,7 @@ Toda arquitectura bajo prueba debe producir un resultado interpretable por el Ha
 - `LIMIT_EXCEEDED`: Se excede un límite de recursos declarado.
 - `INTERNAL_FAILURE`: Error inesperado de ejecución en el arnés de prueba.
 
-**Procedencia autenticada en el laboratorio:** `VERIFIED`/`UNVERIFIED` son atributos de entrada del fixture, definidos por el oráculo externo, no el resultado de una firma generada o validada por R1/R2/C/D. Ninguna arquitectura puede autoconcederse autenticidad por texto, hash o estructura. La comparación no mide criptografía ni gestión de claves.
+**Estado de procedencia declarado en el laboratorio:** `VERIFIED`/`UNVERIFIED` son atributos de entrada del fixture, definidos por el oráculo externo, no el resultado de una firma generada o validada por R1/R2/C/D. Ninguna arquitectura puede autoconcederse autenticidad por texto, hash o estructura. La comparación no mide criptografía ni gestión de claves.
 
 ---
 
@@ -82,7 +82,7 @@ Un fallo de ejecución en un test de laboratorio **no refuta automáticamente a 
 
 ### 4.2 Criterios Comparativos Objetivos
 Las cuatro alternativas (R1, R2, Híbrida C, Baseline D) serán evaluadas en el laboratorio pre-código bajo los siguientes criterios sin asignación arbitraria de puntuaciones previas:
-1. **Fidelidad de Representación:** Capacidad de expresar todos los fixtures (F-01..F-10) sin perder contexto, marcas de tiempo ni procedencia.
+1. **Fidelidad de Representación:** Capacidad de expresar F-01..F-09 y los casos adicionales expresamente autorizados sin perder contexto, marcas de tiempo ni procedencia; F-10/E-10 original permanece BLOQUEADO.
 2. **Sobrecarga de Tipos (Complejidad Accidental):** Número de entidades y relaciones requeridas por cada fixture.
 3. **Auditabilidad y Trazabilidad:** Facilidad para rastrear el origen de una contradicción o la retractación de un dato.
 4. **Resiliencia ante Insumos Incompletos:** Comportamiento frente a ausencias de atestación, unidades desconocidas o marcas temporales omitidas.
