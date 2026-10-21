@@ -49,10 +49,10 @@ La documentación de auditoría histórica (`informe-auditoria-adversarial-2026.
 
 ## 4. Opciones de Acción Inmediata para los Cotitulares (@Axlfc y @TopperH4rley)
 
-Los titulares dispone de tres alternativas claras de decisión:
+Los titulares disponen de tres alternativas claras de decisión:
 
 - **Opción I — Mantener en HOLD sin ratificar G2.1:** Revisar la documentación entregada, mantener el proyecto congelado y aplazar la apertura de la fase experimental Subgate G2.2 hasta una deliberación posterior.
-- **Opción II — Ratificar expresamente G2.1, previa subsanación documental:** Los titulares puede ratificar el marco metodológico tras resolver las contradicciones materiales de las fuentes candidatas. La mera fusión de una PR no supone ratificación; G2.2 y G3 permanecen bloqueados.
+- **Opción II — Ratificar expresamente G2.1, previa subsanación documental:** Los titulares pueden ratificar el marco metodológico tras resolver las contradicciones materiales de las fuentes candidatas. La mera fusión de una PR no supone ratificación; G2.2 y G3 permanecen bloqueados.
 - **Opción III — Solicitar Modificaciones:** Requerir ajustes específicos en los contratos candidatos o en las recomendaciones provisionales de `DEC-01..DEC-08`.
 
 ---
