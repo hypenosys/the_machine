@@ -11,7 +11,7 @@
 
 ## 1. Diagnóstico de Estado y Veredicto Global
 
-El proyecto **THE MACHINE** se encuentra estrictamente en la etapa de **preimplementación de arquitectura (pre-código, Gate G2)**. Tras la fusión accidental y posterior reversión de entregables previos (PR #22 y PR #23), se ha realizado un trabajo integral de recuperación documental y corrección semántica.
+La documentación candidata sitúa **THE MACHINE** en la etapa de **preimplementación de arquitectura** y propone G2 como referencia de trabajo. **La correspondencia normativa entre G0..G5 y los subgates G2.1..G2.4 no está ratificada** (GAP-010 / REV-05); por ello, esta descripción no constituye certificación formal de haber superado G0/G1 ni de encontrarse en un gate aprobado. Tras la fusión accidental y posterior reversión de entregables previos (PR #22 y PR #23), se ha realizado un trabajo integral de recuperación documental y corrección semántica.
 
 La documentación de auditoría histórica (`informe-auditoria-adversarial-2026.md` en `docs/04-auditorias/`) se conserva separada del **Paquete de Decisión v1** y de la revisión documental candidata de la PR #25. **En el alcance de esta intervención no se ha creado ni ejecutado código Rust, manifiestos Cargo, scripts ni CI.** Esta constatación sobre los cambios documentales no equivale a una comprobación exhaustiva de todos los árboles o ramas del repositorio. El proyecto mantiene **HOLD / NO-GO** y ninguna evidencia experimental aprobada.
 
