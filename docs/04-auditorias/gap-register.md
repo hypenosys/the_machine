@@ -37,6 +37,8 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 
 ## Fichas detalladas de brechas
 
+> **Actualización documental posterior (PR #25, 21-10-2026):** Las afirmaciones de ausencia de licencia de la tabla y del hallazgo original reflejan el corte de auditoría anterior. En esta rama existe ahora [`LICENSE.md`](../../LICENSE.md), aviso CC BY 4.0 para documentación original y materiales no software con derechos suficientes. No se ha realizado inventario completo de derechos de terceros ni elegido licencia para código futuro. **GAP-001 permanece OPEN por alcance y cierre formal**, no por inexistencia actual del archivo en esta rama. La instrucción de incorporar CC BY 4.0 consta en la conversación, sin acreditación de ratificación conjunta de @Axlfc y @TopperH4rley. El historial original se conserva para trazabilidad.
+
 ### GAP-001 — Ausencia de archivo de licencia legal (LICENSE)
 - **ID:** GAP-001
 - **Dominio:** Gobernanza y Licenciamiento
