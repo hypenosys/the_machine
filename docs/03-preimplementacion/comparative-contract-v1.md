@@ -125,3 +125,21 @@ La matriz `traceability-matrix-v1.md` §5 propone una clasificación de diagnós
 - **`COINCIDENCIA EN EL CASO`:** las salidas coinciden con expectativas fijadas y los controles funcionan; no equivale a seguridad general, cobertura completa ni `GO`.
 
 **Criterio de comparabilidad:** las cuatro alternativas reciben idénticas entradas, reglas y criterios de diagnóstico; un defecto del observador compartido no puede computarse como cuatro defectos de arquitectura ni como cuatro éxitos. No atribuir independencia al observador por estar descrito en otro documento: habrá que demostrar que su punto de fallo relevante es separado. No se autoriza instrumentación, código, almacenamiento persistente, pruebas ni G2.2 mediante esta sección.
+
+
+### 4.7 Regla candidata de denominadores y comparaciones justas (sin resultados)
+
+Una comparación entre arquitecturas no debe esconder los casos sin medición ni convertir errores de infraestructura en resultados epistemológicos. Se propone fijar, **antes de cualquier ensayo autorizado**, un manifiesto común de casos y un reporte con columnas separadas:
+
+| Campo documental | Significado y restricción |
+|---|---|
+| `case_id`, `oracle_revision`, `profile_revision` | Identidad y versiones previas del caso; ausencia => `NO EVALUABLE — ORÁCULO` |
+| `architecture_id`, `adapter_revision` | Alternativa R1/R2/C/D y traducción aplicada; no equiparar salidas semánticas por similitud de etiquetas |
+| `expected`, `observed` | Resultado esperado fijado independientemente y salida registrada; no deducir `expected` de `observed` |
+| `observer_control`, `visibility` | Evidencia de que los controles y el canal de observación funcionaron; silencio sin control => `NO EVALUABLE` |
+| `diagnosis`, `attribution` | Distinguir coincidencia, discrepancia, error de sistema y caso no evaluable; atribución causal puede seguir pendiente |
+| `scope_exclusions` | Registrar límites de laboratorio (sin red, persistencia, gateway o criptografía real), no tratarlos como controles demostrados |
+
+**Denominadores separados:** informar el número de casos **planificados**, **elegibles**, **no evaluables**, **con error de sistema**, **con discrepancia** y **con coincidencia**, por arquitectura y por dominio. Un caso `NO EVALUABLE` no entra como éxito ni como fallo epistemológico, pero **sí permanece visible** en el total planificado. No publicar una tasa de éxito sin denominador, criterios de exclusión y casos retirados. No asignar ventaja a una arquitectura por abstenerse más, omitir casos difíciles o disponer de un adaptador menos exigente.
+
+**Criterio de bloqueo:** si faltan reglas comunes, controles válidos o equivalencia de entradas, la comparación cruzada queda `NO EVALUABLE`; no hay ganador ni `GO`. Esta sección no fija cifras, umbrales de aprobación ni autoriza ejecutar pruebas. **HOLD / NO-GO**.
