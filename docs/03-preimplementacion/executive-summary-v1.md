@@ -49,12 +49,12 @@ Se han restablecido los entregables de auditoría válidos (`informe-auditoria-a
 
 El titular dispone de tres alternativas claras de decisión:
 
-- **Opción I — Mantener en HOLD (Recomendada):** Revisar la documentación entregada, mantener el proyecto congelado y aplazar la apertura de la fase experimental Subgate G2.2 hasta una deliberación posterior.
-- **Opción II — Aprobar Subgate G2.1 (Aprobación Documental):** Aprobar el Paquete de Decisión v1 (`decision-package-v1.md`) como marco normativo de deliberación, manteniendo la fase de laboratorio (Subgate G2.2) y la de código (Gate G3) estrictamente bloqueadas.
+- **Opción I — Mantener en HOLD sin ratificar G2.1:** Revisar la documentación entregada, mantener el proyecto congelado y aplazar la apertura de la fase experimental Subgate G2.2 hasta una deliberación posterior.
+- **Opción II — Ratificar expresamente G2.1, previa subsanación documental:** El titular puede ratificar el marco metodológico tras resolver las contradicciones materiales de las fuentes candidatas. La mera fusión de una PR no supone ratificación; G2.2 y G3 permanecen bloqueados.
 - **Opción III — Solicitar Modificaciones:** Requerir ajustes específicos en los contratos candidatos o en las recomendaciones provisionales de `DEC-01..DEC-08`.
 
 ---
 
 ## 5. Recomendación Técnica Final
 
-Se recomienda al titular **Aprobar la Opción II (Ratificación del Subgate G2.1)**, confirmando la validez del marco de deliberación v1 y manteniendo las puertas de código (Gate G3) e implementación bajo candado estricto (**HOLD / NO-GO**).
+**Recomendación única (condicionada): Opción III, solicitar modificaciones documentales concretas antes de decidir G2.1.** Las contradicciones materiales detectadas en el informe independiente REV-01..REV-20 deben contrastarse con las fuentes originales y corregirse donde queden confirmadas. Después, presentar al titular una propuesta de ratificación expresa de G2.1. Hasta entonces, **HOLD / NO-GO**, sin autorización de G2.2 ni G3.
