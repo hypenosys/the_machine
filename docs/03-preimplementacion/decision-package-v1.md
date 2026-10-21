@@ -16,11 +16,12 @@ El presente paquete constituye una propuesta **CANDIDATA NO NORMATIVA**. No modi
 
 ### 1.2 Taxonomía de Evidencia
 En cumplimiento estricto de las directrices metodológicas de `AGENTS.md` y `PHILOSOPHY.md`, toda afirmación en este documento se adscribe a una de las siguientes categorías epistémicas:
-- **OBSERVADO:** Hecho o estado verificado directamente en el árbol de archivos existente de `master`.
-- **INFERIDO:** Deducción lógica fundamentada a partir de las especificaciones o diagramas observados.
-- **PROPUESTO:** Opción, contrato o recomendación sometida a la deliberación del titular.
-- **NO VERIFICADO:** Propiedad, prueba o hipótesis que carece de comprobación empírica en la fase actual.
-- **VERIFICADO:** Resultado validado mediante evidencia experimental ejecutable (estado inalcanzable en la fase actual de preimplementación).
+- **OBSERVADO [DOCUMENTAL]:** Contenido o estado comprobado en una fuente identificada, con repositorio, rama o revisión y fecha cuando corresponda; un documento de la PR #25 no se atribuye automáticamente a `master`.
+- **OBSERVADO [EXTERNO]:** Respuesta de una fuente externa identificada (p. ej., metadatos de GitHub), limitada al momento y campos consultados; no demuestra propiedades del núcleo.
+- **INFERIDO:** Deducción fundamentada a partir de fuentes observadas, con supuestos y límites explícitos.
+- **PROPUESTO:** Opción, contrato o recomendación sometida a deliberación; no equivale a una decisión aprobada.
+- **NO VERIFICADO:** Propiedad, prueba o hipótesis sin evidencia suficiente para el alcance afirmado.
+- **VERIFICADO [EXPERIMENTAL]:** Resultado de una ejecución reproducible con evidencia de entorno, entradas, observador y oráculo; **no existe tal evidencia autorizada para THE MACHINE en esta fase**. Una comprobación documental o de API no se etiqueta como verificación experimental.
 
 ### 1.3 Dimensiones Temporales y Opcionalidad
 Conforme a `claim-semantics-v0.md` y `offline-experiment-contract-candidate-v0.md`, el sistema reconoce la independencia conceptual de tres dimensiones temporales distintas:
