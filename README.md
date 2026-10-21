@@ -95,7 +95,7 @@ Toda la documentación técnica se encuentra organizada en `docs/`:
   - [`research-evidence.md`](docs/04-auditorias/research-evidence.md): Fuentes de investigación, marcos normativos (NIST, OWASP, MITRE, SLSA, W3C) y límites de conectividad.
   - [`readiness-assessment.md`](docs/04-auditorias/readiness-assessment.md): Evaluación histórica de Readiness Gates G0-G5; cualquier recomendación CONDITIONAL GO no es autorización.
   - [`informe-auditoria-adversarial-2026.md`](docs/04-auditorias/informe-auditoria-adversarial-2026.md): Informe adversarial histórico, preservado como fuente, no norma ratificada.
-  - [`independent-review-remediation-triage-2026-10-21.md`](docs/04-auditorias/independent-review-remediation-triage-2026-10-21.md): Seguimiento candidato de hallazgos REV-01..20 en la PR documental #25; no sustituye decisiones del titular.
+  - [`independent-review-remediation-triage-2026-10-21.md`](docs/04-auditorias/independent-review-remediation-triage-2026-10-21.md): Seguimiento candidato de hallazgos REV-01..20 en la PR documental #25; no sustituye decisiones de los cotitulares.
 
 ---
 
