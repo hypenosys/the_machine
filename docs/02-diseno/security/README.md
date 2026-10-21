@@ -10,9 +10,14 @@
 2. [Flujos de datos y fronteras](data-flow-diagrams.md)
 3. [Matriz de permisos](authorization-matrix.md)
 4. [Registro de riesgos](risk-register.md)
-5. [Plan de verificación adversarial](verification-plan.md)
-6. [Respuesta a incidentes](incident-response.md)
-7. [Criterios de aceptación de seguridad](security-gates.md)
+5. [Requisitos verificables](requirements.md)
+6. [Matriz de trazabilidad](traceability.md)
+7. [Plan de verificación adversarial](verification-plan.md)
+8. [Protocolo de evidencias](evidence-protocol.md)
+9. [Checklist de revisión](review-checklist.md)
+10. [Backlog de investigación](security-research-backlog.md)
+11. [Respuesta a incidentes](incident-response.md)
+12. [Criterios de aceptación de seguridad](security-gates.md)
 
 ## Reglas
 - Una descripción de un control no equivale a su implementación.
