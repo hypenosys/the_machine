@@ -70,5 +70,5 @@ Para cubrir las brechas identificadas en R-01 y R-07 sin alterar la numeración 
 ### F-12 / E-12 — Prevención de Escalada de Evaluación a Comando Operativo (Cubre R-07 / P-01)
 - **Precondición:** Un evaluador u oráculo emite un `Assessment` con resultado `SUPPORTED` sobre un hecho del dominio.
 - **Entrada Sintética:** Emisión de `Assessment` positivo sobre el evento sintético.
-- **Resultado Esperado Observable:** El sistema confirma la recepción del dictamen pero **no genera ningún evento, comando ni autorización en el Action Gateway**. La autorización requiere una orden independiente de la Autoridad Operativa.
+- **Resultado Esperado Observable (propuesta no ejecutada):** Un observador independiente de la frontera registra cero solicitudes de acción cuando la única entrada es un dictamen `SUPPORTED`. Un control positivo separado, con una orden operativa sintética explícita, debe producir una señal observable para demostrar que el observador funciona. Sin ambos controles, el caso queda NO EVALUABLE, nunca PASS. Esto no verifica un Action Gateway real, que permanece fuera del alcance del laboratorio.
 - **Estado:** PROPUESTO / NO EJECUTADO.
