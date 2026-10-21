@@ -39,7 +39,7 @@ Solo datos sintéticos, ejecución local, sin conectores de red, sin acciones so
 | Arquitectura A/B/C/D | Comparación falsable con F-01..F-10 y un segundo dominio | Cotitulares tras revisión | ABIERTA |
 | Formato de datos, identificadores y semántica temporal | Contrato versionado, errores y límites explícitos | Cotitulares / ADR pertinente | ABIERTA |
 | Plataforma, toolchain, dependencias y reproducción | Procedimiento fijado antes de ejecución | Cotitulares / ADR pertinente | ABIERTA |
-| Licencia y política de contribuciones | Decisión expresa antes de distribución pública | Cotitulares | ABIERTA |
+| Licencia y política de contribuciones | CC BY 4.0 documental ya incorporada; revisar derechos de terceros, aportaciones y licencia de código antes de distribuir software | Cotitulares | ABIERTA (residual) |
 | Riesgos residuales y excepciones de gates | Amenazas específicas, pruebas negativas, responsable y vencimiento de excepciones | Cotitulares | ABIERTA |
 | Permiso para escribir código | GO expreso, acotado y registrado | Cotitulares | **NO-GO** |
 
