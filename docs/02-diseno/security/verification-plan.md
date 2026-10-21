@@ -14,7 +14,7 @@
 | SEC-008 (BLOQUEADO PARA DATOS REALES) | TH-009 | Solicitud sintética de supresión o revocación, únicamente si el titular autoriza un oráculo y una política de retención explícitos | evaluar el resultado **solo frente a la política aprobada**; ocultación lógica o invalidación de referencias no demuestra borrado físico de copias, backups o réplicas |
 | SEC-009 (REVOCACIÓN / TOCTOU) | TH-010 | Con autorización experimental futura, emitir una propuesta sintética bajo permiso vigente, revocarlo antes de la operación y comprobar de nuevo la capacidad en el punto de uso | denegar la operación sin efecto; una autorización válida al proponer no basta al ejecutar. Registrar revisión de política, secuencia y decisión sin secretos; no inferir garantías de revocación en terceros o acciones ya completadas |
 | SEC-010 (ALCANCE LOCAL) | TH-011 | Repetir una solicitud sintética con el mismo identificador en un ejecutor local determinista y sin efectos externos | observar como máximo una aplicación local bajo las precondiciones definidas; **no demuestra exactly-once en sistemas remotos**, ni resuelve fallos de red, confirmaciones perdidas o resultados `UNKNOWN` |
-| SEC-011 | TH-013 | Evento truncado por fallo | detectar corrupción y recuperar/abortar |
+| SEC-011 (INTEGRIDAD LOCAL) | TH-013 | Introducir truncamiento sintético en un registro local de eventos con formato y punto de corte predefinidos, solo si se autoriza el laboratorio | detectar el truncamiento mediante un oráculo independiente del registro bajo prueba; abortar o recuperar únicamente hasta un prefijo íntegro y comprobable. No asumir durabilidad, atomicidad de escritura, recuperación de datos perdidos ni integridad criptográfica |
 | SEC-012 | TH-015 | Error incluye secreto en entrada | logs no revelan secreto |
 | SEC-013 | TH-018 | Crate no aprobado | build/revisión bloqueada |
 | SEC-014 | TH-020 | Modelo produce salida inválida | rechazo sin efecto externo |
@@ -31,6 +31,8 @@
 **Límite semántico SEC-006 (REV-17):** la discrepancia numérica entre lecturas de sensores no equivale por sí sola a contradicción entre afirmaciones epistemológicas. Antes de ejecutar este caso deben fijarse identidad del objeto, predicado, unidades, ventanas `valid_time`, procedencia y reglas de comparación; `recorded_time` y `assessed_time` no sustituyen el tiempo de validez. Ningún resultado se presume verificado.
 
 **Límite SEC-009:** el oráculo debe fijar de antemano qué constituye el punto de uso, qué autoridad revoca, cómo se ordenan los eventos y qué efecto local observable se comprueba. Una prueba sintética no demuestra revocación retroactiva ni cancelación de efectos externos irreversibles. El mecanismo de revocación de autorizaciones de gobernanza (DEC-08 / REV-16) es distinto de la revocación de capacidades del sistema bajo prueba.
+
+**Límite SEC-011:** el criterio de recuperación debe fijar antes de la ejecución qué prefijo es válido, cómo se identifica el último evento íntegro y qué evidencia externa permite distinguir truncamiento de una secuencia legítimamente corta. Una recuperación local sintética no prueba resistencia a manipulación adversarial, persistencia tras corte de energía ni restauración desde backups; `SEC-015` permanece propuesta y sin ejecutar.
 
 **Nota de trazabilidad:** SEC-015..017 son diseños candidatos para cubrir requisitos que estaban sin prueba asignada; no se han ejecutado, no constituyen controles implementados ni cierran GAP-002. La numeración de estas propuestas requiere revisión frente a la auditoría histórica antes de ratificarse.
 
