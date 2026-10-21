@@ -153,3 +153,19 @@ La tabla **no sustituye** las reglas históricas de G3. Hasta que exista acta de
 | S3 | Mantener ambas acepciones con nombres cualificados | Autorizar únicamente con referencias inequívocas a versión de protocolo | Ambigüedad persistente y errores operativos de interpretación |
 
 **Recomendación editorial S1:** minimiza reinterpretaciones retrospectivas y conserva el control pre-merge. **No está adoptada normativamente**: el texto de `security-gates.md` y los estados de G3 siguen intactos. La selección futura deberá indicar alcance, precedencia, versiones afectadas, migración de referencias y aprobaciones verificables de los cotitulares.
+
+## Decisiones editoriales de dirección técnica — criterio Finch (NO vinculantes)
+
+**Mandato de trabajo interpretado:** elegir opciones recomendadas en las materias reversibles para evitar parálisis documental, **sin representar a los cotitulares ni fingir ratificación**. Este registro es una selección de trabajo en PR draft, no un acto de autoridad normativa.
+
+| ID editorial | Selección para el trabajo documental | Estado normativo | Motivo de la selección |
+|---|---|---|---|
+| EDF-01 | **S1**: mantener el G3 histórico pre-merge; modelar permisos previos AUT-CODE y AUT-EXEC y control AUT-MERGE | CANDIDATO / SIN RATIFICAR | Menor ruptura con referencias históricas; preserva barreras independientes |
+| EDF-02 | Delegación a @Axlfc **solo para gestión técnica ordinaria**; reservar gates, licencias, derechos, privacidad y cambios de gobernanza | CANDIDATO / SIN RATIFICAR | Delegación acotada, reversible y auditable |
+| EDF-03 | **GPL-3.0-or-later** como primera variante a estudiar para código futuro, con análisis de compatibilidad y titulares | CANDIDATO / NO APLICADA | Decisión explícita de variante para análisis, no relicenciamiento |
+| EDF-04 | Corte funcional A offline, sintético, sin red, secretos, datos reales ni efectos externos | CANDIDATO / SIN AUTORIZAR | Reduce riesgos y permite falsación controlada si se aprueba en el futuro |
+| EDF-05 | R1, R2, Híbrida C y Baseline D **sin ganador previo**; oráculos externos y segundo dominio | CANDIDATO / NO EJECUTADO | Impide sesgo de arquitectura y evidencia fabricada |
+| EDF-06 | No ampliar F-10/E-10: mantener bloqueados hasta política y oráculo de borrado independiente | BLOQUEADO | Evita equiparar ocultación lógica con eliminación física |
+| EDF-07 | Tratar aprobación de PR documental y autorización de software como flujos distintos | CANDIDATO / NO MERGE | Evita inferir GO desde un cambio editorial |
+
+**Regla de cambio:** cualquier opción EDF puede revisarse con evidencia nueva y registro de motivo; las opciones no sustituyen DEC, ADR, GAP ni gate alguno. Las tareas siguientes permitidas se limitan a inventario, corrección y enlace de documentación. **Prohibido** crear/compilar/ejecutar código, CI o experimentos; no aprobar por cuenta de los cotitulares ni fusionar PR.
