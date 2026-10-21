@@ -32,6 +32,8 @@
 | D-12 | Ambigüedad de nomenclatura | `docs/03-preimplementacion/README.md` usa «corte A» para el laboratorio offline; `docs/04-auditorias/architecture-review.md` usa «Opción A» para seis entidades, y C/D históricos no equivalen automáticamente a Híbrida C / Baseline D | Se separó alcance funcional de arquitectura R1 y se explicitó la falta de equivalencia entre nomenclaturas | **ABIERTO**: cualquier mapeo formal y selección arquitectónica requieren ratificación; R1/R2/C/D sin ganador |
 | D-13 | Exceso de garantía criptográfica | `docs/04-auditorias/architecture-review.md` atribuía autenticidad/origen a una firma sin condicionar identidad y confianza | Se limita a control de clave bajo validación criptográfica; no prueba identidad, veracidad, procedencia física ni tiempo real | **ABIERTO**: política de identidad, claves, confianza y revocación por definir |
 
+| D-14 | Capacidad arquitectónica no demostrada | `docs/04-auditorias/architecture-review.md` atribuía «detección nativa de contradicciones» a la estructura R1 y sugería evaluar una pasarela de seguridad sin delimitar autorización | La matriz separa representación de detección mediante reglas/oráculos; la recomendación se condiciona a autorización expresa y no presupone pasarela para corte offline | **ABIERTO**: implementación, reglas, oráculos y evaluación independiente no realizados |
+
 ## Invariantes editoriales de esta rama
 
 - Ningún documento candidato ratifica ADR-0001..0005, G2.1, G2.2, G2.3, G2.4 ni G3.
