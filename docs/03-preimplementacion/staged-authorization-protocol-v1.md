@@ -69,7 +69,7 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 - **Condiciones de Entrada:** Subgate G2.1 formalmente aprobado; delimitación estricta del alcance (cero red, cero persistencia duradera, cero datos reales); fixtures sintéticos normalizados, reglas de oráculo versionadas, tolerancias explícitas y esquema de salida fijados conforme a `comparative-contract-v1.md` §1.2; resolución expresa de la distinción entre código de laboratorio y código de producto, formato de intercambio y política de dependencias. Cualquier excepción adicional requiere registro específico de los titulares y no se presume por la aprobación de G2.1.
 - **Evidencia Requerida (propuesta):** Acta expresa de los titulares vinculada a DEC-08, con revisión exacta de contrato, perfiles y fixtures, entorno y datos permitidos, herramientas y dependencias, responsables, duración, suspensión/revocación y exclusiones. **Diseñar, escribir, compilar y ejecutar son actividades distintas:** la orden debe enumerar cuáles autoriza; no basta una instrucción genérica de «laboratorio». Debe constar por separado el estado de G2.1 y de los bloqueos de seguridad y privacidad; ni un acta documental ni la aprobación de G2.1 los levanta automáticamente.
 - **Autoridad:** Titulares del proyecto (@Axlfc y @TopperH4rley).
-- **Resultado condicionado a ratificación futura:** Solo una orden separada y específica de los titulares podría autorizar construir/ejecutar el laboratorio acotado. **Actualmente G2.2 está BLOQUEADO; no autoriza código de producción ni crates definitivos.**
+- **Resultado condicionado a ratificación futura:** Solo una orden separada y específica de los titulares podrían autorizar construir/ejecutar el laboratorio acotado. **Actualmente G2.2 está BLOQUEADO; no autoriza código de producción ni crates definitivos.**
 
 #### Subgate G2.3 — Obtención y Evaluación de Evidencia Experimental Sintética
 - **Propósito:** Recopilar y analizar los resultados observables producidos por las alternativas R1, R2, Híbrida C y Baseline D ante los fixtures sintéticos F-01..F-09 y cualquier caso adicional autorizado expresamente. **F-10/E-10 original permanece BLOQUEADO** y no forma parte de la ejecución por defecto.
@@ -83,7 +83,7 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 - **Condiciones de Entrada:** Subgate G2.3 completado; matriz comparativa respaldada por datos de prueba sintética.
 - **Evidencia Requerida:** Documento de decisión de arquitectura firmado por los titulares.
 - **Autoridad:** Titulares del proyecto (@Axlfc y @TopperH4rley).
-- **Resultado posible, NO ACTUAL:** Solo un acta expresa y verificable de los titulares podría registrar una selección y el estado de G2.4 conforme a una definición de gates previamente ratificada. **Actualmente G2.4 BLOQUEADO; ninguna arquitectura está seleccionada por este protocolo.**
+- **Resultado posible, NO ACTUAL:** Solo un acta expresa y verificable de los titulares podrían registrar una selección y el estado de G2.4 conforme a una definición de gates previamente ratificada. **Actualmente G2.4 BLOQUEADO; ninguna arquitectura está seleccionada por este protocolo.**
 
 ---
 
