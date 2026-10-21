@@ -1,10 +1,12 @@
-# Hoja de decisiones del titular — candidata v1
+# Hoja de decisiones de los titulares — candidata v1
+
+**Cotitularidad declarada:** @Axlfc y @TopperH4rley. La presente corrección identifica a ambos como titulares del proyecto; **no presume** que cualquiera pueda ratificar unilateralmente, que se exija unanimidad ni que exista delegación. La regla de decisión conjunta, acreditación de identidad y mecanismo de resolución de desacuerdos quedan pendientes de acuerdo explícito de ambos (GAP-010 / REV-16). Hasta entonces, una firma o instrucción aislada no debe interpretarse como ratificación conjunta de gates.
 
 **Estado:** PROPUESTA / SIN RATIFICAR · **HOLD / NO-GO** · 21-10-2026
 
-Esta hoja reúne decisiones pendientes; **ninguna casilla se considera marcada**, y ni un commit, ni un comentario, ni un merge constituyen aceptación. La aprobación exige registro explícito del titular, alcance, fecha, revisión de los documentos afectados y mecanismo de revocación. No se presupone firma criptográfica.
+Esta hoja reúne decisiones pendientes; **ninguna casilla se considera marcada**, y ni un commit, ni un comentario, ni un merge constituyen aceptación. La aprobación exige registro explícito de los titulares, alcance, fecha, revisión de los documentos afectados y mecanismo de revocación. No se presupone firma criptográfica.
 
-| ID | Pregunta para el titular | Alternativas que deben deliberarse | Efecto si no hay decisión |
+| ID | Pregunta para los titulares | Alternativas que deben deliberarse | Efecto si no hay decisión |
 |---|---|---|---|
 | DEC-01 | ¿Limitar el primer corte a datos sintéticos, offline, sin efectos externos? | Sí / cambiar alcance documentando nuevos riesgos | Sin autorización de experimento |
 | DEC-02 | ¿Comparar R1, R2, C y D, con segundo dominio y sin ganador previo? | Comparación completa / reducir con justificación | G2.2 bloqueado |
@@ -28,13 +30,13 @@ Registrar: identificador, opción elegida, razonamiento, riesgos residuales, doc
 
 ## Criterios de aceptación documental para DEC-02 y DEC-05 (propuesta, sin ejecución)
 
-Antes de solicitar una ratificación de comparación, el titular debe poder identificar la **revisión exacta** del contrato `comparative-contract-v1.md` y de la matriz `traceability-matrix-v1.md`. Los criterios añadidos en la PR #25 sobre controles positivos, oráculo independiente, abstención, denominadores, cohorte fija, repeticiones y segundo dominio **son candidatos**: no se convierten en reglas aprobadas por aparecer en un commit.
+Antes de solicitar una ratificación de comparación, los titulares debe poder identificar la **revisión exacta** del contrato `comparative-contract-v1.md` y de la matriz `traceability-matrix-v1.md`. Los criterios añadidos en la PR #25 sobre controles positivos, oráculo independiente, abstención, denominadores, cohorte fija, repeticiones y segundo dominio **son candidatos**: no se convierten en reglas aprobadas por aparecer en un commit.
 
 - **DEC-02 — comparabilidad:** confirmar R1, R2, C y D bajo las mismas entradas y perfiles, incluir un segundo dominio no sensor, fijar la unidad `(case_id, architecture_id)`, distinguir repeticiones de nuevos casos y prohibir un ganador previo. Si se reduce el alcance, documentar qué conclusión deja de ser legítima.
 - **DEC-05 — oráculos:** fijar antes de cualquier observación el inventario y revisión de casos, expectativas, abstenciones admisibles, controles positivos y negativos, y clasificación de resultados. Registrar casos no evaluables y enmiendas sin borrarlos del denominador. F-11/F-12 siguen propuestos y no ejecutados; F-10/E-10 original sigue bloqueado.
 - **Evidencia y autoridad:** documentar por separado quién propone, quién revisa y quién ratifica; si no hay independencia comprobable, declararlo. La revisión documental de la PR no equivale a aprobación del protocolo ni a autorización de pruebas.
 
-**Resultado de la comprobación documental actual:** faltan ratificación del titular, oráculos y perfiles normalizados, controles observables, autorización del laboratorio y evidencia experimental. **DEC-02/05 PENDIENTES; G2.1 PENDIENTE; G2.2 BLOQUEADO.**
+**Resultado de la comprobación documental actual:** faltan ratificación de los titulares, oráculos y perfiles normalizados, controles observables, autorización del laboratorio y evidencia experimental. **DEC-02/05 PENDIENTES; G2.1 PENDIENTE; G2.2 BLOQUEADO.**
 
 ## Matriz de dependencias para deliberación (no equivale a autorización)
 
@@ -47,13 +49,13 @@ Antes de solicitar una ratificación de comparación, el titular debe poder iden
 | Intercambio y privacidad | DEC-04/06: formato sintético, límites de E/S, retención y supresión | F-10/E-10 original BLOQUEADO; simulación de memoria no prueba borrado físico |
 | Seguridad y acción | REV-18 y verificaciones SEC-015..017 aún no ejecutadas | No afirmar exactly-once, aislamiento ni separación de acción comprobados |
 | Independencia y referencias | REV-16/20: revisor acreditado y referencias normativas fechadas | No atribuir validación independiente o cumplimiento normativo |
-| Distribución | DEC-07 / GAP-001: CC BY 4.0 documental indicada por el titular, inventario de derechos y licencia de software pendiente | El aviso `LICENSE.md` permite reutilizar **solo** materiales cubiertos; visibilidad pública no licencia contenidos de terceros ni código futuro |
+| Distribución | DEC-07 / GAP-001: CC BY 4.0 documental indicada por los titulares, inventario de derechos y licencia de software pendiente | El aviso `LICENSE.md` permite reutilizar **solo** materiales cubiertos; visibilidad pública no licencia contenidos de terceros ni código futuro |
 
 **Distinción de hitos:** la corrección documental puede preparar una decisión sobre G2.1, pero no sustituye su ratificación. Una eventual ratificación de G2.1 tampoco autoriza por sí sola G2.2, G2.3, G2.4 o G3. La excepción de código DEC-08, si alguna vez se concede, debe enumerar actividades permitidas y prohibidas; no se infiere de la aprobación de fixtures o de una PR.
 
 ## Revocación y cambios de alcance (protocolo candidato)
 
-Una futura decisión expresa del titular no debe entenderse como permiso permanente o transferible. Cada autorización, si llegase a existir, tendría que especificar **objeto, revisión exacta, actividades permitidas, exclusiones, vigencia, autoridad y procedimiento de suspensión**. Una excepción para diseñar un fixture no habilita ejecutarlo; una excepción para un harness no habilita conectores, acciones remotas, persistencia duradera ni pruebas con datos reales.
+Una futura decisión expresa de los titulares no debe entenderse como permiso permanente o transferible. Cada autorización, si llegase a existir, tendría que especificar **objeto, revisión exacta, actividades permitidas, exclusiones, vigencia, autoridad y procedimiento de suspensión**. Una excepción para diseñar un fixture no habilita ejecutarlo; una excepción para un harness no habilita conectores, acciones remotas, persistencia duradera ni pruebas con datos reales.
 
 **Reglas candidatas ante cambios:**
 
