@@ -49,6 +49,25 @@ La fila R-08 es una **correspondencia temática**, no un test aprobado ni un or�
 
 ---
 
+### Contraste literal con fuentes originales y falsadores candidatos (sin ejecución)
+
+Fuentes contrastadas en `master`: `finch-consolidation-troubleshooting-candidate-v0.md` §5 (R-01..R-08) y `precode-decision-protocol-v0.md` (F-01..F-10). Finch define **criterios**, no tests ejecutados. La columna «fallo observable» es una **propuesta de oráculo futuro**, no un resultado medido ni una ampliación aprobada de alcance.
+
+| Criterio | Observación que lo falsaría en un ensayo autorizado | Límite de la evidencia existente |
+|---|---|---|
+| R-01 | Dos identidades externas con igual texto quedan fusionadas sin autoridad común | F-11/E-11 propuestos, no ejecutados |
+| R-02 | Una fuente pasa de `UNVERIFIED` a `VERIFIED` solo por su declaración | F-03/E-03 prueban una regla declarativa, no autenticación criptográfica |
+| R-03 | Dos derivados de una fuente única se cuentan como dos apoyos independientes | F-04/E-04 no demuestran descubrir dependencias ocultas ni retractaciones completas |
+| R-04 | Una evaluación posterior aparece registrada como conocida antes de su ingreso real | F-06/E-06 separan campos; falta testigo independiente del orden de registro |
+| R-05 | Una corrección elimina o hace vigente sin rastro una evaluación anterior | F-05/E-05 solo contemplan historial sintético, no resistencia a manipulación |
+| R-06 | Un perfil aplica una regla a un dominio/versión fuera de su alcance sin abstención | F-02/F-08 no bastan para demostrar aislamiento entre perfiles |
+| R-07 | Un dictamen `SUPPORTED` dispara una solicitud operativa sin orden autorizada | F-12/E-12 requieren observador independiente y control positivo; gateway real fuera de alcance |
+| R-08 | El sistema afirma eliminación física tras ocultación lógica sin evidencia de supresión | F-10/E-10 BLOQUEADO; falta oráculo independiente y política de retención |
+
+**Condición metodológica:** las observaciones propuestas deben fijarse antes de cualquier ejecución, junto con precondiciones, entradas sintéticas, controles positivos/negativos, alcance de amenaza y criterio de `NO EVALUABLE`. Un resultado favorable en un fixture no acredita por sí solo seguridad general, privacidad legal ni cumplimiento de R-01..R-08.
+
+---
+
 ## 3. Matriz Completa de Fixtures F-01..F-10 y Oráculos E-01..E-10
 
 A continuación se consolida la matriz completa de los diez fixtures sintéticos originales, indicando su oráculo de aceptación, escenario de ciclo de vida asociado y estado de ejecución real:
