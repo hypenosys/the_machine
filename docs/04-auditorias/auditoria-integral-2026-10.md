@@ -14,10 +14,10 @@
 
 El presente informe consolida los hallazgos de la auditoría integral, crítica, adversarial y reproducible realizada sobre el repositorio **THE MACHINE**.
 
-Siguiendo los principios **Evidence-First** y **Zero Fabrication**, el equipo de auditoría ha evaluado los documentos del proyecto sin asumir la validez de ninguna especificación por el mero hecho de figurar en `master`.
+Siguiendo los principios **Evidence-First** and **Zero Fabrication**, el equipo de auditoría ha evaluado los documentos del proyecto sin asumir la validez de ninguna especificación por el mero hecho de figurar en `master`.
 
 ### Alcance efectivamente ejecutado
-- **Inventario forense del código y metadatos**: Inspección recursiva de 70 archivos Markdown en la raíz y subdirectorios `docs/`. Verificación de clonado superficial (*shallow repository*) y comprobación de ausencia total de código Rust (`.rs`), manifiestos de Cargo (`Cargo.toml`) o flujos de CI/CD (`.github/workflows`).
+- **Inventario forense del código y metadatos**: Inspección recursiva de 70 archivos Markdown en la raíz y subdirectorios `docs/`, así como la verificación explícita de archivos ocultos y directorios punto (`.github/`, `.git/`). Verificación de clonado superficial (*shallow repository*) y comprobación de ausencia total de código Rust (`.rs`), manifiestos de Cargo (`Cargo.toml`) o flujos de CI/CD (`.github/workflows`).
 - **Auditoría documental y de consistencia**: Revisión cruzada de la jerarquía normativa (`README.md`, `PHILOSOPHY.md`, `GLOSSARY.md`, `docs/00-empezar/`, `docs/01-investigacion/`, `docs/02-diseno/`, `docs/03-preimplementacion/`).
 - **Auditoría de arquitectura y epistemología computacional**: Evaluación analítica de la especificación candidata Opción A (`Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment`, `Relation`) y formulación/comparación de 4 alternativas arquitectónicas (Opciones A, B, C y D).
 - **Auditoría de seguridad y modelo de amenazas**: Análisis de las 20 amenazas priorizadas (`TH-001`..`TH-020`), 17 requisitos verificables (`SEC-REQ-001`..`SEC-REQ-017`), 14 pruebas de seguridad y 5 Registros de Decisiones de Arquitectura (`ADR-0001`..`ADR-0005`).
@@ -38,9 +38,10 @@ git rev-parse --is-shallow-repository
 git log --oneline --all
 # Output real: c3fdd58 docs: consolidate unified epistemic contract and stop at code gate (#14)
 
-# 2. Inventario completo de archivos en el repositorio (excluyendo directorio .git)
-find . -type f -not -path '*/.*' | sort
-# Total: 70 archivos .md (0 archivos .rs, 0 Cargo.toml, 0 workflows CI/CD)
+# 2. Inspección explícita de archivos e inspección de workflows ocultos (.github)
+find . -type f | sort && ls -la .github/ 2>&1
+# Output real: Inexistencia del directorio .github/ (ls: cannot access '.github/': No such file or directory)
+# Total en repositorio: 70 archivos .md (0 archivos .rs, 0 Cargo.toml, 0 workflows CI/CD)
 
 # 3. Verificación automatizada de enlaces relativos Markdown
 python3 -c '
