@@ -42,7 +42,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
   - *Opción A:* Laboratorio epistemológico offline de datos sintéticos (sin red, sin persistencia duradera, sin LLM, sin acciones sobre el host).
   - *Opción B:* Pasarela de acciones simuladas (Action Gateway) con motor de políticas.
   - *Opción C:* Harness de investigación de aislamiento sobre SO.
-- **Costes y Complejidad:** La Opción A presenta el menor coste de mantenimiento y complejidad accidental, enfocándose exclusivamente en la fidelidad del razonamiento.
+- **Costes y Complejidad (estimación, NO VERIFICADA):** La Opción A podría requerir menos integración y mantenimiento que una pasarela de acciones o un harness de aislamiento de SO; no existe medición comparativa ni estimación de esfuerzo aprobada.
 - **Riesgos Asociados:** La Opción A no valida conectores de red, persistencia física ni aislamiento por SO.
 - **Evidencia Observada:** Ninguna opción ha sido ejecutada (**NO VERIFICADO**).
 - **Dependencias:** Ninguna (Decisión base).
@@ -102,7 +102,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 - **Opciones Evaluadas:**
   - *Opción A:* Diferir la selección de motor de persistencia (SQLite, Sled, RocksDB) y formatos binarios hasta evaluar los contratos en memoria.
   - *Opción B:* Definir inmediatamente el esquema de persistencia en disco.
-- **Costes y Complejidad:** La Opción A minimiza dependencias prematuras y evita acoplamiento a librerías de almacenamiento. No exime de definir un formato de intercambio sintético y su política de dependencias antes de G2.2.
+- **Costes y Complejidad (hipótesis):** Diferir la persistencia podría reducir dependencias y acoplamiento prematuros, pero desplaza decisiones y puede introducir costes de migración. No exime de definir un formato de intercambio sintético y su política de dependencias antes de G2.2.
 - **Riesgos Asociados:** Ambigüedad de entradas/salidas y falta de reproducibilidad si no se fija el formato de intercambio del laboratorio; persistencia duradera sigue fuera de alcance.
 - **Evidencia Observada:** `GAP-003` señala la falta de esquema de serialización.
 - **Dependencias:** DEC-02, DEC-03.
@@ -113,7 +113,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 - **Opciones Evaluadas:**
   - *Opción A:* Dual MIT / Apache-2.0.
   - *Opción B:* Mozilla Public License 2.0 (MPL-2.0).
-  - *Opción C:* Reservar todos los derechos hasta la primera versión pública.
+  - *Opción C:* Mantener reserva de derechos sin licencia general de reutilización mientras el titular delibera, **aunque el repositorio ya sea públicamente accesible**. La visibilidad pública no implica autorización de distribución por terceros.
 - **Costes y Complejidad:** La falta de archivo `LICENSE` (`GAP-001`) deja sin permisos generales explícitos de reutilización o redistribución. El repositorio ya es público; esto no demuestra que cada archivo carezca de avisos específicos ni determina automáticamente la titularidad de terceros.
 - **Riesgos Asociados:** Incertidumbre jurídica para colaboradores externos.
 - **Evidencia Observada:** `GAP-001` abierto en `gap-register.md`.
