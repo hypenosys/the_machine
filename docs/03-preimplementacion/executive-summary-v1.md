@@ -40,7 +40,7 @@ La documentación de auditoría histórica (`informe-auditoria-adversarial-2026.
 4. **`DEC-04` (Privacidad / E-10):** Mantener E-10 **BLOQUEADO** para datos reales y **PROPONER solicitar autorización expresa al titular** para una prueba de ocultación lógica en memoria volátil.
 5. **`DEC-05` (Oráculos):** Deliberar sobre la matriz de pruebas negativas (F-01..F-09 y R-01..R-08), con F-10/E-10 BLOQUEADO y casos adicionales sujetos a aprobación con vocabulario estandarizado (`SUPPORTED`, `REFUTED`, `CONFLICTED`, `INSUFFICIENT`, `NOT_COMPARABLE`).
 6. **`DEC-06` (Persistencia):** Diferir el motor de persistencia duradera; fijar antes de G2.2 el formato versionado de intercambio sintético y los límites de E/S.
-7. **`DEC-07` (Licencia):** El repositorio ya es público (`visibility=public`, `license=null` según GitHub API, 2026-10-21). El titular debe decidir visibilidad, derechos de terceros y licencia sin presuponer apertura futura ni elección automática.
+7. **`DEC-07` (Licencia):** El titular ha indicado **CC BY 4.0** y se ha añadido `LICENSE.md` en esta PR para documentación original y materiales no software con derechos suficientes. La revisión de derechos de terceros, el cierre formal de `GAP-001` y la licencia de software futuro quedan pendientes. La observación de API `license=null` de 2026-10-21 precede a esta incorporación y no describe el estado de la rama actual.
 8. **`DEC-08` (Autorización de Código):** Mantener **HOLD / NO-GO** como recomendación provisional. El paquete distingue una eventual **excepción temporal y delimitada** que solo el titular podría autorizar expresamente por acta, separando escritura, compilación y ejecución; ninguna está autorizada ahora. Aprobar documentación, G2.1 o una PR **no autoriza código, pruebas ni G3**.
 
 ---
