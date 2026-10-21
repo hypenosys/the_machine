@@ -30,7 +30,7 @@ Registrar: identificador, opción elegida, razonamiento, riesgos residuales, doc
 
 ## Criterios de aceptación documental para DEC-02 y DEC-05 (propuesta, sin ejecución)
 
-Antes de solicitar una ratificación de comparación, los titulares debe poder identificar la **revisión exacta** del contrato `comparative-contract-v1.md` y de la matriz `traceability-matrix-v1.md`. Los criterios añadidos en la PR #25 sobre controles positivos, oráculo independiente, abstención, denominadores, cohorte fija, repeticiones y segundo dominio **son candidatos**: no se convierten en reglas aprobadas por aparecer en un commit.
+Antes de solicitar una ratificación de comparación, los titulares deben poder identificar la **revisión exacta** del contrato `comparative-contract-v1.md` y de la matriz `traceability-matrix-v1.md`. Los criterios añadidos en la PR #25 sobre controles positivos, oráculo independiente, abstención, denominadores, cohorte fija, repeticiones y segundo dominio **son candidatos**: no se convierten en reglas aprobadas por aparecer en un commit.
 
 - **DEC-02 — comparabilidad:** confirmar R1, R2, C y D bajo las mismas entradas y perfiles, incluir un segundo dominio no sensor, fijar la unidad `(case_id, architecture_id)`, distinguir repeticiones de nuevos casos y prohibir un ganador previo. Si se reduce el alcance, documentar qué conclusión deja de ser legítima.
 - **DEC-05 — oráculos:** fijar antes de cualquier observación el inventario y revisión de casos, expectativas, abstenciones admisibles, controles positivos y negativos, y clasificación de resultados. Registrar casos no evaluables y enmiendas sin borrarlos del denominador. F-11/F-12 siguen propuestos y no ejecutados; F-10/E-10 original sigue bloqueado.
