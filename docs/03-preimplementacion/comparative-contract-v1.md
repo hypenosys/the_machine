@@ -4,7 +4,7 @@
 **Autor:** Arquitecto Principal e Ingeniero de Ciberseguridad (@Jules)
 **Ubicación:** `docs/03-preimplementacion/comparative-contract-v1.md`
 **Carácter:** **CANDIDATO NO NORMATIVO / MARCO CANDIDATO INCOMPLETO** (Especificación de pautas pre-código; no autoriza implementación, no contiene cargas fijadas ni elige arquitectura ganadora).
-**Estado del proyecto:** **HOLD / NO-GO (Cero código ejecutable, cero manifiestos Cargo)**
+**Estado de gobernanza:** **HOLD / NO-GO** para crear, compilar o ejecutar código; la ausencia de código ejecutable o manifiestos Cargo en todas las ramas y entornos no queda certificada por este contrato.
 
 ---
 
