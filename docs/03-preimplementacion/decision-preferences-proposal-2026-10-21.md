@@ -119,3 +119,23 @@ La tabla **no sustituye** las reglas históricas de G3. Hasta que exista acta de
 | Validación | Controles positivos y negativos, oráculos independientes, abstención y registro de no evaluables | Impide elevar propuestas o simulaciones a pruebas ejecutadas |
 
 **Regla de actuación:** se permiten correcciones documentales reversibles en la PR en borrador; no se permite cambiar estados de aprobación, atribuir firmas, crear/compilar/ejecutar código, introducir dependencias, abrir CI experimental, fusionar PR ni modificar licencias vigentes mediante esta tabla. Cualquier decisión reservada requiere consentimiento verificable de ambos cotitulares según el procedimiento que se ratifique.
+
+## Acta candidata de consentimiento conjunto — plantilla sin firmas
+
+**Identificador propuesto:** ACT-GOV-001. **Versión a aprobar:** referenciar SHA exacto del documento y de `GOVERNANCE.md` al momento de deliberar; no basta con «la última versión». **Estado:** SIN EMITIR / SIN RATIFICAR.
+
+> **Texto para deliberación, no declaración atribuida a ninguna persona:** «Las personas que consten identificadas como cotitulares acuerdan —solo tras manifestar cada una aceptación expresa y verificable— adoptar la delegación limitada descrita en P-01, sin incluir las materias reservadas. La vigencia comenzará únicamente en la fecha de eficacia consignada en el acta aprobada. La delegación será revocable mediante el procedimiento aprobado y su impugnación suspenderá provisionalmente las decisiones nuevas controvertidas. El presente acuerdo no autoriza crear, compilar, ejecutar ni fusionar código; las propuestas G3, GPL y laboratorio offline requieren decisiones independientes.»
+
+| Campo obligatorio | Valor actual |
+|---|---|
+| Identidad y medio de acreditación de @Axlfc | **PENDIENTE** |
+| Aceptación expresa de @Axlfc (como cotitular y delegado propuesto) | **PENDIENTE** |
+| Identidad y medio de acreditación de @TopperH4rley | **PENDIENTE** |
+| Aceptación expresa de @TopperH4rley | **PENDIENTE** |
+| SHA exacto de texto sometido a aprobación | **PENDIENTE** |
+| Fecha de eficacia, plazo/revisión y mecanismo de revocación | **PENDIENTE** |
+| Alcance positivo, exclusiones y tratamiento de conflictos | **PENDIENTE** |
+| Revisión independiente y conflicto de interés | **PENDIENTE** |
+| Resultado | **NO RATIFICADO** |
+
+**Criterio de cierre de GAP-010:** todas las aceptaciones y campos esenciales completos, ausencia de objeciones abiertas de autoridad y reconciliación documentada con `GOVERNANCE.md` y los gates. Un comentario de PR, una petición de un usuario o una capacidad técnica de merge no sustituyen esta evidencia. No se ha pedido ni obtenido ninguna firma mediante esta plantilla.
