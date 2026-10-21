@@ -41,7 +41,7 @@ Se han restablecido los entregables de auditoría válidos (`informe-auditoria-a
 5. **`DEC-05` (Oráculos):** Deliberar sobre la matriz de pruebas negativas (F-01..F-09 y R-01..R-08), con F-10/E-10 BLOQUEADO y casos adicionales sujetos a aprobación con vocabulario estandarizado (`SUPPORTED`, `REFUTED`, `CONFLICTED`, `INSUFFICIENT`, `NOT_COMPARABLE`).
 6. **`DEC-06` (Persistencia):** Diferir el motor de persistencia duradera; fijar antes de G2.2 el formato versionado de intercambio sintético y los límites de E/S.
 7. **`DEC-07` (Licencia):** El repositorio ya es público (`visibility=public`, `license=null` según GitHub API, 2026-10-21). El titular debe decidir visibilidad, derechos de terceros y licencia sin presuponer apertura futura ni elección automática.
-8. **`DEC-08` (Autorización de Código):** Ratificar el estado **HOLD / NO-GO**. La aprobación del marco documental **NO autoriza escribir código en Rust (Gate G3)**.
+8. **`DEC-08` (Autorización de Código):** Mantener **HOLD / NO-GO** como recomendación provisional. El paquete distingue una eventual **excepción temporal y delimitada** que solo el titular podría autorizar expresamente por acta, separando escritura, compilación y ejecución; ninguna está autorizada ahora. Aprobar documentación, G2.1 o una PR **no autoriza código, pruebas ni G3**.
 
 ---
 
