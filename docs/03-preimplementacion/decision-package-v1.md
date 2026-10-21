@@ -129,7 +129,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 - **Dependencias:** DEC-01..06, GAP-010, significado de G3 (REV-05), alcance de G2.1..G2.4 y decisiones sobre privacidad/seguridad. Las definiciones históricas de G3 (antes de escribir código frente a antes de fusionarlo) continúan en conflicto y no se resuelven por este texto.
 - **Autoridad:** Titular del proyecto; independencia de revisión y evidencia de ratificación aún pendientes (REV-16).
 - **Recomendación provisional (PROPUESTO):** Mantener **Opción A**. Presentar la Opción B únicamente como posibilidad a deliberar mediante acto expreso y separado; no activarla ni tratarla como autorización implícita.
-- **Estado observado:** **SIN RATIFICAR / HOLD / NO-GO**. No hay excepción concedida, código ejecutado ni gate aprobado.
+- **Estado de gobernanza documentado:** **SIN RATIFICAR / HOLD / NO-GO**. No consta en las fuentes examinadas una excepción expresa concedida ni un gate ratificado. Esta PR es exclusivamente documental y no ha ejecutado código; la frase no certifica actividad histórica ni el contenido de otras ramas.
 
 ---
 
