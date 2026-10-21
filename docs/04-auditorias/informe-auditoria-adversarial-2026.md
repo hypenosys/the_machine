@@ -67,10 +67,10 @@ Para evitar la presuposición de que el documento con fecha más reciente invali
 ## 3. Auditoría Adversarial de Tensiones C-01 a C-04
 
 ### C-01: Registro Histórico e Inmutabilidad vs. Privacidad y Supresión Legítima
-- **OBSERVADO:** `docs/03-preimplementacion/evidence-lifecycle-privacy-candidate-v0.md` (§3) describe el ciclo de vida de la evidencia y mecanismos de retracción/supresión lógica, mientras que `PHILOSOPHY.md` exige reproducibilidad e inmutabilidad del registro. `docs/03-preimplementacion/finch-consolidation-troubleshooting-candidate-v0.md` (§4) señala que la privacidad real fuera del laboratorio simulación lógica `E-10` está fuera de alcance en la fase actual.
-- **INFERIDO:** Prometer "borrado físico/privacidad real" en un soporte inmutable genera una contradicción insuperable. La eliminación de activos primarios impide reproducir evaluaciones históricas de forma determinista.
-- **PROPUESTO:** No declarar una solución técnica única. Tratar C-01 como una decisión abierta (`DEC-04`): definir si el laboratorio sintético adopta retracción lógica bitemporal y documentar explícitamente que la garantía de borrado físico real requerirá investigación posterior antes de cualquier despliegue fuera del laboratorio.
-- **NO VERIFICADO:** No existen pruebas de borrado físico o borrado criptográfico en tiempo de ejecución (**NO VERIFICADO**).
+- **OBSERVADO:** `docs/03-preimplementacion/evidence-lifecycle-privacy-candidate-v0.md` (§3) describe el ciclo de vida de la evidencia y mecanismos de supresión de contenido, mientras que `PHILOSOPHY.md` señala principios de reproducibilidad e inmutabilidad. `docs/03-preimplementacion/finch-consolidation-troubleshooting-candidate-v0.md` (§4) indica que la privacidad real fuera de la simulación lógica `E-10` se mantiene como una cuestión abierta.
+- **INFERIDO:** Existe una tensión de garantías entre prometer supresión física completa de datos y mantener la capacidad de reproducir determinísticamente un dictamen previo. Sin embargo, un diseño arquitectónico compatible podría admitir la separación entre el contenido primario sujeto a políticas de supresión/privacidad y los registros de atestación auditables. La supresión del contenido primario puede degradar la reproducibilidad plena a verificación parcial, lo cual constituye un límite de diseño a documentar y no una imposibilidad absoluta insuperable.
+- **PROPUESTO:** Tratar C-01 como una tensión de garantías a definir en `DEC-04`: especificar el alcance del laboratorio sintético respecto a la gestión del ciclo de vida de evidencia (L-01..L-10), clarificando el efecto de la supresión de contenido sobre las atestaciones y dictámenes históricos sin prometer soluciones definitivas fuera del entorno sintético.
+- **NO VERIFICADO:** No existen pruebas de supresión física o borrado criptográfico en tiempo de ejecución (**NO VERIFICADO**).
 
 ### C-02: Núcleo Epistemológico Común vs. Semántica Especializada de Dominio
 - **OBSERVADO:** `docs/03-preimplementacion/unified-specification-candidate-v0.md` propone un contrato unificado de 6 entidades (`Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment`, `Relation`), mientras que `docs/03-preimplementacion/heterogeneous-cases.md` analiza casos de dominio con requerimientos de comparabilidad específicos.
@@ -102,26 +102,26 @@ Para evitar la presuposición de que el documento con fecha más reciente invali
 | **P-06** | Perfil no redefine garantías del núcleo | `docs/03-preimplementacion/precode-consistency-decision-review-v0.md` (DEC-02) | **OBSERVADO:** El núcleo impone denegaciones de seguridad que ningún perfil de dominio puede relajar. | **PROPUESTO:** Definir la interfaz del perfil como extensión estricta, sin capacidad de *override* sobre denegaciones del núcleo. |
 
 ### 4.2 Criterios de Falsación Candidates R-01..R-08 (Oráculos de Prueba Sintéticos)
-Se aclara que los criterios R-01..R-08 son **escenarios candidatos para el arnés de prueba pre-código**, no experimentos ejecutados ni pruebas pasadas:
+Se aclara que los criterios R-01..R-08 son **escenarios candidatos para el arnés de prueba pre-código**, alineados con la taxonomía aprobada en los contratos preexistentes (`SUPPORTED`, `REFUTED`, `CONFLICTED`, `INSUFFICIENT`, `NOT_COMPARABLE`):
 
 - **R-01 (Coincidencia Identificador vs. Identidad Real):**
-  *Aclaración de Oráculo:* La coincidencia de una URI, cadena de texto o identificador criptográfico entre dos fuentes **no demuestra por sí sola** que provengan de la misma entidad física real (**OBSERVADO**). El harness debe verificar que la igualdad de identificador sólo sea interpretada como hipótesis de identidad hasta que exista atestación correspondiente.
+  *Aclaración de Oráculo:* La coincidencia de una URI o identificador entre dos fuentes **no demuestra por sí sola** la identidad de origen real (**OBSERVADO**). Si no existe atestación de autenticidad correspondiente, la expectativa observable debe clasificarse como `INSUFFICIENT` evidencia de autenticidad o abstención.
 - **R-02 (Autoverificación de Fuente):**
-  *Aclaración de Oráculo:* Si una declaración incluye una auto-atestación de validez sin firma/atestación de una tercera entidad o clave autorizada, la expectativa observable es que el evaluador devuelva estado `UNAUTHENTICATED` o abstención (`ABSTAIN`).
+  *Aclaración de Oráculo:* Si una declaración incluye una auto-atestación de validez sin firma/atestación externa autorizada, la expectativa observable del evaluador es el estado `INSUFFICIENT` o la abstención correspondiente.
 - **R-03 (Corroboración con Dependencias Conocidas):**
-  *Aclaración de Oráculo:* Se refiere estrictamente a fuentes que comparten una dependencia **conocida y declarada** en el registro. Si la dependencia común no está declarada en el registro, el sistema local no puede adivinar la relación oculta. La expectativa es que el algoritmo de grafo descuente la independencia solo sobre el subgrafo de dependencias conocidas.
-- **R-04 (Temporalidad y Registro de Conocimiento):**
-  *Aclaración de Oráculo:* Un `recorded_time` anterior al evento alegado (`valid_time`) no implica automáticamente fraude o malicia: puede obedecer a desincronización de relojes, error de estimación o predicción. La expectativa del harness es que la anomalía sea detectada y clasificada como `TIMESTAMPS_INCONSISTENT` o abstención, sin asumir intención maliciosa.
-- **R-05 (Sobrescritura Ciega de Historial):**
-  *Expectativa:* Intentar actualizar un dictamen mediante la mutación del registro previo en lugar de crear un nuevo nodo append-only debe resultar en rechazo `MUTATION_DISALLOWED`.
+  *Aclaración de Oráculo:* Aplica a dependencias **conocidas y declaradas** en el registro. Invariante esencial de no amplificación: la ausencia de una arista de dependencia no demuestra independencia (**independencia no demostrada**). El sistema debe evitar inflar la certeza de soporte y clasificar el estado como `INSUFFICIENT` para soporte independiente verificado.
+- **R-04 (Anomalía Bitemporal):**
+  *Aclaración de Oráculo:* Un `recorded_time` incoherente con respecto a la temporalidad alegada no implica automáticamente fraude (puede deberse a desincronización o error de reloj). La expectativa del evaluador es marcar la inconsistencia como `INSUFFICIENT` o `NOT_COMPARABLE` para evaluación temporal determinista.
+- **R-05 (Intento de Mutación Histórica):**
+  *Expectativa Observable:* Someter una instrucción que intente modificar directamente un registro previo debe ser rechazada por la interfaz del harness, manteniendo inalterado el historial observable.
 - **R-06 (Evaluación Fuera de Alcance de Perfil):**
-  *Expectativa:* Someter datos de un dominio no compatible al perfil especializado debe resultar en `DOMAIN_NOT_APPLICABLE` o abstención.
+  *Expectativa Observable:* Someter un contenido fuera del dominio aplicable del perfil debe devolver `NOT_COMPARABLE` o `INSUFFICIENT`.
 - **R-07 (Evaluación Convertida en Comando Operativo):**
-  *Expectativa:* La emisión de un `Assessment` positivo no debe producir ningún evento de ejecución en el Action Gateway sin una orden explícita de la Autoridad Operativa.
-- **R-08 (Supresión Lógica como Destrucción Física):**
-  *Expectativa:* La supresión lógica debe cambiar el estado del registro a `RETRACTED`, sin simular o prometer la destrucción física de los bits en medios inmutables.
+  *Expectativa Observable:* La emisión de un `Assessment` con valor `SUPPORTED` no debe generar ningún evento de ejecución en la frontera operativa sin una orden explícita de la Autoridad Operativa.
+- **R-08 (Gestión de Supresión de Contenido):**
+  *Expectativa Observable:* Ejecutar una solicitud de supresión sobre un contenido primario ajustada a política debe actualizar el estado del ciclo de vida (L-01..L-10), sin que el arnés asuma o garantice la destrucción de bloques físicos en medios no controlados.
 
-*Nota:* La **abstención justificada** (`ABSTAIN` / `INSUFFICIENT_EVIDENCE` / `NON_COMPARABLE`) es un resultado válido e intencional en todos los oráculos epistemológicos.
+*Nota:* La **abstención o la respuesta `INSUFFICIENT` / `NOT_COMPARABLE`** son resultados epistemológicos válidos y previstos en la taxonomía normada del proyecto.
 
 ---
 
@@ -132,19 +132,20 @@ Se aclara que los criterios R-01..R-08 son **escenarios candidatos para el arné
 - En `docs/02-diseno/security/traceability.md` y `docs/04-auditorias/gap-register.md` (`GAP-002`), se constata que **ninguna de las tres amenazas posee una prueba asignada (`SEC-XXX`) en la matriz de verificaciones ejecutables** (**OBSERVADO**).
 
 ### 5.2 Propuesta de Escenarios Negativos Condicionados (PROPUESTO / NO EJECUTADO)
-Para cerrar `GAP-002` sin imponer mecanismos de implementación prematuros (como exigir multisig o sandbox específicos cuando las políticas aún no están definidas), se proponen los siguientes escenarios de prueba conceptuales condicionados a las políticas de seguridad:
+Para cerrar `GAP-002` sin imponer mecanismos de implementación prematuros (como exigir doble firma o sandbox específicos cuando las políticas de gobernanza aún no han sido fijadas), se proponen los siguientes escenarios de prueba conceptuales condicionados a la política vigente:
 
 1. **Escenario Negativo para TH-012 (Confused Deputy) — Propuesta de Test `SEC-015`:**
-   - *Condición de Política:* Vinculación explícita de `[Actor + Recurso + Operación + Contexto Temporal]`.
-   - *Escenario Negativo Sintético:* Un actor A sin permiso sobre el recurso R delega una solicitud al servicio B (que sí tiene acceso a R). Si el token o credencial presentado por B no incluye la prueba de autorización originada por A para esa operación específica sobre R, el Action Gateway debe rechazar la acción (`DELEGATION_NOT_AUTHORIZED`).
+   - *Condición de Política:* Reglas de autorización del Action Gateway en `SEC-REQ-017`.
+   - *Escenario Negativo Sintético:* Un actor A sin privilegio suficiente solicita una acción a través de un intermediario B. Si la solicitud delegada no satisface la política de autorización del originador A según la política vigente, la acción debe ser rechazada.
 
-2. **Escenario Negativo para TH-016 (Backup/Persistencia Inconsistente) — Propuesta de Test `SEC-016`:**
-   - *Condición de Política:* Verificación de integridad estructural en el arranque/restauración de estado.
-   - *Escenario Negativo Sintético:* Inyección de una imagen de persistencia sintética truncada o con punteros de evidencia rotos (`EvidenceLink` huérfano). El sistema en arranque debe detectar la incoherencia y abortar o entrar en modo degradado seguro (`CORRUPTED_STATE_REJECTED`), impidiendo la emisión de evaluaciones sobre datos inconsistentes.
+2. **Escenario Negativo para TH-016 (Persistencia Inconsistente) — Propuesta de Test `SEC-016`:**
+   - *Condición de Política:* Verificación de integridad estructural descrita en `SEC-REQ-011`.
+   - *Escenario Negativo Sintético:* Presentar un estado de almacenamiento sintético con registros truncados o punteros corruptos. El arnés de prueba debe detectar la inconsistencia estructural en la inicialización y rechazar la carga del estado corrupto.
 
-3. **Escenario Negativo para TH-019 (Insider Abuse / Alteración Unilateral) — Propuesta de Test `SEC-017`:**
-   - *Condición de Política:* La política de gobernanza aplicable determine el nivel de autorización necesario para modificar la vigencia o reglas de un perfil.
-   - *Escenario Negativo Sintético:* Intento de cambiar la versión activa de un perfil de reglas enviando una instrucción firmada por una sola identidad cuando la política configurada requiere doble autorización o validación de quórum. El sistema debe denegar la actualización (`UNAUTHORIZED_POLICY_MUTATION`).
+3. **Escenario Negativo para TH-019 (Insider Abuse / Alteración de Reglas sin Autorización) — Propuesta de Test `SEC-017`:**
+   - *Condición de Política:* Verificación de autorización de cambio de política descrita en `SEC-REQ-016`.
+   - *Escenario Negativo Sintético:* Intento de cambiar las reglas de evaluación o perfiles activos mediante un comando que no satisfaga los requisitos de autorización establecidos por la política vigente (ej. autoaprobación o cambio no autorizado). El sistema debe denegar la modificación de reglas.
+   - *Aclaración de Alcance:* La amenaza de un *insider* con control total e irrestricto sobre el sistema operativo host se considera **fuera del alcance del laboratorio sintético local**, pues sobrepasa las defensas a nivel de software.
 
 *Aclaración:* `TH-012`, `TH-016` y `TH-019` **no cuentan con tests globales ejecutados** en el repositorio actual (**OBSERVADO**).
 
@@ -157,12 +158,12 @@ Se plantean tres hipótesis de estrés pre-código para evaluar posibles límite
 ### Hipótesis de Estrés 1: Evaluación del Esquema R1 (6 Entidades) frente a Estructuras Simples de Alta Frecuencia
 - **Ubicación Documental:** `docs/03-preimplementacion/unified-specification-candidate-v0.md` (§3).
 - **Hipótesis de Estrés (INFERIDO):** Si un dominio de prueba requiere procesar grandes volúmenes de eventos simples (ej. telemetría o lecturas consecutivas de sensores), obligar a que cada evento individual instancie las 6 entidades de R1 (`Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment`, `Relation`) podría multiplicar los metadatos y la complejidad de navegación del grafo.
-- **Aclaración Importante:** Se aclara que tener 6 *tipos* de entidades en la especificación no implica que cada lectura instancie necesariamente 6 *objetos nuevos* (los nodos de `Source` o `Assessment` pueden reutilizarse). Por lo tanto, el argumento no debe presentarse como un hecho verificado de "explosión de memoria" ni proclamar a R1 como "REFUTADA". Se debe tratar como una **hipótesis de estrés de diseño que deberá medirse objetivamente frente a R2 y la opción Híbrida en el primer laboratorio sintético**.
+- **Aclaración Importante:** Se aclara que tener 6 *tipos* de entidades en la especificación no implica que cada lectura instancie necesariamente 6 *objetos nuevos* (los nodos de `Source` o `Assessment` pueden reutilizarse). Por lo tanto, el argumento no debe presentarse como un hecho verificado de "explosión de memoria" ni proclamar a R1 como "REFUTADA". Se debe tratar como una **hipótesis de estrés de diseño que deberá medirse objetivamente frente a R2, la opción Híbrida y el Control Específico de Dominio (Opción D) en el primer laboratorio sintético**.
 
-### Hipótesis de Estrés 2: Falsa Presunción de Independencia en Fuentes con Ancestros Comunes No Declarados
+### Hipótesis de Estrés 2: Conservación de Independencia Desconocida en Grafos de Procedencia
 - **Ubicación Documental:** `docs/03-preimplementacion/general-epistemic-contract-v0.md` (§4).
-- **Hipótesis de Estrés (INFERIDO):** Si dos fuentes externas A y B emiten afirmaciones idénticas, pero ambas se basan internamente en una fuente primaria común C no declarada en sus metadatos visibles, el algoritmo de evaluación local procesará A y B como corroboraciones independientes.
-- **Límite Identificado:** Ningún contrato epistemológico local puede descubrir dependencias no declaradas ni invisibles en la procedencia. Por ello, la regla de deduplicación de soporte en P-05 aplica exclusivamente sobre el *subgrafo de dependencias conocidas y declaradas*. La certidumbre resultante debe calificarse como `PROVISIONAL_SUPPORT_KNOWN_GRAPH` y no como "independencia absoluta".
+- **Hipótesis de Estrés (INFERIDO):** Si dos fuentes externas A y B emiten afirmaciones idénticas, pero ambas se basan internamente en una fuente primaria común C no declarada en sus metadatos visibles, la ausencia de una arista de dependencia en el grafo no demuestra que A y B sean independientes.
+- **Invariante de No Amplificación:** La ausencia de relación conocida en el registro equivale a **independencia desconocida o no demostrada**. Por ello, el sistema no debe inflar la certeza epistemológica y debe mantener la clasificación de soporte restringida al subgrafo de dependencias explícitamente verificadas (`INSUFFICIENT` para soporte independiente global).
 
 ### Hipótesis de Estrés 3: Inefectividad de Fronteras Lógicas frente a Procesos en la Misma Memoria
 - **Ubicación Documental:** `docs/03-preimplementacion/architecture-boundaries.md` (§2).
@@ -173,17 +174,17 @@ Se plantean tres hipótesis de estrés pre-código para evaluar posibles límite
 
 ## 7. Comparación Neutra de Opciones Arquitectónicas (DEC-02)
 
-Se presenta la comparación objetiva de las cuatro opciones arquitectónicas bajo criterios comunes, **sin proclamar un ganador ni inventar métricas de rendimiento**:
+Se presenta la comparación objetiva de las cuatro opciones arquitectónicas bajo criterios comunes, **utilizando la Opción D (Control Específico de Dominio) como baseline de comparación, sin proclamar ganadores ni presuponer consensos no ratificados**:
 
-| Criterio de Comparación | Opción R1 (6 Entidades Unificadas) | Opción R2 (Artifact + Attestation Minimal) | Opción Híbrida (R2 en Núcleo + Grafos Extendidos) | Control Específico de Dominio |
+| Criterio de Comparación | Opción R1 (6 Entidades Unificadas) | Opción R2 (Artifact + Attestation Minimal) | Opción Híbrida (R2 en Núcleo + Grafos Extendidos) | Opción D (Control Específico de Dominio - Baseline) |
 |---|---|---|---|---|
 | **Estructura Representacional** | 6 tipos explicitados (`Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment`, `Relation`). | 2 tipos base (`Artifact` opaco + `Attestation` de metadatos/firma). | `Artifact` + `Attestation` en el núcleo; grafos R1 construidos bajo demanda por el evaluador. | Definiciones ad-hoc especificadas individualmente por cada perfil de dominio. |
 | **Complejidad del Esquema Base** | Mayor número de tipos e interconexiones en el contrato inicial. | Mínima superficie de tipos en el núcleo computable. | Modular: núcleo simple con capacidad de extensión en capa superior. | Inexistencia de contrato común unificado. |
-| **Interoperabilidad entre Dominios** | Unificada a través del esquema común de 6 tipos. | Basada en atestaciones estándar sobre artefactos tipados. | Unificada en metadatos primarios; especializada en la extensión. | Nula o dependiente de mapeadores ad-hoc entre dominios. |
-| **Auditabilidad de Código** | Requiere auditar la correcta gestión de grafos y relaciones complejas. | Facilita la auditoría del núcleo por su reducida superficie de estado. | Permite auditar el núcleo de atestación de forma aislada a los grafos. | Compleja por la dispersión de contratos de dominio. |
-| **Estado en la Deliberación Pre-código** | Opción candidata en `unified-specification-candidate-v0.md`. | Opción propuesta en revisiones y evaluaciones de auditoría. | Opción de consenso propuesta para el primer laboratorio sintético. | Descartada como contrato global por no aportar abstracción común. |
+| **Interoperabilidad entre Dominios** | Unificada a través del esquema común de 6 tipos. | Basada en atestaciones estándar sobre artefactos tipados. | Unificada en metadatos primarios; especializada en la extensión. | Nula o dependiente de mapeadores ad-hoc entre dominios (Baseline). |
+| **Auditabilidad de Código** | Requiere auditar la correcta gestión de grafos y relaciones complejas. | Exige verificar la menor cantidad de tipos base en el núcleo. | Requiere auditar el núcleo de atestación y las extensiones de dominio. | Variable y dependiente de cada implementación de dominio. |
+| **Estado en la Deliberación Pre-código** | Opción candidata en `unified-specification-candidate-v0.md`. | Opción propuesta para evaluación pre-código. | Opción propuesta para evaluación pre-código. | Sirve como línea base (*baseline*) de comparación no estandarizada. |
 
-*Conclusión de Comparación:* La elección entre R1, R2 o la opción Híbrida debe realizarse en la deliberación de `DEC-02` mediante la ejecución previa de oráculos sintéticos en el primer laboratorio pre-código, sin seleccionar ganador prematuramente en este informe.
+*Conclusión de Comparación:* La decisión `DEC-02` debe tomarse mediante la evaluación objetiva de los escenarios de prueba en el laboratorio pre-código, comparando R1, R2 y la opción Híbrida frente a la línea base D, sin seleccionar ganadores de forma anticipada.
 
 ---
 
@@ -195,8 +196,8 @@ A continuación se detallan los hallazgos documentales y de diseño identificado
 |---|---|---|---|---|---|---|---|
 | **AUD-2026-01** | **Medium (P2 Interno / P1 Pre-publicación)** | Gobernanza / Legal | Root directory; `CONTRIBUTING.md`, `README.md` | Inexistencia de archivo `LICENSE` en el repositorio (**OBSERVADO**). | El código y docs permanecen "Todos los derechos reservados", impidiendo contribuciones/distribución pública. | Incorporar el archivo `LICENSE` con la licencia decidida por el titular antes de la apertura pública (`GAP-001`). | **OPEN** |
 | **AUD-2026-02** | **High** | Seguridad / Cobertura | `docs/02-diseno/security/traceability.md`; `gap-register.md` | `TH-012`, `TH-016` y `TH-019` carecen de prueba asignada (`SEC-XXX`) (**OBSERVADO**). | Brecha en el plan global de verificación de seguridad (`GAP-002`). | Incorporar la especificación de escenarios de prueba condicionados `SEC-015`, `SEC-016` y `SEC-017`. | **OPEN** |
-| **AUD-2026-03** | **Medium** | Arquitectura | `docs/03-preimplementacion/unified-specification-candidate-v0.md` (§3) | Especificación R1 unificada no ha sido comparada experimentalmente frente a R2 o Híbrida (**OBSERVADO**). | Riesgo de adoptar un contrato de datos rígido antes de probar su adecuación en el laboratorio. | Tratar la elección R1/R2/Híbrida como hipótesis abierta a evaluar en `DEC-02` (`GAP-006`). | **OPEN** |
-| **AUD-2026-04** | **Medium** | Especificación | `docs/03-preimplementacion/claim-semantics-v0.md` | Falta especificación formal de serialización y precisión de tipos bitemporales (**OBSERVADO**). | Posible ambigüedad en la interpretación y parsing de `valid_time`, `recorded_time` y `assessed_time` (`GAP-003`). | Especificar tipos concretos (e.g. ISO-8601/RFC-3339 UTC) en el borrador de contrato de datos. | **OPEN** |
+| **AUD-2026-03** | **Medium** | Arquitectura | `docs/03-preimplementacion/unified-specification-candidate-v0.md` (§3) | Especificación R1 unificada no ha sido comparada experimentalmente frente a R2, Híbrida o Baseline D (**OBSERVADO**). | Riesgo de adoptar un contrato de datos rígido antes de probar su adecuación en el laboratorio. | Tratar la elección R1/R2/Híbrida/D como hipótesis abierta a evaluar en `DEC-02` (`GAP-006`). | **OPEN** |
+| **AUD-2026-04** | **Medium** | Especificación | `docs/03-preimplementacion/claim-semantics-v0.md` | Falta especificación formal de serialización y precisión de tipos bitemporales (**OBSERVADO**). | Posible ambigüedad en la interpretación y parsing de `valid_time`, `recorded_time` y `assessed_time` (`GAP-003`). | Especificar tipos concretos (e.g. ISO-8601/RFC-3339 UTC) preservando los tres tiempos en los borradores de contrato. | **OPEN** |
 | **AUD-2026-05** | **Medium** | Seguridad / Aislamiento | `docs/03-preimplementacion/architecture-boundaries.md` (§2) | Inexistencia de especificación de aislamiento de memoria/proceso entre componentes localmente residentes (**OBSERVADO**). | Falsa presuposición de que las fronteras lógicas ofrecen protección contra malware local (`GAP-004`). | Documentar explícitamente que los límites son de flujo de trabajo (*workflow*) y no un Sandbox de SO. | **OPEN** |
 | **AUD-2026-06** | **Medium** | Gobernanza | `docs/02-diseno/adr/` (0001 a 0005) | Los 5 ADRs centrales están en estado `Proposed` (**OBSERVADO**). | Ambigüedad sobre cuáles decisiones de arquitectura son definitivas (`GAP-005`). | Revisar y votar el cambio de estado de los ADRs a `Accepted` / `Rejected` tras resolver `DEC-01..08`. | **OPEN** |
 | **AUD-2026-07** | **Low** | Mantenimiento | `.github/workflows/` | Inexistencia de directorio de CI/CD para automatizar chequeos documentales (**OBSERVADO**). | Verificación manual propensa a errores en enlaces o formato Markdown (`GAP-007`). | Añadir un workflow básico de linter/validación de enlaces Markdown cuando se autorice la fase de herramientas. | **OPEN** |
@@ -210,13 +211,13 @@ Para avanzar ordenadamente en la fase de pre-diseño sin romper el estado **HOLD
 1. **`DEC-01` (Alcance del Producto v0):**
    - *Cuestión:* ¿Se ratifica que la versión inicial es exclusivamente un *Laboratorio de Afirmaciones/Evidencias Offline* sintético, sin red, sin persistencia física duradera y sin ejecución de acciones reales?
 2. **`DEC-02` (Elección de Representación de Evidencia):**
-   - *Cuestión:* ¿Se aprueba someter a comparación experimental las opciones R1, R2 y Híbrida mediante oráculos de prueba pre-código antes de formalizar el esquema final?
+   - *Cuestión:* ¿Se aprueba someter a comparación experimental las opciones R1, R2 y Híbrida frente al Baseline D mediante los escenarios de prueba sintéticos antes de formalizar el esquema final?
 3. **`DEC-03` (Frontera del Núcleo y Harness):**
    - *Cuestión:* ¿Se ratifica que el núcleo computable debe consistir en funciones puras sin E/S ni acceso al reloj, restringiendo la E/S al Harness de pruebas?
-4. **`DEC-04` (Gestión de Privacidad y Lifecycle):**
-   - *Cuestión:* ¿Se acuerda que el laboratorio sintético gestionará la privacidad mediante marcas de retracción lógica bitemporal, difiriendo las garantías de borrado físico hasta fases posteriores?
+4. **`DEC-04` (Gestión de Privacidad y Lifecycle de Datos):**
+   - *Cuestión:* ¿Se acuerda que el laboratorio sintético gestionará el ciclo de vida de datos preservando los tres tiempos (`valid_time`, `recorded_time`, `assessed_time`) y relacionando las solicitudes de supresión con los estados F/E/L preexistentes?
 5. **`DEC-05` (Oráculos de Falsación Negativos):**
-   - *Cuestión:* ¿Se aprueba la incorporación formal de los escenarios R-01 a R-08 como oráculos de prueba negativos obligatorios para el arnés sintético?
+   - *Cuestión:* ¿Se aprueba mapear los criterios de falsación R-01 a R-08 a los fixtures existentes F/E/L para su verificación sintética en el arnés de pruebas?
 6. **`DEC-06` (Postergación de Tecnología de Persistencia):**
    - *Cuestión:* ¿Se confirma que la elección de motores de almacenamiento (e.g. SQLite, Sled, RocksDB) permanece diferida hasta validar las estructuras en memoria?
 7. **`DEC-07` (Modelo de Licencia Legal):**
@@ -234,4 +235,4 @@ El análisis de la documentación de **THE MACHINE** refleja una arquitectura co
 2. Formalizar la asignación de pruebas para `TH-012`, `TH-016` y `TH-019` en el plan global de seguridad (`GAP-002`).
 3. Deliberar formalmente sobre las decisiones `DEC-01` a `DEC-08` tras revisar los resultados del presente informe.
 
-Se emite el veredicto **REVISE**. El proyecto se mantiene estrictamente en estado **HOLD / NO-GO**.
+Se mantiene el veredicto **REVISE**. El proyecto permanece estrictamente en estado **HOLD / NO-GO**.
