@@ -152,4 +152,4 @@ Se establece explícitamente que la mera redacción o presentación de este paqu
 
 1. **Mantener Estado HOLD / NO-GO:** No escribir código Rust, no crear manifiestos `Cargo.toml`, no añadir dependencias ni configurar flujos de CI de compilación.
 2. **Someter a Deliberación:** Presentar al titular (@Axlfc) las recomendaciones provisionales sobre `DEC-01..DEC-08`.
-3. **Procedimiento Armonizado por Etapas:** Exigir el cumplimiento estricto del Protocolo de Autorización por Etapas (`staged-authorization-protocol-v1.md`), respetando los Gates históricos G0..G5 y garantizando que la aprobación del Subgate G2.1 no autorice automáticamente el paso a código (Gate G3).
+3. **Protocolo por etapas candidato:** Contrastar el Protocolo de Autorización por Etapas (`staged-authorization-protocol-v1.md`) con las definiciones históricas de G0..G5; su precedencia y el significado de G3 están SIN RATIFICAR (GAP-010 / REV-05). Ninguna aprobación documental G2.1 autoriza por sí sola código ni laboratorio.
