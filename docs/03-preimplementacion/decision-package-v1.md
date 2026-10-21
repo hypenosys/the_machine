@@ -116,7 +116,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
   - *Opción A:* Dual MIT / Apache-2.0.
   - *Opción B:* Mozilla Public License 2.0 (MPL-2.0).
   - *Opción C:* Mantener reserva de derechos sin licencia general de reutilización mientras los titulares deliberan, **aunque el repositorio ya sea públicamente accesible**. La visibilidad pública no implica autorización de distribución por terceros.
-- **Costes y Complejidad:** La falta de archivo `LICENSE` (`GAP-001`) deja sin permisos generales explícitos de reutilización o redistribución. El repositorio ya es público; esto no demuestra que cada archivo carezca de avisos específicos ni determina automáticamente la titularidad de terceros.
+- **Costes y Complejidad (estado actualizado):** La rama de la PR contiene `LICENSE.md` con CC BY 4.0 para documentación original y materiales no software con derechos suficientes. Persiste el coste de verificar autoría, contenidos de terceros y compatibilidad de derechos; la visibilidad pública no concede por sí sola licencias sobre materiales excluidos.
 - **Riesgos Asociados:** Incertidumbre jurídica para colaboradores externos.
 - **Evidencia documental (rama PR #25):** Se ha añadido `LICENSE.md` con referencia oficial a CC BY 4.0 para documentación original y materiales no software con derechos suficientes. `gap-register.md` conserva su estado histórico OPEN; no se ha verificado inventario completo de derechos de terceros ni se ha seleccionado licencia para futuro software.
 - **Dependencias:** Ninguna.
@@ -141,7 +141,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 Se establece explícitamente que la mera redacción o presentación de este paquete de decisión **NO CIERRA la brecha `GAP-010` (Indefinición del proceso normativo de consolidación)**. La brecha `GAP-010` permanecerá en estado **OPEN** hasta que los titulares del proyecto ratifiquen formalmente el Mapa de Autoridad Documental y el procedimiento de precedencia de normas.
 
 ### 3.2 Estado Real de los Registros de Brechas y Decisiones
-- **`GAP-001` (Licencia):** OPEN. Pendiente de decisión de los titulares (`DEC-07`).
+- **`GAP-001` (Licencia):** OPEN en el registro histórico. DEC-07 incorpora CC BY 4.0 documental por instrucción recibida; quedan pendientes revisión de titularidad/terceros, tratamiento de software futuro y cierre formal por la autoridad competente.
 - **`GAP-002` (Pruebas TH-012/016/019):** OPEN. Se han diseñado las especificaciones de prueba `SEC-015..017`, pero no están ejecutadas (**NO VERIFICADO**).
 - **`GAP-003` (Especificación temporal):** OPEN. Mitigado conceptualmente en `comparative-contract-v1.md`, pendiente de esquema ejecutable.
 - **`GAP-004` (Modelo de adversario local):** OPEN. Se aclara que las fronteras lógicas no son isoladores de memoria del SO.
