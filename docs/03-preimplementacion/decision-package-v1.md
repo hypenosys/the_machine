@@ -88,7 +88,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 
 ### DEC-05 — Oráculos de Falsación Negativos y Pruebas
 - **Opciones Evaluadas:**
-  - *Opción A:* Adopción de la matriz unificada de oráculos sintéticos F-01..F-10, E-01..E-10, L-01..L-10 y R-01..R-08, empleando la taxonomía estandarizada (`SUPPORTED`, `REFUTED`, `CONFLICTED`, `INSUFFICIENT`, `NOT_COMPARABLE`) y distinguiendo dictamens de errores internos del sistema (`INTERNAL_FAILURE`, `MALFORMED`).
+  - *Opción A:* Deliberación sobre la matriz de oráculos sintéticos F-01..F-09, E-01..E-09, L-01..L-10 y R-01..R-08; F-10/E-10 original permanece BLOQUEADO y F-11/F-12 son propuestas independientes, empleando la taxonomía estandarizada (`SUPPORTED`, `REFUTED`, `CONFLICTED`, `INSUFFICIENT`, `NOT_COMPARABLE`) y distinguiendo dictamens de errores internos del sistema (`INTERNAL_FAILURE`, `MALFORMED`).
   - *Opción B:* Validación basada únicamente en casos de éxito (happy path).
 - **Costes y Complejidad:** Requiere construir oráculos de abstención (`NOT_COMPARABLE`, `INSUFFICIENT`) y detección de contradicción (`CONFLICTED`).
 - **Riesgos Asociados:** Sin oráculos negativos, el sistema puede inflar la certeza o validar fuentes no autenticadas.
@@ -101,24 +101,24 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 - **Opciones Evaluadas:**
   - *Opción A:* Diferir la selección de motor de persistencia (SQLite, Sled, RocksDB) y formatos binarios hasta evaluar los contratos en memoria.
   - *Opción B:* Definir inmediatamente el esquema de persistencia en disco.
-- **Costes y Complejidad:** La Opción A minimiza dependencias prematuras y evita acoplamiento a librerías de almacenamiento.
-- **Riesgos Asociados:** Ninguno en la fase de laboratorio sintético.
+- **Costes y Complejidad:** La Opción A minimiza dependencias prematuras y evita acoplamiento a librerías de almacenamiento. No exime de definir un formato de intercambio sintético y su política de dependencias antes de G2.2.
+- **Riesgos Asociados:** Ambigüedad de entradas/salidas y falta de reproducibilidad si no se fija el formato de intercambio del laboratorio; persistencia duradera sigue fuera de alcance.
 - **Evidencia Observada:** `GAP-003` señala la falta de esquema de serialización.
 - **Dependencias:** DEC-02, DEC-03.
 - **Autoridad:** Titular del proyecto / ADR correspondiente.
-- **Recomendación Provisional (PROPUESTO):** Aprobar la **Opción A** (Diferir decisión de persistencia dura).
+- **Recomendación Provisional (PROPUESTO):** Diferir la persistencia duradera; especificar antes de G2.2 el formato de intercambio sintético, versionado, límites de E/S y dependencias sin presuponer aprobación.
 
 ### DEC-07 — Licencia Legal y Política de Contribuciones
 - **Opciones Evaluadas:**
   - *Opción A:* Dual MIT / Apache-2.0.
   - *Opción B:* Mozilla Public License 2.0 (MPL-2.0).
   - *Opción C:* Reservar todos los derechos hasta la primera versión pública.
-- **Costes y Complejidad:** La falta de archivo `LICENSE` (`GAP-001`) impide legalmente contribuciones externas o distribución.
+- **Costes y Complejidad:** La falta de archivo `LICENSE` (`GAP-001`) deja sin permisos generales explícitos de reutilización o redistribución. El repositorio ya es público; esto no demuestra que cada archivo carezca de avisos específicos ni determina automáticamente la titularidad de terceros.
 - **Riesgos Asociados:** Incertidumbre jurídica para colaboradores externos.
 - **Evidencia Observada:** `GAP-001` abierto en `gap-register.md`.
 - **Dependencias:** Ninguna.
 - **Autoridad:** Titular del proyecto (@Axlfc) en exclusiva.
-- **Recomendación Provisional (PROPUESTO):** El titular elegirá la licencia aplicable para resolver `GAP-001` previamente a cualquier apertura pública.
+- **Recomendación Provisional (PROPUESTO):** El titular elegirá la licencia aplicable para resolver `GAP-001` considerando que el repositorio ya es público según GitHub API (2026-10-21, `visibility=public`, `license=null`); resolver titularidad, visibilidad y términos sin adoptar una licencia por defecto.
 
 ### DEC-08 — Autorización Expresa para Transición a Código (Gate G3 — Implementación)
 - **Opciones Evaluadas:**
