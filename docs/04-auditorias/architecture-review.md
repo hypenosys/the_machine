@@ -83,7 +83,7 @@ A continuación se comparan cuatro enfoques arquitectónicos. La **Opción A** s
 
 ## 5. Recomendación y decisión de gobernanza
 
-1. **Mantener la Opción A como especificación candidata vigente** hasta que el titular del proyecto o el proceso de gobernanza tome una decisión formal.
+1. **Mantener la Opción A como especificación candidata vigente** hasta que los cotitulares del proyecto, mediante un proceso de gobernanza ratificado, adopten una decisión formal.
 2. **Considerar la Opción B como una alternativa de simplificación** para evaluar en un experimento offline (*vertical slice A*), permitiendo probar la pasarela de seguridad sin necesidad de codificar la ontología completa de seis entidades desde el primer día.
 3. **Aclaración de algoritmos y firmas**: La mención de algoritmos de hash (como BLAKE3 o SHA-256) en este informe se ofrece a título de ejemplo de diseño y no constituye una ratificación oficial de elecciones criptográficas.
 4. **No alterar el estado de ningún ADR a `Accepted`** mediante este informe de auditoría: las decisiones de arquitectura deberán formalizarse mediante solicitudes de cambio de ADR independientes acompañadas de evidencia experimental en código.
