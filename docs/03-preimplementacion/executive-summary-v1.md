@@ -26,7 +26,7 @@ Se han restablecido los entregables de auditoría válidos (`informe-auditoria-a
 | **B-03 — Comparación Arquitectónica** | Evaluación asimétrica o sesgada entre modelos. | Se ha redactado el contrato neutro (`comparative-contract-v1.md`) aplicando las mismas entradas y expectativas a R1, R2, Híbrida C y Baseline D. |
 | **B-04 — Semántica Temporal** | Riesgo de colapsar marcas de tiempo en errores de esquema. | Se ha preservado la independencia de `valid_time`, `recorded_time` y `assessed_time`, aclarando que su ausencia no es un error de formato (`MALFORMED`). |
 | **B-05 — Garantías Injustificadas** | Afirmaciones absolutas («determinismo 100%», «cero superficie»). | Se han eliminado o calificado todas las declaraciones absolutas, categorizándolas como hipótesis a probar en laboratorio. |
-| **B-06 — Dependencias y Gates** | Circularidad entre experimentar y autorizar la prueba. | Se ha establecido el protocolo por etapas (`staged-authorization-protocol-v1.md`), armonizando Gates G0..G5 con subgates G2.1..G2.4. |
+| **B-06 — Dependencias y Gates** | Circularidad entre experimentar y autorizar la prueba. | Se ha propuesto un protocolo por etapas (`staged-authorization-protocol-v1.md`); la armonización con las definiciones históricas de gates sigue pendiente de ratificación. |
 | **B-07 — Autoridad Normativa** | Cierre prematuro de `GAP-010` sin ratificación. | Se marca el paquete como **CANDIDATO NO NORMATIVO**. `GAP-010` permanece OPEN hasta aprobación explícita del titular. |
 | **B-08 — Seguridad y Privacidad** | Confusión entre propuestas de test y pruebas ejecutadas. | E-10 permanece **BLOQUEADO**. Se distingue rigurosamente entre especificaciones diseñadas (`SEC-015..017`) y pruebas ejecutadas (0 ejecutadas). |
 
@@ -38,9 +38,9 @@ Se han restablecido los entregables de auditoría válidos (`informe-auditoria-a
 2. **`DEC-02` (Representación):** Someter a prueba R1 (6 tipos), R2 (2 tipos), Híbrida C y Baseline D en el laboratorio neutro sin declarar ganador previo.
 3. **`DEC-03` (Frontera de E/S):** Diseñar el núcleo como funciones puras sin E/S ni acceso al reloj, planteando el determinismo como hipótesis a probar.
 4. **`DEC-04` (Privacidad / E-10):** Mantener E-10 **BLOQUEADO** para datos reales y **PROPONER solicitar autorización expresa al titular** para una prueba de ocultación lógica en memoria volátil.
-5. **`DEC-05` (Oráculos):** Aprobar la matriz de pruebas negativas (F-01..F-10 y R-01..R-08) con vocabulario estandarizado (`SUPPORTED`, `REFUTED`, `CONFLICTED`, `INSUFFICIENT`, `NOT_COMPARABLE`).
-6. **`DEC-06` (Persistencia):** Diferir la selección de motor de base de datos (SQLite/Sled) hasta evaluar los contratos en memoria.
-7. **`DEC-07` (Licencia):** El titular elegirá la licencia legal (`LICENSE`) para resolver `GAP-001` previo a cualquier apertura pública.
+5. **`DEC-05` (Oráculos):** Deliberar sobre la matriz de pruebas negativas (F-01..F-09 y R-01..R-08), con F-10/E-10 BLOQUEADO y casos adicionales sujetos a aprobación con vocabulario estandarizado (`SUPPORTED`, `REFUTED`, `CONFLICTED`, `INSUFFICIENT`, `NOT_COMPARABLE`).
+6. **`DEC-06` (Persistencia):** Diferir el motor de persistencia duradera; fijar antes de G2.2 el formato versionado de intercambio sintético y los límites de E/S.
+7. **`DEC-07` (Licencia):** El repositorio ya es público (`visibility=public`, `license=null` según GitHub API, 2026-10-21). El titular debe decidir visibilidad, derechos de terceros y licencia sin presuponer apertura futura ni elección automática.
 8. **`DEC-08` (Autorización de Código):** Ratificar el estado **HOLD / NO-GO**. La aprobación del marco documental **NO autoriza escribir código en Rust (Gate G3)**.
 
 ---
