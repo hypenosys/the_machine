@@ -95,3 +95,11 @@ A synthetic sequence with immutable registration ordinal `seq` distinct from cal
 - REV-01/03/05/06: `staged-authorization-protocol-v1.md` now identifies the unresolved historical gate precedence, G3 meaning, and lack of any current code/harness exception. Only the owner can ratify a resolution.
 - REV-13: a negative and positive temporal oracle is proposed above, but no experimental result exists.
 - REV-08: this errata preserves the historical audit rather than silently rewriting it; criteria and proposed oracle variants remain distinct.
+
+## Public repository and licensing evidence (REV-15; verified 2026-10-21)
+
+GitHub REST `GET /repos/hypenosys/the_machine` returned `visibility=public`, `private=false`, `license=null`. `docs/04-auditorias/gap-register.md` GAP-001 independently reports no root LICENSE file. Therefore statements suggesting publication is merely future-facing are outdated: the repository **is already publicly readable without a detected repository license**. This does not grant permission to reuse or redistribute, nor prove the legal status of each contributed document. Owner decision required: confirm visibility intent, provenance/third-party rights and licensing terms; do not autonomously alter settings or adopt a license. GAP-001 stays OPEN.
+
+## Security-test identifier correction (REV-11; partial)
+
+The historical adversarial audit assigned TH-012→SEC-015, TH-016→SEC-016 and TH-019→SEC-017, with TH-016's scenario testing corrupted-state load instead of actual backup restoration. The current proposed plan and traceability use TH-016→SEC-015/SEC-REQ-015 (backup restore), TH-019→SEC-016/SEC-REQ-016 (separation of duties), TH-012→SEC-017/SEC-REQ-017 (confused deputy). `uncertainty-register-v1.md` now records the **current candidate mapping** and notes the historical discrepancy. These identifiers remain proposed; no test was run and GAP-002 stays OPEN.
