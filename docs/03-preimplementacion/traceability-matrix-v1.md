@@ -10,7 +10,7 @@
 
 ## 1. Metodología de Correspondencia Reconstruida
 
-En estricta atención al **Defecto B-02**, la presente matriz reconstruye de manera rigurosa la trazabilidad entre:
+En atención al **Defecto B-02**, la presente matriz propone correspondencias documentales de distinta solidez —directas, parciales o temáticas— entre:
 - **Criterios de Falsación R-01..R-08** (definidos en `finch-consolidation-troubleshooting-candidate-v0.md` §5).
 - **Fixtures Sintéticos F-01..F-10** (definidos en `precode-decision-protocol-v0.md`).
 - **Oráculos de Aceptación E-01..E-10** (definidos en `offline-experiment-contract-candidate-v0.md` §4).
@@ -91,14 +91,14 @@ A continuación se consolida la matriz completa de los diez fixtures sintéticos
 
 Para cubrir las brechas identificadas en R-01 y R-07 sin alterar la numeración de los fixtures preexistentes, se proponen formalmente los siguientes dos casos sintéticos:
 
-### F-11 / E-11 — Fusión de Identidad Externa por Coincidencia Textual (Cubre R-01)
+### F-11 / E-11 — Fusión de Identidad Externa por Coincidencia Textual (Propuesta para R-01; cobertura no demostrada)
 - **Precondición:** Dos atestaciones procedentes de fuentes distintas emplean la misma cadena de texto como identificador de entidad sintética sin atestación de autoridad común.
 - **Entrada Sintética:** Atestación A (Fuente X, ID "sensor-01") y Atestación B (Fuente Y, ID "sensor-01").
-- **Distinción entre Identidad y Verificación:** Se separa explícitamente el emparejamiento de identidad (*identity matching*) del estado de autenticación de la fuente (*verification status*). Una fuente puede estar autenticada/firmada (`VERIFIED`) y, al mismo tiempo, emplear un identificador textual que no debe colapsar la entidad con la de otra fuente distinta.
+- **Distinción entre Identidad y Verificación:** Se separa explícitamente el emparejamiento de identidad (*identity matching*) del estado de autenticación de la fuente (*verification status*). Una fuente puede tener procedencia `VERIFIED` **declarada como dato sintético por un oráculo externo**, sin validación criptográfica ejecutada; ello no autoriza colapsar entidades de fuentes distintas por coincidencia textual.
 - **Resultado Esperado Observable:** El sistema trata ambas entidades e identidades como distintas e irrelacionadas en el grafo, impidiendo la fusión de nodos por mera coincidencia de cadenas de texto.
 - **Estado:** PROPUESTO / NO EJECUTADO.
 
-### F-12 / E-12 — Prevención de Escalada de Evaluación a Comando Operativo (Cubre R-07 / P-01)
+### F-12 / E-12 — Prevención de Escalada de Evaluación a Comando Operativo (Propuesta para R-07 / P-01; cobertura no demostrada)
 - **Precondición:** Un evaluador u oráculo emite un `Assessment` con resultado `SUPPORTED` sobre un hecho del dominio.
 - **Entrada Sintética:** Emisión de `Assessment` positivo sobre el evento sintético.
 - **Resultado Esperado Observable (propuesta no ejecutada):** Un observador independiente de la frontera registra cero solicitudes de acción cuando la única entrada es un dictamen `SUPPORTED`. Un control positivo separado, con una orden operativa sintética explícita, debe producir una señal observable para demostrar que el observador funciona. Sin ambos controles, el caso queda NO EVALUABLE, nunca PASS. Esto no verifica un Action Gateway real, que permanece fuera del alcance del laboratorio.
