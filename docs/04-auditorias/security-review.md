@@ -60,7 +60,7 @@ Dado que **no existe código funcional ni ejecutables probados**, los riesgos re
 | **TH-015** (Logs con secretos) | `SEC-REQ-012` | Redacción de datos sensibles en registros | `SEC-012` | Solo diseño documental | **GAP-008** | **NO EVALUADO** (*Secret<T>* es un envoltorio de tipos, no una garantía completa de no-filtración) |
 | **TH-016** (Backup irrecuperable) | `SEC-REQ-015` | Ensayos automatizados de restauración sintética | **SIN ASIGNAR** | **Ninguna** | **GAP-002** | **NO EVALUADO** (Falta especificación de test) |
 | **TH-017** (Retención fuera plazo) | `SEC-REQ-008` | Políticas de caducidad de datos | `SEC-008` | Solo diseño documental | Ninguna | **NO EVALUADO** |
-| **TH-018** (Dependencia comprometida)| `SEC-REQ-013` | Revision de dependencias mediante cargo-audit | `SEC-013` | Solo diseño documental | Ninguna | **NO EVALUADO** |
+| **TH-018** (Dependencia compromised) | `SEC-REQ-013` | Revisión de dependencias mediante cargo-audit | `SEC-013` | Solo diseño documental | Ninguna | **NO EVALUADO** |
 | **TH-019** (Insider Abuse) | `SEC-REQ-016` | Separación de deberes y auditoría de decisiones | **SIN ASIGNAR** | **Ninguna** | **GAP-002** | **NO EVALUADO** (Falta especificación de test) |
 | **TH-020** (Modelo comprometido) | `SEC-REQ-014` | Salida de modelo tratada como propuesta no confiable | `SEC-014` | Solo diseño documental | Ninguna | **NO EVALUADO** |
 
@@ -69,9 +69,9 @@ Dado que **no existe código funcional ni ejecutables probados**, los riesgos re
 ## 4. Estado de la seguridad en cuatro dimensiones
 
 1. **Seguridad Documentada**: **EXISTENTE EN DISEÑO**. Existe un modelo de amenazas STRIDE v0 (`TH-001`..`TH-020`), requisitos verificables (`SEC-REQ-001`..`SEC-REQ-017`) y diagramas de flujo.
-2. **Seguridad Implementada**: **NULA (0%)**. No existe código funcional en Rust, conectores ni pasarela de ejecución.
-3. **Seguridad Comprobada / Verificada**: **NULA (0%)**. Al no existir binarios compilados, no se ha ejecutado ninguna prueba adversarial ni test unitario.
-4. **Seguridad Pendiente**: **100%**. Todos los controles propuestos deben implementarse, compilarse y probarse empíricamente.
+2. **Seguridad Implementada**: **PENDIENTE**. No existe código funcional en Rust, conectores ni pasarela de ejecución.
+3. **Seguridad Comprobada / Verificada**: **PENDIENTE**. Al no existir binarios compilados, no se ha ejecutado ninguna prueba adversarial ni test unitario.
+4. **Seguridad Pendiente**: **TODOS LOS CONTROLES DOCUMENTADOS**. Todos los controles propuestos en el modelo de amenazas y especificaciones de seguridad siguen pendientes de implementación y verificación empírica en código.
 
 ---
 

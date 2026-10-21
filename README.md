@@ -10,7 +10,12 @@
 **THE MACHINE** es un proyecto en fase de **diseño conceptual y preimplementación** concebido para explorar una arquitectura local (*Local-First*), orientada a la seguridad y determinista para el análisis de información, la verificación de procedencia y la evaluación asistida por modelos de lenguaje (LLM/IA).
 
 ### Estado de propiedad y licenciamiento
-Currently a **proyecto privado con intención de apertura pública**. El archivo de licencia legal (`LICENSE`) está pendiente de incorporación (**GAP-001**). Corresponderá al titular del proyecto evaluar y seleccionar la licencia adecuada (por ejemplo, MIT, Apache-2.0, Dual MIT/Apache-2.0, MPL-2.0 o similar) previo a cualquier distribución o apertura pública de contribuciones.
+**Actualmente es un proyecto privado con intención de apertura pública**. El archivo de licencia legal (`LICENSE`) está pendiente de incorporación (**GAP-001**). Corresponderá al titular del proyecto evaluar y seleccionar la licencia adecuada (por ejemplo, MIT, Apache-2.0, Dual MIT/Apache-2.0, MPL-2.0 u otra) previo a cualquier distribución o apertura pública de contribuciones.
+
+### Entrada rápida para principiantes (sin saber programar)
+No necesitas experiencia previa en programación para comprender THE MACHINE ni para participar en la revisión de sus ideas:
+- Si es tu primera vez en GitHub o en el proyecto, empieza por el itinerario adaptado en [`docs/00-empezar/README.md`](docs/00-empezar/README.md) y la [`guía de GitHub para principiantes`](docs/00-empezar/guia-github.md).
+- Explora el [`primer experimento conceptual`](docs/00-empezar/primer-experimento.md) donde se explica cómo dos sensores con datos contradictorios pueden evaluarse sin inventar certezas.
 
 ### Objetivos de diseño
 El desarrollo de THE MACHINE se orienta por los siguientes **objetivos de diseño** (propiedades que se pretenden alcanzar en la arquitectura e implementación futura, no capacidades actualmente operativas):
@@ -22,7 +27,7 @@ El desarrollo de THE MACHINE se orienta por los siguientes **objetivos de diseñ
 
 ### ¿Qué NO es y qué todavía NO hace?
 - **NO es un software en producción ni un producto terminado**.
-- **NO contiene código ejecutable en Rust**: En la versión actual del repositorio no existen archivos `.rs`, binarios compilados ni manifestos de Cargo.
+- **NO contiene código ejecutable en Rust**: En la versión actual del repositorio no existen archivos `.rs`, binarios compilados ni manifiestos de Cargo.
 - **NO ejecuta acciones en el sistema operativo**: Las pasarelas de autorización y ejecución son especificaciones de diseño no codificadas.
 - **NO garantiza aún operabilidad desconectada ni privacidad efectiva**: Dichas propiedades son metas de diseño que deberán ser verificadas en binarios una vez iniciada la fase de código.
 
@@ -32,16 +37,16 @@ El desarrollo de THE MACHINE se orienta por los siguientes **objetivos de diseñ
 
 El estado del proyecto se evalúa objetivamente mediante la auditoría integral de octubre de 2026 (`docs/04-auditorias/`):
 
-| Dimensión / Área | Estado Documentado | Estado Implementado | Estado Verificado | Estado Real / Evaluacion de Gate |
+| Dimensión / Área | Estado Documentado | Estado Implementado | Estado Verificado | Estado Real / Evaluación de Gate |
 |---|---|---|---|---|
 | **Documentación de inicio** | Existente | N/A (Documental) | Inspeccionada localmente | **Gate G0: PARCIAL** (Falta formalizar activos mínimos) |
 | **Investigación técnica** | Estudios preliminares | N/A (Teórico) | Bloqueado en red | **Gate G1: PARCIAL / BLOQUEADO** (Red aislada) |
-| **Arquitectura** | Candidata v0 (6 entidades) | 0% (Sin código) | 0% (Sin prototipo) | **Gate G2: BLOQUEADO** (ADRs Proposed / En revisión) |
-| **Seguridad** | Modelo STRIDE v0 | 0% (Sin código) | 0% (Sin ejecutable) | **Gate G2: BLOQUEADO** (3 brechas en matriz P1) |
+| **Arquitectura** | Candidata v0 (6 entidades) | Sin código | Sin prototipo | **Gate G2: BLOQUEADO** (ADRs Proposed / En revisión) |
+| **Seguridad** | Modelo STRIDE v0 | Sin código | Sin ejecutable | **Gate G2: BLOQUEADO** (3 brechas en matriz P1) |
 | **Gobernanza / Licencia** | En definición | N/A | Pendiente de elección | **GAP-001** (Pendiente de decisión de licencia) |
-| **Código Rust** | No iniciado | 0% (Zero `.rs`) | 0% (Zero tests) | **Gate G3: NO INICIADO** (Deliberado) |
-| **CI / CD / Tests** | Inexistente | 0% (Sin workflows) | 0% (Sin runner) | **GAP-007** (Sin infraestructura de test) |
-| **Preparación Prototipo**| Evaluado en Gates | N/A | Evaluado en Gates | **CONDITIONAL GO** (Para corte minimalista offline) |
+| **Código Rust** | No iniciado | Zero `.rs` | Zero tests | **Gate G3: NO INICIADO** (HOLD / Sin código) |
+| **CI / CD / Tests** | Inexistente | Sin workflows | Sin runner | **GAP-007** (Sin infraestructura de test) |
+| **Preparación Prototipo**| Evaluado en Gates | N/A | Evaluado en Gates | **HOLD / NO-GO** (Recomendación CONDITIONAL GO) |
 
 ---
 
@@ -57,10 +62,10 @@ Asimismo, el informe de auditoría (`docs/04-auditorias/architecture-review.md`)
 
 ## 4. Rutas de lectura del repositorio
 
-### Ruta 1: Introducción conceptual e itinerario básico
-1. Consulte [`PHILOSOPHY.md`](PHILOSOPHY.md) para conocer la visión del proyecto.
-2. Siga el itinerario pedagógico en [`docs/00-empezar/itinerario.md`](docs/00-empezar/itinerario.md).
-3. Revise los términos clave en [`GLOSSARY.md`](GLOSSARY.md).
+### Ruta 1: Introducción conceptual para principiantes (sin programar)
+1. Comience por [`docs/00-empezar/README.md`](docs/00-empezar/README.md) y [`docs/00-empezar/guia-github.md`](docs/00-empezar/guia-github.md).
+2. Lea el [`primer experimento conceptual`](docs/00-empezar/primer-experimento.md) sobre contradicción de sensores.
+3. Consulte [`PHILOSOPHY.md`](PHILOSOPHY.md) para conocer la visión del proyecto y [`GLOSSARY.md`](GLOSSARY.md) para los términos.
 
 ### Ruta 2: Arquitectura y especificaciones previas a código
 1. Revise la especificación candidata en [`docs/03-preimplementacion/unified-specification-candidate-v0.md`](docs/03-preimplementacion/unified-specification-candidate-v0.md).
@@ -88,7 +93,7 @@ Toda la documentación técnica se encuentra organizada en `docs/`:
   - [`architecture-review.md`](docs/04-auditorias/architecture-review.md): Evaluación de arquitectura y comparación de Opciones A, B, C y D.
   - [`security-review.md`](docs/04-auditorias/security-review.md): Revisión de seguridad, trazabilidad de amenazas y evaluación de riesgos.
   - [`research-evidence.md`](docs/04-auditorias/research-evidence.md): Fuentes de investigación, marcos normativos (NIST, OWASP, MITRE, SLSA, W3C) y límites de conectividad.
-  - [`readiness-assessment.md`](docs/04-auditorias/readiness-assessment.md): Evaluación de Readiness Gates G0-G5 y veredicto CONDITIONAL GO.
+  - [`readiness-assessment.md`](docs/04-auditorias/readiness-assessment.md): Evaluación de Readiness Gates G0-G5 y recomendación CONDITIONAL GO.
 
 ---
 
@@ -119,10 +124,10 @@ Entre los 10 hallazgos registrados en [`docs/04-auditorias/gap-register.md`](doc
 1. **Hito 1**: Decisión sobre el archivo de licencia (`GAP-001`) y adopción de la gobernanza de ADRs.
 2. **Hito 2**: Evaluación y decisión sobre la especificación del núcleo (Opción A vs. Opción B) y formalización de la semántica temporal (`GAP-003`).
 3. **Hito 3**: Asignación de pruebas pendientes en la matriz de trazabilidad de seguridad (`GAP-002`).
-4. **Hito 4**: Ejecución del primer experimento minimalista offline de dos sensores (`docs/03-preimplementacion/vertical-slice-a.md`) en cumplimiento del veredicto CONDITIONAL GO.
+4. **Hito 4**: Decisión expresa del titular para evaluar la recomendación de un primer experimento minimalista offline de dos sensores (`docs/03-preimplementacion/vertical-slice-a.md`).
 
 ---
 
 ## 9. Gobernanza y contribuciones
 
-Actualmente el proyecto no acepta Pull Requests de código funcional en Rust. Las contribuciones se limitan a la revisión crítica de la documentación, modelos de seguridad y especificaciones de arquitectura presentadas mediante solicitudes de cambio o nuevos registros ADR (`docs/02-diseno/adr/TEMPLATE.md`).
+Actualmente el proyecto está en estado de **HOLD / Sin código**, por lo que no acepta Pull Requests de código funcional en Rust. Las contribuciones se limitan a la revisión crítica de la documentación, modelos de seguridad y especificaciones de arquitectura presentadas mediante solicitudes de cambio o nuevos registros ADR (`docs/02-diseno/adr/TEMPLATE.md`).
