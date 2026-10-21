@@ -40,3 +40,17 @@ No Rust, Cargo, executable harness, CI, security experiment, accepted ADR, GO, o
 ## Next action
 
 A reviewer must validate each cited REV finding against exact files in current master, correct only **verified** documentary contradictions in a separate change set, and return a concise owner ratification sheet. Do not silently rewrite historical documents or claim that unverified ZIP assertions were independently reproduced.
+
+## Verified remediation log (current PR branch; 2026-10-21)
+
+| REV | Source-level evidence | Status | Change |
+|---|---|---|---|
+| REV-02 | `staged-authorization-protocol-v1.md` G2.2 originally lacked the four mandatory prerequisites listed in `comparative-contract-v1.md` §1.2 | CONFIRMED / DOCUMENTARY FIX | G2.2 entry now includes normalized fixtures, versioned oracle, tolerances and output schema; authorization still required |
+| REV-04 | `staged-authorization-protocol-v1.md` G2.3 originally said F-01..F-10 despite E-10 BLOCKED in `offline-experiment-contract-candidate-v0.md` §4 | CONFIRMED / DOCUMENTARY FIX | G2.3 defaults to F-01..F-09; additional cases need explicit approval |
+| REV-07 | `executive-summary-v1.md` §§4–5 originally recommended both option I and option II | CONFIRMED / DOCUMENTARY FIX | Single conditional recommendation: fix contradictions before G2.1 deliberation |
+| REV-08 (partial) | `precode-decision-protocol-v0.md` F-03/F-10 and `offline-experiment-contract-candidate-v0.md` E-03/E-10 differ from `traceability-matrix-v1.md` | CONFIRMED / PARTIAL FIX | Restored F-03 provenance-only and F-10 privacy/history meaning in matrix; remaining R mapping still requires review |
+| REV-09 | `precode-decision-protocol-v0.md` comparative criteria included second domain, serialization/versioning and coupling absent from `comparative-contract-v1.md` §4.2 | CONFIRMED / DOCUMENTARY FIX | Added explicit cross-domain, lifecycle and coupling criteria; no experiments performed |
+| REV-11 (partial) | `requirements.md` SEC-REQ-015..017 were pending; `verification-plan.md` stopped at SEC-014 | CONFIRMED / PROPOSED FIX | SEC-015..017 now proposed in verification plan with correct TH-016/019/012 mapping; other traceability docs still need review |
+| REV-14 | `traceability-matrix-v1.md` F-12 requires absence of gateway event but gateway is out of scope | CONFIRMED / OPEN | Add independent boundary observer and positive control; not yet applied |
+
+**Remaining findings:** REV-01, 03, 05, 06, 10, 12, 13, 15, 16, 17, 18, 19, 20 remain UNVERIFIED or OWNER_DECISION / EXPERIMENT as classified above. No claim of exhaustive remediation.
