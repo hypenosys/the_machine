@@ -7,14 +7,14 @@
 **Ubicación:** `docs/03-preimplementacion/decision-package-v1.md`
 **Carácter:** **CANDIDATO NO NORMATIVO** (Documento de análisis, propuesta y deliberación; no aprueba decisiones de forma autónoma, no sustituye especificaciones ni autoriza código).
 **Estado de gobernanza:** **HOLD / NO-GO** (sin autorización para crear, compilar o ejecutar código ni pruebas; la ausencia global de artefactos en todas las ramas no se ha verificado en este paquete)
-**Propósito:** Proporcionar a los titulareses del proyecto (@Axlfc y @TopperH4rley) una estructura de decisión rigurosa, trazable y falsable para orientar la deliberación formal sobre `DEC-01..DEC-08`, tras subsanar los ocho defectos semánticos y documentales identificados en revisiones previas.
+**Propósito:** Proporcionar a los titulares del proyecto (@Axlfc y @TopperH4rley) una estructura de decisión rigurosa, trazable y falsable para orientar la deliberación formal sobre `DEC-01..DEC-08`, tras subsanar los ocho defectos semánticos y documentales identificados en revisiones previas.
 
 ---
 
 ## 1. Contexto, Principios y Taxonomía Epistémica
 
 ### 1.1 Naturaleza del Entregable
-El presente paquete constituye una propuesta **CANDIDATA NO NORMATIVA**. No modifica el estado de los Registros de Decisiones de Arquitectura (`ADR-0001..0005`, los cuales permanecen en estado `Proposed`), no da por cerrado el registro de brechas de autoridad (`GAP-010`) ni autoriza la transición a la fase de implementación de software (Gate G3). Toda decisión normativa o cambio de estado del proyecto requiere una ratificación expresa por parte de los titulareses del proyecto.
+El presente paquete constituye una propuesta **CANDIDATA NO NORMATIVA**. No modifica el estado de los Registros de Decisiones de Arquitectura (`ADR-0001..0005`, los cuales permanecen en estado `Proposed`), no da por cerrado el registro de brechas de autoridad (`GAP-010`) ni autoriza la transición a la fase de implementación de software (Gate G3). Toda decisión normativa o cambio de estado del proyecto requiere una ratificación expresa por parte de los titulares del proyecto.
 
 ### 1.2 Taxonomía de Evidencia
 En cumplimiento estricto de las directrices metodológicas de `AGENTS.md` y `PHILOSOPHY.md`, toda afirmación en este documento se adscribe a una de las siguientes categorías epistémicas:
@@ -115,17 +115,17 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 - **Opciones Evaluadas:**
   - *Opción A:* Dual MIT / Apache-2.0.
   - *Opción B:* Mozilla Public License 2.0 (MPL-2.0).
-  - *Opción C:* Mantener reserva de derechos sin licencia general de reutilización mientras los titulares delibera, **aunque el repositorio ya sea públicamente accesible**. La visibilidad pública no implica autorización de distribución por terceros.
+  - *Opción C:* Mantener reserva de derechos sin licencia general de reutilización mientras los titulares deliberan, **aunque el repositorio ya sea públicamente accesible**. La visibilidad pública no implica autorización de distribución por terceros.
 - **Costes y Complejidad:** La falta de archivo `LICENSE` (`GAP-001`) deja sin permisos generales explícitos de reutilización o redistribución. El repositorio ya es público; esto no demuestra que cada archivo carezca de avisos específicos ni determina automáticamente la titularidad de terceros.
 - **Riesgos Asociados:** Incertidumbre jurídica para colaboradores externos.
 - **Evidencia documental (rama PR #25):** Se ha añadido `LICENSE.md` con referencia oficial a CC BY 4.0 para documentación original y materiales no software con derechos suficientes. `gap-register.md` conserva su estado histórico OPEN; no se ha verificado inventario completo de derechos de terceros ni se ha seleccionado licencia para futuro software.
 - **Dependencias:** Ninguna.
 - **Autoridad:** Titulares del proyecto (@Axlfc y @TopperH4rley) en exclusiva.
-- **Decisión expresa recibida (alcance documental):** Los titulares ha solicitado CC BY 4.0; se incorpora en esta PR para la documentación original y materiales no software cuyos derechos puedan licenciarse. **Pendiente:** revisar titularidad y materiales de terceros, registrar cierre o alcance residual de `GAP-001` mediante autoridad competente y decidir por separado una licencia adecuada para cualquier código futuro. El dato histórico de GitHub API (2026-10-21, `visibility=public`, `license=null`) es anterior al commit de licencia y no debe reutilizarse como estado actual.
+- **Decisión expresa recibida (alcance documental):** Se ha recibido la instrucción de incorporar CC BY 4.0; se incorpora en esta PR para la documentación original y materiales no software cuyos derechos puedan licenciarse. **Pendiente:** revisar titularidad y materiales de terceros, registrar cierre o alcance residual de `GAP-001` mediante autoridad competente y decidir por separado una licencia adecuada para cualquier código futuro. El dato histórico de GitHub API (2026-10-21, `visibility=public`, `license=null`) es anterior al commit de licencia y no debe reutilizarse como estado actual.
 
 ### DEC-08 — Autorización Expresa para Código de Laboratorio y Transición G3 (SIN RATIFICAR)
 - **Opción A — HOLD / NO-GO:** No autorizar creación ni ejecución de código, harness, manifiestos Cargo, scripts o CI; mantener bloqueados los subgates y G3.
-- **Opción B — Excepción temporal y delimitada, solo si los titulares la decide expresamente:** Definir por acta el objetivo del laboratorio, lenguaje y herramientas, revisión exacta de contratos y fixtures, entorno, datos sintéticos permitidos, actividades concretas (diseño, escritura, compilación y ejecución se autorizan **por separado**), exclusiones, vigencia, condiciones de suspensión/revocación, responsables y evidencias exigibles. La excepción no autorizaría por defecto red, conectores, efectos remotos, persistencia duradera, datos reales, merge ni transición general a G3.
+- **Opción B — Excepción temporal y delimitada, solo si los titulares lo deciden expresamente:** Definir por acta el objetivo del laboratorio, lenguaje y herramientas, revisión exacta de contratos y fixtures, entorno, datos sintéticos permitidos, actividades concretas (diseño, escritura, compilación y ejecución se autorizan **por separado**), exclusiones, vigencia, condiciones de suspensión/revocación, responsables y evidencias exigibles. La excepción no autorizaría por defecto red, conectores, efectos remotos, persistencia duradera, datos reales, merge ni transición general a G3.
 - **Opción C — Autorización automática al aprobar documentación:** **No admisible como inferencia de gobernanza**. Un commit, revisión, merge o ratificación aislada de G2.1 no autoriza código ni pruebas.
 - **Costes y riesgos:** Una excepción aumenta superficie de riesgo y complejidad de supervisión; requiere límites verificables y decisión específica. La prohibición actual evita iniciar actividades sin autoridad, pero pospone validación experimental.
 - **Dependencias:** DEC-01..06, GAP-010, significado de G3 (REV-05), alcance de G2.1..G2.4 y decisiones sobre privacidad/seguridad. Las definiciones históricas de G3 (antes de escribir código frente a antes de fusionarlo) continúan en conflicto y no se resuelven por este texto.
@@ -138,7 +138,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 ## 3. Disposición de Brechas y Gobernanza de Autoridad (GAP-001..GAP-010)
 
 ### 3.1 Cláusula de No Cierre Autónomo de GAP-010
-Se establece explícitamente que la mera redacción o presentación de este paquete de decisión **NO CIERRA la brecha `GAP-010` (Indefinición del proceso normativo de consolidación)**. La brecha `GAP-010` permanecerá en estado **OPEN** hasta que los titulareses del proyecto ratifique formalmente el Mapa de Autoridad Documental y el procedimiento de precedencia de normas.
+Se establece explícitamente que la mera redacción o presentación de este paquete de decisión **NO CIERRA la brecha `GAP-010` (Indefinición del proceso normativo de consolidación)**. La brecha `GAP-010` permanecerá en estado **OPEN** hasta que los titulares del proyecto ratifiquen formalmente el Mapa de Autoridad Documental y el procedimiento de precedencia de normas.
 
 ### 3.2 Estado Real de los Registros de Brechas y Decisiones
 - **`GAP-001` (Licencia):** OPEN. Pendiente de decisión de los titulares (`DEC-07`).
