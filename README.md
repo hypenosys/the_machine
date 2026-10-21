@@ -106,7 +106,7 @@ El diseño de seguridad de THE MACHINE se basa en la prevención proactiva:
 - **Requisitos de seguridad**: 17 requisitos verificables (`SEC-REQ-001` a `SEC-REQ-017`).
 - **Pasarela de acciones (Action Gateway - ADR-0004)**: Intercepción de peticiones de herramientas mediante políticas *deny-by-default*.
 
-*Aviso de estado*: Todos los controles de seguridad se encuentran en fase de **diseño conceptual**. No existe ninguna mitigación implementada ni verificada en código.
+*Aviso de estado*: Los controles descritos aquí son **objetivos de diseño conceptual**, no controles acreditados en funcionamiento. Esta revisión documental no incluye evidencia de implementación o ejecución de las mitigaciones; tampoco certifica la ausencia de código en otras ramas o entornos.
 
 ---
 
