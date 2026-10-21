@@ -38,3 +38,17 @@
 **No alcanzadas.** Una declaración de cero contradicciones requiere, como mínimo: (a) definición ratificada de autoridad y precedencia de documentos; (b) resolución formal de D-05; (c) revisión semántica completa con referencias y versiones de todos los documentos, no solo patrones; (d) verificación independiente y registro reproducible de resultados; (e) ausencia de hallazgos bloqueantes para el alcance declarado. **No puede confundirse «cero contradicciones editoriales detectadas» con «cero contradicciones del diseño».**
 
 **Próxima decisión reservada:** los cotitulares deben acordar cómo ratificar GAP-010 y qué semántica única tendrán los gates. Hasta entonces, las divergencias están **identificadas y aisladas**, no resueltas por autoridad.
+
+## Seguimiento de correcciones posteriores al corte inicial (21-10-2026)
+
+Este apartado actualiza el **estado editorial** sin alterar la evidencia ni el alcance del inventario original de 87 Markdown. El recuento inicial es una fotografía del árbol entonces inspeccionado, no un recuento actualizado de toda la PR.
+
+| Hallazgo | Corrección posterior comprobable en la rama | Residuo que no se cierra |
+|---|---|---|
+| D-01 / D-03 | Se actualizaron `decision-review-v0.md`, `readiness-review.md`, `offline-experiment-contract-candidate-v0.md`, `architecture-objections.md` y `consolidation-decision-gate.md` para distinguir visibilidad pública, licencia documental CC BY 4.0 y derechos/software futuros. Se añadieron notas fechadas a `security-review.md`, `informe-auditoria-adversarial-2026.md` y `auditoria-integral-2026-10.md`. | GAP-001 y derechos de terceros; las auditorías históricas conservan sus afirmaciones de época, no son estado actual. |
+| D-02 / D-11 | `README.md`, el registro REV-01..20 y la tabla G2.1–G5 del protocolo por etapas se refieren ahora a **cotitulares**, sin asumir ratificación ni desempate. | GAP-010 y acreditación de ratificación por ambos; una solicitud de revisión no es una aprobación. |
+| D-04 | Los informes históricos incorporan notas que limitan las afirmaciones sobre ausencia de código y conteos al árbol y corte inspeccionados. | No se ha certificado la ausencia universal de código, ni en ramas adicionales ni en entornos externos. |
+| D-05 | El protocolo por etapas enlaza a las fuentes canónicas `docs/02-diseno/security/security-gates.md` y `traceability.md` para facilitar contraste. | La discrepancia G3 **no está resuelta**: inicio de código frente a merge de código. |
+| D-07 | El índice consolidado de REV-15 se sincronizó con la incorporación posterior de `LICENSE.md`; las observaciones `license=null` previas permanecen como evidencia histórica fechada. | Licencia de software, terceros y cierre formal de GAP-001. |
+
+**Comprobación de integración separada:** GitHub REST reportó `mergeable=true` y `mergeable_state=clean` para el HEAD `5703ed21cea99f7aa17b56303cb6e8d1f8d33aa9`; no se extrapola ese resultado a HEAD posteriores ni a autorizaciones de gobernanza. La PR sigue DRAFT / HOLD / NO-GO. No se han ejecutado pruebas, no se ha ratificado ningún gate y no se afirma cero contradicciones.
