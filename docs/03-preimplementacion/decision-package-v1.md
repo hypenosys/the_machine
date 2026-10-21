@@ -29,7 +29,7 @@ Conforme a `claim-semantics-v0.md` y `offline-experiment-contract-candidate-v0.m
 2. `recorded_time`: Momento exacto en que la atestación o artefacto fue registrado en el sistema (opcional/según perfil).
 3. `assessed_time`: Instante en el que el evaluador u oráculo emitió un dictamen epistemológico (opcional/según perfil).
 
-La ausencia de cualquiera de estas marcas temporales **no se trata como un error de formato universal (`MALFORMED`)**, sino como una característica del dato a ser evaluada por las reglas del perfil de dominio correspondiente.
+La ausencia de cualquiera de estas marcas temporales **no constituye por sí sola un error de formato universal (`MALFORMED`)**. El perfil versionado puede exigir una marca concreta; en ese caso se debe distinguir un **incumplimiento de esquema del perfil** de una abstención epistemológica por información insuficiente. La regla de clasificación y su oráculo permanecen pendientes de ratificación.
 
 ---
 
@@ -55,7 +55,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
   - *Opción R2:* Contrato minimalista de 2 entidades (`Artifact` opaco + `Attestation`).
   - *Opción Híbrida (C):* Envoltorio minimalista en el núcleo con perfil de grafos extendidos bajo demanda.
   - *Opción Baseline D:* Control específico de dominio sin abstracción genérica (Baseline).
-- **Costes y Complejidad:** R1 impone mayor sobrecarga de tipos; R2 reduce el núcleo pero traslada complejidad al perfil; Híbrida equilibra flexibilidad; D carece de interoperabilidad.
+- **Costes y Complejidad (HIPÓTESIS):** R1 podría aumentar la sobrecarga de tipos; R2 podría desplazar complejidad al perfil; la alternativa híbrida pretende equilibrar ambos costes; D podría exigir adaptaciones adicionales entre dominios. **No hay mediciones ni evidencia experimental que permita afirmar superioridad, equilibrio o ausencia de interoperabilidad de ninguna opción.**
 - **Riesgos Asociados:** Elegir R1 sin evidencia empírica puede introducir complejidad accidental (`GAP-006`).
 - **Evidencia Requerida:** Ejecución comparativa del arnés de pruebas sintéticas (`comparative-contract-v1.md`).
 - **Dependencias:** DEC-01, Subgate G2.2.
