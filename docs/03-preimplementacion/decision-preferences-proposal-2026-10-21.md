@@ -139,3 +139,17 @@ La tabla **no sustituye** las reglas históricas de G3. Hasta que exista acta de
 | Resultado | **NO RATIFICADO** |
 
 **Criterio de cierre de GAP-010:** todas las aceptaciones y campos esenciales completos, ausencia de objeciones abiertas de autoridad y reconciliación documentada con `GOVERNANCE.md` y los gates. Un comentario de PR, una petición de un usuario o una capacidad técnica de merge no sustituyen esta evidencia. No se ha pedido ni obtenido ninguna firma mediante esta plantilla.
+
+## Conciliación textual de GOVERNANCE.md y security-gates.md (21-10-2026)
+
+**Comprobación documental, no ratificación:** `GOVERNANCE.md` identifica a ambos cotitulares y propone a @Axlfc como mantenedor con desempate técnico ordinario **solo tras aceptación verificable**. Reserva licencias, precedencia, gates, excepciones, privacidad y cambios de autoridad. Por tanto, la preferencia de delegación delimitada **es compatible como propuesta**, pero no prueba que la delegación ya exista. La revisión de PR por persona distinta del autor tampoco prueba independencia institucional ni aprobación normativa.
+
+`docs/02-diseno/security/security-gates.md` mantiene la definición histórica de **G3 como control antes de fusionar código ejecutable**, mientras `staged-authorization-protocol-v1.md` propone G3 antes de iniciar implementación. No se debe sustituir una definición por otra silenciosamente. La separación candidata AUT-CODE/AUT-EXEC/AUT-MERGE evita mezclar actividades, pero **no resuelve por sí sola** qué número de gate corresponde a cada autorización. Las opciones de conciliación que deberán ratificarse son:
+
+| Opción | Tratamiento de G3 histórico | Tratamiento de permisos | Riesgo principal |
+|---|---|---|---|
+| **S1 (preferencia editorial)** | Conservar G3 como control pre-merge hasta acta de reforma | AUT-CODE y AUT-EXEC como controles previos explícitos y separados, sujetos a DEC-08; AUT-MERGE exige además G3 | Exige actualizar de forma coordinada documentos que describen G3 como inicio de código |
+| S2 | Renumerar formalmente G3 como puerta pre-código | Crear gate nuevo para pre-merge y migrar todas las referencias | Alta carga de migración y riesgo de enlaces/afirmaciones históricas engañosas |
+| S3 | Mantener ambas acepciones con nombres cualificados | Autorizar únicamente con referencias inequívocas a versión de protocolo | Ambigüedad persistente y errores operativos de interpretación |
+
+**Recomendación editorial S1:** minimiza reinterpretaciones retrospectivas y conserva el control pre-merge. **No está adoptada normativamente**: el texto de `security-gates.md` y los estados de G3 siguen intactos. La selección futura deberá indicar alcance, precedencia, versiones afectadas, migración de referencias y aprobaciones verificables de los cotitulares.
