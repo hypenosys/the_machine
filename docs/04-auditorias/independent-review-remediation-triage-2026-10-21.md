@@ -112,3 +112,18 @@ The historical adversarial audit assigned TH-012→SEC-015, TH-016→SEC-016 and
 - The executive summary no longer claims historical gate harmonization is complete. `security/security-gates.md` explicitly defines G3 as **before merging executable code**, while `staged-authorization-protocol-v1.md` frames G3 as **before writing Rust code**. Both remain unratified and unreconciled; do not silently pick either as binding.
 
 **Residual:** REV-01/03/05/06/15/16/17/18/19/20 require remaining owner decisions or targeted verification. This pass is editorial/documentary only and does not change the HOLD status.
+
+## Source-checked residual findings (REV-17 / REV-18 / REV-20)
+
+- **REV-17 — PARTIAL DOCUMENTARY FIX:** `design-freeze-candidate-v0.md` restricts `evidence.v0`, integer `milli_degC`, illustrative 1000-unit tolerance and exact UTC instant to a candidate sensor profile; `comparative-contract-v1.md` now distinguishes this profile from optional generic times and epistemic verdicts. Adapter, normalization and oracle are **not ratified**.
+- **REV-18 — OPEN / OWNER DECISION:** `docs/02-diseno/adr/0005-logging-recovery-and-data-lifecycle.md` (Proposed) says INV-017 “reiniciar no debe repetir efectos externos” and INV-018 “no declarar éxito sin recibo verificable”. Without a remote executor, durable idempotency keys, acknowledgement and recovery/reconciliation policy, neither an exactly-once effect nor a globally reliable receipt can be proven. Proposed future requirement: represent `PENDING | CONFIRMED | FAILED | UNKNOWN`, preserve idempotency identity, reconcile `UNKNOWN` before retry, and document external-system limitations. **No ADR edit, no runtime guarantee, no action gateway approval.**
+- **REV-20 — CONFIRMED STALE TEXT:** `docs/03-preimplementacion/precode-review-checklist.md` says “Repositorio privado” under Publication, contradicted by GitHub API `visibility=public` (2026-10-21). Historical checklist remains intact; its publication row must not be used as current evidence. Editorial corrections to active v1 decision documents already describe the actual state. Other REV-20 issues (README determinism, audit index, dependency examples, OWASP pinning) still need source-by-source verification.
+
+## Next owner decisions, not automatic changes
+
+1. Decide whether the public repository is intentional and approve an explicit licensing/provenance path (DEC-07 / GAP-001).
+2. Ratify documentary precedence and the exact G3 transition, and separately define any temporary experimental-code exception (GAP-010 / REV-01/03/05/06).
+3. Decide whether remote-effect invariants are future requirements with `UNKNOWN` and reconciliation, or excluded from the offline experiment (REV-18).
+4. Confirm the synthetic sensor profile version and its translation contract before experimental authorization (REV-17).
+
+No owner approval, test execution, code change, merge, or GO is implied by this addendum.
