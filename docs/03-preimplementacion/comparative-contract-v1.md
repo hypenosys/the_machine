@@ -13,7 +13,7 @@
 El propósito de este contrato es establecer pautas neutras e imparciales para comparar experimentalmente cuatro alternativas de representación de evidencia y atestación en el primer laboratorio sintético offline:
 
 1. **Opción R1 (6 Entidades Unificadas):** `Source`, `Artifact`, `Claim`, `EvidenceLink`, `Assessment`, `Relation`.
-2. **Opción R2 (Artifact + Attestation Minimalist):** `Artifact` opaco + `Attestation` de metadatos y firma.
+2. **Opción R2 (Artifact + Attestation Minimalist):** `Artifact` opaco + `Attestation` de metadatos y procedencia; cualquier firma criptográfica es una capacidad futura no evaluada en este laboratorio.
 3. **Opción Híbrida (C):** Núcleo minimalista `Artifact` + `Attestation` con perfil de extensión de grafos tipados bajo demanda.
 4. **Opción Baseline D (Control Específico de Dominio):** Representación ad-hoc estructurada directamente sobre el dominio de telemetría sin capa genérica.
 
@@ -49,9 +49,14 @@ Toda arquitectura bajo prueba debe producir un resultado interpretable por el Ha
 - `INSUFFICIENT`: La evidencia es incompleta, carece de atestación requerida o proviene de dependencias no independientes.
 - `NOT_COMPARABLE`: Las entradas corresponden a unidades, ámbitos, versiones o escalas no comparables sin un convertidor autorizado.
 
-**Distinción de Fallos Internos:** Se distingue estrictamente el juicio epistemológico (`INSUFFICIENT`, `NOT_COMPARABLE`) de las condiciones de error del sistema o del harness:
+**Distinción de Fallos Internos:** Se distingue estrictamente el juicio epistemológico (`INSUFFICIENT`, `NOT_COMPARABLE`) de las condiciones de error del sistema o del harness. Se conserva el vocabulario candidato completo del contrato offline original, sin asumir que todas las etiquetas se ejecutarán en el primer corte:
 - `MALFORMED`: Entrada estructuralmente inválida que viola el esquema de serialización.
+- `UNSUPPORTED_PROFILE`: Perfil no reconocido.
+- `UNRESOLVED_REFERENCE`: Referencia no resoluble.
+- `LIMIT_EXCEEDED`: Se excede un límite de recursos declarado.
 - `INTERNAL_FAILURE`: Error inesperado de ejecución en el arnés de prueba.
+
+**Procedencia autenticada en el laboratorio:** `VERIFIED`/`UNVERIFIED` son atributos de entrada del fixture, definidos por el oráculo externo, no el resultado de una firma generada o validada por R1/R2/C/D. Ninguna arquitectura puede autoconcederse autenticidad por texto, hash o estructura. La comparación no mide criptografía ni gestión de claves.
 
 ---
 
