@@ -113,4 +113,15 @@ El contrato offline genérico admite tres tiempos independientes `valid_time`, `
 **Obligación previa a G2.2 (no satisfecha):** versionar por separado `sensor-profile.v0` y contrato genérico, definir el adaptador y tabla de traducción de estados, precisar tolerancia, normalización UTC, precisión temporal, unidades y tratamiento de datos ausentes. Una comparación que confunda esos niveles debe declararse `NO EVALUABLE`, no `PASS`.
 
 ### 4.5 Condiciones de Abstención Justificada
-El arnés de prueba aceptará como respuesta válida y correcta la **abstención justificada** (`NOT_COMPARABLE` o `INSUFFICIENT`) cuando los insumos sintéticos carezcan de la información mínima requerida por las reglas del perfil para emitir un juicio definitivo. La abstención justificada se distingue explícitamente de un fallo de ejecución o error interno del sistema (`INTERNAL_FAILURE`).
+En un ensayo futuro expresamente autorizado, la **abstención justificada** (`NOT_COMPARABLE` o `INSUFFICIENT`) solo será un resultado conforme **cuando el oráculo independiente y versionado la haya fijado de antemano para ese caso**. No toda abstención es correcta: si las entradas permiten un juicio y la arquitectura se abstiene indebidamente, existe una discrepancia que debe investigarse. La abstención se distingue de fallos de ejecución como `INTERNAL_FAILURE`, y de la falta de observabilidad del harness.
+
+### 4.6 Atribución de fallos y controles de observación (propuesta no ejecutada)
+
+La matriz `traceability-matrix-v1.md` §5 propone una clasificación de diagnóstico para F-11/F-12. Como criterio comparativo **candidato** para R1, R2, C y D, la clasificación se aplicaría de forma simétrica y previa a cualquier puntuación:
+
+- **`NO EVALUABLE — OBSERVADOR/VISIBILIDAD`:** el control positivo no llega a la misma ruta de observación o no es posible diferenciar silencio del sistema de silencio del instrumento.
+- **`NO EVALUABLE — ORÁCULO`:** faltan reglas, versión o expectativas inequívocas; no atribuir el resultado a la arquitectura.
+- **`FALLO OBSERVADO — PENDIENTE DE ATRIBUCIÓN`:** el instrumento y el oráculo están controlados, pero una salida discrepa; conservar evidencia y separar fallo del núcleo, perfil, adaptador y harness.
+- **`COINCIDENCIA EN EL CASO`:** las salidas coinciden con expectativas fijadas y los controles funcionan; no equivale a seguridad general, cobertura completa ni `GO`.
+
+**Criterio de comparabilidad:** las cuatro alternativas reciben idénticas entradas, reglas y criterios de diagnóstico; un defecto del observador compartido no puede computarse como cuatro defectos de arquitectura ni como cuatro éxitos. No atribuir independencia al observador por estar descrito en otro documento: habrá que demostrar que su punto de fallo relevante es separado. No se autoriza instrumentación, código, almacenamiento persistente, pruebas ni G2.2 mediante esta sección.
