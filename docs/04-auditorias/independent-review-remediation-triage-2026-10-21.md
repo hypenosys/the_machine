@@ -131,3 +131,11 @@ No owner approval, test execution, code change, merge, or GO is implied by this 
 ## REV-20 README remediation (2026-10-21)
 
 The active `README.md` now describes the repository as publicly readable but unlicensed at repository level (GitHub API observation dated 2026-10-21), qualifies determinism as an unverified design hypothesis, distinguishes SEC-015..017 candidate specifications from executed tests, and links the preserved historical adversarial audit and this nonnormative triage. The historical `precode-review-checklist.md` still says “Repositorio privado” and remains an outdated snapshot; do not treat it as current evidence. OWASP references remain general/unpinned and must not be presented as proof of a specific reviewed edition. REV-20 is **PARTIAL DOCUMENTARY FIX**, not CLOSED.
+
+## Decision handoff and reference hygiene (REV-16 / REV-20)
+
+- Added `docs/03-preimplementacion/owner-ratification-sheet-candidate-v1.md` as a **blank decision handoff**, not a signed or approved record. It identifies distinct owner choices and a separate temporary-harness authorization; reviewer independence and revocation still require evidence (REV-16 OPEN).
+- Source check: `research-evidence.md` states its historical auditor had **no external network access** and relied on prior knowledge for OWASP. Its mappings `LLM01` / `LLM08` have no verified edition/date in that report. Preserve it as a historical source, **not** as confirmation of a current OWASP taxonomy. No version-specific security compliance claim is made here (REV-20 PARTIAL).
+- Source check: `precode-review-checklist.md` explicitly labels itself the **Iteración 10** snapshot and says `Repositorio privado`. It remains historical; the active README and decision documents correct this using GitHub API evidence. No retrospective edit to the snapshot.
+
+No external standards were independently fetched or version-verified in this pass; no tests were executed.
