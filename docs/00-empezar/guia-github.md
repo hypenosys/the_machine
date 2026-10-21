@@ -1,6 +1,6 @@
 # GitHub explicado sin experiencia previa
 
-**Puedes leer el proyecto sin instalar Git ni Rust.** Si el repositorio sigue siendo privado, necesitas que alguien te dé acceso.
+**Puedes leer el proyecto sin instalar Git ni Rust.** El repositorio era público según la comprobación de GitHub del 21-10-2026; la visibilidad puede cambiar.
 
 - **README:** la portada del proyecto.
 - **Carpeta:** agrupa documentos relacionados.
@@ -20,4 +20,4 @@
 No necesitas clonar, hacer fork, abrir terminal ni entender comandos para realizar estos pasos.
 
 ## ¿Qué es software libre?
-Una licencia de software libre concede permisos específicos para usar, estudiar, modificar y compartir software. Que un repositorio sea visible no basta para concederlos. **La licencia de THE MACHINE aún no se ha decidido.**
+Una licencia de software libre concede permisos específicos para usar, estudiar, modificar y compartir software. Que un repositorio sea visible no basta para concederlos. **En esta PR se ha incorporado `LICENSE.md` con CC BY 4.0 para documentación original y materiales no software cubiertos; los derechos de terceros y la licencia de software futuro siguen pendientes.**
