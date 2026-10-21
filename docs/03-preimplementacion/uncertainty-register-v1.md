@@ -56,7 +56,7 @@ En cumplimiento de las reglas metodológicas de `AGENTS.md` (Regla 2: "No invent
 - **TH-016 (Backup irrecuperable / Persistencia Inconsistente):** Se ha diseñado la especificación de prueba sintética `SEC-016`. **Estado de Ejecución: NO EJECUTADO / UNVERIFIED**.
 - **TH-019 (Insider Abuse / Alteración Unilateral de Reglas):** Se ha diseñado la especificación de prueba sintética `SEC-017`. **Estado de Ejecución: NO EJECUTADO / UNVERIFIED**.
 
-**Conclusión:** `GAP-002` se mantiene strictly en estado **OPEN** hasta que las pruebas propuestas sean implementadas, ejecutadas y verificadas empíricamente.
+**Conclusión:** `GAP-002` se mantiene estrictamente en estado **OPEN** hasta que las pruebas propuestas sean implementadas, ejecutadas y verificadas empíricamente.
 
 ---
 

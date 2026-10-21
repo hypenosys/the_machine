@@ -126,7 +126,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
   - *Opción B:* Conceder autorización automática de código al aprobar el paquete de decisión.
 - **Costes y Complejidad:** Ninguno.
 - **Riesgos Asociados:** La Opción B viola el protocolo de gobernanza e inicia implementación sin verificación de pre-código.
-- **Evidencia Observada:** El estado del repositorio es strictly **HOLD / NO-GO** (**OBSERVADO**).
+- **Evidencia Observada:** El estado del repositorio es estrictamente **HOLD / NO-GO** (**OBSERVADO**).
 - **Dependencias:** Gate G0 (Doc), Gate G1 (Alcance), Gate G2 (Diseño y Subgates G2.1..G2.4).
 - **Autoridad:** Titular del proyecto (@Axlfc) en exclusiva.
 - **Recomendación Provisional (PROPUESTO):** Confirmar la **Opción A (HOLD / NO-GO)**. Ninguna aprobación documental constituye un permiso `GO` para programar software en Rust (Gate G3).

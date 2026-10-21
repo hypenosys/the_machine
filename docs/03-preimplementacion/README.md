@@ -51,7 +51,7 @@ Para orientar la deliberación formal del titular del proyecto (@Axlfc) sin viol
 | B — Pasarela de acciones simuladas | Políticas y decisiones sobre acciones sin efectos externos | Ataca riesgos de autoridad | Obliga a definir identidad y semántica pronto |
 | C — Investigación de aislamiento | Harness para comparar sandboxes en SO concretos | Valida una frontera crítica | Dependencia del entorno y portabilidad |
 
-**Recomendación provisional: A**, con entrada strictly sintética, sin red, sin secretos, sin efectos externos y sin almacenamiento persistente en la primera prueba. Esto **no** autoriza implementarlo: primero decidir contratos, criterios y licencia.
+**Recomendación provisional: A**, con entrada estrictamente sintética, sin red, sin secretos, sin efectos externos y sin almacenamiento persistente en la primera prueba. Esto **no** autoriza implementarlo: primero decidir contratos, criterios y licencia.
 
 ---
 

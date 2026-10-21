@@ -37,12 +37,12 @@ En resolución directa del **Defecto B-06** y para evitar la colisión con la no
 ## 2. Definición de Gates Históricos (G0..G5) y Subgates de Laboratorio (G2.1..G2.4)
 
 ### Gate G0 — Documentación e Investigación Preliminar
-- **Definición Histórica:** Investigación fundacional, filosofía y principios educativos.
-- **Estado:** COMPLETADO.
+- **Definición Histórica:** Investigación fundacional, filosofía y principios educativos (`readiness-assessment.md`).
+- **Estado:** EVALUACIÓN HISTÓRICA CONDICIONAL; la aprobación formal de G0 depende de la ratificación del marco de gates por el titular.
 
 ### Gate G1 — Delimitación de Alcance y Especificación Candidate
-- **Definición Histórica:** Delimitación de activos, fronteras de confianza y especificaciones candidatas.
-- **Estado:** COMPLETADO DOCUMENTALMENTE.
+- **Definición Histórica:** Delimitación de activos, fronteras de confianza y especificaciones candidatas (`readiness-assessment.md`).
+- **Estado:** EVALUACIÓN HISTÓRICA CONDICIONAL; la aprobación formal de G1 depende de la ratificación del marco de gates por el titular.
 
 ---
 
@@ -103,8 +103,8 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 
 | Gate / Subgate | Nombre de la Etapa | Permite Código Rust | Requiere Autorización Expresa | Estado Actual |
 |---|---|---|---|---|
-| **G0** | Documentación e Investigación | NO | SÍ | COMPLETADO |
-| **G1** | Alcance y Especificación Candidate | NO | SÍ | COMPLETADO DOCUMENTALMENTE |
+| **G0** | Documentación e Investigación | NO | SÍ | EVALUACIÓN HISTÓRICA CONDICIONAL |
+| **G1** | Alcance y Especificación Candidate | NO | SÍ | EVALUACIÓN HISTÓRICA CONDICIONAL |
 | **G2.1** | Aprobación Documental del Protocolo v1 | NO | SÍ (Titular) | **PENDIENTE DE DELIBERACIÓN** |
 | **G2.2** | Autorización de Laboratorio Acotado | NO (Solo Harness local) | SÍ (Titular) | **BLOQUEADO (Requiere G2.1)** |
 | **G2.3** | Obtención de Evidencia Experimental | NO | SÍ (Titular) | **BLOQUEADO (Requiere G2.2)** |
