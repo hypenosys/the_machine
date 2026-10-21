@@ -21,7 +21,7 @@ Se catalogan las condiciones técnicas, jurídicas o normativas que impiden avan
 
 ### BLOQUEO-02 — Alcance y ratificación de la licencia (`GAP-001`)
 - **Estado Real:** **REPOSITORIO PÚBLICO; LICENCIA DOCUMENTAL CC BY 4.0 INCORPORADA EN ESTA PR; ALCANCE JURÍDICO PENDIENTE**. La consulta GitHub API del 21-10-2026 (`visibility=public`, `license=null`) es histórica y anterior a `LICENSE.md`; no describe la rama actual. Quedan pendientes revisión de derechos de terceros, licencia de código futuro y cierre formal.
-- **Descripción:** El repositorio carece de archivo `LICENSE`. Jurídicamente, todo el contenido permanece bajo derechos de autor reservados (*All Rights Reserved*).
+- **Descripción actualizada:** El hallazgo original se formuló antes de `LICENSE.md`. La rama de esta PR incluye CC BY 4.0 para materiales documentales originales cubiertos; no acredita derechos sobre materiales de terceros ni concede licencia para software futuro. El cierre jurídico y formal de GAP-001 permanece abierto.
 - **Condición de Desbloqueo:** Revisión por los cotitulares de derechos de terceros, alcance de CC BY 4.0 documental y licencia del software futuro, con cierre formal de GAP-001 cuando corresponda. No modificar visibilidad unilateralmente.
 
 ### BLOQUEO-03 — Autoridad Normativa Indefinida (`GAP-010`)
