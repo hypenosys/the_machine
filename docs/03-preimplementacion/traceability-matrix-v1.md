@@ -45,14 +45,14 @@ A continuación se consolida la matriz completa de los diez fixtures sintéticos
 |---|---|---|---|---|---|
 | **F-01** | Dos mediciones sintéticas en mismo instante/ámbito con valores incompatibles | Detección de conflicto, preservación de ambas lecturas y estado `CONFLICTED` | **E-01** | N/A | **NO EJECUTADO** |
 | **F-02** | Dos valores con unidades o alcances no comparables sin regla de conversión | Abstención de juicio y respuesta estructurada `NOT_COMPARABLE` | **E-02** | N/A | **NO EJECUTADO** |
-| **F-03** | Fuente no autenticada declara un hecho pretendiendo ser autenticada | Marcado de procedencia como `UNVERIFIED` y estado `INSUFFICIENT` | **E-03** | **L-08 (Indirecto)** | **NO EJECUTADO** |
+| **F-03** | Fuente no autenticada declara un hecho pretendiendo ser autenticada | Marcado de procedencia como `UNVERIFIED`; no elevar a `VERIFIED` por autodeclaración. El fixture original no exige un dictamen epistémico `INSUFFICIENT`. | **E-03** | **L-08 (Indirecto)** | **NO EJECUTADO** |
 | **F-04** | Dos informes sintéticos derivados de una misma fuente primaria común | Identificación de ancestro común; no contar como corroboración independiente | **E-04** | **L-03** | **NO EJECUTADO** |
 | **F-05** | Corrección o retractación de una lectura o atestación previa | Registro de versión posterior, preservando la evaluación histórica intacta | **E-05** | **L-01, L-02** | **NO EJECUTADO** |
 | **F-06** | Entrada con `valid_time`, `recorded_time` y `assessed_time` dispares o ausentes | Preservación de la independencia temporal; no inferir simultaneidad | **E-06** | N/A | **NO EJECUTADO** |
 | **F-07** | Entrada sintética que contiene «No se observó el evento P» | Preservación de polaridad modal (observación finita ≠ negación universal) | **E-07** | N/A | **NO EJECUTADO** |
 | **F-08** | Afirmación contradictoria bajo versiones o ámbitos de software distintos | Detección de disparidad de ámbito/versión; abstenerse de conflicto falso | **E-08** | N/A | **NO EJECUTADO** |
 | **F-09** | Evaluación requerida con datos de evidencia incompletos o insuficientes | Abstención de juicio y respuesta estructurada `INSUFFICIENT` | **E-09** | N/A | **NO EJECUTADO** |
-| **F-10** | Solicitud de supresión de contenido marcado como sensible en memoria | Ocultación lógica en conjunto activo; no certificar borrado físico | **E-10** *(BLOQUEADO)* | **L-06** | **BLOQUEADO** |
+| **F-10** | Datos marcados para supresión; diseñar privacidad compatible con referencias históricas (definición original F-10) | Registrar obligaciones de minimización y efectos sobre referencias; política pendiente (E-10 original). No sustituir por ocultación lógica en memoria | **E-10** *(BLOQUEADO)* | **L-06** | **BLOQUEADO** |
 
 ---
 
