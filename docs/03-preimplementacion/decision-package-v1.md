@@ -120,16 +120,15 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 - **Autoridad:** Titular del proyecto (@Axlfc) en exclusiva.
 - **Recomendación Provisional (PROPUESTO):** El titular elegirá la licencia aplicable para resolver `GAP-001` considerando que el repositorio ya es público según GitHub API (2026-10-21, `visibility=public`, `license=null`); resolver titularidad, visibilidad y términos sin adoptar una licencia por defecto.
 
-### DEC-08 — Autorización Expresa para Transición a Código (Gate G3 — Implementación)
-- **Opciones Evaluadas:**
-  - *Opción A:* Mantener el proyecto en estado **HOLD / NO-GO** hasta satisfacer la totalidad de condiciones de preimplementación y recibir orden explícita en Gate G3.
-  - *Opción B:* Conceder autorización automática de código al aprobar el paquete de decisión.
-- **Costes y Complejidad:** Ninguno.
-- **Riesgos Asociados:** La Opción B viola el protocolo de gobernanza e inicia implementación sin verificación de pre-código.
-- **Evidencia Observada:** El estado del repositorio es estrictamente **HOLD / NO-GO** (**OBSERVADO**).
-- **Dependencias:** Gate G0 (Doc), Gate G1 (Alcance), Gate G2 (Diseño y Subgates G2.1..G2.4).
-- **Autoridad:** Titular del proyecto (@Axlfc) en exclusiva.
-- **Recomendación Provisional (PROPUESTO):** Confirmar la **Opción A (HOLD / NO-GO)**. Ninguna aprobación documental constituye un permiso `GO` para programar software en Rust (Gate G3).
+### DEC-08 — Autorización Expresa para Código de Laboratorio y Transición G3 (SIN RATIFICAR)
+- **Opción A — HOLD / NO-GO:** No autorizar creación ni ejecución de código, harness, manifiestos Cargo, scripts o CI; mantener bloqueados los subgates y G3.
+- **Opción B — Excepción temporal y delimitada, solo si el titular la decide expresamente:** Definir por acta el objetivo del laboratorio, lenguaje y herramientas, revisión exacta de contratos y fixtures, entorno, datos sintéticos permitidos, actividades concretas (diseño, escritura, compilación y ejecución se autorizan **por separado**), exclusiones, vigencia, condiciones de suspensión/revocación, responsables y evidencias exigibles. La excepción no autorizaría por defecto red, conectores, efectos remotos, persistencia duradera, datos reales, merge ni transición general a G3.
+- **Opción C — Autorización automática al aprobar documentación:** **No admisible como inferencia de gobernanza**. Un commit, revisión, merge o ratificación aislada de G2.1 no autoriza código ni pruebas.
+- **Costes y riesgos:** Una excepción aumenta superficie de riesgo y complejidad de supervisión; requiere límites verificables y decisión específica. La prohibición actual evita iniciar actividades sin autoridad, pero pospone validación experimental.
+- **Dependencias:** DEC-01..06, GAP-010, significado de G3 (REV-05), alcance de G2.1..G2.4 y decisiones sobre privacidad/seguridad. Las definiciones históricas de G3 (antes de escribir código frente a antes de fusionarlo) continúan en conflicto y no se resuelven por este texto.
+- **Autoridad:** Titular del proyecto; independencia de revisión y evidencia de ratificación aún pendientes (REV-16).
+- **Recomendación provisional (PROPUESTO):** Mantener **Opción A**. Presentar la Opción B únicamente como posibilidad a deliberar mediante acto expreso y separado; no activarla ni tratarla como autorización implícita.
+- **Estado observado:** **SIN RATIFICAR / HOLD / NO-GO**. No hay excepción concedida, código ejecutado ni gate aprobado.
 
 ---
 
