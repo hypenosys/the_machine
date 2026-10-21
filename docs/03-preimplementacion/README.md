@@ -2,6 +2,11 @@
 
 **Estado: HOLD / NO-GO para implementar.** Documentos candidatos de análisis y deliberación; **sin autorización de escribir, compilar o ejecutar código**. La ausencia de código o de `Cargo.toml` en todas las ramas no queda certificada por este documento.
 
+
+## Preferencias operativas recientes (no ratificadas)
+
+La [propuesta de decisiones y matriz de dependencias del 21-10-2026](decision-preferences-proposal-2026-10-21.md) registra las preferencias de delegación técnica delimitada a @Axlfc (GAP-010), separación de permisos de código/ejecución/merge (G3), evaluación de GPL para software futuro y primer alcance offline sintético. Incluye una **preferencia editorial reversible** por estudiar GPL-3.0-or-later, sin aplicarla ni alterar CC BY 4.0 para documentación original cubierta. No consta ratificación conjunta de @Axlfc y @TopperH4rley, ni se autoriza código, CI, pruebas o merge por estas preferencias. La [hoja candidata de ratificación](owner-ratification-sheet-candidate-v1.md) conserva pendientes las aceptaciones.
+
 ## Por qué detenernos aquí
 El repositorio contiene documentación educativa, ADR propuestos, un modelo de amenazas inicial, requisitos y contratos de prueba pre-código. **No contiene todavía evidencia suficiente para afirmar que el diseño del núcleo es correcto o seguro.** Producir código Rust ahora cristalizaría decisiones no tomadas ni ratificadas.
 
