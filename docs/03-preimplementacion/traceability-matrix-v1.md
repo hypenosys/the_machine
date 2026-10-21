@@ -89,14 +89,14 @@ A continuación se consolida la matriz completa de los diez fixtures sintéticos
 
 ## 4. Propuestas de Nuevos Fixtures Sintéticos (F-11 y F-12)
 
-Para cubrir las brechas identificadas en R-01 y R-07 sin alterar la numeración de los fixtures preexistentes, se proponen formalmente los siguientes dos casos sintéticos:
+Para investigar las brechas identificadas en R-01 y R-07, sin afirmar cobertura ni alterar la numeración de los fixtures preexistentes, se presentan dos **casos candidatos sin aprobación ni ejecución**:
 
 ### F-11 / E-11 — Fusión de Identidad Externa por Coincidencia Textual (Propuesta para R-01; cobertura no demostrada)
 - **Precondición:** Dos atestaciones procedentes de fuentes distintas emplean la misma cadena de texto como identificador de entidad sintética sin atestación de autoridad común.
 - **Entrada Sintética:** Atestación A (Fuente X, ID "sensor-01") y Atestación B (Fuente Y, ID "sensor-01").
 - **Distinción entre Identidad y Verificación:** Se separa explícitamente el emparejamiento de identidad (*identity matching*) del estado de autenticación de la fuente (*verification status*). Una fuente puede tener procedencia `VERIFIED` **declarada como dato sintético por un oráculo externo**, sin validación criptográfica ejecutada; ello no autoriza colapsar entidades de fuentes distintas por coincidencia textual.
-- **Resultado Esperado Observable:** El sistema trata ambas entidades e identidades como distintas e irrelacionadas en el grafo, impidiendo la fusión de nodos por mera coincidencia de cadenas de texto.
-- **Estado:** PROPUESTO / NO EJECUTADO.
+- **Resultado Esperado Observable (propuesta):** El sistema conserva dos identidades externas distintas pese a compartir cadena textual, sin inferir equivalencia ni relación autorizada. Un control positivo separado, con atestación de identidad común expresamente autorizada y reglas versionadas, deberá permitir vincularlas; sin ese control no se acredita que el detector discrimine entre coincidencia textual y equivalencia legítima. Sin oráculo y controles ejecutados: NO EVALUABLE.
+- **Estado:** PROPUESTO / NO EJECUTADO. No demuestra autenticación ni resolución de identidades en sistemas externos.
 
 ### F-12 / E-12 — Prevención de Escalada de Evaluación a Comando Operativo (Propuesta para R-07 / P-01; cobertura no demostrada)
 - **Precondición:** Un evaluador u oráculo emite un `Assessment` con resultado `SUPPORTED` sobre un hecho del dominio.
