@@ -62,3 +62,27 @@
 | Revisión independiente competente | **PENDIENTE** | — |
 
 **Invariantes:** ADR-0001..0005 continúan Proposed; G2.1 pendiente; G2.2..G2.4 bloqueados; G3 sin semántica ratificada; no se han ejecutado pruebas; no se afirma cero contradicciones. Esta propuesta **no modifica `GOVERNANCE.md` ni los gates vigentes** y no sustituye las decisiones DEC-01..08 de la hoja candidata.
+
+## Anexo: delimitación candidata de la delegación (para negociación)
+
+| Materia | @Axlfc tras delegación **válidamente ratificada** | Reserva y salvaguarda |
+|---|---|---|
+| Agenda, clasificación de incidencias, prioridades y coordinación | Decisión técnica ordinaria documentada | Puede impugnarse por ambos cotitulares; sin cambio de gate |
+| Documentación editorial no normativa | Proponer, revisar y coordinar integración bajo reglas de PR | Revisión por persona distinta; no reescribir actas históricas ni aprobarse a sí mismo |
+| Diseño técnico no normativo | Resolver desacuerdo ordinario con motivación y alternativas | No convertir recomendación en ADR Accepted ni arquitectura seleccionada |
+| Gestión de colaboradores y revisores | Proponer responsables y solicitar revisiones | Permisos GitHub, CODEOWNERS y autoridad normativa son distintos |
+| Licencias, propiedad intelectual y terceros | **Sin delegación por defecto** | Acuerdo verificable de ambos cotitulares |
+| G3, GAP-010, AUT-CODE/EXEC/MERGE, excepciones y datos reales | **Sin delegación por defecto** | Acta específica de ambos, incluso si existe delegación técnica general |
+| Cambios a GOVERNANCE.md, precedencia y revocación de delegación | **Sin delegación por defecto** | Ambos cotitulares; una revocación válida suspende facultades futuras |
+
+**Campos que debe contener el acta:** identificador y hash/revisión del texto; identidad y consentimiento verificable de ambos cotitulares; aceptación del delegado; fecha de entrada en vigor; alcance positivo y exclusiones; duración o fecha de revisión; mecanismo de publicación; resolución de conflicto; suspensión inmediata ante controversia de autoridad; revocación y efecto sobre decisiones previas. **No se propone consentimiento por silencio**. La ausencia de cualquiera de estos elementos mantiene la delegación en estado PENDIENTE.
+
+## Anexo: protocolo de permisos separados (propuesta de semántica, no autorización)
+
+| Permiso | Ejemplo de alcance futuro | Evidencia mínima previa | Lo que NO concede |
+|---|---|---|---|
+| AUT-CODE | Código descartable en rama y ruta expresamente identificadas | DEC-08, autoridad, revisión de riesgos, límites, duración, dependencias y revocación | Compilar, ejecutar, red, secretos, CI, merge |
+| AUT-EXEC | Compilar y ejecutar únicamente en entorno offline delimitado | AUT-CODE si hay código nuevo, oráculos versionados, seguridad del entorno, datos sintéticos, política de residuos y parada | Merge, despliegue, efectos externos, datos reales |
+| AUT-MERGE | Fusionar código revisado en rama objetivo | Evidencia de revisión competente, controles de protección, licencia resuelta y autorización expresa | Despliegue, operación ni cambio de gates por implicación |
+
+La tabla **no sustituye** las reglas históricas de G3. Hasta que exista acta de precedencia y definición de gates, cualquier colisión se resuelve manteniendo HOLD / NO-GO.
