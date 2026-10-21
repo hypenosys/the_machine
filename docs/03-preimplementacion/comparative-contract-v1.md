@@ -104,5 +104,13 @@ El segundo dominio no se inventa desde la telemetría: los ejemplos `A6` y `A7` 
 
 Estos son **oráculos conceptuales candidatos**, no fixtures normalizados ni reglas versionadas. Antes de G2.2 deberán fijarse payloads, esquema, versiones, resultados esperados y controles negativos para ambos dominios, sin ejecutar ni declarar PASS ahora.
 
-### 4.4 Condiciones de Abstención Justificada
+### 4.4 Perfil de sensores y núcleo general (REV-17; contraste candidato)
+
+`design-freeze-candidate-v0.md` define **exclusivamente para el perfil sintético de temperatura**: esquema `evidence.v0`, `temperature` en enteros `milli_degC`, tolerancia ilustrativa `1000 milli_degC`, coincidencia del instante normalizado UTC y salida de comparación `COMPATIBLE | CONFLICTO | NO_COMPARABLE`. Son propuestas sin ratificar. `precode-review-checklist.md` confirma pendientes el parser, segundos intercalares, precisión, errores y límites. **No se extrapolan al núcleo general** ni al segundo dominio.
+
+El contrato offline genérico admite tres tiempos independientes `valid_time`, `recorded_time` y `assessed_time` con presencia opcional o determinada por perfil. Un instante obligatorio en el perfil de sensor no convierte todos los timestamps del núcleo en obligatorios. `CONFLICTO` es un resultado de **comparación de dos lecturas** del perfil; `CONFLICTED` es un **dictamen epistemológico** sobre afirmaciones y evidencia. `COMPATIBLE` no implica `SUPPORTED`, ni `NO_COMPARABLE` del perfil equivale automáticamente al dictamen `NOT_COMPARABLE` sin regla explícita de traducción.
+
+**Obligación previa a G2.2 (no satisfecha):** versionar por separado `sensor-profile.v0` y contrato genérico, definir el adaptador y tabla de traducción de estados, precisar tolerancia, normalización UTC, precisión temporal, unidades y tratamiento de datos ausentes. Una comparación que confunda esos niveles debe declararse `NO EVALUABLE`, no `PASS`.
+
+### 4.5 Condiciones de Abstención Justificada
 El arnés de prueba aceptará como respuesta válida y correcta la **abstención justificada** (`NOT_COMPARABLE` o `INSUFFICIENT`) cuando los insumos sintéticos carezcan de la información mínima requerida por las reglas del perfil para emitir un juicio definitivo. La abstención justificada se distingue explícitamente de un fallo de ejecución o error interno del sistema (`INTERNAL_FAILURE`).
