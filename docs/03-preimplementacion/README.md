@@ -51,7 +51,7 @@ Para orientar la deliberación formal de los cotitulares (@Axlfc y @TopperH4rley
 | B — Pasarela de acciones simuladas | Políticas y decisiones sobre acciones sin efectos externos | Ataca riesgos de autoridad | Obliga a definir identidad y semántica pronto |
 | C — Investigación de aislamiento | Harness para comparar sandboxes en SO concretos | Valida una frontera crítica | Dependencia del entorno y portabilidad |
 
-**Recomendación provisional: A**, con entrada estrictamente sintética, sin red, sin secretos, sin efectos externos y sin almacenamiento persistente en la primera prueba. Esto **no** autoriza implementarlo: primero decidir contratos, criterios y licencia.
+**Recomendación provisional de alcance: corte A (laboratorio de evidencia offline)**, con entrada estrictamente sintética, sin red, sin secretos, sin efectos externos y sin almacenamiento persistente en la primera prueba. **Esta letra A identifica un corte funcional, no la selección de la arquitectura R1 / «Opción A» de seis entidades** descrita en otros informes; R1, R2, C y D siguen sin ganador ratificado. Esto **no** autoriza implementarlo: primero decidir contratos, criterios y licencia.
 
 ---
 
