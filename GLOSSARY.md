@@ -1,0 +1,3 @@
+# Glosario
+
+**GitHub:** web que aloja proyectos y su historial. **Repositorio:** conjunto de archivos y cambios. **Git:** herramienta de control de versiones. **Commit:** registro de un cambio. **Issue:** conversación sobre una duda o error. **Pull request:** propuesta revisable de cambios. **Rust:** lenguaje de programación. **Crate:** paquete Rust. **Dependencia:** software externo necesario. **Software libre:** software cuya licencia permite usar, estudiar, modificar y distribuir. **Evidencia:** información que respalda una afirmación. **Hipótesis:** explicación pendiente de contraste. **Test:** comprobación reproducible. **ADR:** registro de una decisión técnica y sus alternativas.
