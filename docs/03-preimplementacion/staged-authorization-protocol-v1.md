@@ -77,11 +77,11 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 - **Resultado (propuesto):** Informe revisado con fallos y límites explícitos; la valoración de evidencia no constituye selección de arquitectura ni ratificación automática de G2.3.
 
 #### Subgate G2.4 — Selección Formal de la Arquitectura de Representación
-- **Propósito:** Deliberar y seleccionar la arquitectura de representación definitiva (R1, R2, Híbrida C o D) basándose en la evidencia de G2.3.
+- **Propósito (propuesto, NO RATIFICADO):** Definir cómo podría deliberarse y, solo tras decisión expresa del titular, seleccionarse una arquitectura candidata (R1, R2, Híbrida C o D) sobre evidencia revisada de G2.3. No existe selección vigente.
 - **Condiciones de Entrada:** Subgate G2.3 completado; matriz comparativa respaldada por datos de prueba sintética.
 - **Evidencia Requerida:** Documento de decisión de arquitectura firmado por el titular.
 - **Autoridad:** Titular del proyecto (@Axlfc).
-- **Resultado:** Elección de arquitectura ratificada (**Subgate G2.4 Aprobado**).
+- **Resultado posible, NO ACTUAL:** Solo un acta expresa y verificable del titular podría registrar una selección y el estado de G2.4 conforme a una definición de gates previamente ratificada. **Actualmente G2.4 BLOQUEADO; ninguna arquitectura está seleccionada por este protocolo.**
 
 ---
 
@@ -115,6 +115,6 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 | **G2.2** | Autorización de Laboratorio Acotado | NO; posible excepción de harness solo con orden separada | SÍ (Titular) | **BLOQUEADO (Requiere G2.1 y excepción específica)** |
 | **G2.3** | Obtención de Evidencia Experimental | NO | SÍ (Titular) | **BLOQUEADO (Requiere G2.2)** |
 | **G2.4** | Selección de Arquitectura | NO | SÍ (Titular) | **BLOQUEADO (Requiere G2.3)** |
-| **G3** | Implementación Rust (Pre-code Gate) | SÍ (Tras aprobación) | SÍ (Titular en exclusiva) | **HOLD / NO-GO** |
-| **G4** | Despliegue y Aislamiento | SÍ | SÍ (Titular) | **BLOQUEADO (Requiere G3)** |
-| **G5** | Operación y Mantenimiento | SÍ | SÍ (Titular) | **BLOQUEADO (Requiere G4)** |
+| **G3** | Interpretación candidata: transición a implementación Rust | NO ACTUALMENTE; condicionado a definición de G3 ratificada y autorización expresa separada | SÍ (Titular en exclusiva) | **HOLD / NO-GO; DEFINICIÓN SIN RATIFICAR** |
+| **G4** | Despliegue y Aislamiento | NO ACTUALMENTE; hipotético tras gates y autorizaciones aplicables | SÍ (Titular) | **BLOQUEADO (Requiere G3)** |
+| **G5** | Operación y Mantenimiento | NO ACTUALMENTE; hipotético tras gates y autorizaciones aplicables | SÍ (Titular) | **BLOQUEADO (Requiere G4)** |
