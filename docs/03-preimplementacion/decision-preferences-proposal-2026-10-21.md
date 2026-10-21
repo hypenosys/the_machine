@@ -103,3 +103,19 @@ La tabla **no sustituye** las reglas históricas de G3. Hasta que exista acta de
 | La GPL candidata se elige sin resolver derechos de terceros | Preferencia insuficiente para licenciar materiales ajenos o dependencias incompatibles | GAP-001 sigue abierto |
 
 **Orden mínimo recomendado:** (1) revisión competente de este texto y registro de consentimiento de ambos cotitulares; (2) acta de delegación con límites; (3) acta de precedencia y definición de G3; (4) resolución de derechos/licencia y contratos del laboratorio; (5) solicitudes independientes de permisos, si se desean. Los puntos 1–4 son trabajo documental y **no autorizan** el punto 5.
+
+## Criterios operativos por defecto — selección editorial, NO ratificación
+
+**Alcance de esta sección:** el solicitante pide tomar decisiones sobre la marcha «en nombre de» ambos cotitulares. Esa petición no acredita por sí sola la identidad, representación ni aceptación de @Axlfc y @TopperH4rley. Por ello se fijan **opciones editoriales recomendadas y reversibles**, no decisiones conjuntas ni autorización ejecutiva. La atribución de aprobación a ambos permanece **PENDIENTE**.
+
+| Tema | Opción editorial recomendada | Razón y condición de revisión |
+|---|---|---|
+| GAP-010 | Delegación técnica limitada y revocable a @Axlfc, excluyendo materias reservadas | Reduce bloqueos ordinarios sin convertir un rol propuesto en autoridad vigente; requiere acta conjunta |
+| G3 | AUT-CODE / AUT-EXEC / AUT-MERGE separados, con G3 histórico pendiente de reconciliación | Evita que un permiso se convierta tácitamente en otro; no crea gates activos |
+| GPL | **GPL-3.0-or-later** como variante preferente para análisis, **no licencia aplicada** | Permite evaluar continuidad de versiones futuras; revisar compatibilidad, copyleft, derechos y preferencia de ambos antes de elegir frente a GPL-3.0-only |
+| Alcance | Laboratorio sintético local/offline, sin red, secretos, datos reales, persistencia duradera ni efectos externos | Menor superficie de riesgo para un primer experimento eventual; DEC-01..06 y DEC-08 pendientes |
+| Arquitectura | Comparación neutral R1/R2/Híbrida C/Baseline D, con segundo dominio y sin ganador previo | La arquitectura debe depender de oráculos y criterios aprobados, no de una etiqueta «Opción A» |
+| Privacidad | Datos reales fuera del alcance; F-10/E-10 original bloqueado | No se ha demostrado borrado físico ni gestión de backups/réplicas |
+| Validación | Controles positivos y negativos, oráculos independientes, abstención y registro de no evaluables | Impide elevar propuestas o simulaciones a pruebas ejecutadas |
+
+**Regla de actuación:** se permiten correcciones documentales reversibles en la PR en borrador; no se permite cambiar estados de aprobación, atribuir firmas, crear/compilar/ejecutar código, introducir dependencias, abrir CI experimental, fusionar PR ni modificar licencias vigentes mediante esta tabla. Cualquier decisión reservada requiere consentimiento verificable de ambos cotitulares según el procedimiento que se ratifique.
