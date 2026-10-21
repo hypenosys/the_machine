@@ -81,6 +81,12 @@ Las cuatro alternativas (R1, R2, Híbrida C, Baseline D) serán evaluadas en el 
 2. **Sobrecarga de Tipos (Complejidad Accidental):** Número de entidades y relaciones requeridas por cada fixture.
 3. **Auditabilidad y Trazabilidad:** Facilidad para rastrear el origen de una contradicción o la retractación de un dato.
 4. **Resiliencia ante Insumos Incompletos:** Comportamiento frente a ausencias de atestación, unidades desconocidas o marcas temporales omitidas.
+5. **Transferencia a Segundo Dominio:** Evaluación con al menos un segundo perfil sintético no basado en sensores, con oráculos específicos previamente definidos. No se podrá declarar generalidad del núcleo con un único dominio.
+6. **Coste de Serialización y Versionado:** Cambios de formato, migración de perfiles, compatibilidad de versiones y esfuerzo de mantenimiento comparados con el mismo criterio para las cuatro alternativas.
+7. **Acoplamiento Núcleo–Perfil:** Identificar modificaciones del núcleo necesarias al introducir el segundo dominio y distinguir complejidad desplazada a perfiles de complejidad eliminada.
+8. **Complejidad Semántica y Operativa:** No reducir la comparación al número de tipos; documentar transformaciones auxiliares, excepciones, reglas y cambios requeridos para conservar la misma semántica.
+
+**Límite de ejecución:** F-10/E-10 original está BLOQUEADO; su inclusión en una lista de cobertura documental no lo habilita para ejecución. El primer laboratorio, si se autoriza, cubrirá F-01..F-09 y casos adicionales aprobados de forma expresa.
 
 ### 4.3 Condiciones de Abstención Justificada
 El arnés de prueba aceptará como respuesta válida y correcta la **abstención justificada** (`NOT_COMPARABLE` o `INSUFFICIENT`) cuando los insumos sintéticos carezcan de la información mínima requerida por las reglas del perfil para emitir un juicio definitivo. La abstención justificada se distingue explícitamente de un fallo de ejecución o error interno del sistema (`INTERNAL_FAILURE`).
