@@ -103,3 +103,12 @@ GitHub REST `GET /repos/hypenosys/the_machine` returned `visibility=public`, `pr
 ## Security-test identifier correction (REV-11; partial)
 
 The historical adversarial audit assigned TH-012→SEC-015, TH-016→SEC-016 and TH-019→SEC-017, with TH-016's scenario testing corrupted-state load instead of actual backup restoration. The current proposed plan and traceability use TH-016→SEC-015/SEC-REQ-015 (backup restore), TH-019→SEC-016/SEC-REQ-016 (separation of duties), TH-012→SEC-017/SEC-REQ-017 (confused deputy). `uncertainty-register-v1.md` now records the **current candidate mapping** and notes the historical discrepancy. These identifiers remain proposed; no test was run and GAP-002 stays OPEN.
+
+## Cross-document DEC-05/06/07 consistency pass (2026-10-21)
+
+- `decision-package-v1.md` and `executive-summary-v1.md` no longer recommend adopting the blocked original F-10/E-10 in the initial experiment. Original E-10 stays BLOCKED; additional F-11/F-12 remain candidate-only.
+- DEC-06 distinguishes synthetic laboratory interchange and versioned input/output from deferred durable database selection. No persistence technology or dependency is approved.
+- DEC-07 and the executive summary now reflect the **already public** repository and absent detected repository license, rather than treating public availability as a future event.
+- The executive summary no longer claims historical gate harmonization is complete. `security/security-gates.md` explicitly defines G3 as **before merging executable code**, while `staged-authorization-protocol-v1.md` frames G3 as **before writing Rust code**. Both remain unratified and unreconciled; do not silently pick either as binding.
+
+**Residual:** REV-01/03/05/06/15/16/17/18/19/20 require remaining owner decisions or targeted verification. This pass is editorial/documentary only and does not change the HOLD status.
