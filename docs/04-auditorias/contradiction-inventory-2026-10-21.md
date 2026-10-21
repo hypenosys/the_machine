@@ -24,6 +24,14 @@
 | D-10 | Privacidad | `evidence-lifecycle-privacy-candidate-v0.md` frente a F-10/E-10: trazabilidad histórica y supresión física | Se reconoce degradación de reproducibilidad y ausencia de garantía de borrado físico | **BLOQUEADO** para datos reales |
 | D-11 | Atribución de autoridad | Instrucción conversacional de CC BY 4.0 y propuesta de @Axlfc como Mantenedor Principal frente a aprobación conjunta no acreditada | Registrado como instrucción recibida/propuesta; no se inventan firmas | Ratificación conjunta y derechos pendientes |
 
+## Hallazgos añadidos tras revisión semántica de la nomenclatura
+
+| ID | Tipo | Fuentes y discrepancia | Disposición documental | Estado residual |
+|---|---|---|---|---|
+
+| D-12 | Ambigüedad de nomenclatura | `docs/03-preimplementacion/README.md` usa «corte A» para el laboratorio offline; `docs/04-auditorias/architecture-review.md` usa «Opción A» para seis entidades, y C/D históricos no equivalen automáticamente a Híbrida C / Baseline D | Se separó alcance funcional de arquitectura R1 y se explicitó la falta de equivalencia entre nomenclaturas | **ABIERTO**: cualquier mapeo formal y selección arquitectónica requieren ratificación; R1/R2/C/D sin ganador |
+| D-13 | Exceso de garantía criptográfica | `docs/04-auditorias/architecture-review.md` atribuía autenticidad/origen a una firma sin condicionar identidad y confianza | Se limita a control de clave bajo validación criptográfica; no prueba identidad, veracidad, procedencia física ni tiempo real | **ABIERTO**: política de identidad, claves, confianza y revocación por definir |
+
 ## Invariantes editoriales de esta rama
 
 - Ningún documento candidato ratifica ADR-0001..0005, G2.1, G2.2, G2.3, G2.4 ni G3.
