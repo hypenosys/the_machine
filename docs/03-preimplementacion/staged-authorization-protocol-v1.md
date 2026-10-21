@@ -4,7 +4,7 @@
 **Autor:** Arquitecto Principal e Ingeniero de Ciberseguridad (@Jules)
 **Ubicación:** `docs/03-preimplementacion/staged-authorization-protocol-v1.md`
 **Carácter:** **CANDIDATO NO NORMATIVO** (Protocolo de gobernanza por etapas; no autoriza código por sí mismo).
-**Estado del proyecto:** **HOLD / NO-GO (Cero código ejecutable, cero manifiestos Cargo)**
+**Estado de gobernanza:** **HOLD / NO-GO** (sin autorización de código, compilación ni ejecución; este protocolo no certifica la ausencia de artefactos en todas las ramas)
 
 ---
 
@@ -58,7 +58,7 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 #### Subgate G2.1 — Aprobación Documental del Protocolo y Paquete v1
 - **Propósito:** Ratificar el marco metodológico, los contratos comparativos, la matriz de trazabilidad y las reglas de deliberación sin autorizar software ni pruebas.
 - **Condiciones de Entrada:** Entrega del Paquete de Decisión v1 (`decision-package-v1.md`), Contrato Comparativo v1 (`comparative-contract-v1.md`) y Matriz de Trazabilidad v1 (`traceability-matrix-v1.md`).
-- **Evidencia Requerida:** Consistencia interna comprobada, ausencia de contradicciones y ausencia de código ejecutable.
+- **Evidencia Requerida (propuesta):** Consistencia interna de los documentos candidatos, registro explícito de contradicciones residuales y delimitación comprobable del alcance documental. La ausencia de código ejecutable en todo el repositorio **no se presume ni se declara verificada**; si se exige como condición, deberán definirse el árbol, las ramas, la revisión y el método de inspección.
 - **Autoridad:** Titular del proyecto (@Axlfc).
 - **Resultado posible solo tras ratificación expresa:** Aprobación documental de G2.1; **actualmente PENDIENTE**. Incluso si se aprobase, el proyecto seguiría en **HOLD** para código y experimentos.
 
