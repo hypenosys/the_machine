@@ -51,6 +51,19 @@ Antes de solicitar una ratificación de comparación, el titular debe poder iden
 
 **Distinción de hitos:** la corrección documental puede preparar una decisión sobre G2.1, pero no sustituye su ratificación. Una eventual ratificación de G2.1 tampoco autoriza por sí sola G2.2, G2.3, G2.4 o G3. La excepción de código DEC-08, si alguna vez se concede, debe enumerar actividades permitidas y prohibidas; no se infiere de la aprobación de fixtures o de una PR.
 
+## Revocación y cambios de alcance (protocolo candidato)
+
+Una futura decisión expresa del titular no debe entenderse como permiso permanente o transferible. Cada autorización, si llegase a existir, tendría que especificar **objeto, revisión exacta, actividades permitidas, exclusiones, vigencia, autoridad y procedimiento de suspensión**. Una excepción para diseñar un fixture no habilita ejecutarlo; una excepción para un harness no habilita conectores, acciones remotas, persistencia duradera ni pruebas con datos reales.
+
+**Reglas candidatas ante cambios:**
+
+1. Si cambia la autoridad documental (GAP-010), el alcance (DEC-01), el oráculo (DEC-05), la frontera E/S (DEC-03/06) o el perfil (REV-17), revisar la validez de cualquier aprobación dependiente **antes de reutilizarla**; el cambio no hereda automáticamente permisos anteriores.
+2. Si aparece una contradicción material, una evidencia de observador inválido o una violación de límites, suspender la **actividad afectada** y registrar causa, alcance, revisión y quién puede decidir su reanudación. No presentar esa suspensión como fallo probado del núcleo.
+3. Si se revoca una excepción de código (DEC-08), cesa la autorización de nuevas actividades cubiertas por ella; documentar el tratamiento de artefactos ya producidos sin inferir permiso para retenerlos, publicarlos o destruirlos.
+4. Las decisiones sobre privacidad, retención, publicación y licencia (DEC-04/07) requieren su propio tratamiento de obligaciones y derechos; la revocación no garantiza por sí sola eliminación física de copias ni reversión de distribuciones previas.
+
+**Estado actual:** no hay permisos ni gates ratificados que revocar. Este texto describe únicamente cómo deberían delimitarse decisiones futuras; no crea un mecanismo operativo, una política legal ni autoridad nueva. **HOLD / NO-GO**.
+
 ## Secuencia de desbloqueo propuesta
 
 1. Resolver DEC-07 y GAP-010/G3 sin modificar unilateralmente visibilidad o licencia.
