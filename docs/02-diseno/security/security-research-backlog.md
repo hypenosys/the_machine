@@ -1,25 +1,24 @@
 # Backlog de investigación de seguridad — Prioridad por exposición
 
-**Estado: propuesta.** Antes de elegir bibliotecas o escribir conectores:
+**Estado: propuesta.** La investigación documental preliminar está en [el dossier de seguridad](../../01-investigacion/security/README.md). Ningún experimento ha sido ejecutado.
 
 ## P0 — Bloqueantes
-1. **SEC-RSCH-001:** comparar mecanismos de aislamiento local de procesos y capacidades para Linux/Windows/macOS; límites y bypass conocidos.
-2. **SEC-RSCH-002:** estudiar identidad, autenticación, autorización y delegación; comparar modelos RBAC/ABAC/capabilities.
-3. **SEC-RSCH-003:** evaluar el ciclo completo de una acción externa: TOCTOU, idempotencia, reintentos, revocación, journal.
-4. **SEC-RSCH-004:** estudiar prompt injection y abuso de herramientas; evaluar defensa determinista fuera del modelo.
-5. **SEC-RSCH-005:** revisar seguridad de parsers y límites de recursos ante documentos no confiables.
+1. **SEC-RSCH-001:** aislamiento local por plataforma. [Estudio](../../01-investigacion/security/isolation.md).
+2. **SEC-RSCH-002:** identidad, autenticación, autorización y delegación. [Estudio](../../01-investigacion/security/authorization.md).
+3. **SEC-RSCH-003:** TOCTOU, idempotencia, reintentos, revocación y journal. [Estudio](../../01-investigacion/security/authorization.md).
+4. **SEC-RSCH-004:** prompt injection y abuso de herramientas; defensa fuera del modelo. Pendiente de dossier específico.
+5. **SEC-RSCH-005:** parsers y límites de recursos. Pendiente de dossier específico.
 
-## P1 — Antes de persistir datos reales
-6. **SEC-RSCH-006:** evaluar persistencia transaccional, recuperación, snapshots y pruebas de crash.
-7. **SEC-RSCH-007:** estudiar cifrado y gestión de claves con implementaciones auditadas.
-8. **SEC-RSCH-008:** diseñar minimización, retención, supresión y auditoría sin filtraciones.
-9. **SEC-RSCH-009:** definir supply-chain: pinning, lockfile, advisories, licencias, SBOM y reproducibilidad.
-10. **SEC-RSCH-010:** threat modeling de modelos locales, artefactos y conectores.
+## P1 — Antes de datos reales
+6. **SEC-RSCH-006:** persistencia y recuperación. [Estudio](../../01-investigacion/security/persistence.md).
+7. **SEC-RSCH-007:** criptografía y gestión de claves. Pendiente.
+8. **SEC-RSCH-008:** retención, supresión y auditoría. Pendiente.
+9. **SEC-RSCH-009:** cadena de suministro. [Estudio](../../01-investigacion/security/supply-chain.md).
+10. **SEC-RSCH-010:** modelos y conectores. Pendiente.
 
-## P2 — Antes de distribución o federación
-11. **SEC-RSCH-011:** identidad entre nodos, autenticación mutua, replay y particiones.
-12. **SEC-RSCH-012:** actualizaciones firmadas, rollback y rotación de confianza.
-13. **SEC-RSCH-013:** ensayos de respuesta a incidentes y recuperación operacional.
+## P2 — Distribución
+11. **SEC-RSCH-011:** identidad entre nodos. Pendiente.
+12. **SEC-RSCH-012:** actualizaciones firmadas y rollback. Pendiente.
+13. **SEC-RSCH-013:** respuesta a incidentes. Pendiente.
 
-## Método
-Cada investigación entregará fuentes primarias, alternativas, experimento mínimo, resultados negativos, implicaciones de licencias y una recomendación que pueda refutarse.
+[Experimentos propuestos](../../01-investigacion/security/experiments.md). Cada investigación necesita fuentes contrastadas, alternativas, experimentos, resultados negativos, licencias y recomendación falsable.
