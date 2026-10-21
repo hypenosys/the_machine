@@ -93,5 +93,16 @@ Las cuatro alternativas (R1, R2, Híbrida C, Baseline D) serán evaluadas en el 
 
 **Límite de ejecución:** F-10/E-10 original está BLOQUEADO; su inclusión en una lista de cobertura documental no lo habilita para ejecución. El primer laboratorio, si se autoriza, cubrirá F-01..F-09 y casos adicionales aprobados de forma expresa.
 
-### 4.3 Condiciones de Abstención Justificada
+### 4.3 Segundo dominio: casos documentales de referencia (sin oráculo ratificado)
+
+El segundo dominio no se inventa desde la telemetría: los ejemplos `A6` y `A7` de `architecture-paper-falsification-v0.md` afirman respectivamente uso y ausencia de red en versiones **2.1 y 2.3** del módulo X. El caso `HET-002` de `heterogeneous-cases.md` compara afirmaciones sobre versiones de documentación; `HET-003` contrasta afirmaciones sobre comportamiento de software y la diferencia entre ausencia observada y ausencia universal.
+
+- **Expectativa conceptual A6/A7:** no inferir conflicto sin equiparar versión, alcance y modalidad; conservar atribución. Una afirmación documental no autentica el comportamiento del módulo.
+- **Expectativa conceptual HET-002:** preservar ambas citas y versiones; no privilegiar automáticamente la fuente más reciente.
+- **Expectativa conceptual HET-003:** no inferir que una conexión es imposible por no haber sido observada en un test limitado.
+- **Control metodológico:** R1, R2, C y D reciben exactamente las mismas afirmaciones sintéticas y condiciones de comparabilidad. Registrar cuándo el control D debe ampliar su esquema para representar el segundo dominio.
+
+Estos son **oráculos conceptuales candidatos**, no fixtures normalizados ni reglas versionadas. Antes de G2.2 deberán fijarse payloads, esquema, versiones, resultados esperados y controles negativos para ambos dominios, sin ejecutar ni declarar PASS ahora.
+
+### 4.4 Condiciones de Abstención Justificada
 El arnés de prueba aceptará como respuesta válida y correcta la **abstención justificada** (`NOT_COMPARABLE` o `INSUFFICIENT`) cuando los insumos sintéticos carezcan de la información mínima requerida por las reglas del perfil para emitir un juicio definitivo. La abstención justificada se distingue explícitamente de un fallo de ejecución o error interno del sistema (`INTERNAL_FAILURE`).
