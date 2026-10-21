@@ -24,6 +24,10 @@ En estricta atención al **Defecto B-02**, la presente matriz reconstruye de man
 - `CONFLICTED` es un dictamen epistemológico; `CONFLICTO` puede ser un estado del perfil de sensores. No existe equivalencia automática.
 - `UNVERIFIED`/`VERIFIED` califican procedencia; `SUPPORTED`/`REFUTED`/`CONFLICTED`/`INSUFFICIENT`/`NOT_COMPARABLE` califican evaluación. No se sustituyen entre sí.
 
+### Advertencia sobre cobertura R-08 (privacidad)
+
+La fila R-08 es una **correspondencia temática**, no un test aprobado ni un oráculo suficiente. F-10/E-10 original permanece BLOQUEADO. Para probar que el sistema no declara borrado físico a partir de ocultación lógica haría falta un caso independiente, con observables y criterio de fallo propios, además de autorización expresa. Ningún test en memoria certifica destrucción física de copias, backups o réplicas.
+
 ### Reglas Metodológicas de Mapeo
 1. **Verificación de Definiciones Literales:** Ninguna correspondencia se asigna por mera asociación temática superficial. Cada vínculo exige una justificación conceptual directa y verificable basada en el texto literal de la especificación original.
 2. **Tratamiento de Ausencia de Fixtures ("SIN FIXTURE DIRECTO"):** Cuando un criterio R carece de un fixture directo en la serie F-01..F-10 o E-01..E-10, se registra explícitamente el texto **"SIN FIXTURE DIRECTO"** y se propone formalmente un nuevo caso sintético (ej. F-11, F-12), **sin renumerar ni alterar la secuencia de los fixtures preexistentes**.
