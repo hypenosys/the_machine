@@ -113,7 +113,7 @@ El diseño de seguridad de THE MACHINE se basa en la prevención proactiva:
 ## 7. Principales brechas identificadas (Gap Register)
 
 Entre los 10 hallazgos registrados en [`docs/04-auditorias/gap-register.md`](docs/04-auditorias/gap-register.md), destacan:
-1. **GAP-001**: Licencia legal pendiente (`LICENSE`).
+1. **GAP-001**: Se ha incorporado [`LICENSE.md`](LICENSE.md) con CC BY 4.0 para documentación y materiales no software originales cuyos derechos correspondan a los licenciantes. El cierre formal del GAP, el inventario de derechos de terceros y la licencia de eventual código siguen sujetos a verificación y decisión separadas.
 2. **GAP-002**: SEC-015..017 están documentadas como pruebas candidatas para TH-016, TH-019 y TH-012 respectivamente; ninguna ha sido ejecutada o verificada.
 3. **GAP-003**: Incompleitud en la especificación formal y serialización de campos temporales (`valid_time`, `recorded_time`, `assessed_time`).
 4. **GAP-004**: Indefinición del modelo de adversario y anclaje de confianza para persistencia de capacidades locales.
@@ -123,7 +123,7 @@ Entre los 10 hallazgos registrados en [`docs/04-auditorias/gap-register.md`](doc
 
 ## 8. Hitos proyectados
 
-1. **Hito 1**: Decisión sobre el archivo de licencia (`GAP-001`) y adopción de la gobernanza de ADRs.
+1. **Hito 1**: Verificar alcance y derechos de la licencia documental CC BY 4.0 ya propuesta en esta rama, resolver formalmente `GAP-001` y deliberar la gobernanza de ADRs; sin licencia de software aprobada.
 2. **Hito 2**: Evaluación y decisión sobre la especificación del núcleo (Opción A vs. Opción B) y formalización de la semántica temporal (`GAP-003`).
 3. **Hito 3**: Revisión y autorización de las pruebas candidatas SEC-015..017; su existencia documental no cierra `GAP-002`.
 4. **Hito 4**: Decisión expresa del titular para evaluar la recomendación de un primer experimento minimalista offline de dos sensores (`docs/03-preimplementacion/vertical-slice-a.md`).
@@ -133,3 +133,8 @@ Entre los 10 hallazgos registrados en [`docs/04-auditorias/gap-register.md`](doc
 ## 9. Gobernanza y contribuciones
 
 Actualmente el proyecto está en estado de **HOLD / Sin código**, por lo que no acepta Pull Requests de código funcional en Rust. Las contribuciones se limitan a la revisión crítica de la documentación, modelos de seguridad y especificaciones de arquitectura presentadas mediante solicitudes de cambio o nuevos registros ADR (`docs/02-diseno/adr/TEMPLATE.md`).
+
+
+## 10. Licencia documental
+
+La documentación original y demás materiales no software cubiertos por los derechos de los colaboradores se ofrecen bajo **Creative Commons Attribution 4.0 International (CC BY 4.0)** según [`LICENSE.md`](LICENSE.md). Se exige atribución y aviso de modificaciones. Los contenidos de terceros y el futuro código fuente no quedan automáticamente licenciados por esta declaración. La adopción documental en la rama de la PR no ratifica los gates ni demuestra que todos los materiales tengan derechos aclarados.
