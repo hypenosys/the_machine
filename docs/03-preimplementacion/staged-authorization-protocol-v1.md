@@ -10,7 +10,7 @@
 
 ## 1. Principio de Desacoplamiento Estricto y Armonización Histórica de Gates
 
-En resolución directa del **Defecto B-06** y para evitar la colisión con la nomenclatura histórica de readiness gates (`readiness-assessment.md`, `traceability.md`, `auditoria-integral-2026-10.md`), el presente protocolo **mantiene intacta la definición original de Gates G0..G5** y modela el proceso de laboratorio pre-código como **subgates explícitos** dentro del Gate G2 de Diseño.
+En resolución directa del **Defecto B-06** y para evitar la colisión con la nomenclatura histórica de readiness gates (`readiness-assessment.md`, `traceability.md`, `auditoria-integral-2026-10.md`), el presente protocolo **propone una lectura de Gates G0..G5 pendiente de ratificación** y modela el proceso de laboratorio pre-código como **subgates explícitos** dentro del Gate G2 de Diseño.
 
 ```
 +---------------------------------------------------------------------------------------------------+
@@ -28,7 +28,7 @@ En resolución directa del **Defecto B-06** y para evitar la colisión con la no
 ```
 
 ### Invariantes del Protocolo
-1. **G3 es Históricamente la Transición a Código:** Se confirma que **Gate G3 es la puerta de implementación de software en Rust**. Pasar de G2 a G3 exige el cumplimiento total de los requisitos de pre-código y una decisión expresa `GO` del titular.
+1. **G3 — interpretación candidata:** Se propone que **Gate G3 sea la puerta de implementación de software en Rust**; otras fuentes históricas lo sitúan antes de fusionar código ejecutable. La discrepancia requiere decisión del titular. Pasar de G2 a G3 exige el cumplimiento total de los requisitos de pre-código y una decisión expresa `GO` del titular.
 2. **Sin Transiciones Automáticas:** Ningún subgate dentro de G2 (G2.1, G2.2, G2.3, G2.4) concede autorización automática para pasar a G3 ni para escribir código Rust.
 3. **Autoridad Exclusiva:** Toda transición entre gates y subgates exige una decisión de gobernanza explícita, registrada y firmada por el titular del proyecto (@Axlfc).
 
@@ -67,7 +67,7 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 - **Condiciones de Entrada:** Subgate G2.1 formalmente aprobado; delimitación estricta del alcance (cero red, cero persistencia duradera, cero datos reales); fixtures sintéticos normalizados, reglas de oráculo versionadas, tolerancias explícitas y esquema de salida fijados conforme a `comparative-contract-v1.md` §1.2; resolución expresa de la distinción entre código de laboratorio y código de producto, formato de intercambio y política de dependencias. Cualquier excepción adicional requiere registro específico del titular y no se presume por la aprobación de G2.1.
 - **Evidencia Requerida:** Orden de ejecución del titular especificando los límites del laboratorio sintético.
 - **Autoridad:** Titular del proyecto (@Axlfc).
-- **Resultado:** Permiso para ejecutar el laboratorio acotado (**Subgate G2.2 GO**). **No autoriza código de producción ni crates definitivos.**
+- **Resultado condicionado a ratificación futura:** Solo una orden separada y específica del titular podría autorizar construir/ejecutar el laboratorio acotado. **Actualmente G2.2 está BLOQUEADO; no autoriza código de producción ni crates definitivos.**
 
 #### Subgate G2.3 — Obtención y Evaluación de Evidencia Experimental Sintética
 - **Propósito:** Recopilar y analizar los resultados observables producidos por las alternativas R1, R2, Híbrida C y Baseline D ante los fixtures sintéticos F-01..F-09 y cualquier caso adicional autorizado expresamente. **F-10/E-10 original permanece BLOQUEADO** y no forma parte de la ejecución por defecto.
@@ -86,8 +86,8 @@ Contiene la fase de consolidación y deliberación pre-código, articulada en cu
 ---
 
 ### Gate G3 — Pre-code Gate & Transición a Implementación de Software en Rust
-- **Definición Histórica:** Transición a la fase de implementación de código ejecutable en Rust.
-- **Propósito:** Evaluar el cumplimiento de todos los requisitos previos a la escritura de código (resolución de licencias `GAP-001`, revisión de modelo de amenazas `GAP-002`, ADRs aceptados `GAP-005`, Subgate G2.4 aprobado).
+- **Interpretación Candidata (NO RATIFICADA):** Transición a la fase de implementación de código ejecutable en Rust; la fuente `security/security-gates.md` utiliza el criterio previo a fusionar código ejecutable. No hay precedencia decidida.
+- **Propósito propuesto (NO RATIFICADO):** Evaluar el cumplimiento de todos los requisitos previos a la escritura de código (resolución de licencias `GAP-001`, revisión de modelo de amenazas `GAP-002`, ADRs aceptados `GAP-005`, Subgate G2.4 aprobado).
 - **Condiciones de Entrada:** Subgate G2.4 aprobado; `GAP-001` (Licencia) resuelto; `ADR-0001..0005` votados; plan de pruebas de seguridad `SEC-001..017` completado.
 - **Evidencia Requerida:** Lista de verificación de pre-código aprobada; resolución formal del titular autorizando el inicio de implementación.
 - **Autoridad:** Titular del proyecto (@Axlfc) en exclusiva.
