@@ -3,6 +3,8 @@
 **Estado: CANDIDATE / NO-GO.** Ninguna decisión se considera aprobada ni implementada.
 
 ## Contrato mínimo propuesto
+
+> **Alcance de esta propuesta:** `JSON UTF-8` y la tolerancia de `1000 milli_degC` son opciones candidatas del perfil sintético de temperatura, no decisiones adoptadas para el núcleo ni para un experimento autorizado. `offline-experiment-contract-candidate-v0.md` mantiene abierta la serialización general; la biblioteca JSON y su revisión siguen pendientes. Los valores ilustrativos de otros ejercicios en papel no sustituyen este parámetro candidato ni lo ratifican.
 - Un lote de **2 a 100** observaciones sintéticas; tamaño máximo de entrada **64 KiB**; superar límites rechaza el lote completo.
 - Esquema explícitamente versionado `evidence.v0`; formato de intercambio **JSON UTF-8**, sin extensiones, comentarios ni campos desconocidos.
 - Identificadores ASCII limitados a 64 caracteres, con conjunto permitido `[A-Za-z0-9_-]`; campos textuales libres excluidos del primer corte.
