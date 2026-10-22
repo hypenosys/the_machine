@@ -62,3 +62,15 @@ Este apartado actualiza el **estado editorial** sin alterar la evidencia ni el a
 | D-07 | El índice consolidado de REV-15 se sincronizó con la incorporación posterior de `LICENSE.md`; las observaciones `license=null` previas permanecen como evidencia histórica fechada. | Licencia de software, terceros y cierre formal de GAP-001. |
 
 **Comprobación de integración separada (corte original):** GitHub REST reportó `mergeable=true` y `mergeable_state=clean` para el HEAD `5703ed21cea99f7aa17b56303cb6e8d1f8d33aa9`; ese estado no se extrapola a HEAD posteriores ni a autorizaciones de gobernanza. **Actualización factual (22-10-2026):** la PR #25 se fusionó como cambio documental en `ad27f93ac1e2c09514dbff81e653fbc49d77346f`. El merge no ratificó ningún gate ni autorizó código. No se han ejecutado pruebas, no se ha ratificado ningún gate y no se afirma cero contradicciones.
+
+
+## Seguimiento adicional de la revisión profunda (22-10-2026)
+
+Este seguimiento registra dos contradicciones factuales detectadas después del corte original y sus correcciones documentales. Las referencias describen commits de integración en `master`; ninguna corrige ni ratifica las colisiones normativas que siguen abiertas.
+
+| Hallazgo | Evidencia y corrección integrada | Residuo |
+|---|---|---|
+| **D-15 — Referencias GAP-003 incompatibles con el registro** | En `security-review.md`, las filas TH-006 y TH-009 apuntaban a GAP-003, aunque el registro original y el actual definen GAP-003 como especificación temporal. Las referencias se retiraron en PR #30, fusionada en `c9c7fc752b8f89307b73594e012d6b2d07cf2f09`. | No se atribuye otra GAP a TH-006/TH-009; la matriz no demuestra esa relación. |
+| **D-16 — Estado actual de PR #25** | Este inventario decía que PR #25 seguía en borrador tras su fusión documental del 22-10-2026. Se precisó que “borrador” era el estado del corte original y se anotó la fusión en PR #31, integrada en `e71db35a264218fc8cb2291a2b6ff159abc58c08`. | La fusión fue documental: no ratificó gates ni autorizó código. |
+
+**Límite vigente:** D-05 y las condiciones de la sección «Condiciones para afirmar “cero contradicciones”» siguen abiertos. Este registro no certifica coherencia semántica total ni cero contradicciones.
