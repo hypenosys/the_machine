@@ -3,6 +3,14 @@
 **Estado: HOLD / NO-GO para implementar.** Documentos candidatos de análisis y deliberación; **sin autorización de escribir, compilar o ejecutar código**. La ausencia de código o de `Cargo.toml` en todas las ramas no queda certificada por este documento.
 
 
+## Contratos conceptuales derivados (sin ejecución)
+
+- [Matriz de garantías de procedencia](provenance-assurance-matrix-v0.md): separa integridad, clave, identidad, origen y verdad; casos de falsación en papel.
+- [Linaje, retractación y reevaluación](lineage-retraction-paper-contract-v0.md): dependencias desconocidas, versiones y conservación de historial.
+- [Comparabilidad entre dominios](cross-domain-comparability-paper-v0.md): telemetría y documentación técnica; abstenciones y presupuesto conceptual de complejidad para R1/R2/C/D.
+
+Estos documentos **no son pruebas ejecutadas, selección arquitectónica ni aprobación de gates**. Las conclusiones son condicionales a ejemplos hipotéticos y deben revisarse por persona distinta del autor antes de atribuirles revisión independiente.
+
 ## Investigación conceptual — Cuaderno Finch
 
 El [cuaderno de experimentos en papel](finch-paper-experiments-v0.md) reúne seis escenarios hipotéticos sobre autenticidad, dependencia de evidencias, comparabilidad, complejidad arquitectónica, borrado y autoridad. Cada uno distingue deducción conceptual de evidencia experimental y propone el siguiente documento que reduciría incertidumbre. **No contiene pruebas ejecutadas, mediciones ni decisiones ratificadas.**
