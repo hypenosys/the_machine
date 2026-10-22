@@ -2,6 +2,9 @@
 
 > **Nota de actualización documental (21-10-2026, PR #25):** Este informe conserva su corte histórico, sin reescribir hallazgos retrospectivos. El repositorio ya era público en la consulta GitHub de esa fecha y la rama de PR #25 incorporó `LICENSE.md` con CC BY 4.0 para documentación original cubierta; quedan pendientes derechos de terceros, licencia de software futuro y cierre formal de GAP-001. Las afirmaciones de ausencia de código, conteos de archivos y CI solo se refieren al árbol y revisión que el auditor examinó, no a todas las ramas o entornos. La calificación de auditor «independiente» se conserva como atribución del informe, no como acreditación verificada por esta PR. **HOLD / NO-GO; sin pruebas ejecutadas ni ratificación de gates.**
 
+> **Rectificación de referencias (master, 22-10-2026):** En la matriz de §3, las referencias `GAP-003` junto a TH-006 y TH-009 eran cruces erróneos: el `gap-register.md` del corte original y el actual asignan ese ID a especificación temporal, no a esas amenazas. Se retiran las dos referencias sin asignarles otra GAP; la matriz no acredita un mapeo válido para ellas. Esta rectificación no modifica amenazas, requisitos, controles ni la evaluación de riesgos.
+
+
 > **Actualización de estado (master `15cf6e1`, 22-10-2026):** Después del corte de estos informes, `verification-plan.md` y `traceability.md` incorporaron asignaciones candidatas para TH-012→SEC-017, TH-016→SEC-015 y TH-019→SEC-016. Las afirmaciones de falta de asignación describen el corte original y se conservan como registro histórico. Las propuestas actuales no se han ejecutado ni verifican controles; GAP-002 sigue OPEN.
 
 **Fecha de auditoría:** Octubre de 2026
@@ -52,10 +55,10 @@ Dado que **no existe código funcional ni ejecutables probados**, los riesgos re
 | **TH-003** (Abuso de herramientas) | `SEC-REQ-003` | Action Gateway tipado con allowlist de herramientas | `SEC-003` | Solo diseño documental | Ninguna | **NO EVALUADO** (Hipótesis: Pendiente de código) |
 | **TH-004** (Exfiltración de datos) | `SEC-REQ-004` | Ausencia de conectores de red en diseño offline | `SEC-004` | Solo diseño documental | Ninguna | **NO EVALUADO** (Hipótesis: Bajo si no hay sockets) |
 | **TH-005** (DoS / Límites) | `SEC-REQ-005` | Límites de memoria y timeouts en IO | `SEC-005` | Solo diseño documental | Ninguna | **NO EVALUADO** |
-| **TH-006** (Memory Poisoning) | `SEC-REQ-006` | Preservación de contradicciones sin resolver | `SEC-006` | Solo diseño documental | **GAP-003** | **NO EVALUADO** |
+| **TH-006** (Memory Poisoning) | `SEC-REQ-006` | Preservación de contradicciones sin resolver | `SEC-006` | Solo diseño documental | Sin GAP asignada en esta matriz | **NO EVALUADO** |
 | **TH-007** (Suplantación de fuente) | `SEC-REQ-007` | Verificación de origen declarada | `SEC-007` | Solo diseño documental | Ninguna | **NO EVALUADO** |
 | **TH-008** (Contradicción oculta) | `SEC-REQ-006` | Registro inmutable de eventos de evaluación | `SEC-006` | Solo diseño documental | Ninguna | **NO EVALUADO** |
-| **TH-009** (Retención indebida) | `SEC-REQ-008` | Propagación de borrado en cascada sobre derivados | `SEC-008` | Solo diseño documental | **GAP-003** | **NO EVALUADO** |
+| **TH-009** (Retención indebida) | `SEC-REQ-008` | Propagación de borrado en cascada sobre derivados | `SEC-008` | Solo diseño documental | Sin GAP asignada en esta matriz | **NO EVALUADO** |
 | **TH-010** (TOCTOU) | `SEC-REQ-009` | Revalidación de capacidades previa al efecto | `SEC-009` | Solo diseño documental | Ninguna | **NO EVALUADO** |
 | **TH-011** (Replay Attacks) | `SEC-REQ-010` | Nonces únicos e idempotencia en Action Gateway | `SEC-010` | Solo diseño documental | Ninguna | **NO EVALUADO** |
 | **TH-012** (Confused Deputy) | `SEC-REQ-017` | Vinculación estricta Actor + Recurso + Propósito | **SIN ASIGNAR** | **Ninguna** | **GAP-002** | **NO EVALUADO** (Falta especificación de test) |
