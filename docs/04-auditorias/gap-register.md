@@ -22,7 +22,7 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 
 | ID | Dominio | Hallazgo resumido | Severidad | Prioridad | Estado |
 |---|---|---|---|---|---|
-| **GAP-001** | Gobernanza / Licencias | Inventario de derechos de terceros y cierre formal incompletos; licencia de software futuro pendiente. | Medium / Legal | P2 (P1 si se publica) | Open |
+| **GAP-001** | Gobernanza / Licencias | Inventario de derechos de terceros y cierre formal incompletos; licencia de software futuro pendiente. | Medium / Legal | P1 (alcance público pendiente de verificar) | Open |
 | **GAP-002** | Seguridad / Cobertura | SEC-015..017 están ahora especificadas y trazadas como propuestas; siguen sin ejecutarse, por lo que no hay cobertura verificada. | High | P1 (Para sistema completo) | Open |
 | **GAP-003** | Arquitectura / Especificación | Hay semántica temporal y perfiles de serialización candidatos, pero falta un contrato general ratificado para tipos, serialización y consultas temporales. | High | P1 | Open |
 | **GAP-004** | Seguridad / Modelo de Adversario | Falta definir modelo de adversario y anclaje de confianza para persistencia local de capacidades. | High | P1 (Para persistencia) | Open |
@@ -39,15 +39,15 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 
 > **Actualización documental posterior (PR #25, 21-10-2026):** Las afirmaciones de ausencia de licencia de la tabla y del hallazgo original reflejan el corte de auditoría anterior. En esta rama existe ahora [`LICENSE.md`](../../LICENSE.md), aviso CC BY 4.0 para documentación original y materiales no software con derechos suficientes. No se ha realizado inventario completo de derechos de terceros ni elegido licencia para código futuro. **GAP-001 permanece OPEN por alcance y cierre formal**, no por inexistencia actual del archivo en esta rama. La instrucción de incorporar CC BY 4.0 consta en la conversación, sin acreditación de ratificación conjunta de @Axlfc y @TopperH4rley. El historial original se conserva para trazabilidad.
 
-### GAP-001 — Ausencia de archivo de licencia legal (LICENSE)
+### GAP-001 — Alcance de derechos y cierre formal de licencia
 - **ID:** GAP-001
 - **Dominio:** Gobernanza y Licenciamiento
-- **Hallazgo:** El repositorio no contiene ningún archivo `LICENSE` ni `LICENSE-APACHE`/`LICENSE-MIT`, aunque en `CONTRIBUTING.md` y `README.md` se menciona intención de código abierto.
-- **Evidencia:** Inspección directa de la raíz del repositorio. No existen archivos de licencia.
-- **Impacto:** Jurídico y de derechos de autor para redistribución pública. Legalmente, el código y documentación sin licencia explícita se consideran bajo derechos de autor reservados ("All Rights Reserved"). **Aclaración de alcance**: Para la ejecución de un experimento o investigación privada en local, no constituye un bloqueante técnico de código, pero sí una limitación legal previa a cualquier distribución o contribución pública.
+- **Hallazgo:** En el corte de auditoría original no había archivo de licencia en la raíz. En el `master` actual existe `LICENSE.md`, que ofrece CC BY 4.0 para documentación original y materiales no software cuyos derechos puedan licenciarse. Siguen pendientes el inventario de derechos de terceros, la determinación completa del material cubierto, el cierre formal de GAP-001 y la licencia de cualquier software futuro.
+- **Evidencia:** `LICENSE.md` en la raíz del `master` actual y hallazgo original fechado, conservado aquí como registro histórico.
+- **Impacto:** Derechos de redistribución y contribución de materiales no cubiertos o de titularidad no acreditada; no debe interpretarse el hallazgo original como ausencia actual de toda licencia.
 - **Severidad:** Medium (Legal)
-- **Prioridad:** P2 para investigación privada / P1 previa a publicación abierta.
-- **Propuesta de corrección:** Requerir decisión del titular del proyecto sobre la licencia a adoptar (p. ej. Dual MIT/Apache-2.0, MPL-2.0, u otra) e integrar el archivo correspondiente.
+- **Prioridad:** P1 mientras se distribuyan públicamente materiales con titularidad o licencia no verificada; reevaluar tras completar el inventario de derechos. La licencia de software futuro debe resolverse antes de distribuir software.
+- **Propuesta de corrección:** Verificar titularidad y alcance de los materiales, registrar el cierre o los residuos jurídicos mediante la autoridad competente y decidir por separado una licencia para software futuro.
 - **Estado:** Open
 
 ---

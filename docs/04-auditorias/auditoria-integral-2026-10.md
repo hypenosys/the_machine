@@ -80,7 +80,7 @@ git status --short
 ## 3. Hallazgos principales y contradicciones detectadas
 
 ### 3.1. Inexistencia de archivo de licencia legal (GAP-001 - Medium / Legal)
-El repositorio se presenta en `CONTRIBUTING.md` y `README.md` como un proyecto con intención de apertura. Sin embargo, **no existe ningún archivo `LICENSE`** en la raíz. Según el marco legal de propiedad intelectual, el código y la documentación sin licencia se consideran "Todos los derechos reservados", lo que constituye una limitación legal para la redistribución o contribución pública.
+En el corte de esta auditoría, el repositorio se presentaba en `CONTRIBUTING.md` y `README.md` como un proyecto con intención de apertura, pero **no se encontró un archivo `LICENSE` en la raíz**. Este hallazgo describe ese corte: una nota posterior registra la incorporación de `LICENSE.md` con CC BY 4.0 para documentación original cubierta, mientras que los derechos de terceros, el alcance completo y la licencia de software futuro siguen pendientes.
 
 ### 3.2. Hipótesis de sobreingeniería en el núcleo epistemológico y precisión sobre semántica temporal (GAP-003 y GAP-006)
 `docs/03-preimplementacion/unified-specification-candidate-v0.md` (línea 35) ya menciona conceptualmente `valid_time`, `recorded_time` y `assessed_time`. El hallazgo real (**GAP-003**) es la **ausencia de una especificación formal de tipos, formato de serialización y reglas de verificación bitemporal en tiempo de ejecución**. Asimismo, el modelo de 6 entidades de la Opción A presenta una hipótesis de sobrecarga que debe ser evaluada mediante experimentos frente a alternativas como la Opción B (propuesta del auditor).
