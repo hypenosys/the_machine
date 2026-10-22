@@ -40,7 +40,7 @@
 - Ninguna prueba planificada o fixture en papel es prueba ejecutada, y ninguna autoatribución de procedencia equivale a autenticación.
 - `valid_time`, `recorded_time` y `assessed_time` son conceptos distintos; la retrodatación no se detecta únicamente comparando campos autodeclarados.
 - F-10/E-10 no se desbloquea mediante ocultación de referencias en memoria; eliminación física, backups y réplicas requieren política y evidencia independientes.
-- Una PR fusionable o fusionada no implica autorización normativa. La PR #25 permanece en borrador hasta revisión competente.
+- Una PR fusionable o fusionada no implica autorización normativa. **Actualización factual (22-10-2026):** la PR #25, que estaba en borrador al corte de este inventario, fue fusionada documentalmente en `ad27f93ac1e2c09514dbff81e653fbc49d77346f`; ese merge no ratificó gates ni autorizó código.
 - La licencia CC BY 4.0 se aplica a material documental original cubierto, no automáticamente a terceros ni a software futuro.
 
 ## Condiciones para afirmar «cero contradicciones»
@@ -61,4 +61,4 @@ Este apartado actualiza el **estado editorial** sin alterar la evidencia ni el a
 | D-05 | El protocolo por etapas enlaza a las fuentes canónicas `docs/02-diseno/security/security-gates.md` y `traceability.md` para facilitar contraste. | La discrepancia G3 **no está resuelta**: inicio de código frente a merge de código. |
 | D-07 | El índice consolidado de REV-15 se sincronizó con la incorporación posterior de `LICENSE.md`; las observaciones `license=null` previas permanecen como evidencia histórica fechada. | Licencia de software, terceros y cierre formal de GAP-001. |
 
-**Comprobación de integración separada:** GitHub REST reportó `mergeable=true` y `mergeable_state=clean` para el HEAD `5703ed21cea99f7aa17b56303cb6e8d1f8d33aa9`; no se extrapola ese resultado a HEAD posteriores ni a autorizaciones de gobernanza. La PR sigue DRAFT / HOLD / NO-GO. No se han ejecutado pruebas, no se ha ratificado ningún gate y no se afirma cero contradicciones.
+**Comprobación de integración separada (corte original):** GitHub REST reportó `mergeable=true` y `mergeable_state=clean` para el HEAD `5703ed21cea99f7aa17b56303cb6e8d1f8d33aa9`; ese estado no se extrapola a HEAD posteriores ni a autorizaciones de gobernanza. **Actualización factual (22-10-2026):** la PR #25 se fusionó como cambio documental en `ad27f93ac1e2c09514dbff81e653fbc49d77346f`. El merge no ratificó ningún gate ni autorizó código. No se han ejecutado pruebas, no se ha ratificado ningún gate y no se afirma cero contradicciones.
