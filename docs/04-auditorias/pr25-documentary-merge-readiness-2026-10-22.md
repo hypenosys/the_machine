@@ -43,7 +43,7 @@ La API de revisiones de GitHub muestra una revisión **COMMENTED** de **@Axlfc**
 
 La aprobación precede a los commits `12905b59498d322fa7e72ee47fbb5fc6c34a5ad1` y `a662979b06178eb9f0588298d1c7be2c745cd87e`, por lo que el alcance de su vigencia sobre el HEAD posterior debe confirmarse conforme a las reglas de revisión y protección aplicables. Una revisión COMMENTED posterior de @TopperH4rley sigue solicitando cambios. **No se presume que esa revisión invalide formalmente la aprobación, ni que la aprobación resuelva sus observaciones.**
 
-**Corrección de estado de revisión anterior:** ya no es correcto decir que la revisión de @Axlfc está solo solicitada o que no existe aprobación de otra cuenta. El estado actualizado es **aprobación GitHub presente, ratificación normativa no acreditada, diff posterior no revalidado expresamente, PR DRAFT**.
+**Corrección de estado de revisión anterior:** ya no es correcto decir que la revisión de @Axlfc está solo solicitada o que no existe aprobación de otra cuenta. La PR está fusionada; la ratificación normativa no está acreditada y la aprobación de @Axlfc precedió a los commits posteriores, que no recibieron una revalidación expresa.
 
 **Siguiente paso acotado:** solicitar a @Axlfc confirmación del HEAD revisado y del alcance **exclusivamente documental**; recabar decisión verificable de ambos cotitulares sobre autoridad de integración, sin convertir una aprobación genérica en consentimiento sobre G3/GAP-010. Mantener HOLD para implementación y ejecución.
 
