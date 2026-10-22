@@ -22,7 +22,7 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 
 | ID | Dominio | Hallazgo resumido | Severidad | Prioridad | Estado |
 |---|---|---|---|---|---|
-| **GAP-001** | Gobernanza / Licencias | Inventario de derechos de terceros y cierre formal incompletos; licencia de software futuro pendiente. | Medium / Legal | P2 (P1 si se publica) | Open |
+| **GAP-001** | Gobernanza / Licencias | Inventario de derechos de terceros y cierre formal incompletos; licencia de software futuro pendiente. | Medium / Legal | P1 mientras se distribuyan públicamente materiales con titularidad o licencia no verificada | Open |
 | **GAP-002** | Seguridad / Cobertura | SEC-015..017 están ahora especificadas y trazadas como propuestas; siguen sin ejecutarse, por lo que no hay cobertura verificada. | High | P1 (Para sistema completo) | Open |
 | **GAP-003** | Arquitectura / Especificación | Hay semántica temporal y perfiles de serialización candidatos, pero falta un contrato general ratificado para tipos, serialización y consultas temporales. | High | P1 | Open |
 | **GAP-004** | Seguridad / Modelo de Adversario | Falta definir modelo de adversario y anclaje de confianza para persistencia local de capacidades. | High | P1 (Para persistencia) | Open |
@@ -46,9 +46,10 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 - **Evidencia:** `LICENSE.md` en la raíz del `master` actual y hallazgo original fechado, conservado aquí como registro histórico.
 - **Impacto:** Derechos de redistribución y contribución de materiales no cubiertos o de titularidad no acreditada; no debe interpretarse el hallazgo original como ausencia actual de toda licencia.
 - **Severidad:** Medium (Legal)
-- **Prioridad:** P2 para investigación privada / P1 previa a publicación abierta.
+- **Prioridad:** P1 mientras se distribuyan públicamente materiales con titularidad o licencia no verificada; reevaluar tras completar el inventario de derechos. La licencia de software futuro debe resolverse antes de distribuir software.
 - **Propuesta de corrección:** Verificar titularidad y alcance de los materiales, registrar el cierre o los residuos jurídicos mediante la autoridad competente y decidir por separado una licencia para software futuro.
 - **Estado:** Open
+
 ---
 
 ### GAP-002 — Cobertura no verificada para amenazas TH-012, TH-016 y TH-019
