@@ -2,6 +2,8 @@
 
 > **Nota de actualización documental (21-10-2026, PR #25):** Este informe conserva su corte histórico, sin reescribir hallazgos retrospectivos. El repositorio ya era público en la consulta GitHub de esa fecha y la rama de PR #25 incorporó `LICENSE.md` con CC BY 4.0 para documentación original cubierta; quedan pendientes derechos de terceros, licencia de software futuro y cierre formal de GAP-001. Las afirmaciones de ausencia de código, conteos de archivos y CI solo se refieren al árbol y revisión que el auditor examinó, no a todas las ramas o entornos. La calificación de auditor «independiente» se conserva como atribución del informe, no como acreditación verificada por esta PR. **HOLD / NO-GO; sin pruebas ejecutadas ni ratificación de gates.**
 
+> **Actualización de estado (master `15cf6e1`, 22-10-2026):** Después del corte de estos informes, `verification-plan.md` y `traceability.md` incorporaron asignaciones candidatas para TH-012→SEC-017, TH-016→SEC-015 y TH-019→SEC-016. Las afirmaciones de falta de asignación describen el corte original y se conservan como registro histórico. Las propuestas actuales no se han ejecutado ni verifican controles; GAP-002 sigue OPEN.
+
 **Fecha de emisión:** Octubre de 2026
 **Auditor independiente:** Jules — Equipo Multidisciplinar de Auditoría Técnica Independiente
 **Repositorio:** `hypenosys/the_machine`
