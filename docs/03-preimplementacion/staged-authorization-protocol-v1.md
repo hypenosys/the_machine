@@ -44,12 +44,12 @@ G2.2 plantea construir un harness mientras el estado general prohíbe código ej
 
 ## 2. Interpretación candidata de Gates (G0..G5) y Subgates (G2.1..G2.4)
 
-### Gate G0 — Documentación e Investigación Preliminar
-- **Definición Histórica:** Investigación fundacional, filosofía y principios educativos (`readiness-assessment.md`).
+### Gate G0 — Documentación e Investigación Preliminar (etiqueta candidata; definición histórica indicada abajo)
+- **Definición candidata de este protocolo:** Documentación e investigación preliminar. **No es la definición histórica.** `security-gates.md` §G0 y `readiness-assessment.md` §2 describen G0 como la definición del problema, activos, datos, límites de confianza y uso indebido.
 - **Estado:** EVALUACIÓN HISTÓRICA CONDICIONAL; la aprobación formal de G0 depende de la ratificación del marco de gates por los titulares.
 
-### Gate G1 — Delimitación de Alcance y Especificación Candidate
-- **Definición Histórica:** Delimitación de activos, fronteras de confianza y especificaciones candidatas (`readiness-assessment.md`).
+### Gate G1 — Delimitación de Alcance y Especificación Candidate (etiqueta candidata; definición histórica indicada abajo)
+- **Definición candidata de este protocolo:** Delimitación de alcance y especificación candidata. **No es la definición histórica.** `security-gates.md` §G1 y `readiness-assessment.md` §2 describen G1 como investigación de fuentes, alternativas, riesgos, restricciones y amenazas.
 - **Estado:** EVALUACIÓN HISTÓRICA CONDICIONAL; la aprobación formal de G1 depende de la ratificación del marco de gates por los titulares.
 
 ---
