@@ -121,7 +121,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 - **Evidencia documental (rama PR #25):** Se ha añadido `LICENSE.md` con referencia oficial a CC BY 4.0 para documentación original y materiales no software con derechos suficientes. `gap-register.md` conserva su estado histórico OPEN; no se ha verificado inventario completo de derechos de terceros ni se ha seleccionado licencia para futuro software.
 - **Dependencias:** Ninguna.
 - **Autoridad:** Titulares del proyecto (@Axlfc y @TopperH4rley) en exclusiva.
-- **Decisión expresa recibida (alcance documental):** Se ha recibido la instrucción de incorporar CC BY 4.0; se incorpora en esta PR para la documentación original y materiales no software cuyos derechos puedan licenciarse. **Pendiente:** revisar titularidad y materiales de terceros, registrar cierre o alcance residual de `GAP-001` mediante autoridad competente y decidir por separado una licencia adecuada para cualquier código futuro. El dato histórico de GitHub API (2026-10-21, `visibility=public`, `license=null`) es anterior al commit de licencia y no debe reutilizarse como estado actual.
+- **Decisión expresa recibida (alcance documental):** Se ha recibido la instrucción de incorporar CC BY 4.0; `LICENSE.md` se incorporó a `master` mediante la PR #25 para documentación original y materiales no software cuyos derechos puedan licenciarse. **Pendiente:** revisar titularidad y materiales de terceros, registrar cierre o alcance residual de `GAP-001` mediante autoridad competente y decidir por separado una licencia adecuada para cualquier código futuro. El dato histórico de GitHub API (2026-10-21, `visibility=public`, `license=null`) es anterior al commit de licencia y no debe reutilizarse como estado actual.
 
 ### DEC-08 — Autorización Expresa para Código de Laboratorio y Transición G3 (SIN RATIFICAR)
 - **Opción A — HOLD / NO-GO:** No autorizar creación ni ejecución de código, harness, manifiestos Cargo, scripts o CI; mantener bloqueados los subgates y G3.
@@ -131,7 +131,7 @@ A continuación se presenta la matriz detallada de las ocho decisiones estratég
 - **Dependencias:** DEC-01..06, GAP-010, significado de G3 (REV-05), alcance de G2.1..G2.4 y decisiones sobre privacidad/seguridad. Las definiciones históricas de G3 (antes de escribir código frente a antes de fusionarlo) continúan en conflicto y no se resuelven por este texto.
 - **Autoridad:** Titulares del proyecto; independencia de revisión y evidencia de ratificación aún pendientes (REV-16).
 - **Recomendación provisional (PROPUESTO):** Mantener **Opción A**. Presentar la Opción B únicamente como posibilidad a deliberar mediante acto expreso y separado; no activarla ni tratarla como autorización implícita.
-- **Estado de gobernanza documentado:** **SIN RATIFICAR / HOLD / NO-GO**. No consta en las fuentes examinadas una excepción expresa concedida ni un gate ratificado. Esta PR es exclusivamente documental y no ha ejecutado código; la frase no certifica actividad histórica ni el contenido de otras ramas.
+- **Estado de gobernanza documentado:** **SIN RATIFICAR / HOLD / NO-GO**. No consta en las fuentes examinadas una excepción expresa concedida ni un gate ratificado. La PR #25 fue exclusivamente documental y no ejecutó código; esto no certifica actividad histórica ni el contenido de otras ramas.
 
 ---
 

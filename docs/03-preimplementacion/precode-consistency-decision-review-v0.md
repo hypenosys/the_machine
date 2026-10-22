@@ -15,7 +15,7 @@ Los PR #15–#19 aportan auditoría, protocolo de comparación, falsación conce
 | Privacidad | `offline-experiment-contract-candidate-v0.md`, `evidence-lifecycle-privacy-candidate-v0.md` | E-10 bloqueado; simulación lógica en memoria es posible pero no autorizada | Definir si E-10 es simulación sin persistencia y dejar privacidad real abierta |
 | Gates | `readiness-review.md`, `readiness-assessment.md` | Auditor recomienda CONDITIONAL GO, proyecto permanece NO-GO | GO solo por decisión expresa de los cotitulares conforme a gobernanza ratificada y alcance fijado |
 | Seguridad | `security-review.md`, `gap-register.md` | Tres amenazas sin prueba global; algunas funciones no están en corte offline | Mantener backlog global sin atribuir al corte mitigaciones inexistentes |
-| Licencia | `gap-register.md`, README | Hallazgo histórico anterior a `LICENSE.md`; repositorio público y CC BY 4.0 documental en esta PR, sin licencia de software | Revisar derechos de terceros y decidir licencia de software antes de distribuirlo; no confundir con bloqueo técnico de investigación privada |
+| Licencia | `gap-register.md`, README | Hallazgo histórico anterior a `LICENSE.md`; repositorio público y CC BY 4.0 documental incorporado a `master` mediante la PR #25, sin licencia de software | Revisar derechos de terceros y decidir licencia de software antes de distribuirlo; no confundir con bloqueo técnico de investigación privada |
 
 ## 3. Hipótesis arquitectónica que merece prueba
 **H:** el núcleo puede ofrecer un contrato común de identidad, versiones, procedencia, dependencia, evaluación, incertidumbre y retractación, mientras cada perfil define equivalencia y significado de dominio.
