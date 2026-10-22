@@ -12,7 +12,7 @@
 | Error | Rechazo atómico del lote | Esquema de errores y exit codes |
 | Seguridad | Sin red ni acciones externas | Demostrar límites, no asumirlos |
 | Portabilidad | Sin plataforma v0 elegida | Matriz de compiladores/targets |
-| Publicación | Repositorio privado | Titularidad y licencia |
+| Publicación | Repositorio público según comprobación del 21-10-2026; CC BY 4.0 documental incorporada en PR #25 | Derechos de terceros, licencia de software futuro y cierre formal de GAP-001 |
 | Verificación | Casos conceptuales | Fixtures, comandos y resultados reales |
 
 ## Riesgos bloqueantes

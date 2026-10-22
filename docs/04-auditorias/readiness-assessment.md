@@ -6,11 +6,13 @@
 
 ---
 
+**Nota de actualización (21-10-2026, PR #25):** Este informe conserva su evaluación histórica. Los cotitulares declarados son @Axlfc y @TopperH4rley; @Axlfc figura como Mantenedor Principal propuesto, sin potestad activada de ratificación unilateral. La licencia documental CC BY 4.0 se incorporó después del corte original mediante `LICENSE.md`, pero el inventario de derechos, el cierre de GAP-001 y la licencia del código futuro siguen pendientes. Las afirmaciones históricas sobre ausencia de archivos `.rs` solo describen el árbol inspeccionado en aquel corte, no todas las ramas o entornos. **CONDITIONAL GO es recomendación del auditor, no autorización vigente; prevalece HOLD / NO-GO.**
+
 ## 1. Resumen de evaluación
 
 El objetivo de este documento es evaluar el grado de preparación de **THE MACHINE** para aportar un juicio técnico independiente sobre un eventual primer experimento de prueba de concepto en Rust (*vertical slice A: laboratorio offline de dos sensores*), contrastando los criterios documentados en `docs/02-diseno/security/security-gates.md` y `docs/03-preimplementacion/readiness-review.md`.
 
-*Aclaración de autoridad*: El veredicto de este informe constituye la **recomendación técnica del auditor**. La autorización efectiva para iniciar cualquier desarrollo en código corresponde de forma exclusiva a la decisión del titular o gobernanza del proyecto.
+*Aclaración de autoridad*: El veredicto de este informe constituye la **recomendación técnica del auditor**. La autorización efectiva para iniciar cualquier desarrollo en código corresponde de forma exclusiva a la decisión de la autoridad competente conforme a la gobernanza del proyecto.
 
 ---
 
@@ -18,7 +20,7 @@ El objetivo de este documento es evaluar el grado de preparación de **THE MACHI
 
 | Gate | Criterios Oficiales de Aceptación | Evidencia Inspeccionada | Evaluación Actual de Auditoría | Justificación Detallada |
 |---|---|---|---|---|
-| **G0** Documentación | Problema, activos, datos, límites de confianza y uso indebido descritos. | `README.md`, `PHILOSOPHY.md`, `GLOSSARY.md`, `docs/00-empezar/`, `docs/02-diseno/security/threat-model-v0.md`. | **PARCIAL** (Alineado con `readiness-review.md`) | La documentación filosófica y de partida existe. Sin embargo, se clasifica como PARCIAL porque los activos concretos y el alcance exacto del producto mínimo requieren formalización final por el titular. |
+| **G0** Documentación | Problema, activos, datos, límites de confianza y uso indebido descritos. | `README.md`, `PHILOSOPHY.md`, `GLOSSARY.md`, `docs/00-empezar/`, `docs/02-diseno/security/threat-model-v0.md`. | **PARCIAL** (Alineado con `readiness-review.md`) | La documentación filosófica y de partida existe. Sin embargo, se clasifica como PARCIAL porque los activos concretos y el alcance exacto del producto mínimo requieren formalización final por los cotitulares. |
 | **G1** Investigación | Fuentes contrastadas, alternativas analizadas, riesgos identificados. | `docs/01-investigacion/`, `architecture-review.md`, `research-evidence.md`. | **PARCIAL / BLOQUEADO EN RED** | Existen estudios preliminares y comparación de alternativas (Opciones A, B, C, D). No obstante, la contrastación externa por red estuvo BLOQUEADA en esta auditoría, y los experimentos de investigación están pendientes de validación en código. |
 | **G2** Diseño | ADRs en estado Accepted, contratos de datos definidos, matriz de permisos y plan de pruebas negativas. | `docs/02-diseno/adr/`, `docs/02-diseno/security/requirements.md`, `traceability.md`. | **BLOQUEADO** | Los 5 ADRs continúan en estado `Proposed`. La matriz de seguridad presenta 3 amenazas sin prueba asignada (`GAP-002`) para el diseño global. Faltan contratos de datos definitivos aprobados. |
 | **G3** Implementación | Código Rust compilable, tests unitarios, análisis estático sin advertencias. | Árbol del repositorio. | **NO INICIADO** | No se ha escrito código Rust. Inexistencia de archivos `.rs`. |
@@ -34,9 +36,9 @@ El objetivo de este documento es evaluar el grado de preparación de **THE MACHI
 
 ---
 
-## 4. Condiciones bajo las cuales el titular podría evaluar una autorización
+## 4. Condiciones bajo las cuales los cotitulares podrían evaluar una autorización
 
-Si el titular del proyecto decide considerar la recomendación del auditor para autorizar un experimento minimalista offline de dos sensores que se contradicen (`docs/03-preimplementacion/vertical-slice-a.md`), se sugiere requerir previamente el cumplimiento de las siguientes condiciones:
+Si los cotitulares del proyecto deciden considerar la recomendación del auditor para autorizar un experimento minimalista offline de dos sensores que se contradicen (`docs/03-preimplementacion/vertical-slice-a.md`), se sugiere requerir previamente el cumplimiento de las siguientes condiciones:
 
 1. **Clarificación del alcance de la prueba**: Definir explícitamente que el experimento `vertical-slice-a` es un ejecutable local desconectado sin red, sin persistencia en disco y sin pasarela de herramientas externas.
 2. **Decisión de gobernanza sobre la licencia (GAP-001)**: Definir la política de licenciamiento antes de publicar o distribuir el código resultante.
@@ -47,7 +49,7 @@ Si el titular del proyecto decide considerar la recomendación del auditor para 
 
 ## 5. Alcance y restricciones
 
-Mientras no exista una decisión expresa de autorización emitida por el titular del proyecto:
+Mientras no exista una decisión expresa de autorización emitida por los cotitulares del proyecto:
 - El proyecto permanece en **HOLD / NO-GO para código**.
 - Queda prohibido añadir archivos de código funcional Rust, crates o flujos de integración continua al repositorio.
-- Cualquier autorización posterior dependerá de la decisión del titular y se limitará estrictamente al experimento local e in-memory evaluado.
+- Cualquier autorización posterior dependerá de la decisión de los cotitulares y se limitará estrictamente al experimento local e in-memory evaluado.

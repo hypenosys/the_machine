@@ -3,7 +3,7 @@
 **Estado:** PROPUESTO / NO-GO. **Naturaleza:** instrumento de deliberación, no ADR aceptado, autorización, resultado experimental ni contrato implementado.
 
 ## Propósito y autoridad
-Preparar una decisión falsable sobre el primer experimento offline de THE MACHINE. La auditoría integrada en PR #15 no aprobó la opción B, ninguna licencia ni la fase de código. Solo el titular podrá autorizar expresamente un experimento delimitado. La comparación descrita aquí es una **prueba diseñada, no ejecutada**.
+Preparar una decisión falsable sobre el primer experimento offline de THE MACHINE. La auditoría integrada en PR #15 no aprobó la opción B, ninguna licencia ni la fase de código **en aquel corte**. Posteriormente se incorporó `LICENSE.md` con CC BY 4.0 para documentación original; ello no licencia software futuro ni autoriza código. Solo los cotitulares, conforme a un procedimiento de autoridad ratificado, podrán autorizar expresamente un experimento delimitado. La comparación descrita aquí es una **prueba diseñada, no ejecutada**.
 
 ## Pregunta a resolver
 ¿Cuál es el modelo conceptual mínimo que conserva atribución, evidencia versionada, contradicción, incertidumbre y retractación sin complejidad innecesaria?
@@ -35,13 +35,13 @@ Solo datos sintéticos, ejecución local, sin conectores de red, sin acciones so
 ## Matriz de decisiones pendientes
 | Decisión | Evidencia requerida | Autoridad | Estado |
 |---|---|---|---|
-| Alcance exacto y no objetivos del experimento | Una página con activos, límites y casos negativos | Titular | ABIERTA |
-| Arquitectura A/B/C/D | Comparación falsable con F-01..F-10 y un segundo dominio | Titular tras revisión | ABIERTA |
-| Formato de datos, identificadores y semántica temporal | Contrato versionado, errores y límites explícitos | Titular / ADR pertinente | ABIERTA |
-| Plataforma, toolchain, dependencias y reproducción | Procedimiento fijado antes de ejecución | Titular / ADR pertinente | ABIERTA |
-| Licencia y política de contribuciones | Decisión expresa antes de distribución pública | Titular | ABIERTA |
-| Riesgos residuales y excepciones de gates | Amenazas específicas, pruebas negativas, responsable y vencimiento de excepciones | Titular | ABIERTA |
-| Permiso para escribir código | GO expreso, acotado y registrado | Titular | **NO-GO** |
+| Alcance exacto y no objetivos del experimento | Una página con activos, límites y casos negativos | Cotitulares | ABIERTA |
+| Arquitectura A/B/C/D | Comparación falsable con F-01..F-10 y un segundo dominio | Cotitulares tras revisión | ABIERTA |
+| Formato de datos, identificadores y semántica temporal | Contrato versionado, errores y límites explícitos | Cotitulares / ADR pertinente | ABIERTA |
+| Plataforma, toolchain, dependencias y reproducción | Procedimiento fijado antes de ejecución | Cotitulares / ADR pertinente | ABIERTA |
+| Licencia y política de contribuciones | CC BY 4.0 documental ya incorporada; revisar derechos de terceros, aportaciones y licencia de código antes de distribuir software | Cotitulares | ABIERTA (residual) |
+| Riesgos residuales y excepciones de gates | Amenazas específicas, pruebas negativas, responsable y vencimiento de excepciones | Cotitulares | ABIERTA |
+| Permiso para escribir código | GO expreso, acotado y registrado | Cotitulares | **NO-GO** |
 
 ## Condición de salida
 Una decisión `GO` solo puede registrarse tras satisfacer las condiciones de `docs/03-preimplementacion/readiness-review.md` o aprobar excepciones expresas, limitadas y justificadas. `CONDITIONAL GO` en `docs/04-auditorias/readiness-assessment.md` es recomendación del auditor, **no permiso**.

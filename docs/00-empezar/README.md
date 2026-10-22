@@ -1,6 +1,6 @@
 # Empieza aquí — Sin saber programar
 
-**No necesitas instalar nada.** Si este repositorio es privado, sí necesitas acceso concedido para leerlo.
+**No necesitas instalar nada.** El repositorio era público según la comprobación de GitHub del 21-10-2026; si cambia su visibilidad, el acceso puede requerir autorización.
 
 Imagina que dos sensores dicen cosas distintas sobre una máquina. ¿Cómo puede una inteligencia artificial distinguir lo observado de lo sospechado? THE MACHINE investiga cómo construir sistemas que sepan qué saben, expliquen de dónde procede la información y no actúen sin permiso.
 

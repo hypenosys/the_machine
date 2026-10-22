@@ -23,7 +23,7 @@ Si las reglas de comparabilidad requieren un sistema ontológico complejo, reduc
 - [ ] Documentar fallos y fixtures negativos.
 - [ ] Revisar amenazas y privacidad para el alcance exacto.
 - [ ] Fijar entornos y herramienta de compilación.
-- [ ] Resolver licencia y política de publicación.
+- [ ] Verificar alcance y derechos de terceros de la licencia documental CC BY 4.0 incorporada en `LICENSE.md`; resolver licencia de software futuro, política de contribuciones y cierre formal de GAP-001. El repositorio ya era público en la comprobación del 21-10-2026.
 - [ ] Registrar revisión de arquitectura con responsable y objeciones.
 - [ ] Obtener autorización explícita para comenzar código.
 

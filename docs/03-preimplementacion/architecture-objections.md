@@ -24,7 +24,7 @@ Un prototipo puede acabar dictando la arquitectura general. **Mitigación:** dec
 Un laboratorio de observaciones es estrecho. **Respuesta provisional:** validar invariantes transferibles (procedencia, incertidumbre, contradicción) sin generalizar prematuramente.
 
 ## Objeción 8 — Licencia y gobernanza
-Un repositorio privado no garantiza derecho a redistribuir. **Mitigación:** resolver titularidad y licencia antes de publicación, sin suponer licencia abierta.
+La visibilidad de un repositorio —público o privado— no acredita derechos de redistribución. **Situación posterior (21-10-2026):** el repositorio ya era público según GitHub y esta PR incorpora `LICENSE.md` con CC BY 4.0 para documentación original cubierta. **Mitigación pendiente:** verificar derechos de terceros, contribuciones, licencia de software futuro y cierre formal de GAP-001; no inferir permisos sobre materiales excluidos.
 
 ## Decisión
 Mantener **NO-GO** hasta resolver decisiones abiertas y registrar revisión explícita.

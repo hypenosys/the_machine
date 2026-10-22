@@ -7,10 +7,10 @@
 ## 1. Identidad y propósito
 
 ### ¿Qué es THE MACHINE?
-**THE MACHINE** es un proyecto en fase de **diseño conceptual y preimplementación** concebido para explorar una arquitectura local (*Local-First*), orientada a la seguridad y determinista para el análisis de información, la verificación de procedencia y la evaluación asistida por modelos de lenguaje (LLM/IA).
+**THE MACHINE** es un proyecto en fase de **diseño conceptual y preimplementación** concebido para explorar una arquitectura local (*Local-First*), orientada a la seguridad y con determinismo como hipótesis de diseño pendiente de verificación para el análisis de información, la verificación de procedencia y la evaluación asistida por modelos de lenguaje (LLM/IA).
 
 ### Estado de propiedad y licenciamiento
-**Actualmente es un proyecto privado con intención de apertura pública**. El archivo de licencia legal (`LICENSE`) está pendiente de incorporación (**GAP-001**). Corresponderá al titular del proyecto evaluar y seleccionar la licencia adecuada (por ejemplo, MIT, Apache-2.0, Dual MIT/Apache-2.0, MPL-2.0 u otra) previo a cualquier distribución o apertura pública de contribuciones.
+**El repositorio era público** según GitHub API consultada el 21-10-2026 (`visibility=public`, `private=false`). La respuesta histórica `license=null` precede a la incorporación de [`LICENSE.md`](LICENSE.md) en esta rama. La documentación original y materiales no software cubiertos se ofrecen bajo CC BY 4.0; el inventario de derechos de terceros, el cierre formal de **GAP-001** y la licencia de software futuro siguen pendientes. Los cotitulares declarados son @Axlfc y @TopperH4rley; su mecanismo de ratificación continúa sin formalizarse (GAP-010).
 
 ### Entrada rápida para principiantes (sin saber programar)
 No necesitas experiencia previa en programación para comprender THE MACHINE ni para participar en la revisión de sus ideas:
@@ -27,7 +27,7 @@ El desarrollo de THE MACHINE se orienta por los siguientes **objetivos de diseñ
 
 ### ¿Qué NO es y qué todavía NO hace?
 - **NO es un software en producción ni un producto terminado**.
-- **NO contiene código ejecutable en Rust**: En la versión actual del repositorio no existen archivos `.rs`, binarios compilados ni manifiestos de Cargo.
+- **No se autoriza código Rust**: el árbol documental de esta rama no demuestra la existencia de implementación ejecutable. No se ha inspeccionado exhaustivamente el historial, todas las ramas, binarios ni entornos externos; HOLD / NO-GO no es una afirmación universal sobre ausencia de artefactos.
 - **NO ejecuta acciones en el sistema operativo**: Las pasarelas de autorización y ejecución son especificaciones de diseño no codificadas.
 - **NO garantiza aún operabilidad desconectada ni privacidad efectiva**: Dichas propiedades son metas de diseño que deberán ser verificadas en binarios una vez iniciada la fase de código.
 
@@ -93,7 +93,9 @@ Toda la documentación técnica se encuentra organizada en `docs/`:
   - [`architecture-review.md`](docs/04-auditorias/architecture-review.md): Evaluación de arquitectura y comparación de Opciones A, B, C y D.
   - [`security-review.md`](docs/04-auditorias/security-review.md): Revisión de seguridad, trazabilidad de amenazas y evaluación de riesgos.
   - [`research-evidence.md`](docs/04-auditorias/research-evidence.md): Fuentes de investigación, marcos normativos (NIST, OWASP, MITRE, SLSA, W3C) y límites de conectividad.
-  - [`readiness-assessment.md`](docs/04-auditorias/readiness-assessment.md): Evaluación de Readiness Gates G0-G5 y recomendación CONDITIONAL GO.
+  - [`readiness-assessment.md`](docs/04-auditorias/readiness-assessment.md): Evaluación histórica de Readiness Gates G0-G5; cualquier recomendación CONDITIONAL GO no es autorización.
+  - [`informe-auditoria-adversarial-2026.md`](docs/04-auditorias/informe-auditoria-adversarial-2026.md): Informe adversarial histórico, preservado como fuente, no norma ratificada.
+  - [`independent-review-remediation-triage-2026-10-21.md`](docs/04-auditorias/independent-review-remediation-triage-2026-10-21.md): Seguimiento candidato de hallazgos REV-01..20 en la PR documental #25; no sustituye decisiones de los cotitulares.
 
 ---
 
@@ -104,15 +106,15 @@ El diseño de seguridad de THE MACHINE se basa en la prevención proactiva:
 - **Requisitos de seguridad**: 17 requisitos verificables (`SEC-REQ-001` a `SEC-REQ-017`).
 - **Pasarela de acciones (Action Gateway - ADR-0004)**: Intercepción de peticiones de herramientas mediante políticas *deny-by-default*.
 
-*Aviso de estado*: Todos los controles de seguridad se encuentran en fase de **diseño conceptual**. No existe ninguna mitigación implementada ni verificada en código.
+*Aviso de estado*: Los controles descritos aquí son **objetivos de diseño conceptual**, no controles acreditados en funcionamiento. Esta revisión documental no incluye evidencia de implementación o ejecución de las mitigaciones; tampoco certifica la ausencia de código en otras ramas o entornos.
 
 ---
 
 ## 7. Principales brechas identificadas (Gap Register)
 
 Entre los 10 hallazgos registrados en [`docs/04-auditorias/gap-register.md`](docs/04-auditorias/gap-register.md), destacan:
-1. **GAP-001**: Licencia legal pendiente (`LICENSE`).
-2. **GAP-002**: Cobertura de pruebas pendientes para amenazas TH-012, TH-016 y TH-019 en la matriz global.
+1. **GAP-001**: Se ha incorporado [`LICENSE.md`](LICENSE.md) con CC BY 4.0 para documentación y materiales no software originales cuyos derechos correspondan a los licenciantes. El cierre formal del GAP, el inventario de derechos de terceros y la licencia de eventual código siguen sujetos a verificación y decisión separadas.
+2. **GAP-002**: SEC-015..017 están documentadas como pruebas candidatas para TH-016, TH-019 y TH-012 respectivamente; ninguna ha sido ejecutada o verificada.
 3. **GAP-003**: Incompleitud en la especificación formal y serialización de campos temporales (`valid_time`, `recorded_time`, `assessed_time`).
 4. **GAP-004**: Indefinición del modelo de adversario y anclaje de confianza para persistencia de capacidades locales.
 5. **GAP-005**: Registros de decisión de arquitectura (ADR) en estado `Proposed`.
@@ -121,9 +123,9 @@ Entre los 10 hallazgos registrados en [`docs/04-auditorias/gap-register.md`](doc
 
 ## 8. Hitos proyectados
 
-1. **Hito 1**: Decisión sobre el archivo de licencia (`GAP-001`) y adopción de la gobernanza de ADRs.
+1. **Hito 1**: Verificar alcance y derechos de la licencia documental CC BY 4.0 ya propuesta en esta rama, resolver formalmente `GAP-001` y deliberar la gobernanza de ADRs; sin licencia de software aprobada.
 2. **Hito 2**: Evaluación y decisión sobre la especificación del núcleo (Opción A vs. Opción B) y formalización de la semántica temporal (`GAP-003`).
-3. **Hito 3**: Asignación de pruebas pendientes en la matriz de trazabilidad de seguridad (`GAP-002`).
+3. **Hito 3**: Revisión y autorización de las pruebas candidatas SEC-015..017; su existencia documental no cierra `GAP-002`.
 4. **Hito 4**: Decisión expresa del titular para evaluar la recomendación de un primer experimento minimalista offline de dos sensores (`docs/03-preimplementacion/vertical-slice-a.md`).
 
 ---
@@ -131,3 +133,8 @@ Entre los 10 hallazgos registrados en [`docs/04-auditorias/gap-register.md`](doc
 ## 9. Gobernanza y contribuciones
 
 Actualmente el proyecto está en estado de **HOLD / Sin código**, por lo que no acepta Pull Requests de código funcional en Rust. Las contribuciones se limitan a la revisión crítica de la documentación, modelos de seguridad y especificaciones de arquitectura presentadas mediante solicitudes de cambio o nuevos registros ADR (`docs/02-diseno/adr/TEMPLATE.md`).
+
+
+## 10. Licencia documental
+
+La documentación original y demás materiales no software cubiertos por los derechos de los colaboradores se ofrecen bajo **Creative Commons Attribution 4.0 International (CC BY 4.0)** según [`LICENSE.md`](LICENSE.md). Se exige atribución y aviso de modificaciones. Los contenidos de terceros y el futuro código fuente no quedan automáticamente licenciados por esta declaración. La adopción documental en la rama de la PR no ratifica los gates ni demuestra que todos los materiales tengan derechos aclarados.

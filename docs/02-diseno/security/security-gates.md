@@ -18,5 +18,9 @@ Tests adversariales, recuperación, aislamiento y límites de recursos verificad
 ## G5 — Operación
 Monitorización respetuosa con la privacidad, respuesta a incidentes, revisión periódica de permisos, rotación de secretos y pruebas de restauración.
 
+## Colisión de definiciones — nota de conciliación documental (PR #25, 21-10-2026)
+
+**No resuelta normativamente (GAP-010 / REV-05).** Este archivo denomina G3 a los controles **antes de fusionar código ejecutable**; `docs/03-preimplementacion/staged-authorization-protocol-v1.md` propone G3 como puerta **antes de comenzar la implementación**. Son hitos diferentes y no pueden intercambiarse por simple equivalencia terminológica. La lectura propuesta del protocolo por etapas **no sustituye** esta definición histórica hasta ratificación expresa de la autoridad competente. Ninguna de las dos redacciones concede permiso actual para escribir, compilar, ejecutar o fusionar código. Se mantiene **HOLD / NO-GO**; las eventuales excepciones de laboratorio exigen DEC-08 delimitada y verificable. No se ha efectuado ratificación conjunta de @Axlfc y @TopperH4rley.
+
 ## Estado de esta iteración
 Solo se han redactado documentos G0/G1/G2 **preliminares**. Ningún gate se declara superado. La documentación puede fusionarse como propuesta; no habilita despliegue.

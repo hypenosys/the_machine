@@ -14,7 +14,7 @@ Aceptar el **alcance conceptual** del laboratorio offline de evidencia como prim
 ## Qué NO se está solicitando aprobar
 - No se solicita todavía escribir código.
 - No se solicita aceptar los cinco ADR generales.
-- No se solicita publicar una licencia ni abrir el repositorio.
+- No se solicita cambiar la visibilidad del repositorio ni decidir una licencia para software futuro. El repositorio ya era público en la comprobación del 21-10-2026 y esta PR incorpora `LICENSE.md` con CC BY 4.0 para documentación original; ambos hechos son independientes de la autorización para código.
 - No se solicita certificar seguridad ni declarar tests superados.
 
 ## Alternativas rechazables

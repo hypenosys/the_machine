@@ -17,7 +17,7 @@
 - [ ] ADR relevantes revisados y aceptados con justificación, o excepciones limitadas explícitas.
 - [ ] Pruebas de aceptación y negativas definidas con fixtures sintéticos.
 - [ ] Entorno de ejecución y procedimiento de reproducción fijados.
-- [ ] Política de licencia y contribución aclarada antes de distribución pública.
+- [ ] Revisar derechos de terceros y política de contribución; la documentación original cuenta con aviso CC BY 4.0 en `LICENSE.md` y el repositorio ya era público según comprobación del 21-10-2026. Antes de distribuir software futuro, decidir su licencia y cerrar las obligaciones aplicables de GAP-001.
 - [ ] Responsable acepta los riesgos residuales y documenta la decisión.
 
 ## Riesgos de empezar antes
