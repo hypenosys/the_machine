@@ -22,9 +22,9 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 
 | ID | Dominio | Hallazgo resumido | Severidad | Prioridad | Estado |
 |---|---|---|---|---|---|
-| **GAP-001** | Gobernanza / Licencias | Ausencia de archivo `LICENSE` en la raíz. Limitación legal para redistribución pública. | Medium / Legal | P2 (P1 si se publica) | Open |
-| **GAP-002** | Seguridad / Cobertura | Amenazas TH-012, TH-016 y TH-019 carecen de pruebas especificadas en el plan global. | High | P1 (Para sistema completo) | Open |
-| **GAP-003** | Arquitectura / Especificación | `unified-specification-candidate-v0.md` menciona tiempos, pero falta especificación formal, serialización y reglas de verificación. | High | P1 | Open |
+| **GAP-001** | Gobernanza / Licencias | Inventario de derechos de terceros y cierre formal incompletos; licencia de software futuro pendiente. | Medium / Legal | P2 (P1 si se publica) | Open |
+| **GAP-002** | Seguridad / Cobertura | SEC-015..017 están ahora especificadas y trazadas como propuestas; siguen sin ejecutarse, por lo que no hay cobertura verificada. | High | P1 (Para sistema completo) | Open |
+| **GAP-003** | Arquitectura / Especificación | Hay semántica temporal y perfiles de serialización candidatos, pero falta un contrato general ratificado para tipos, serialización y consultas temporales. | High | P1 | Open |
 | **GAP-004** | Seguridad / Modelo de Adversario | Falta definir modelo de adversario y anclaje de confianza para persistencia local de capacidades. | High | P1 (Para persistencia) | Open |
 | **GAP-005** | Gobernanza / ADRs | Los ADRs 0001..0005 permanecen en estado `Proposed` sin procedimiento de adopción formal. | High | P1 | Open |
 | **GAP-006** | Arquitectura / Evaluacion | El modelo de 6 entidades presenta hipótesis de complejidad accidental que requiere prueba experimental. | Medium | P2 | Open |
@@ -52,28 +52,32 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 
 ---
 
-### GAP-002 — Incobertura de pruebas especificadas para amenazas TH-012, TH-016 y TH-019
+### GAP-002 — Cobertura no verificada para amenazas TH-012, TH-016 y TH-019
+
+> **Actualización de estado (master, 22-10-2026):** El hallazgo original describe la falta de asignaciones en el corte auditado. `docs/02-diseno/security/traceability.md` y `verification-plan.md` vinculan ahora TH-012/016/019 con SEC-017/015/016 y sus requisitos. Son diseños candidatos, no pruebas ejecutadas; GAP-002 permanece OPEN hasta que se acuerden, implementen y verifiquen los controles aplicables. Esta actualización no cambia retrospectivamente el hallazgo original.
 - **ID:** GAP-002
 - **Dominio:** Seguridad y Verificación
-- **Hallazgo:** Las amenazas TH-012 (Confused Deputy), TH-016 (Backup irrecuperable) y TH-019 (Insider abuse) están mapeadas a requisitos en `requirements.md`, pero carecen de pruebas asignadas (`SEC-XXX`) en `traceability.md`.
+- **Hallazgo:** En el corte original auditado, TH-012 (Confused Deputy), TH-016 (Backup irrecuperable) y TH-019 (Insider abuse) carecían de prueba asignada. En el `master` actual están vinculadas a requisitos y especificaciones candidatas SEC-017, SEC-015 y SEC-016, respectivamente; no hay pruebas ejecutadas ni cobertura verificada.
 - **Evidencia:** `docs/02-diseno/security/requirements.md` y `traceability.md`.
-- **Impacto:** Faltan escenarios de prueba definidos en la planificación de seguridad global para validar dichos controles. **Aclaración de alcance**: No bloquea un primer experimento minimalista offline de dos sensores si dicho corte vertical no incluye delegación de capacidades, copias de seguridad ni roles de administración.
+- **Impacto:** No existe evidencia de ejecución o controles implementados que valide estas amenazas para el sistema completo. **Aclaración de alcance:** No bloquea por sí sola un corte sintético offline que excluya delegación de capacidades, copias de seguridad y roles de administración.
 - **Severidad:** High
 - **Prioridad:** P1 para el diseño completo de seguridad.
-- **Propuesta de corrección:** Diseñar e incorporar las especificaciones de prueba `SEC-015`, `SEC-016` y `SEC-017` en la planificación global de seguridad.
+- **Propuesta de corrección:** La etapa de diseño documental está reflejada en el plan y la trazabilidad actuales. Mantener GAP-002 abierto hasta acordar las pruebas aplicables y, solo con autorización separada, implementar y ejecutar los controles pertinentes.
 - **Estado:** Open
 
 ---
 
-### GAP-003 — Incompleitud en la especificación formal y serialización de tiempos
+### GAP-003 — Incompletitud en la especificación formal y serialización de tiempos
+
+> **Actualización de estado (master, 22-10-2026):** Los documentos candidatos ahora separan `valid_time`, `recorded_time` y `assessed_time`, y proponen reglas de perfil y un formato para el perfil sintético de temperatura. No existe todavía un contrato general ratificado de tipos, serialización y consultas temporales, ni reglas universales de validación en tiempo de ejecución. GAP-003 permanece OPEN; las propuestas específicas no equivalen a adopción del formato para el núcleo.
 - **ID:** GAP-003
 - **Dominio:** Arquitectura / Especificación Temporal
-- **Hallazgo:** Aunque `docs/03-preimplementacion/unified-specification-candidate-v0.md` (línea 35) menciona explícitamente `valid_time`, `recorded_time` y `assessed_time`, y `claim-semantics-v0.md` menciona el tiempo referido, el proyecto carece de un esquema formalizado de tipos, formato de serialización y reglas de verificación en tiempo de ejecución para consultas temporales (*time-travel queries*).
-- **Evidencia:** `docs/03-preimplementacion/unified-specification-candidate-v0.md` y `claim-semantics-v0.md`.
-- **Impacto:** Ambigüedad sobre cómo el motor de persistencia serializa y valida las marcas temporales en memoria y reposo.
+- **Hallazgo:** Los documentos candidatos separan `valid_time`, `recorded_time` y `assessed_time`, y un perfil sintético de temperatura propone un formato concreto. Sigue pendiente un contrato general ratificado de tipos, serialización y reglas para consultas temporales (*time-travel queries*); tampoco hay reglas universales adoptadas de validación en tiempo de ejecución.
+- **Evidencia:** `docs/03-preimplementacion/claim-semantics-v0.md`, `offline-experiment-contract-candidate-v0.md` y `design-freeze-candidate-v0.md` (candidatos, no normas adoptadas).
+- **Impacto:** Ambigüedad sobre el formato e interpretación temporal general; no se ha seleccionado ni especificado un motor de persistencia.
 - **Severidad:** High
 - **Prioridad:** P1
-- **Propuesta de corrección:** Definir los tipos de datos temporales, representación ISO-8601/Unix timestamp y reglas de validación en la especificación del núcleo.
+- **Propuesta de corrección:** Deliberar y, si se aprueba, documentar un contrato temporal general que defina tipos, serialización y consultas; mantener separados los perfiles de dominio y no inferir autorización de implementación.
 - **Estado:** Open
 
 ---
