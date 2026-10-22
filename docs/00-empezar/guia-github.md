@@ -20,4 +20,4 @@
 No necesitas clonar, hacer fork, abrir terminal ni entender comandos para realizar estos pasos.
 
 ## ¿Qué es software libre?
-Una licencia de software libre concede permisos específicos para usar, estudiar, modificar y compartir software. Que un repositorio sea visible no basta para concederlos. **En esta PR se ha incorporado `LICENSE.md` con CC BY 4.0 para documentación original y materiales no software cubiertos; los derechos de terceros y la licencia de software futuro siguen pendientes.**
+Una licencia de software libre concede permisos específicos para usar, estudiar, modificar y compartir software. Que un repositorio sea visible no basta para concederlos. **En `master`, `LICENSE.md` ofrece CC BY 4.0 para documentación original y materiales no software cubiertos; los derechos de terceros y la licencia de software futuro siguen pendientes.**
