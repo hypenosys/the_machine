@@ -10,7 +10,7 @@ Una pareja de afirmaciones solo puede clasificarse como contradicción cuando co
 | CMP-01 | Sensor | M1 a T1: 55 °C y 72 °C, tolerancia ilustrativa 2 °C | Conflicto condicionado al perfil | Mismo sujeto/tiempo/unidad; diferencia supera tolerancia asumida |
 | CMP-02 | Sensor | M1 a T1: 55 °C; M2 a T1: 72 °C | NO COMPARABLE | Distinto sujeto |
 | CMP-03 | Sensor | M1 a T1: 55 °C; M1 a T2: 72 °C | NO COMPARABLE salvo regla temporal | Instantes distintos |
-| CMP-04 | Documentación | Módulo X v2.1 «sin red»; v2.3 «con red» | NO CONFLICTO entre versiones | Ámbito de versión distinto |
+| CMP-04 | Documentación | Módulo X v2.1 «sin red»; v2.3 «con red» | NO COMPARABLE como contradicción directa | Versiones distintas; compatibilidad global no demostrada |
 | CMP-05 | Documentación | Módulo X v2.3 «siempre sin red»; misma versión «permite red» | Potencial conflicto, sujeto a modalidad y definición de «red» | Coincidencia parcial de alcance |
 | CMP-06 | Documentación | «no se ha observado red»; «red es posible» | NO CONFLICTO lógico | Ausencia observada no implica imposibilidad |
 | CMP-07 | Ambos | Fuente se declara verificada, sin verificador independiente | Procedencia UNKNOWN | Etiqueta no acredita identidad |
