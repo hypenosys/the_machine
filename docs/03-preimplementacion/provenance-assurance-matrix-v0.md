@@ -30,6 +30,19 @@ Un registro candidato de evaluación de procedencia distinguiría:
 
 **Advertencia de nomenclatura:** estos son campos y valores *ilustrativos*, no un esquema ratificado ni sustitutos de los estados `SUPPORTED/REFUTED/CONFLICTED` del contrato comparativo. Se necesita una traducción explícita antes de combinar estados.
 
+## 2.1 Separación de estados de garantía y veredictos de dominio
+
+Los estados `VERIFIED_FOR_SCOPE`, `REFUTED_FOR_SCOPE`, `UNKNOWN` y `NOT_APPLICABLE` describen **una garantía de procedencia delimitada**. Los estados `SUPPORTED`, `REFUTED`, `CONFLICTED` y `NOT_COMPARABLE` del contrato comparativo describen **una evaluación epistemológica bajo reglas de dominio**. Son espacios semánticos diferentes.
+
+| Garantía de procedencia | Significado | ¿Determina un veredicto de dominio? |
+|---|---|---|
+| `VERIFIED_FOR_SCOPE` | Garantía concreta verificada dentro de un alcance explícito | No; el contenido puede ser falso |
+| `REFUTED_FOR_SCOPE` | Garantía concreta refutada en ese alcance | No; la afirmación puede tener otro respaldo |
+| `UNKNOWN` | Evidencia insuficiente sobre esa garantía | No; conservar incertidumbre |
+| `NOT_APPLICABLE` | Garantía ajena al sujeto o alcance | No; no equivale a `NOT_COMPARABLE` |
+
+**Decisión editorial reversible:** no hay mapeo automático entre espacios; una traducción futura requiere reglas de perfil explícitas y versionadas, sin atribuirles aprobación. Los términos en español de la primera tabla son explicaciones humanas, no estados canónicos.
+
 ## 3. Casos de falsación en papel (premisas y resultados lógicos)
 
 | Caso | Premisa sintética | Respuesta conceptual requerida | Resultado del análisis en papel |
