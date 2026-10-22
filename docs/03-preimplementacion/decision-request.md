@@ -6,7 +6,7 @@
 Aceptar el **alcance conceptual** del laboratorio offline de evidencia como primer corte, con entrada exclusivamente sintética y sin efectos externos. Mantener el diseño modular y reversible.
 
 ## Qué se está solicitando aprobar
-- Que el primer objetivo sea comprobar procedencia declarada, comparabilidad y contradicción determinista.
+- Que el primer objetivo sea comprobar procedencia declarada, comparabilidad y detección de contradicciones bajo reglas explícitas y versionadas; el determinismo del núcleo sigue siendo una hipótesis por verificar.
 - Que no se incluya modelo generativo, red, plugins, acciones externas ni almacenamiento duradero.
 - Que las garantías de autorización, sandboxing y recuperación queden explícitamente **fuera del alcance demostrado** de este corte.
 - Que se resuelvan los bloqueos de `precode-review-checklist.md` antes de autorizar implementación.
