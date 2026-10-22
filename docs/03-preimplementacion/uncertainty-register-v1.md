@@ -20,8 +20,8 @@ Se catalogan las condiciones técnicas, jurídicas o normativas que impiden avan
   3. *Exclusión explícita del alcance:* Posibilidad de excluir formalmente E-10 del primer laboratorio sintético sin prometer ni certificar privacidad garantizada.
 
 ### BLOQUEO-02 — Alcance y ratificación de la licencia (`GAP-001`)
-- **Estado Real:** **REPOSITORIO PÚBLICO; LICENCIA DOCUMENTAL CC BY 4.0 INCORPORADA EN ESTA PR; ALCANCE JURÍDICO PENDIENTE**. La consulta GitHub API del 21-10-2026 (`visibility=public`, `license=null`) es histórica y anterior a `LICENSE.md`; no describe la rama actual. Quedan pendientes revisión de derechos de terceros, licencia de código futuro y cierre formal.
-- **Descripción actualizada:** El hallazgo original se formuló antes de `LICENSE.md`. La rama de esta PR incluye CC BY 4.0 para materiales documentales originales cubiertos; no acredita derechos sobre materiales de terceros ni concede licencia para software futuro. El cierre jurídico y formal de GAP-001 permanece abierto.
+- **Estado Real:** **REPOSITORIO PÚBLICO; LICENCIA DOCUMENTAL CC BY 4.0 INCORPORADA A MASTER MEDIANTE PR #25; ALCANCE JURÍDICO PENDIENTE**. La consulta GitHub API del 21-10-2026 (`visibility=public`, `license=null`) es histórica y anterior a `LICENSE.md`; no describe la rama actual. Quedan pendientes revisión de derechos de terceros, licencia de código futuro y cierre formal.
+- **Descripción actualizada:** El hallazgo original se formuló antes de `LICENSE.md`. `master` incluye CC BY 4.0 para materiales documentales originales cubiertos; no acredita derechos sobre materiales de terceros ni concede licencia para software futuro. El cierre jurídico y formal de GAP-001 permanece abierto.
 - **Condición de Desbloqueo:** Revisión por los cotitulares de derechos de terceros, alcance de CC BY 4.0 documental y licencia del software futuro, con cierre formal de GAP-001 cuando corresponda. No modificar visibilidad unilateralmente.
 
 ### BLOQUEO-03 — Autoridad Normativa Indefinida (`GAP-010`)
@@ -35,9 +35,9 @@ Se catalogan las condiciones técnicas, jurídicas o normativas que impiden avan
 
 | ID Brecha | Dominio | Severidad | Estado Real | Riesgo Residual Vigente |
 |---|---|---|---|---|
-| **GAP-001** | Gobernanza / Licencias | Medium | **OPEN** | Repositorio público con `LICENSE.md` documental CC BY 4.0 en la PR; pendientes alcance de derechos, licencia de código futuro y cierre formal DEC-07/GAP-001. |
-| **GAP-002** | Seguridad / Cobertura | High | **OPEN** | Amenazas TH-012, TH-016 y TH-019 carecen de pruebas ejecutadas en el plan global. |
-| **GAP-003** | Arquitectura / Tiempo | High | **OPEN** | Falta de esquema formal de serialización y parsing de marcas bitemporales en Rust. |
+| **GAP-001** | Gobernanza / Licencias | Medium | **OPEN** | Repositorio público con `LICENSE.md` documental CC BY 4.0 en `master`; pendientes alcance de derechos, licencia de código futuro y cierre formal DEC-07/GAP-001. |
+| **GAP-002** | Seguridad / Cobertura | High | **OPEN** | Los diseños SEC-015..017 ya están trazados como propuestas para TH-016/019/012; ninguna prueba se ha ejecutado. |
+| **GAP-003** | Arquitectura / Tiempo | High | **OPEN** | Hay semántica temporal y perfiles de serialización candidatos, pero falta un contrato general ratificado; no hay validación implementada en Rust. |
 | **GAP-004** | Seguridad / Adversario | High | **OPEN** | Inexistencia de anclaje de confianza si un atacante posee privilegios locales en el host. |
 | **GAP-005** | Gobernanza / ADRs | High | **OPEN** | `ADR-0001..0005` permanecen en estado `Proposed` sin valor normativo aceptado. |
 | **GAP-006** | Arquitectura / Tipos | Medium | **OPEN** | Posible sobrecarga de complejidad accidental en el modelo R1 sin prueba empírica. |
