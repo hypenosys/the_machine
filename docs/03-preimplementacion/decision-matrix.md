@@ -8,7 +8,7 @@
 | Efectos externos por diseño | Ninguno | Ninguno en simulación | Pruebas de proceso |
 | Dependencias necesarias | Potencialmente std | Potencialmente std | Dependiente del SO |
 | Riesgo de sobrediseño | Bajo | Medio | Alto |
-| Seguridad que puede demostrar | Procedencia, contradicción, validación | Política determinista simulada | Restricciones de entorno |
+| Comportamiento que puede ilustrar en fixtures sintéticos (no seguridad acreditada) | Procedencia declarada, comparabilidad y contradicción bajo reglas explícitas | Política determinista simulada | Restricciones de entorno |
 | Principal incertidumbre | Semántica de evidencia | Identidad y revocación | Portabilidad |
 
 ## Reglas para seleccionar
