@@ -45,7 +45,7 @@ La aprobación precede a los commits `12905b59498d322fa7e72ee47fbb5fc6c34a5ad1` 
 
 **Corrección de estado de revisión anterior:** ya no es correcto decir que la revisión de @Axlfc está solo solicitada o que no existe aprobación de otra cuenta. La PR está fusionada; la ratificación normativa no está acreditada y la aprobación de @Axlfc precedió a los commits posteriores, que no recibieron una revalidación expresa.
 
-**Siguiente paso acotado:** solicitar a @Axlfc confirmación del HEAD revisado y del alcance **exclusivamente documental**; recabar decisión verificable de ambos cotitulares sobre autoridad de integración, sin convertir una aprobación genérica en consentimiento sobre G3/GAP-010. Mantener HOLD para implementación y ejecución.
+**Siguiente paso de gobernanza que permanece vigente:** recabar una decisión verificable de ambos cotitulares sobre GAP-010 y la definición de G3 antes de cualquier aprobación normativa futura. La solicitud anterior de confirmar el HEAD de la PR #25 quedó superada por la fusión documentada arriba; esta no cierra GAP-010 ni altera HOLD para implementación y ejecución.
 
 
 ## Estado de integración actualizado
