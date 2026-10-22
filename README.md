@@ -43,7 +43,7 @@ El estado del proyecto se evalúa objetivamente mediante la auditoría integral 
 | **Investigación técnica** | Estudios preliminares | N/A (Teórico) | Bloqueado en red | **Gate G1: PARCIAL / BLOQUEADO** (Red aislada) |
 | **Arquitectura** | Candidata v0 (6 entidades) | Sin código | Sin prototipo | **Gate G2: BLOQUEADO** (ADRs Proposed / En revisión) |
 | **Seguridad** | Modelo STRIDE v0 | Sin código | Sin ejecutable | **Gate G2: BLOQUEADO** (3 brechas en matriz P1) |
-| **Gobernanza / Licencia** | En definición | N/A | Pendiente de elección | **GAP-001** (Pendiente de decisión de licencia) |
+| **Gobernanza / Licencias** | `LICENSE.md`: CC BY 4.0 para documentación original cubierta; software futuro aparte | N/A | Derechos de terceros y ratificación no verificados | **GAP-001 OPEN** (inventario de derechos, cierre formal y licencia de software futuro pendientes) |
 | **Código Rust** | No iniciado | Zero `.rs` | Zero tests | **Gate G3: NO INICIADO** (HOLD / Sin código) |
 | **CI / CD / Tests** | Inexistente | Sin workflows | Sin runner | **GAP-007** (Sin infraestructura de test) |
 | **Preparación Prototipo**| Evaluado en Gates | N/A | Evaluado en Gates | **HOLD / NO-GO** (Recomendación CONDITIONAL GO) |
