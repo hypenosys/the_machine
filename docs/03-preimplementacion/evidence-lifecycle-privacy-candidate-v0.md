@@ -3,7 +3,7 @@
 **Estado:** PROPUESTO / NO-GO PARA CÓDIGO. No es política legal aprobada, mecanismo implementado, garantía de borrado físico ni ADR aceptado.
 
 ## Problema
-THE MACHINE necesita conservar la distinción entre «esto fue afirmado/evaluado» y «esto sigue siendo válido» sin convertir la procedencia en una excusa para retener indefinidamente información personal o sensible. El fixture F-10 / E-10 del contrato experimental está **ABIERTO**.
+THE MACHINE necesita conservar la distinción entre «esto fue afirmado/evaluado» y «esto sigue siendo válido» sin convertir la procedencia en una excusa para retener indefinidamente información personal o sensible. El fixture F-10 / E-10 del contrato experimental está **BLOQUEADO** según el contrato experimental. Este documento explora una posible propuesta futura, no cambia ese estado.
 
 ## Principios de diseño
 1. **Identidad ≠ contenido:** una referencia estable no obliga a conservar el contenido original ni un hash reversible por diccionario de datos sensibles.
@@ -61,9 +61,9 @@ El contenido suprimido no debe reaparecer por citas incrustadas, resúmenes, ín
 ## Aplicación al experimento offline sin persistencia
 El primer corte propuesto **solo utiliza datos sintéticos y memoria volátil**. Puede simular `retracts`, `supersedes`, vigencia y solicitudes de supresión como **eventos lógicos**. No puede demostrar borrado seguro de disco, cumplimiento normativo, control de backups ni propagación en sistemas externos.
 
-**Criterio de desbloqueo limitado para E-10:** permitir un test conceptual de «retirar contenido del conjunto activo de memoria y no exponerlo en la salida actual» **solo si** se declara expresamente que no equivale a borrado físico, anonimización ni cumplimiento legal. La política general de privacidad seguiría ABIERTA.
+**Propuesta de caso futuro, sin desbloquear E-10:** podría estudiarse un test conceptual de «retirar contenido del conjunto activo de memoria y no exponerlo en la salida actual», con un identificador nuevo y autorización expresa. No equivaldría a borrado físico, anonimización ni cumplimiento legal; la política general de privacidad seguiría ABIERTA. E-10 original permanece BLOQUEADO.
 
 ## Decisión pendiente
-¿Se autoriza acotar E-10 al comportamiento lógico en memoria del primer experimento, manteniendo los escenarios L-04..L-10 como deuda bloqueante para cualquier sistema con datos reales o persistencia? **No se presume autorización.**
+¿Se propone crear un caso distinto para acotar el comportamiento lógico en memoria del primer experimento, manteniendo E-10 original y los escenarios L-04..L-10 bloqueados para cualquier sistema con datos reales o persistencia? **No se presume autorización.**
 
 **Veredicto:** política candidata para discusión. **HOLD / NO-GO para Rust, Cargo, CI y ADR aceptados.**

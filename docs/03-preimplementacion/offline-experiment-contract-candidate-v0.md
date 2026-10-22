@@ -28,7 +28,7 @@ Esta tabla especifica **capacidades observables**, no exige seis estructuras fí
 - **Resultados conceptuales:** `SUPPORTED | REFUTED | CONFLICTED | INSUFFICIENT | NOT_COMPARABLE`; los resultados del perfil de sensores no se equiparan automáticamente con ellos.
 - **Errores:** `MALFORMED` (entrada estructural inválida), `UNSUPPORTED_PROFILE` (perfil no reconocido), `UNRESOLVED_REFERENCE` (referencia inexistente), `LIMIT_EXCEEDED` (límite de recursos), `INTERNAL_FAILURE` (fallo inesperado). Etiquetas candidatas; no confundir error de ejecución con evaluación epistémica.
 - **Límites:** tamaño máximo de entrada, número de afirmaciones, profundidad de relaciones, tiempos de ejecución y estrategia de desbordamiento **ABIERTOS**. Los 64 KiB de un documento anterior son hipótesis de perfil, no límite universal.
-- **Serialización:** sin elección de JSON, CBOR, Protobuf ni formato temporal hasta ADR/revisión; un ejemplo de datos en texto no sería contrato machine-readable.
+- **Serialización general:** sin elección de JSON, CBOR, Protobuf ni formato temporal hasta ADR/revisión. `design-freeze-candidate-v0.md` presenta JSON UTF-8 solo como candidato para un perfil de temperatura; no es selección del formato del núcleo ni una decisión ratificada.
 
 ## 4. Oráculos de aceptación previstos (NO EJECUTADOS)
 | Caso | Precondición | Salida esperada conceptual | Prueba negativa |
