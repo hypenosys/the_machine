@@ -23,8 +23,8 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 | ID | Dominio | Hallazgo resumido | Severidad | Prioridad | Estado |
 |---|---|---|---|---|---|
 | **GAP-001** | Gobernanza / Licencias | Ausencia de archivo `LICENSE` en la raíz. Limitación legal para redistribución pública. | Medium / Legal | P2 (P1 si se publica) | Open |
-| **GAP-002** | Seguridad / Cobertura | Amenazas TH-012, TH-016 y TH-019 carecen de pruebas especificadas en el plan global. | High | P1 (Para sistema completo) | Open |
-| **GAP-003** | Arquitectura / Especificación | `unified-specification-candidate-v0.md` menciona tiempos, pero falta especificación formal, serialización y reglas de verificación. | High | P1 | Open |
+| **GAP-002** | Seguridad / Cobertura | SEC-015..017 están ahora especificadas y trazadas como propuestas; siguen sin ejecutarse, por lo que no hay cobertura verificada. | High | P1 (Para sistema completo) | Open |
+| **GAP-003** | Arquitectura / Especificación | Hay semántica temporal y perfiles de serialización candidatos, pero falta un contrato general ratificado para tipos, serialización y consultas temporales. | High | P1 | Open |
 | **GAP-004** | Seguridad / Modelo de Adversario | Falta definir modelo de adversario y anclaje de confianza para persistencia local de capacidades. | High | P1 (Para persistencia) | Open |
 | **GAP-005** | Gobernanza / ADRs | Los ADRs 0001..0005 permanecen en estado `Proposed` sin procedimiento de adopción formal. | High | P1 | Open |
 | **GAP-006** | Arquitectura / Evaluacion | El modelo de 6 entidades presenta hipótesis de complejidad accidental que requiere prueba experimental. | Medium | P2 | Open |
@@ -53,6 +53,8 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 ---
 
 ### GAP-002 — Incobertura de pruebas especificadas para amenazas TH-012, TH-016 y TH-019
+
+> **Actualización de estado (master, 22-10-2026):** El hallazgo original describe la falta de asignaciones en el corte auditado. `docs/02-diseno/security/traceability.md` y `verification-plan.md` vinculan ahora TH-012/016/019 con SEC-017/015/016 y sus requisitos. Son diseños candidatos, no pruebas ejecutadas; GAP-002 permanece OPEN hasta que se acuerden, implementen y verifiquen los controles aplicables. Esta actualización no cambia retrospectivamente el hallazgo original.
 - **ID:** GAP-002
 - **Dominio:** Seguridad y Verificación
 - **Hallazgo:** Las amenazas TH-012 (Confused Deputy), TH-016 (Backup irrecuperable) y TH-019 (Insider abuse) están mapeadas a requisitos en `requirements.md`, pero carecen de pruebas asignadas (`SEC-XXX`) en `traceability.md`.
@@ -66,6 +68,8 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 ---
 
 ### GAP-003 — Incompleitud en la especificación formal y serialización de tiempos
+
+> **Actualización de estado (master, 22-10-2026):** Los documentos candidatos ahora separan `valid_time`, `recorded_time` y `assessed_time`, y proponen reglas de perfil y un formato para el perfil sintético de temperatura. No existe todavía un contrato general ratificado de tipos, serialización y consultas temporales, ni reglas universales de validación en tiempo de ejecución. GAP-003 permanece OPEN; las propuestas específicas no equivalen a adopción del formato para el núcleo.
 - **ID:** GAP-003
 - **Dominio:** Arquitectura / Especificación Temporal
 - **Hallazgo:** Aunque `docs/03-preimplementacion/unified-specification-candidate-v0.md` (línea 35) menciona explícitamente `valid_time`, `recorded_time` y `assessed_time`, y `claim-semantics-v0.md` menciona el tiempo referido, el proyecto carece de un esquema formalizado de tipos, formato de serialización y reglas de verificación en tiempo de ejecución para consultas temporales (*time-travel queries*).
