@@ -3,6 +3,10 @@
 **Estado: HOLD / NO-GO para implementar.** Documentos candidatos de análisis y deliberación; **sin autorización de escribir, compilar o ejecutar código**. La ausencia de código o de `Cargo.toml` en todas las ramas no queda certificada por este documento.
 
 
+## Investigación conceptual — Cuaderno Finch
+
+El [cuaderno de experimentos en papel](finch-paper-experiments-v0.md) reúne seis escenarios hipotéticos sobre autenticidad, dependencia de evidencias, comparabilidad, complejidad arquitectónica, borrado y autoridad. Cada uno distingue deducción conceptual de evidencia experimental y propone el siguiente documento que reduciría incertidumbre. **No contiene pruebas ejecutadas, mediciones ni decisiones ratificadas.**
+
 ## Preferencias operativas recientes (no ratificadas)
 
 La [propuesta de decisiones y matriz de dependencias del 21-10-2026](decision-preferences-proposal-2026-10-21.md) registra las preferencias de delegación técnica delimitada a @Axlfc (GAP-010), separación de permisos de código/ejecución/merge (G3), evaluación de GPL para software futuro y primer alcance offline sintético. Incluye una **preferencia editorial reversible** por estudiar GPL-3.0-or-later, sin aplicarla ni alterar CC BY 4.0 para documentación original cubierta. No consta ratificación conjunta de @Axlfc y @TopperH4rley, ni se autoriza código, CI, pruebas o merge por estas preferencias. La [hoja candidata de ratificación](owner-ratification-sheet-candidate-v1.md) conserva pendientes las aceptaciones.
