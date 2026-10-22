@@ -34,3 +34,13 @@ Estos materiales **reducen incertidumbre de diseño**; no demuestran propiedades
 
 ## Próximo paso de mayor rendimiento
 Una **revisión humana acotada** que responda tres preguntas: (i) ¿aceptan ambos cotitulares la delegación propuesta?, (ii) ¿se aprueba S1 para G3?, (iii) ¿puede integrarse la PR como documentación candidata sin autorizar software? La respuesta debe identificar persona, versión revisada y alcance. Mientras falte, mantener draft.
+
+## Actualización de evidencia de revisión — 22-10-2026
+
+La API de revisiones de GitHub muestra una revisión **COMMENTED** de **@Axlfc** a las 07:33:09 UTC (texto «ok») y una revisión **APPROVED** de **@Axlfc** a las 07:33:35 UTC (sin cuerpo). Esta es evidencia verificable de una **aprobación de PR** emitida por una cuenta distinta de la autora. **No** constituye por sí sola un acta de ratificación de GAP-010, G3, licencias o permisos AUT-*; tampoco demuestra revisión exhaustiva ni aprobación expresa de ambos cotitulares.
+
+La aprobación precede a los commits `12905b59498d322fa7e72ee47fbb5fc6c34a5ad1` y `a662979b06178eb9f0588298d1c7be2c745cd87e`, por lo que el alcance de su vigencia sobre el HEAD posterior debe confirmarse conforme a las reglas de revisión y protección aplicables. Una revisión COMMENTED posterior de @TopperH4rley sigue solicitando cambios. **No se presume que esa revisión invalide formalmente la aprobación, ni que la aprobación resuelva sus observaciones.**
+
+**Corrección al corte anterior:** ya no es correcto decir que la revisión de @Axlfc está solo solicitada o que no existe aprobación de otra cuenta. El estado actualizado es **aprobación GitHub presente, ratificación normativa no acreditada, diff posterior no revalidado expresamente, PR DRAFT**.
+
+**Siguiente paso acotado:** solicitar a @Axlfc confirmación del HEAD revisado y del alcance **exclusivamente documental**; recabar decisión verificable de ambos cotitulares sobre autoridad de integración, sin convertir una aprobación genérica en consentimiento sobre G3/GAP-010. Mantener HOLD para implementación y ejecución.
