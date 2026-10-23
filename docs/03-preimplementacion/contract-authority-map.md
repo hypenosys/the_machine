@@ -2,6 +2,8 @@
 
 **Estado: PROPUESTO / NO-GO para código.** Este documento no acepta ADR ni aprueba implementación.
 
+> **Delimitación de autoridad (23-10-2026, PR #33):** la «jerarquía de lectura» de este mapa ordena **contratos conceptuales y documentos técnicos candidatos** para facilitar su interpretación; **no** determina quién puede ratificar, qué decisión prevalece jurídicamente, ni qué gates quedan aprobados. El [paquete Finch DEC-GOV-010 / DEC-GATE-003](finch-gap010-g3-ratification-package-candidate-2026-10-23.md) propone una jerarquía **distinta**, basada en competencia, alcance y estado de ratificación, y separa las autorizaciones de código/ejecución/merge. Ambas jerarquías tienen objetos diferentes: ninguna está ratificada y no se permite inferir que el contrato conceptual prevalezca sobre una decisión competente. Ante colisión material, registrar discrepancia y mantener HOLD para la actividad afectada.
+
 ## Jerarquía de lectura propuesta
 1. **Gobernanza y seguridad:** los ADR conservan estado PROPOSED y sus controles son objetivos, no garantías implementadas.
 2. **Contrato conceptual del núcleo:** `general-epistemic-contract-v0.md` más `claim-semantics-v0.md` y `evidence-dependencies-and-retractions.md`, como conjunto candidato de referencia. **Todavía no hay especificación normativa aprobada.**
