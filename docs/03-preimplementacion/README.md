@@ -3,6 +3,10 @@
 **Estado: HOLD / NO-GO para implementar.** Documentos candidatos de análisis y deliberación; **sin autorización de escribir, compilar o ejecutar código**. La ausencia de código o de `Cargo.toml` en todas las ramas no queda certificada por este documento.
 
 
+## Registro transversal de coherencia (propuesta, no ratificada)
+
+- [Registro Finch de coherencia y dependencias — 23-10-2026](finch-consistency-decision-register-2026-10-23.md): distingue verticales de arquitecturas, reconcilia estados de readiness, explicita dependencias de G3/DEC-08 y enumera bloqueos sin declarar cero contradicciones ni permisos.
+
 ## Contratos conceptuales derivados (sin ejecución)
 
 - [Matriz de garantías de procedencia](provenance-assurance-matrix-v0.md): separa integridad, clave, identidad, origen y verdad; casos de falsación en papel.
