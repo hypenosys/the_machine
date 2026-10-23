@@ -32,7 +32,7 @@ Los [oráculos falsables propuestos](../../04-auditorias/pr33-falsifiable-idempo
 
 La vinculación `amenaza → requisito → ID de prueba` no equivale a que el estímulo y el oráculo cubran todas las amenazas de la fila. El [plan de verificación](verification-plan.md) distingue tres brechas documentales: `SEC-REQ-006 / TH-008` (más allá del caso de contradicción epistemológica `SEC-006`), `SEC-REQ-008 / TH-017` (plazos y copias frente a supresión sintética `SEC-008`) y `SEC-REQ-011 / TH-014` (corte de energía frente a truncamiento local `SEC-011`).
 
-**Estado:** `THREAT_TO_REQUIREMENT_LINK = PRESENT`, `THREAT_TO_TEST_ORACLE_SUFFICIENCY = OPEN` para esas tres amenazas; no hay evidencia de pruebas ejecutadas. No se han reasignado identificadores ni ratificado pruebas. `HOLD / NO-GO`.
+**Estado:** `THREAT_TO_REQUIREMENT_LINK = PRESENT`, `THREAT_TO_TEST_ORACLE_SUFFICIENCY = OPEN` para esas tres amenazas. Existen tres [oráculos candidatos de falsación](../../04-auditorias/pr33-three-partial-threat-falsification-oracles-2026-10-23.md): `O-TH008`, `O-TH017` y `O-TH014`; sus identificadores no son pruebas `SEC-###` ratificadas. No hay evidencia de pruebas ejecutadas. No se han reasignado identificadores ni ratificado pruebas. `HOLD / NO-GO`.
 
 ## Estados separados
 | Estado | Significado |
