@@ -2,6 +2,8 @@
 
 **Estado:** DECISIÓN PROPUESTA / NO RATIFICADA. **Fecha:** 2026-10-23. **Cotitulares declarados:** @Axlfc y @TopperH4rley. **Efecto presente:** ninguno sobre gates, licencias, código, ejecución, merge o despliegue. **HOLD / NO-GO** permanece.
 
+**Acta de decisión conjunta preparada (23-10-2026):** [registro candidato de DEC-GOV-010 y DEC-GATE-003](finch-gap010-g3-joint-decision-record-candidate-2026-10-23.md). Contiene campos de consentimiento separados y un modelo de declaración con referencia a versiones exactas. **No está firmado ni ratificado**; su publicación no cambia `HOLD / NO-GO` ni concede permisos `AUT-*`.
+
 ## 1. Problema que se somete a decisión
 
 **GAP-010:** `GOVERNANCE.md` y `contract-authority-map.md` son propuestas. No existe una regla ratificada que acredite qué fuentes prevalecen, quién ratifica ni cómo se registra el consentimiento. **G3:** `docs/02-diseno/security/security-gates.md` define G3 como control **antes de fusionar código ejecutable**, mientras `docs/03-preimplementacion/staged-authorization-protocol-v1.md` propone G3 como puerta **antes de iniciar implementación Rust**. Ambas fuentes reconocen expresamente la colisión; ninguna puede sustituir a la otra por interpretación editorial.
