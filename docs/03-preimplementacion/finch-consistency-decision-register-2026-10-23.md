@@ -204,6 +204,12 @@ Ejemplos verificables del lote 2: `docs/01-investigacion/security/README.md`, bl
 
 **Conclusión limitada:** `LOCAL_PATH_TARGETS_PRESENT_IN_REGEX_MANIFEST` para las 158 entradas locales de este corte. No equivale a `LINKS_READY_FOR_REVIEW`: no se ha validado con parser la completitud de detección, las referencias por identificador, los fragmentos de encabezados, los atributos HTML, las rutas complejas ni el significado de los enlaces. Las cuatro URLs externas quedan `EXTERNAL_UNCHECKED`. El algoritmo de resolución empleado fue una comprobación puntual del inventario, **no** un verificador incorporado al proyecto ni una prueba de su software. Mantener `HOLD/NO-GO`.
 
+## 4.12. Cribado complementario de sintaxis omitida — 103/103 archivos (23-10-2026)
+
+**Corte inmutable:** `3ff2f14fbc96c3f73768f1e870491155f36144b6`. Se recuperaron por SHA de blob los 103 Markdown del árbol y se inspeccionaron en siete lotes de 16+16+16+16+16+16+7. Se excluyeron de manera aproximada bloques delimitados por tres backticks o tildes y tramos inline simples de un backtick. En las líneas restantes se buscaron cuatro familias de patrones: elementos HTML `<a ...>`, imágenes HTML `<img ...>`, referencias Markdown de uso `[texto][identificador]` y autolinks `<https://...>` / `<http://...>`.
+
+**Resultado:** `files_read=103/103`; `candidate_lines_matched=0` con estos patrones en el corte indicado. **Interpretación limitada:** no se encontraron ejemplos de esas cuatro familias con el cribado empleado. No equivale a `parser_verified_absence`: existen sintaxis multilineales, enlaces HTML con variantes de formato, anidamientos y construcciones Markdown que el patrón puede omitir. Tampoco se han validado fragmentos ni destinos externos. Se mantiene la exigencia de parser real y segunda reproducción para `LINKS_READY_FOR_REVIEW`.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
