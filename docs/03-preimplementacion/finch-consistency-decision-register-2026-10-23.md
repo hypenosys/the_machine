@@ -218,6 +218,20 @@ Los nueve añadidos son exactamente `docs/04-auditorias/pr33-reference-manifest-
 
 **Consecuencia verificable:** el inventario regex y la resolución de destinos sobre el corte fuente siguen teniendo identidad reproducible para los 103 blobs antiguos; **no constituyen validación del HEAD**, pues faltan las referencias contenidas en los nueve manifiestos y los cambios de este registro. Se necesita un nuevo inventario incremental o un corte completo y un parser real antes de afirmar cobertura actual. Esta enmienda produce un HEAD posterior y no pretende autocertificarlo. `HOLD/NO-GO` sin cambios.
 
+## 4.14. Revisión incremental del delta documental — HEAD c240f118 (23-10-2026)
+
+**Objeto de la comprobación:** delta entre el corpus fuente de 103 Markdown (`3ff2f14fbc96c3f73768f1e870491155f36144b6`) y el HEAD `c240f1184d6658740d9b58ee6ddaf0439b6d6a5e` de 112 Markdown, antes de añadir esta sección. Se inspeccionaron los nueve manifiestos nuevos y el registro Finch modificado, con el mismo extractor regex aproximado y comparación de rutas contra el árbol de ese HEAD.
+
+| Subconjunto incremental | Detecciones inline/definiciones | Rutas locales existentes | Destinos locales ausentes |
+|---|---:|---:|---:|
+| Nueve manifiestos de observaciones | 0 | 0 | 0 |
+| Registro Finch modificado (versión c240f118) | 34 | 34 | 0 |
+| **Delta inspeccionado** | **34** | **34** | **0** |
+
+Los manifiestos contienen destinos en celdas de tabla como datos literales, no enlaces Markdown inline detectables. El cribado adicional de `<a ...>`, `<img ...>`, usos `[texto][id]` y autolinks `<http(s)://...>` no produjo coincidencias en el registro Finch modificado. Los 102 documentos cuyos blobs no cambiaron conservan el alcance de las comprobaciones previas; **los 34 enlaces del registro no deben sumarse sin más a las 162 observaciones anteriores**, porque hay solapamiento de versiones del mismo archivo.
+
+**Estado acotado:** `INCREMENTAL_REGEX_DELTA_LOCAL_TARGETS_PRESENT` al HEAD observado, **no** validación completa del HEAD después de este commit, no comparación por parser ni revisión de anclas. Las comprobaciones regex no prueban cobertura completa. Las cuatro URLs externas del corte anterior siguen pendientes. `HOLD/NO-GO` sin cambios.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
