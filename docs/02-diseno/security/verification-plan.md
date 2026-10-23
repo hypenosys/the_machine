@@ -38,6 +38,16 @@
 
 **Límite SEC-013:** en el estado HOLD / NO-GO la revisión de dependencias solo puede especificarse documentalmente; no se autoriza resolver, descargar o compilar crates. Una futura evaluación técnica requeriría inventario versionado, origen, licencia, revisión de seguridad y permiso específico del titular; su mera enumeración no supone aprobación.
 
+**Diferencia de alcance amenaza–prueba (REV-19; aclaración documental):** tres requisitos enumeran dos amenazas mientras su prueba nominal enumera una sola. Esto no invalida automáticamente la prueba, pero **prohíbe declarar cobertura verificada de ambas amenazas** sin un oráculo específico:
+
+| Requisito | Amenazas del requisito | Amenaza explícita en prueba | Brecha de alcance pendiente |
+|---|---|---|---|
+| `SEC-REQ-006` | `TH-006, TH-008` | `SEC-006 → TH-006` | La conservación de afirmaciones incompatibles puede detectar contradicciones ocultas, pero no verifica todos los mecanismos por los que podrían ocultarse (`TH-008`). |
+| `SEC-REQ-008` | `TH-009, TH-017` | `SEC-008 → TH-009` | Supresión sintética no demuestra que la política de retención y sus plazos se apliquen a todas las copias (`TH-017`). |
+| `SEC-REQ-011` | `TH-013, TH-014` | `SEC-011 → TH-013` | Truncamiento de registro local no demuestra durabilidad ni recuperación tras corte real de energía (`TH-014`). |
+
+**Acción candidata, no ratificada:** mantener intactos los IDs y la asignación actual, definir por separado escenarios falsables para `TH-008`, `TH-017` y `TH-014`, y someterlos a aprobación antes de afirmar cobertura de esas amenazas. No añadir amenazas a la columna de una prueba si su estímulo y oráculo no las cubren. **Cero pruebas ejecutadas; HOLD / NO-GO.**
+
 **Nota de trazabilidad:** SEC-015..017 son diseños candidatos para cubrir requisitos que estaban sin prueba asignada; no se han ejecutado, no constituyen controles implementados ni cierran GAP-002. La numeración de estas propuestas requiere revisión frente a la auditoría histórica antes de ratificarse.
 
 ## Evidencia mínima por ejecución
