@@ -44,6 +44,20 @@ Los informes anteriores comprueban principalmente enlaces Markdown inline con ex
 | REF-07 | Archivo nuevo después del commit auditado | No entra en el corte anterior; exige nuevo inventario |
 | REF-08 | Enlace HTML dentro de un bloque de código | No es enlace navegable |
 
+## Política de estados y precedencia para referencias
+
+Para impedir que un mismo enlace obtenga resultados diferentes según el auditor, las categorías de la tabla inicial se aplican a **dimensiones separadas**:
+
+1. **Naturaleza sintáctica:** `LINK_NODE`, `IMAGE_NODE`, `REFERENCE_DEFINITION`, `LITERAL_REFERENCE`, `NOT_PARSED`.
+2. **Ubicación del destino:** `LOCAL_PATH`, `LOCAL_FRAGMENT`, `EXTERNAL_URL`, `UNKNOWN_LOCATION`.
+3. **Evaluación:** `VALID`, `MISSING_TARGET`, `MISSING_ANCHOR`, `UNDEFINED_REFERENCE`, `MALFORMED`, `EXTERNAL_UNCHECKED`, `RENDERER_UNKNOWN`, `POLICY_UNKNOWN`, `NOT_EVALUATED`.
+
+**Reglas de desempate:** un tramo dentro de código es `LITERAL_REFERENCE` y no genera evaluación de destino; una referencia sin definición es `UNDEFINED_REFERENCE` antes de comprobar rutas; un destino local inexistente es `MISSING_TARGET` antes de comprobar anclas; un archivo existente con fragmento solo puede clasificarse `MISSING_ANCHOR` si la política del renderizador está fijada; si no, `RENDERER_UNKNOWN`. Los enlaces externos en modo offline son `EXTERNAL_UNCHECKED`, no `VALID`. Si el parser no interpreta inequívocamente el nodo, prevalece `NOT_EVALUATED` y debe registrarse la causa.
+
+**Corrección de ambigüedad:** `LITERAL_REFERENCE` es una clasificación sintáctica, no un resultado de integridad; `VALID_AT_TIME` y `ERROR_AT_TIME` son resultados temporales de red fuera del alcance offline. Nunca deben sumarse con `VALID` local como si midieran el mismo criterio.
+
+**Identidad del hallazgo:** registrar un identificador derivado de `source_blob`, posición del nodo, tipo de referencia y destino literal. Un cambio de blob exige reconciliar el hallazgo con su antecesor; no asumir que conservar la misma línea garantiza identidad.
+
 ## Puerta de cierre
 
 **`LINKS_READY_FOR_REVIEW`** requiere un manifiesto del corte completo, política de parser y anchors fijada, todas las referencias locales del alcance evaluadas, cero destinos o anclas inexistentes sin disposición, y reproducción independiente. Las externas pueden quedar `EXTERNAL_UNCHECKED` **solo si** el alcance excluye expresamente su validación. Esta puerta **no** concede `PASS_GLOBAL` semántico ni altera HOLD/NO-GO.
