@@ -44,15 +44,23 @@
 | AUT-EXEC | Decisión independiente, entorno y pruebas delimitados | Ejecución delimitada | Fusionar/desplegar |
 | G3 + AUT-MERGE | Controles pre-merge, revisión independiente y acto competente | Integración de revisión específica | G4, G5, ratificación automática de ADR |
 
+## 4.1. Manifestación de Axlfc recibida en conversación
+
+**Manifestación textual (2026-10-23):** «Yo soy Axlfc, te estoy diciendo que ok. Continue».
+
+**Interpretación documental limitada:** el interlocutor se identifica como Axlfc y expresa conformidad para **continuar con la solución propuesta de GAP-010 y G3** presentada inmediatamente antes. Se registra como `ASSENT_REPORTED_IN_CONVERSATION`, **no** como firma criptográfica, autenticación de identidad GitHub ni ratificación conjunta. No se ha acreditado por este mensaje el consentimiento de @TopperH4rley, ni una revisión independiente, ni la entrada en vigor de la delegación o de permisos AUT-*.
+
+**Alcance:** este asentimiento respalda preparar la versión para decisión y su revisión; no resuelve por sí solo las condiciones de eficacia que el paquete establece. No se debe transformar en `RATIFIED` o `ACCEPTED` sin evidencia de autoridad conforme al mecanismo que acuerden ambos cotitulares.
+
 ## 5. Acta de ratificación — deliberadamente vacía
 
 | Declaración requerida | Estado | Evidencia |
 |---|---|---|
-| @Axlfc acepta DEC-GOV-010 versión exacta | PENDIENTE | — |
+| @Axlfc expresa conformidad con DEC-GOV-010 propuesta | CONFORMIDAD DECLARADA, identidad no verificada | Mensaje de conversación 2026-10-23; versión exacta y mecanismo de ratificación aún pendientes |
 | @TopperH4rley acepta DEC-GOV-010 versión exacta | PENDIENTE | — |
-| @Axlfc acepta DEC-GATE-003 versión exacta | PENDIENTE | — |
+| @Axlfc expresa conformidad con DEC-GATE-003 propuesta | CONFORMIDAD DECLARADA, identidad no verificada | Mensaje de conversación 2026-10-23; versión exacta y mecanismo de ratificación aún pendientes |
 | @TopperH4rley acepta DEC-GATE-003 versión exacta | PENDIENTE | — |
-| @Axlfc acepta la delegación, si se ratifica | PENDIENTE | — |
+| @Axlfc acepta asumir la delegación, si se ratifica | CONFORMIDAD DECLARADA, activación pendiente | Mensaje de conversación 2026-10-23; falta ratificación competente |
 | Identidad, consentimiento y mecanismo de revocación verificados | PENDIENTE | — |
 | Revisión independiente del paquete | PENDIENTE | — |
 
