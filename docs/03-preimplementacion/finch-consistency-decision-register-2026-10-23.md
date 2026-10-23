@@ -232,6 +232,21 @@ Los manifiestos contienen destinos en celdas de tabla como datos literales, no e
 
 **Estado acotado:** `INCREMENTAL_REGEX_DELTA_LOCAL_TARGETS_PRESENT` al HEAD observado, **no** validación completa del HEAD después de este commit, no comparación por parser ni revisión de anclas. Las comprobaciones regex no prueban cobertura completa. Las cuatro URLs externas del corte anterior siguen pendientes. `HOLD/NO-GO` sin cambios.
 
+## 4.15. Adjudicación individual de cuatro destinos externos (23-10-2026)
+
+El inventario regex del corte `3ff2f14fbc96c3f73768f1e870491155f36144b6` contiene cuatro apariciones externas, correspondientes a **tres URLs distintas**:
+
+| Fuente | Destino | Comprobación | Estado |
+|---|---|---|---|
+| `GOVERNANCE.md:7` | `https://github.com/Axlfc` | El conector de repositorios rechaza perfiles de usuario fuera de su ámbito; no equivale a HTTP 404 | `PROFILE_UNCHECKED` |
+| `GOVERNANCE.md:7` | `https://github.com/TopperH4rley` | Misma limitación del conector | `PROFILE_UNCHECKED` |
+| `finch-gap010-g3-ratification-package-candidate-2026-10-23.md:63` | `https://github.com/hypenosys/the_machine/pull/33#issuecomment-6359388844` | Comentario obtenido por `GET /repos/hypenosys/the_machine/issues/comments/6359388844` | `COMMENT_EXISTS` |
+| `owner-ratification-sheet-candidate-v1.md:37` | Misma URL de comentario | Misma entidad verificada; no contar como verificación independiente | `COMMENT_EXISTS` |
+
+**Evidencia semántica del comentario:** identificador `6359388844`, autor `TopperH4rley`, fecha `2026-10-23T07:00:12Z`, texto: «## Finch — solicitud de ratificación explícita de GAP-010 y G3» seguido de «OK». La identidad del comentario y su URL de ancla quedan comprobadas mediante la API de GitHub; **su contenido no explicita versiones ni un acto de ratificación conjunta**. No elevar a `RATIFIED`, ni interpretar la existencia del enlace como autorización de código, ejecución o merge.
+
+**Saldo de cuatro apariciones:** 2 apariciones de comentario con destino comprobado (1 URL única), 2 perfiles sin comprobar. El estado `EXTERNAL_UNCHECKED` anterior queda refinado, no sustituido por una afirmación de cuatro enlaces HTTP validados. `HOLD/NO-GO` se mantiene.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
