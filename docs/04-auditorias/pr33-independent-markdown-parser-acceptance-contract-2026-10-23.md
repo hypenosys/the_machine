@@ -32,13 +32,13 @@ El objetivo del contraste es descubrir falsos positivos y falsos negativos **sin
 | F-07 | `[texto](#seccion)` | Ancla en el documento actual |
 | F-08 | `<https://example.org/ruta>` | Autolink renderizado |
 | F-09 | `<a href="destino.md">texto</a>` | Enlace HTML, según modo GFM |
-| F-10 | `\`[texto](falso.md)\`` | No hay enlace renderizado dentro de código inline |
+| F-10 | Un código inline delimitado por backticks que contiene `[texto](falso.md)` | No hay enlace renderizado dentro del código inline |
 | F-11 | Bloque de código con `[texto](falso.md)` | No hay enlace renderizado |
 | F-12 | `[texto](ruta(uno).md)` | Interpretar correctamente paréntesis equilibrados |
 | F-13 | `[texto](../../../../fuera.md)` | `OUTSIDE_REPOSITORY`, nunca válido por truncamiento |
 | F-14 | Dos encabezados `## Igual` y enlace `#igual-1` | Resolver duplicados de ancla con política declarada |
 | F-15 | `[texto][no-definido]` | No inventar destino ni enlace |
-| F-16 | URL mal codificada `[texto](a%ZZ.md)` | Error de normalización registrado, sin descartar silenciosamente |
+| F-16 | `[texto](a%ZZ.md)` con secuencia porcentual inválida | Conservar el destino literal y registrar `INVALID_PERCENT_ENCODING` en la capa de normalización; no atribuir al parser un rechazo que CommonMark/GFM no exijan |
 | F-17 | Tabla GFM con `[texto](destino.md)` | Detectar enlace renderizado dentro de tabla |
 | F-18 | Enlace en varias líneas o con destino entre `<...>` | Procesar conforme a gramática; no suponer que una línea equivale a un nodo |
 
