@@ -107,6 +107,18 @@ Esta matriz **clasifica** lo contrastado en los documentos enlazados; no pretend
 
 **Límites de cobertura:** el regex no interpreta correctamente todos los contextos de Markdown (código inline, bloques, referencias indirectas, HTML, rutas con espacios); no valida fragmentos/anclas, URL externas, rutas dinámicas ni semántica. No se ha ejecutado el verificador determinista propuesto. Por tanto el estado es `FULL_TREE_REGEX_SCREEN_COMPLETED_WITH_UNADJUDICATED_LITERALS`, **no** `FULL_LINK_AUDIT_PASS`, `ZERO_BROKEN_LINKS` o `ZERO_CONTRADICTIONS`. El próximo control deberá excluir literales con un parser y emitir evidencias reproducibles por enlace.
 
+## 4.4. Adjudicación manual de los once avisos del barrido (23-10-2026)
+
+Tras el barrido de §4.3 se inspeccionaron las líneas fuente que produjeron avisos:
+
+| Clase | Apariciones | Evidencia | Disposición |
+|---|---:|---|---|
+| Directorio real `docs/02-diseno/adr/` | 1 | Enlace del `README.md` raíz; ruta de directorio presente en el árbol Git | `VALID_DIRECTORY_TARGET` |
+| Ejemplo `[texto](ruta)` | 1 | `deterministic-global-coherence-contract-candidate-v0.md`, línea 153, dentro de código inline | `LITERAL_REFERENCE` |
+| Ejemplos `[etiqueta](destino)`, `[texto](ruta)`, `[x](archivo.md)`, `![x](img.png)`, `[ejemplo](no-existe.md)` | 9 | Documentos de auditoría `pr33-incremental-documentation-audit`, `pr33-inline-link-coverage-reconciliation`, `pr33-link-audit-batches` y `pr33-reference-integrity-protocol`; aparecen como ejemplos de sintaxis entre backticks | `LITERAL_REFERENCE` |
+
+**Resultado de adjudicación de avisos:** 1 destino válido y 10 referencias literales, **0 avisos clasificados como `MISSING_TARGET`**. Esta cifra se refiere solo a los **once avisos emitidos por el detector preliminar**, no a todos los posibles enlaces reales. El barrido de §4.3 se conserva como registro histórico del estado antes de la adjudicación. Siguen `NOT_EVALUATED` los enlaces omitidos por regex, anclas, referencias indirectas y URL externas. La auditoría integral con parser y pruebas reproducibles sigue pendiente.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
