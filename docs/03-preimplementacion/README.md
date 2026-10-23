@@ -77,5 +77,8 @@ Para orientar la deliberación formal de los cotitulares (@Axlfc y @TopperH4rley
 
 ---
 
+
+**Paquete de ratificación pendiente (GAP-010 / G3):** [Decisión Finch sobre autoridad documental, delegación y permisos separados](finch-gap010-g3-ratification-package-candidate-2026-10-23.md). Es una propuesta para deliberación conjunta, **no un acta aprobada**; conserva HOLD / NO-GO, no concede AUT-CODE, AUT-EXEC ni AUT-MERGE y no reemplaza los gates históricos.
+
 ## Regla de Parada y Prohibiciones
 No abrir PR de código, no crear crates, no añadir dependencias, no ejecutar pruebas invasivas y no aceptar ADR por inercia. La siguiente intervención debe ser una revisión consciente por parte de los cotitulares del paquete de decisión v1.
