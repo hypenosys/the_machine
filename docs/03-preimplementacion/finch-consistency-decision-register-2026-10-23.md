@@ -33,16 +33,16 @@ Estos nombres son **alias editoriales candidatos**, no renumeración retroactiva
 
 | ID | Dependencia real | Documento base | Evidencia de cierre exigible | Estado al corte |
 |---|---|---|---|---|
-| AUTH-01 | Autoridad y precedencia (GAP-010) | `GOVERNANCE.md`; `contract-authority-map.md` | Acta atribuible y aceptada conforme al mecanismo acordado por cotitulares | OPEN |
-| AUTH-02 | Interpretación G3, G2.1–G2.4 y DEC-08 | `security/security-gates.md`; `staged-authorization-protocol-v1.md` | Secuencia sin ciclo; permisos y revocación separados | OPEN |
-| SEM-01 | Identidad, negación, alcance, modalidad | `claim-semantics-v0.md` | Oráculos positivos/negativos y vocabularios versionados | OPEN |
-| SEM-02 | Estados epistemológicos vs garantías de procedencia | `general-epistemic-contract-v0.md`; `provenance-assurance-matrix-v0.md` | Espacios tipados separados, sin mapeo automático | OPEN |
+| AUTH-01 | Autoridad y precedencia (GAP-010) | [GOVERNANCE.md](../../GOVERNANCE.md); [contract-authority-map.md](contract-authority-map.md) | Acta atribuible y aceptada conforme al mecanismo acordado por cotitulares | OPEN |
+| AUTH-02 | Interpretación G3, G2.1–G2.4 y DEC-08 | [security-gates.md](../02-diseno/security/security-gates.md); [staged-authorization-protocol-v1.md](staged-authorization-protocol-v1.md) | Secuencia sin ciclo; permisos y revocación separados | OPEN |
+| SEM-01 | Identidad, negación, alcance, modalidad | [claim-semantics-v0.md](claim-semantics-v0.md) | Oráculos positivos/negativos y vocabularios versionados | OPEN |
+| SEM-02 | Estados epistemológicos vs garantías de procedencia | [general-epistemic-contract-v0.md](general-epistemic-contract-v0.md); [provenance-assurance-matrix-v0.md](provenance-assurance-matrix-v0.md) | Espacios tipados separados, sin mapeo automático | OPEN |
 | TIME-01 | valid/recorded/assessed y testigo de orden | `claim-semantics-v0.md`; GAP-003; REV-13 | Contrato temporal con orden de registro no autodeclarado | OPEN |
-| LINEAGE-01 | Dependencia desconocida, retractación y evaluación histórica | `evidence-dependencies-and-retractions.md` | Casos con origen común y revisiones exactas | OPEN |
+| LINEAGE-01 | Dependencia desconocida, retractación y evaluación histórica | [evidence-dependencies-and-retractions.md](evidence-dependencies-and-retractions.md) | Casos con origen común y revisiones exactas | OPEN |
 | PRIV-01 | Supresión física frente a ocultación lógica | DEC-04; F-10/E-10 | Política y oráculo externo para borrado real, o exclusión expresa | BLOCKED |
-| TEST-01 | F-11/E-11 para identidad, F-12/E-12 para autoridad | `traceability-matrix-v1.md` | Casos y oráculos fijados antes de ejecución | OPEN |
-| ARCH-01 | Comparar R1/R2/C/D en dos dominios | `comparative-contract-v1.md` | Misma cohorte y denominadores, observador independiente, resultados reproducibles | NOT EXECUTED |
-| LEGAL-01 | Derechos de terceros y licencia futura de software | `LICENSE.md`; GAP-001; DEC-07 | Inventario, revisión y decisión competente | OPEN |
+| TEST-01 | F-11/E-11 para identidad y F-12/E-12 para autoridad, **solo propuestos, sin aprobar ni ejecutar** | [traceability-matrix-v1.md](traceability-matrix-v1.md) | Casos y oráculos fijados antes de ejecución | OPEN |
+| ARCH-01 | Comparar R1/R2/C/D en dos dominios | [comparative-contract-v1.md](comparative-contract-v1.md) | Misma cohorte y denominadores, observador independiente, resultados reproducibles | NOT EXECUTED |
+| LEGAL-01 | Derechos de terceros y licencia futura de software | [LICENSE.md](../../LICENSE.md); GAP-001; DEC-07 | Inventario, revisión y decisión competente | OPEN |
 
 **Nota:** severidad y dependencia de gate son ejes distintos. GAP-010 puede ser P2 en el registro histórico y, a la vez, bloquear la adopción normativa de GAP-005. No cambiar prioridades retrospectivamente.
 
@@ -51,7 +51,9 @@ Estos nombres son **alias editoriales candidatos**, no renumeración retroactiva
 ### RCN-01 — G3 y autorización del laboratorio
 Los textos usan G3 tanto para entrada a implementación como para control previo a integración de código. **No está ratificada una definición común**. Secuencia candidata sin dependencia circular:
 
-`G2.1 documental → [DEC-08 + AUT-CODE experimental] → [AUT-EXEC experimental] → G2.3 evidencia → G2.4 elección → G3 integración de producto + AUT-MERGE`.
+`G2.1 documental → G2.2 (solo si DEC-08 y AUT-CODE/AUT-EXEC específicos se autorizan) → G2.3 evidencia → G2.4 selección → decisión separada sobre implementación y aplicación de G3`.
+
+La definición histórica de [security-gates.md](../02-diseno/security/security-gates.md) sitúa **G3 antes de fusionar código ejecutable**; la propuesta de [staged-authorization-protocol-v1.md](staged-authorization-protocol-v1.md) lo sitúa **antes de comenzar implementación Rust**. Ninguna definición desplaza a la otra hasta resolver GAP-010. **G2.2 está bloqueado actualmente** y esta secuencia no lo desbloquea.
 
 No interpretar esta flecha como permisos ya concedidos. La decisión conjunta debe resolver la relación exacta entre G2.2, G3 y la excepción. Un experimento descartable no implica autorización de código de producto.
 
