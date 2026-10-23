@@ -135,6 +135,21 @@ Tras el barrido de §4.3 se inspeccionaron las líneas fuente que produjeron avi
 
 **Decisión metodológica:** detener muestreos que produzcan denominadores vacíos y priorizar V-01/V-02 del protocolo: inventario de todos los nodos y definiciones del árbol congelado, con `source_blob`, `source_span` y tipos de referencia. Solo después abordar LNK-02/LNK-03 con política de parser y anchors fijada. Estado `NOT_EVALUATED`, sin PASS.
 
+## 4.7. Inventario de referencias con identidad de blob — primer lote (23-10-2026)
+
+**Corte congelado:** `3ff2f14fbc96c3f73768f1e870491155f36144b6`; árbol Git consultado: 103 archivos Markdown. **Primer lote:** los 12 primeros archivos Markdown del árbol ordenado, desde `AGENTS.md` hasta `docs/01-investigacion/caso-practico.md` (inclusive).
+
+Se recuperó el contenido de esos 12 archivos y su SHA de blob. Se recorrieron líneas, excluyendo bloques delimitados por tres backticks y tramos inline de un backtick, y se extrajeron enlaces e imágenes inline y definiciones de referencias mediante patrones regulares. **46 entradas detectadas** en el lote, cada una con `source_path`, `source_blob`, número de línea, `reference_kind` y `target_raw` durante el análisis. Ejemplos comprobables:
+
+| Ruta | Blob SHA | Línea | Tipo | Destino |
+|---|---|---:|---|---|
+| `CONTRIBUTING.md` | `0bb3e51732f724ee8de4c8fe367bc8eb099c2264` | 12 | `LINK_INLINE` | `GOVERNANCE.md` |
+| `CONTRIBUTING.md` | `0bb3e51732f724ee8de4c8fe367bc8eb099c2264` | 14 | `LINK_INLINE` | `LICENSE.md` |
+| `GOVERNANCE.md` | `bb5781b8820cc687ae2ae71598a846bb31a43125` | 7 | `LINK_INLINE` | `https://github.com/Axlfc` |
+| `README.md` | `7901086d459e96aba598820739c80ed47a757fc6` | 17 | `LINK_INLINE` | `docs/00-empezar/README.md` |
+
+**Límites y denominadores:** `files_scanned=12`, `files_in_tree=103`, `regex_entries_detected=46`, `parser_nodes_verified=0`. La lista íntegra de 46 entradas **no se ha persistido como manifiesto**, y el análisis no genera aún posiciones de columna, identidad estable por nodo, resolución de referencias indirectas ni clasificación de anclas. No confundir 46 detecciones con 46 enlaces validados. Los 91 archivos restantes y la reproducción independiente siguen pendientes. Este registro constituye evidencia de progreso V-01/V-02 **parcial**, no cierre de la puerta de enlaces.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
