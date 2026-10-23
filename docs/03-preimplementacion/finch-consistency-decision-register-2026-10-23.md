@@ -99,6 +99,14 @@ Esta matriz **clasifica** lo contrastado en los documentos enlazados; no pretend
 
 **Conclusión:** `SAMPLE_RELATIVE_TARGETS_PRESENT`, no `FULL_LINK_AUDIT_PASS` ni `ZERO_CONTRADICTIONS`. Repetir sobre el árbol completo y fijar la revisión exacta antes de cualquier afirmación de cobertura integral.
 
+## 4.3. Barrido completo preliminar de destinos Markdown (23-10-2026)
+
+**Corte Git consultado:** `50519fa379f698f766369ff782ca6d0042400810` (antes de incorporar este registro). Se consultó el árbol de 113 entradas y se leyeron **103/103 archivos Markdown**, en seis lotes de 18, 18, 18, 18, 18 y 13 archivos. El detector por expresión regular examinó **167 referencias relativas aparentes** (51 + 22 + 27 + 37 + 15 + 15).
+
+**Hallazgo inicial:** once apariciones apuntaban a rutas ausentes. Diez eran `ruta`, `destino`, `archivo.md`, `img.png` o `no-existe.md`, y una `docs/02-diseno/adr/` correspondía a un directorio existente (no a un archivo). La muestra comprobada de los avisos contiene ejemplos literales entre backticks; el [protocolo de integridad](../04-auditorias/pr33-reference-integrity-protocol-candidate-2026-10-23.md) ya advierte expresamente sobre estos falsos positivos. **No se han acreditado enlaces rotos reales mediante este barrido**, pero tampoco se han descartado con un parser Markdown completo.
+
+**Límites de cobertura:** el regex no interpreta correctamente todos los contextos de Markdown (código inline, bloques, referencias indirectas, HTML, rutas con espacios); no valida fragmentos/anclas, URL externas, rutas dinámicas ni semántica. No se ha ejecutado el verificador determinista propuesto. Por tanto el estado es `FULL_TREE_REGEX_SCREEN_COMPLETED_WITH_UNADJUDICATED_LITERALS`, **no** `FULL_LINK_AUDIT_PASS`, `ZERO_BROKEN_LINKS` o `ZERO_CONTRADICTIONS`. El próximo control deberá excluir literales con un parser y emitir evidencias reproducibles por enlace.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
