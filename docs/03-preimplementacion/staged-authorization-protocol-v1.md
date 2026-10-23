@@ -36,6 +36,12 @@ En resolución directa del **Defecto B-06** y para evitar la colisión con la no
 
 ---
 
+### Alternativa de reconciliación propuesta (DEC-GATE-003; sin vigencia)
+
+El [paquete Finch GAP-010/G3](finch-gap010-g3-ratification-package-candidate-2026-10-23.md) propone conservar **G3 como control histórico previo al merge**, y distinguir autorizaciones independientes `AUT-CODE`, `AUT-EXEC` y `AUT-MERGE`. La denominación «G3 — transición a implementación Rust» en el diagrama, reglas y sección posterior de **este mismo protocolo** se mantiene como **alternativa histórica candidata no ratificada**, no como definición operativa. Si DEC-GATE-003 se ratifica, habrá que sustituir coordinadamente esas denominaciones y condiciones; hasta entonces, ninguna se considera vigente por precedencia editorial.
+
+**Estado:** `SUPERSESSION_PROPOSED`, no `SUPERSEDED_RATIFIED`. No hay permisos AUT-* activos ni autorización para escribir, ejecutar, fusionar o desplegar software.
+
 ### Nota de revisión pendiente de ratificación (REV-01 / REV-03 / REV-05 / REV-06)
 
 Este protocolo es **candidato**, no una modificación efectiva de los gates históricos. Su afirmación de «armonización» es una hipótesis que requiere contrastar [`security-gates.md`](../02-diseno/security/security-gates.md), [`traceability.md`](../02-diseno/security/traceability.md) y los readiness reviews. Ante discrepancias prevalece **HOLD** hasta decisión expresa de los titulares sobre precedencia documental y autoridad. El significado de G3 (permiso para comenzar código frente a permiso para fusionarlo) sigue **SIN RATIFICAR**.
