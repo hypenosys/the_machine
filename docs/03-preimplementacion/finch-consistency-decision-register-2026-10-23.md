@@ -165,6 +165,25 @@ Ejemplos verificables del lote 2: `docs/01-investigacion/security/README.md`, bl
 
 **Pendiente:** 67 documentos del corte, persistencia de **todas** las entradas como manifiesto, columnas exactas, detección de referencias indirectas y comprobación independiente. `regex_entries_detected=75` es una métrica de extracción parcial, **no** 75 enlaces validados ni un PASS.
 
+## 4.9. Cierre de lectura de inventario regex sobre corte inmutable (23-10-2026)
+
+**Commit del corpus:** `3ff2f14fbc96c3f73768f1e870491155f36144b6`. Se leyeron los blobs SHA de **103/103 archivos Markdown** listados por el árbol Git de ese commit, en nueve lotes (ocho de 12 y uno de 7). Se aplicó el mismo extractor preliminar de §§4.7–4.8: omisión de bloques con delimitador triple backtick, sustitución de código inline simple, regex para enlaces/imágenes inline y definiciones de referencias.
+
+| Lote | Índices de archivo | Entradas aparentes |
+|---|---|---:|
+| 1 | 1–12 | 46 |
+| 2 | 13–24 | 10 |
+| 3 | 25–36 | 19 |
+| 4 | 37–48 | 26 |
+| 5 | 49–60 | 1 |
+| 6 | 61–72 | 39 |
+| 7 | 73–84 | 10 |
+| 8 | 85–96 | 8 |
+| 9 | 97–103 | 3 |
+| **Total** | **103 archivos** | **162 entradas aparentes** |
+
+**Calificación estricta:** `FULL_CORPUS_READ_REGEX_SCREEN`, no `FULL_REFERENCE_MANIFEST`. Se registraron conteos y ejemplos, **no** las 162 filas íntegras con posición y SHA. `parser_nodes_verified=0`, `links_validated=0`; el extractor puede omitir o interpretar mal construcciones Markdown, y el corte no incluye commits posteriores. La cobertura de lectura del corpus es 103/103, pero la cobertura comprobada de enlaces permanece indeterminada. El siguiente entregable debe ser un manifiesto completo de nodos con parser, anclas y política fijados, y revisión independiente; no declarar `LINKS_READY_FOR_REVIEW` antes de ello.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
