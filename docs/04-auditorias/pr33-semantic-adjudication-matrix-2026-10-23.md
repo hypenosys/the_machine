@@ -30,6 +30,28 @@ Se compararon seis documentos mediante lectura directa de sus blobs Git y posici
 
 **Nota de clasificación:** ADJ-04 se refiere a la compatibilidad de dos fuentes sobre el estado de las propuestas, **no** a una declaración de que el sistema haya pasado las pruebas. ADJ-06 no afirma una contradicción entre licencias de objetos distintos.
 
+## Segunda pasada: autoridad y precedencia (cuatro fuentes adicionales)
+
+Se añadieron las siguientes fuentes, leídas directamente en la misma rama antes de este cambio. **Esta pasada no vuelve a inspeccionar los otros 90 documentos** ni acredita cobertura global.
+
+| ID | Ruta | Blob SHA |
+|---|---|---|
+| S7 | `docs/03-preimplementacion/contract-authority-map.md` | `21f27cfa28b2a9738a583031f7fa3cca8ad51609` |
+| S8 | `docs/04-auditorias/gap-register.md` | `091df5171589b1978afe9f55349df37003ed5afb` |
+| S9 | `docs/03-preimplementacion/decision-preferences-proposal-2026-10-21.md` | `1ee7d2484662c4cd5dfb9b1014d5b980d603be5d` |
+| S10 | `GOVERNANCE.md` | `bb5781b8820cc687ae2ae71598a846bb31a43125` |
+
+| ID | Evidencia | Disposición | Efecto |
+|---|---|---|---|
+| ADJ-07 | S7:3–6,12–20 declara mapa y precedencia propuestos; S8:164–174 mantiene GAP-010 abierto | `CONSISTENT` en estado documental | El mapa **no** resuelve por sí mismo autoridad normativa. |
+| ADJ-08 | S9:9–14 propone delegación revocable a @Axlfc; S10:8,28 niega activación de desempate sin ratificación | `CONSISTENT` en estado documental | Delegación propuesta, **no concedida**; sigue `BLOCKED_BY_DECISION` la facultad de ratificar. |
+| ADJ-09 | S9:17–21 separa AUT-CODE, AUT-EXEC y AUT-MERGE; S10:19,21 rechaza inferir permisos del merge técnico | `CONSISTENT` en la prohibición de inferencia | Ninguna autorización AUT-* activa; etiquetas candidatas. |
+| ADJ-10 | S9:23–28 propone evaluar GPL-3.0-only u or-later; S8:40 mantiene GAP-001 abierto y CC BY 4.0 documental | `DISTINCT_SCOPE` | Licencia documental actual y preferencia de software futuro son objetos distintos; decisión sobre software pendiente. |
+
+**Hallazgo editorial puntual:** S8:167 utiliza `kandidatos` en vez de `candidatos`. No afecta al estado normativo, pero debe corregirse sin modificar la evidencia histórica de GAP-010. Esta matriz preserva la grafía observada en el blob fuente y no interpreta el error tipográfico como discrepancia de fondo.
+
+**Cobertura de esta matriz:** diez documentos fuente únicos, diez adjudicaciones registradas, **no** diez documentos íntegramente auditados. Las adjudicaciones son muestreo dirigido de afirmaciones; denominador global de claims **UNKNOWN**. El estado `NOT_READY` permanece.
+
 ## Bloqueos y cobertura
 
 - `ADJ-01` y `ADJ-03` requieren acto competente y no pueden cerrarse mediante edición interpretativa.
