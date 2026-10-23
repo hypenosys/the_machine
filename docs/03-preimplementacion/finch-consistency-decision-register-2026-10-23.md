@@ -260,6 +260,25 @@ Se recuperaron nuevamente los blobs de los primeros 36 Markdown del corte `3ff2f
 
 **Resultado acotado:** `REGEX_MANIFEST_REPRODUCED_FIELDWISE_36_OF_103`. Restan **67 blobs y 87 entradas** de los lotes 4–9 para completar esta reextracción. La reproducción del **mismo extractor** comprueba fidelidad del registro, **no** independencia de método ni exhaustividad de la gramática Markdown. Parser compatible con GitHub, anclas y perfiles externos siguen pendientes. No cambiar `HOLD/NO-GO`.
 
+## 4.17. Reextracción completa y concordancia de los nueve manifiestos (23-10-2026)
+
+**Corte de origen:** `3ff2f14fbc96c3f73768f1e870491155f36144b6`. Se completó la relectura de los **103 blobs Markdown** y se ejecutó nuevamente el extractor regex documentado en §4.9. Cada lote se comparó como multiconjunto de tuplas exactas `(ruta, blob_sha, línea, clase, destino)` contra las filas del manifiesto persistido. Se cotejaron los cinco campos, no solo los recuentos.
+
+| Lote | Documentos | Persistidas | Reextraídas | Concordancia campo a campo |
+|---|---:|---:|---:|---|
+| 1 | 12 | 46 | 46 | Sí |
+| 2 | 12 | 10 | 10 | Sí |
+| 3 | 12 | 19 | 19 | Sí |
+| 4 | 12 | 26 | 26 | Sí |
+| 5 | 12 | 1 | 1 | Sí |
+| 6 | 12 | 39 | 39 | Sí |
+| 7 | 12 | 10 | 10 | Sí |
+| 8 | 12 | 8 | 8 | Sí |
+| 9 | 7 | 3 | 3 | Sí |
+| **Total** | **103** | **162** | **162** | **0 discrepancias** |
+
+**Resultado:** `REGEX_MANIFEST_REPRODUCED_FIELDWISE_103_OF_103`. Sustituye el estado parcial de §4.16 **solo en lo relativo a la fidelidad y reproducibilidad del inventario**. No implica cobertura de un parser Markdown ni validación de fragmentos, de HTML o de sintaxis compleja; la extracción y la reextracción usaron el mismo algoritmo y no son metodológicamente independientes. El delta posterior al corte congelado permanece delimitado por §§4.13–4.14. Se mantienen las dos URLs de perfiles sin verificar (§4.15) y `HOLD/NO-GO`.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
