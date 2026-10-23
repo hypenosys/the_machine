@@ -74,6 +74,23 @@ Un hash no demuestra autoría; una firma válida acredita una relación con una 
 ### RCN-06 — Independencia de evidencia
 IDs distintos y citas coincidentes no demuestran independencia. `dependency_status=UNKNOWN` no es `independent=true`; una retractación exige revisar evaluaciones dependientes sin sobrescribir historia silenciosamente.
 
+## 4.1. Matriz consolidada de discrepancias materiales (corte editorial 23-10-2026)
+
+Esta matriz **clasifica** lo contrastado en los documentos enlazados; no pretende cobertura exhaustiva del árbol ni sustituye la ratificación. `ALINEADO_EDITORIALMENTE` significa que la lectura de los documentos está aclarada, **no** que el requisito o decisión haya sido aprobado.
+
+| ID | Cuestión | Fuentes y tratamiento | Estado verificable | Condición de cierre |
+|---|---|---|---|---|
+| MAT-01 | Competencia y precedencia de GAP-010 | [Mapa de autoridad](contract-authority-map.md), [hoja de titulares](owner-ratification-sheet-candidate-v1.md), [paquete Finch](finch-gap010-g3-ratification-package-candidate-2026-10-23.md) | `DECISION_PENDING` | Ratificación conjunta de versión exacta y mecanismo de revocación |
+| MAT-02 | G3 pre-código frente a pre-merge | [Gates de seguridad](../02-diseno/security/security-gates.md), [protocolo por etapas](staged-authorization-protocol-v1.md), [trazabilidad](../02-diseno/security/traceability.md) | `DECISION_PENDING` | DEC-GATE-003 ratificada y sincronización normativa posterior |
+| MAT-03 | `CONDITIONAL GO` frente a `HOLD / NO-GO` | [Readiness histórico](../04-auditorias/readiness-assessment.md), [readiness de preimplementación](readiness-review.md) | `ALINEADO_EDITORIALMENTE` | Mantener distinción recomendación/autorización en revisiones futuras |
+| MAT-04 | Jerarquía conceptual frente a autoridad normativa | [Mapa de autoridad](contract-authority-map.md), [paquete Finch](finch-gap010-g3-ratification-package-candidate-2026-10-23.md) | `ALINEADO_EDITORIALMENTE` | No convertir el orden de lectura en precedencia ratificada |
+| MAT-05 | Adopción de ADR (GAP-005) | [Registro de brechas](../04-auditorias/gap-register.md), [hoja de titulares](owner-ratification-sheet-candidate-v1.md) | `BLOCKED_BY_AUTHORITY` | Resolver GAP-010 y ratificar cada ADR según competencia |
+| MAT-06 | Licencia de software y derechos (GAP-001) | [LICENSE.md](../../LICENSE.md), [registro de brechas](../04-auditorias/gap-register.md) | `DECISION_PENDING` | Inventario de derechos y decisión competente de licencia de software |
+| MAT-07 | Experimento G2.2 y permisos | [Protocolo por etapas](staged-authorization-protocol-v1.md), [paquete Finch](finch-gap010-g3-ratification-package-candidate-2026-10-23.md) | `BLOCKED_BY_AUTHORIZATION` | DEC-08 y autorizaciones específicas, independientes y vigentes |
+| MAT-08 | Pruebas de seguridad nominales frente a verificadas | [Trazabilidad de seguridad](../02-diseno/security/traceability.md), [readiness histórico](../04-auditorias/readiness-assessment.md) | `ALINEADO_EDITORIALMENTE` | Evidencia experimental futura antes de cualquier declaración PASS |
+
+**Regla de cierre:** no convertir `ALINEADO_EDITORIALMENTE` en `RATIFIED` ni `VERIFIED`. Las filas `DECISION_PENDING` y `BLOCKED_*` permanecen abiertas; la ausencia de nuevas discrepancias en esta muestra no demuestra ausencia universal de contradicciones. Los identificadores MAT-* son de seguimiento editorial, no sustituyen GAP, DEC, REV o SEC.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
