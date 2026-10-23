@@ -39,6 +39,22 @@ Las modalidades no son intercambiables. Una recomendación `CONDITIONAL GO` no e
 
 `PASS_GLOBAL` no es una disposición individual: es un resultado agregado que solo puede emitirse si se cumplen todas las condiciones de la sección 5.
 
+## 3.1. Orden de decisión y no determinismo encubierto
+
+Para un mismo par de afirmaciones, aplicar **en este orden** las siguientes reglas candidatas, conservando todas las evidencias y sin permitir que una categoría posterior borre un bloqueo anterior:
+
+1. **Cobertura:** si una fuente requerida no se ha examinado, marcar su afirmación `NOT_EVALUATED`; no clasificarla como consistente.
+2. **Identidad, versión y alcance:** si falta una correspondencia verificable entre sujeto, predicado, ámbito o vigencia, clasificar el par `INSUFFICIENT_EVIDENCE`; no inventar equivalencias.
+3. **Autoridad reservada:** si el resultado depende de precedencia, ratificación o delegación sin resolver (por ejemplo GAP-010/G3), clasificar `BLOCKED_BY_DECISION`, aun cuando las redacciones sean materialmente distintas.
+4. **Sustitución acreditada:** solo un acto ratificado y verificable puede producir `SUPERSEDED_RATIFIED`, conservando el estado histórico anterior.
+5. **Alcance o modalidad distintos:** si están documentados y son compatibles, clasificar `DISTINCT_SCOPE`.
+6. **Incompatibilidad:** si ambas proposiciones verificablemente comparten sujeto, alcance, vigencia y autoridad y son incompatibles, clasificar `CONTRADICTION_OPEN`.
+7. **Compatibilidad:** solo después de descartar los casos anteriores clasificar `CONSISTENT`.
+
+**Agregación:** un corpus con al menos un `BLOCKED_BY_DECISION` o `CONTRADICTION_OPEN` es `NOT_READY`; también lo es si contiene `NOT_EVALUATED` o `INSUFFICIENT_EVIDENCE`. `INDETERMINATE` se reserva para imposibilidad de calcular el estado por falta del manifiesto, reglas o fuentes mínimas, y nunca se convierte automáticamente en PASS. Las disposiciones de distintos pares coexisten; el orden anterior solo decide el tratamiento **de un mismo par**.
+
+**Límite epistemológico:** estas reglas son un **algoritmo candidato**; no existe todavía extractor implementado, evaluación completa ni ratificación. Un ejemplo que ofrece salidas alternativas sin condiciones de desempate viola el determinismo y debe corregirse antes de adoptar la especificación.
+
 ## 4. Reglas invariantes
 
 **INV-01 — Identidad:** coincidencia textual no demuestra identidad de sujetos externos.
@@ -78,7 +94,7 @@ Si falla cualquier requisito, producir `NOT_READY` con los bloqueos y su procede
 |---|---|---|
 | COH-01 | G3 previo a merge vs G3 previo a implementación; GAP-010 abierto | `BLOCKED_BY_DECISION` |
 | COH-02 | `CONDITIONAL GO` de auditoría vs HOLD operativo | `DISTINCT_SCOPE` si las modalidades se conservan |
-| COH-03 | F-11/E-11 descritos como tests ejecutados sin acta ni evidencia | `CONTRADICTION_OPEN` o `INSUFFICIENT_EVIDENCE`, nunca PASS |
+| COH-03 | F-11/E-11 descritos como tests ejecutados sin acta ni evidencia; el registro vigente indica propuestos/no ejecutados y coincide alcance temporal | `CONTRADICTION_OPEN` por incompatibilidad explícita de estados; si no se puede establecer identidad/alcance de las afirmaciones, `INSUFFICIENT_EVIDENCE` |
 | COH-04 | PR `mergeable=true` presentada como autorización conjunta | `CONTRADICTION_OPEN` con INV-02 |
 | COH-05 | Procedencia verificada presentada como verdad del claim | `CONTRADICTION_OPEN` con INV-06 |
 | COH-06 | Licencia futura GPL tratada como licencia ya efectiva | `CONTRADICTION_OPEN` con INV-07 |
