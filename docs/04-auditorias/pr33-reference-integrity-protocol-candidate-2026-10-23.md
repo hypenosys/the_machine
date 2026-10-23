@@ -70,6 +70,25 @@ Una auditoría de cobertura debe contener una tabla de cortes **append-only** co
 
 **Política de publicación:** los informes que cambian la propia rama producen un nuevo commit y **no pueden certificar retrospectivamente ese commit sin inspeccionarlo**. El cierre requerirá un corte de evaluación posterior, evidencia congelada y reproducción independiente. No se reescriben cifras históricas como si fueran mediciones actuales.
 
+## Criterios de aceptación verificables para la próxima auditoría
+
+La siguiente revisión no debería añadir más reglas abstractas sin producir una **tabla de evidencias de un corte congelado**. La secuencia propuesta, limitada a documentación y sin autorización de ejecución, es:
+
+| Paso | Evidencia mínima | Rechazo explícito |
+|---|---|---|
+| V-01 | Commit completo, árbol y listado ordenado de rutas/blobs | Rama mutable como único identificador |
+| V-02 | Inventario de nodos de enlace por archivo, tipo y span | Regex sin cobertura declarada tratado como parser integral |
+| V-03 | Destinos relativos normalizados con política explícita | Resolver `..` fuera de raíz o aceptar rutas inventadas |
+| V-04 | Referencias por identificador y definiciones asociadas | Considerar válida una referencia sin definición |
+| V-05 | Fragmentos y anchors con versión de renderizador | Clasificar `VALID` cuando el generador de IDs sea desconocido |
+| V-06 | Incidencias con resultado y justificación por referencia | Ocultar `NOT_EVALUATED` o sumarlo como válido |
+| V-07 | Revisión independiente del manifiesto | Autorrevisión como única evidencia |
+| V-08 | Nueva comparación al cambiar el commit | Reutilizar porcentajes de cortes anteriores |
+
+**Condición de parada:** ante la primera imposibilidad de fijar parser, política o corpus, registrar `INDETERMINATE` para la dimensión afectada y conservar los hallazgos parciales. El resultado de la auditoría de enlaces nunca concede autoridad sobre G3, GAP-010, DEC-08 ni las licencias.
+
+**Control de calidad editorial adicional:** si una tabla declara «todos los documentos», debe aportar el listado de rutas y su corte; si declara «todos los enlaces», debe aportar el conjunto de nodos detectados y los tipos excluidos. No basta una cifra agregada.
+
 ## Puerta de cierre
 
 **`LINKS_READY_FOR_REVIEW`** requiere un manifiesto del corte completo, política de parser y anchors fijada, todas las referencias locales del alcance evaluadas, cero destinos o anclas inexistentes sin disposición, y reproducción independiente. Las externas pueden quedar `EXTERNAL_UNCHECKED` **solo si** el alcance excluye expresamente su validación. Esta puerta **no** concede `PASS_GLOBAL` semántico ni altera HOLD/NO-GO.
