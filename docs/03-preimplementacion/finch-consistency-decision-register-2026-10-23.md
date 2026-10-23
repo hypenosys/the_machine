@@ -210,6 +210,14 @@ Ejemplos verificables del lote 2: `docs/01-investigacion/security/README.md`, bl
 
 **Resultado:** `files_read=103/103`; `candidate_lines_matched=0` con estos patrones en el corte indicado. **Interpretación limitada:** no se encontraron ejemplos de esas cuatro familias con el cribado empleado. No equivale a `parser_verified_absence`: existen sintaxis multilineales, enlaces HTML con variantes de formato, anidamientos y construcciones Markdown que el patrón puede omitir. Tampoco se han validado fragmentos ni destinos externos. Se mantiene la exigencia de parser real y segunda reproducción para `LINKS_READY_FOR_REVIEW`.
 
+## 4.13. Diferencia exacta entre corte auditado y HEAD documental (23-10-2026)
+
+**Comparación de árboles Git, sin extrapolación:** corte fuente `3ff2f14fbc96c3f73768f1e870491155f36144b6` = **103 Markdown**; HEAD observado `4f8fec234f27fea596dbf25677b5a64fcf990528` = **112 Markdown**. Diferencia: **nueve archivos añadidos**, **cero eliminados** y **un archivo preexistente modificado**.
+
+Los nueve añadidos son exactamente `docs/04-auditorias/pr33-reference-manifest-regex-batch-01-2026-10-23.md` hasta `...-09-2026-10-23.md`. El archivo preexistente modificado es `docs/03-preimplementacion/finch-consistency-decision-register-2026-10-23.md` (este registro). Los otros **102 archivos preexistentes conservan el mismo blob SHA** entre ambos cortes.
+
+**Consecuencia verificable:** el inventario regex y la resolución de destinos sobre el corte fuente siguen teniendo identidad reproducible para los 103 blobs antiguos; **no constituyen validación del HEAD**, pues faltan las referencias contenidas en los nueve manifiestos y los cambios de este registro. Se necesita un nuevo inventario incremental o un corte completo y un parser real antes de afirmar cobertura actual. Esta enmienda produce un HEAD posterior y no pretende autocertificarlo. `HOLD/NO-GO` sin cambios.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
