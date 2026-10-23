@@ -4,6 +4,8 @@
 **Base auditada:** `master@6a7cf074c961186fcbf5d0f34243149975f63fb1`.  
 **Alcance:** interpretación consistente de documentos existentes, no adopción de ADR, autorización, verificación experimental ni declaración de cero contradicciones.
 
+> **Actualización de seguimiento (23-10-2026; no altera la base auditada):** la propuesta de resolución conjunta para `AUTH-01` / GAP-010 y `AUTH-02` / G3 está consolidada en el [paquete Finch DEC-GOV-010 / DEC-GATE-003](finch-gap010-g3-ratification-package-candidate-2026-10-23.md). Se han registrado una revisión `APPROVED` de @Axlfc sobre la PR #33 y un comentario favorable «OK» bajo el encabezado GAP-010/G3 en la cuenta @TopperH4rley. Estas evidencias **no identifican por sí solas una ratificación conjunta de la versión normativa exacta** ni autorizan código, ejecución o merge. Las filas `AUTH-01` y `AUTH-02` continúan `OPEN`. El estado de este registro es una evaluación documental, no una certificación independiente del diff actual.
+
 ## 1. Reglas de lectura y autoridad
 
 1. Separar **observación documental**, **inferencia**, **propuesta**, **ratificación**, **implementación** y **verificación**. Una revisión o merge documental no ratifica nada.
