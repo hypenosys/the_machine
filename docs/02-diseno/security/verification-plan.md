@@ -48,6 +48,8 @@
 
 **Acción candidata, no ratificada:** mantener intactos los IDs y la asignación actual, definir por separado escenarios falsables para `TH-008`, `TH-017` y `TH-014`, y someterlos a aprobación antes de afirmar cobertura de esas amenazas. No añadir amenazas a la columna de una prueba si su estímulo y oráculo no las cubren. **Cero pruebas ejecutadas; HOLD / NO-GO.**
 
+**Extensiones falsables de REV-19 (solo candidatas):** [O-TH008, O-TH017 y O-TH014](../../04-auditorias/pr33-three-partial-threat-falsification-oracles-2026-10-23.md) delimitan respectivamente contradicciones ocultas, vencimiento de retención y recuperación tras pérdida de energía. No tienen número `SEC-###` asignado, no sustituyen ni amplían retroactivamente `SEC-006`, `SEC-008` o `SEC-011`, y no han sido aprobadas ni ejecutadas. **HOLD / NO-GO**.
+
 **Nota de trazabilidad:** SEC-015..017 son diseños candidatos para cubrir requisitos que estaban sin prueba asignada; no se han ejecutado, no constituyen controles implementados ni cierran GAP-002. La numeración de estas propuestas requiere revisión frente a la auditoría histórica antes de ratificarse.
 
 ## Evidencia mínima por ejecución
