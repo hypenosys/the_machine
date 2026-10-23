@@ -66,7 +66,7 @@
 
 **Límite de atribución:** los metadatos consultados no identifican quién efectuó la edición posterior ni demuestran que la expresión «OK» sea una aceptación informada de los textos exactos DEC-GOV-010 y DEC-GATE-003. Por ello se clasifica `TOPPER_ACCOUNT_COMMENT_OK_UNATTRIBUTED_EDIT`, **no** `TOPPER_RATIFIED`. Para cerrar la decisión, solicitar declaración expresa con identificador de versión y alcance, y acreditar el mecanismo acordado por ambos cotitulares.
 
-## 5. Acta de ratificación — deliberadamente vacía
+## 5. Matriz de evidencias de consentimiento — ratificación pendiente
 
 | Declaración requerida | Estado | Evidencia |
 |---|---|---|
@@ -79,6 +79,14 @@
 | Revisión independiente del paquete | PENDIENTE | — |
 
 **No existe voto delegado ni consentimiento implícito.** Una ratificación parcial de GAP-010 no aprueba G3. Una ratificación de G3 no concede permisos AUT-*.
+
+## 5.1. Texto de aceptación específica para revisión humana (NO firmado)
+
+Para evitar que un «OK» genérico se confunda con una decisión de alcance indeterminado, cada cotitular puede publicar **por sí mismo** una declaración con esta estructura, después de revisar el contenido y el commit que la identifica:
+
+> Como cotitular de THE MACHINE, identificándome como @USUARIO, acepto / solicito enmiendas a **DEC-GOV-010** y **DEC-GATE-003**, según el contenido de `docs/03-preimplementacion/finch-gap010-g3-ratification-package-candidate-2026-10-23.md` en el commit `COMMIT_REVISADO`. Acepto / solicito enmiendas al mecanismo de competencia, delegación y revocación descrito. Esta declaración **no concede** AUT-CODE, AUT-EXEC, AUT-MERGE, DEC-08 ni permisos de despliegue. Fecha y observaciones: ...
+
+**Controles de cierre:** verificar dos declaraciones atribuibles, coincidentes en versión y alcance; resolver enmiendas; comprobar independencia de la revisión o declarar expresamente su ausencia y decidir cómo subsanarla; registrar entrada en vigor y mecanismo de revocación. Si el texto cambia después de una declaración, determinar si exige nueva aceptación. No completar declaraciones en nombre de otra persona ni tratar el ejemplo como consentimiento ya emitido.
 
 ## 6. Decisión editorial de esta PR
 
