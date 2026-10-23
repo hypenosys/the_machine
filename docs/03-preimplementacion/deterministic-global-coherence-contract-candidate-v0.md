@@ -55,6 +55,16 @@ Para un mismo par de afirmaciones, aplicar **en este orden** las siguientes regl
 
 **Límite epistemológico:** estas reglas son un **algoritmo candidato**; no existe todavía extractor implementado, evaluación completa ni ratificación. Un ejemplo que ofrece salidas alternativas sin condiciones de desempate viola el determinismo y debe corregirse antes de adoptar la especificación.
 
+## 3.2. Identificadores, canonicalización y resolución de conflictos entre reglas
+
+**Identificadores:** `claim_id` debe persistir a través de movimientos de línea o renombrados de ruta; si cambia el significado, crear un identificador nuevo y conservar la relación `supersedes`. Un digest de texto no sustituye a la identidad semántica; dos afirmaciones textualmente iguales pueden tener sujetos o autoridades diferentes.
+
+**Normalización:** codificación UTF-8, saltos de línea LF, claves JSON ordenadas lexicográficamente, arrays de afirmaciones ordenados por `claim_id`, y dependencias ordenadas y deduplicadas. Mantener el texto literal y su hash separado de la representación normalizada. La especificación de serialización, algoritmo de hash y versión de extractor siguen **por fijar y validar**, por lo que no se afirma reproducibilidad binaria actual.
+
+**Regla de desempate:** el orden de la sección 3.1 opera sobre **un mismo par** y su alcance. Si aparecen simultáneamente un bloqueo de autoridad y una incompatibilidad textual, conservar ambos hallazgos como evidencias, pero el estado operativo del par es `BLOCKED_BY_DECISION` hasta resolver la autoridad; no convertirlo en `CONSISTENT`. Si hay incertidumbre sobre identidad o alcance, `INSUFFICIENT_EVIDENCE` precede a una declaración de contradicción semántica. La auditoría debe mostrar la cadena de reglas aplicada, no solo la etiqueta.
+
+**Cierre documental vs cierre normativo:** `READY_FOR_DOCUMENTARY_REVIEW` solo significa que el paquete puede someterse a revisión; no es `PASS_GLOBAL`, `GO`, permiso, ni resolución de GAP-010. La recomendación `CONDITIONAL GO` tampoco es una ratificación. Las decisiones abiertas pueden quedar **documentalmente bien caracterizadas** y seguir bloqueando la coherencia normativa global.
+
 ## 4. Reglas invariantes
 
 **INV-01 — Identidad:** coincidencia textual no demuestra identidad de sujetos externos.
