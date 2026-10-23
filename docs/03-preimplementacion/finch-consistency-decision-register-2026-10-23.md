@@ -279,6 +279,27 @@ Se recuperaron nuevamente los blobs de los primeros 36 Markdown del corte `3ff2f
 
 **Resultado:** `REGEX_MANIFEST_REPRODUCED_FIELDWISE_103_OF_103`. Sustituye el estado parcial de §4.16 **solo en lo relativo a la fidelidad y reproducibilidad del inventario**. No implica cobertura de un parser Markdown ni validación de fragmentos, de HTML o de sintaxis compleja; la extracción y la reextracción usaron el mismo algoritmo y no son metodológicamente independientes. El delta posterior al corte congelado permanece delimitado por §§4.13–4.14. Se mantienen las dos URLs de perfiles sin verificar (§4.15) y `HOLD/NO-GO`.
 
+## 4.18. Taxonomía exhaustiva del inventario regex persistido (23-10-2026)
+
+Se volvieron a leer los nueve manifiestos desde el HEAD `d4c8d50b244b7bbbef4f942844dfc7705515a549` y se clasificaron **las 162 filas**, sin reextraer contenido del corpus fuente. La taxonomía describe el **inventario detectado**, no la totalidad semántica de enlaces Markdown.
+
+| Dimensión de las 162 filas | Recuento |
+|---|---:|
+| Tipo `LINK_INLINE` | **162** |
+| Tipo `IMAGE_INLINE` | **0** |
+| Tipo `REFERENCE_DEFINITION` | **0** |
+| Destino relativo terminado en `.md` | **157** |
+| Destino de directorio relativo | **1** |
+| Destino con esquema externo | **4** |
+| Destino local con fragmento `#...` | **0** |
+| Destino externo con fragmento `#...` | **2** (dos usos de una misma URL) |
+| Destino con query `?` | **0** |
+| Destino literal con espacios, `%`, paréntesis o barra invertida | **0** |
+
+**Implicación de alcance:** no hay **anclas locales detectadas** en este inventario y por ello no se puede proclamar que un validador de anclas locales haya superado pruebas positivas. Los dos fragmentos detectados son anclas del mismo comentario de GitHub, cuya existencia fue comprobada en §4.15. La inexistencia de definiciones e imágenes en el inventario **no demuestra ausencia** en los 103 documentos sin parser independiente. El destino de directorio se contabiliza como existente según el árbol Git, no como archivo Markdown. Las 162 entradas son observaciones, no 162 URLs únicas.
+
+**Bloqueo restante:** parser compatible con GitHub, evaluación independiente de cobertura y verificación externa de los dos perfiles. `HOLD/NO-GO` sin cambios.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
