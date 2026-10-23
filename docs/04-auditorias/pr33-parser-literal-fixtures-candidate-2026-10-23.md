@@ -68,11 +68,11 @@ Esperado AST: 0 enlaces renderizados.
 
 ### FX-11 — Código fenced, control negativo
 
-```text
+````text
 ```md
 [texto](falso.md)
 ```
-```
+````
 
 **Nota de representación:** las tres líneas de esta entrada son, respectivamente, tres backticks seguidos de `md`, la línea del enlace ficticio y tres backticks. Esperado AST: 0 enlaces renderizados.
 
