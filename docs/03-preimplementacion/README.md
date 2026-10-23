@@ -3,6 +3,14 @@
 **Estado: HOLD / NO-GO para implementar.** Documentos candidatos de análisis y deliberación; **sin autorización de escribir, compilar o ejecutar código**. La ausencia de código o de `Cargo.toml` en todas las ramas no queda certificada por este documento.
 
 
+## Decisiones conjuntas preparadas, todavía pendientes
+
+- [Paquete Finch GAP-010 / G3](finch-gap010-g3-ratification-package-candidate-2026-10-23.md): propuesta de jerarquía por competencia y estado, delegación limitada y separación de permisos `AUT-CODE`, `AUT-EXEC`, `AUT-MERGE`.
+- [Acta candidata de decisión conjunta](finch-gap010-g3-joint-decision-record-candidate-2026-10-23.md): dos decisiones independientes, campos de versión y consentimiento de ambos cotitulares, revisión y revocación. **Todos los campos de aceptación siguen pendientes**; el documento no contiene votos ni firmas.
+- [Índice de 29 informes de auditoría de PR #33](../04-auditorias/pr33-audit-consolidation-index-and-open-items-2026-10-23.md): evidencia por cortes históricos, límites y bloqueos sin declarar verificación integral.
+
+La presencia de estos documentos **no ratifica G2.1/G3 ni autoriza código, ejecución, merge o despliegue**. `HOLD / NO-GO`.
+
 ## Registro transversal de coherencia (propuesta, no ratificada)
 
 - [Registro Finch de coherencia y dependencias — 23-10-2026](finch-consistency-decision-register-2026-10-23.md): distingue verticales de arquitecturas, reconcilia estados de readiness, explicita dependencias de G3/DEC-08 y enumera bloqueos sin declarar cero contradicciones ni permisos.
