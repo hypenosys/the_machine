@@ -247,6 +247,19 @@ El inventario regex del corte `3ff2f14fbc96c3f73768f1e870491155f36144b6` contien
 
 **Saldo de cuatro apariciones:** 2 apariciones de comentario con destino comprobado (1 URL única), 2 perfiles sin comprobar. El estado `EXTERNAL_UNCHECKED` anterior queda refinado, no sustituido por una afirmación de cuatro enlaces HTTP validados. `HOLD/NO-GO` se mantiene.
 
+## 4.16. Reextracción y comparación campo a campo — lotes 1–3 (23-10-2026)
+
+Se recuperaron nuevamente los blobs de los primeros 36 Markdown del corte `3ff2f14fbc96c3f73768f1e870491155f36144b6`, se repitió el extractor regex descrito en §4.9 y se compararon los registros con los manifiestos persistidos, usando la tupla exacta `(ruta, blob_sha, línea, clase, destino)` y comparación de multiconjuntos ordenados. La comparación no se limitó al número de filas.
+
+| Lote | Blobs reexaminados | Filas persistidas | Filas reextraídas | Diferencias de tupla |
+|---|---:|---:|---:|---:|
+| 1 | 12 | 46 | 46 | **0** |
+| 2 | 12 | 10 | 10 | **0** |
+| 3 | 12 | 19 | 19 | **0** |
+| **Subtotal** | **36** | **75** | **75** | **0** |
+
+**Resultado acotado:** `REGEX_MANIFEST_REPRODUCED_FIELDWISE_36_OF_103`. Restan **67 blobs y 87 entradas** de los lotes 4–9 para completar esta reextracción. La reproducción del **mismo extractor** comprueba fidelidad del registro, **no** independencia de método ni exhaustividad de la gramática Markdown. Parser compatible con GitHub, anclas y perfiles externos siguen pendientes. No cambiar `HOLD/NO-GO`.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
