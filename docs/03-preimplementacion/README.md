@@ -6,6 +6,7 @@
 ## Registro transversal de coherencia (propuesta, no ratificada)
 
 - [Registro Finch de coherencia y dependencias — 23-10-2026](finch-consistency-decision-register-2026-10-23.md): distingue verticales de arquitecturas, reconcilia estados de readiness, explicita dependencias de G3/DEC-08 y enumera bloqueos sin declarar cero contradicciones ni permisos.
+- [Contrato candidato de coherencia global determinista](deterministic-global-coherence-contract-candidate-v0.md): fija invariantes, disposiciones, oráculos en papel y condiciones necesarias para un cierre reproducible; estado actual NOT_READY, sin ratificación.
 
 ## Contratos conceptuales derivados (sin ejecución)
 
