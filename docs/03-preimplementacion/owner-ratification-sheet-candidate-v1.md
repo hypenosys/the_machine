@@ -29,6 +29,16 @@ Esta hoja reúne decisiones pendientes; **ninguna casilla se considera marcada**
 
 La propuesta detallada está en [decision-preferences-proposal-2026-10-21.md](decision-preferences-proposal-2026-10-21.md). Se recibieron preferencias por **delegación formal revocable a @Axlfc**, **separación de permisos para escribir/ejecutar/fusionar código**, **evaluación de GPL-3.0 para software futuro** y **primer corte offline con datos sintéticos**. No constituyen acta de ambos cotitulares, aceptación del delegado ni aprobación de DEC-01/02/07, GAP-010 o G3. La variante GPL-3.0-only frente a GPL-3.0-or-later queda pendiente; CC BY 4.0 documental no cambia. AUT-CODE, AUT-EXEC y AUT-MERGE son etiquetas candidatas, **ninguna concedida**.
 
+## Estado de consentimiento registrado (23-10-2026; sin cierre automático)
+
+Véase el [paquete Finch GAP-010/G3](finch-gap010-g3-ratification-package-candidate-2026-10-23.md), con propuestas **DEC-GOV-010** (precedencia y delegación limitada) y **DEC-GATE-003** (G3 pre-merge histórico, AUT-CODE/AUT-EXEC/AUT-MERGE independientes).
+
+- **@Axlfc:** conformidad declarada en conversación y revisión GitHub `APPROVED` de la PR #33, vinculada al commit `7c7fc642`; la aprobación no fija por sí sola el mecanismo de ratificación de una versión normativa.
+- **@TopperH4rley:** comentario de PR #33 [#6359388844](https://github.com/hypenosys/the_machine/pull/33#issuecomment-6359388844) con «OK» bajo el encabezado GAP-010/G3. El interlocutor aclaró que la edición del comentario fue gramatical. Se reconoce como **manifestación favorable**, sin atribuir por ello una firma específica de los textos o una revisión independiente.
+- **Pendiente:** formalizar qué versión exacta de DEC-GOV-010 y DEC-GATE-003 aceptan ambos, el mecanismo de autoridad y revocación, y una revisión independiente del estado final. No inferir que el `OK` activa automáticamente delegación, AUT-CODE, AUT-EXEC o AUT-MERGE.
+
+**Consecuencia actual:** existe evidencia favorable de ambos perfiles, pero el acta normativa continúa `PENDING` y la PR permanece `DRAFT` / `HOLD / NO-GO`.
+
 ## Evidencia exigible por decisión
 
 Registrar: identificador, opción elegida, razonamiento, riesgos residuales, documentos/versión exactos, autoridad del decisor, fecha, alcance temporal, condiciones de revocación y contradicciones aceptadas o resueltas. Si faltan, el estado es **PENDIENTE**, no `ACCEPTED`.
