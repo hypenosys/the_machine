@@ -62,6 +62,8 @@
 
 **Observación verificable (2026-10-23):** el comentario de la PR #33 [#issuecomment-6359388844](https://github.com/hypenosys/the_machine/pull/33#issuecomment-6359388844), atribuido a la cuenta `TopperH4rley`, fue creado a las 07:00:12Z y editado a las 07:00:58Z. Su cuerpo actual es «## Finch — solicitud de ratificación explícita de GAP-010 y G3» seguido de «OK». La creación inicial del comentario fue realizada mediante la aplicación `chatgpt-codex-connector`.
 
+**Aclaración posterior del interlocutor (2026-10-23):** la edición del comentario se debió a correcciones gramaticales. Se registra esta explicación como testimonio del interlocutor; no existe motivo para tratar la edición por sí misma como señal de alteración sustantiva o mala fe. El contenido visible actual sigue siendo «OK» y la cuestión de ratificación formal se evalúa por el alcance y la autoridad de la declaración, no por la mera existencia de una edición.
+
 **Límite de atribución:** los metadatos consultados no identifican quién efectuó la edición posterior ni demuestran que la expresión «OK» sea una aceptación informada de los textos exactos DEC-GOV-010 y DEC-GATE-003. Por ello se clasifica `TOPPER_ACCOUNT_COMMENT_OK_UNATTRIBUTED_EDIT`, **no** `TOPPER_RATIFIED`. Para cerrar la decisión, solicitar declaración expresa con identificador de versión y alcance, y acreditar el mecanismo acordado por ambos cotitulares.
 
 ## 5. Acta de ratificación — deliberadamente vacía
