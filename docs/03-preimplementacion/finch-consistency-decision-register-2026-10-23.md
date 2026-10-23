@@ -150,6 +150,21 @@ Se recuperó el contenido de esos 12 archivos y su SHA de blob. Se recorrieron l
 
 **Límites y denominadores:** `files_scanned=12`, `files_in_tree=103`, `regex_entries_detected=46`, `parser_nodes_verified=0`. La lista íntegra de 46 entradas **no se ha persistido como manifiesto**, y el análisis no genera aún posiciones de columna, identidad estable por nodo, resolución de referencias indirectas ni clasificación de anclas. No confundir 46 detecciones con 46 enlaces validados. Los 91 archivos restantes y la reproducción independiente siguen pendientes. Este registro constituye evidencia de progreso V-01/V-02 **parcial**, no cierre de la puerta de enlaces.
 
+## 4.8. Inventario incremental sobre corte inmutable: lotes 2 y 3 (23-10-2026)
+
+Se conserva **el mismo commit de referencia** `3ff2f14fbc96c3f73768f1e870491155f36144b6`, en vez de mezclar la rama mutable con cortes posteriores. Se leyó cada documento por SHA de blob del árbol congelado, excluyendo bloques delimitados por tres backticks y código inline simple. Los patrones regulares clasificaron enlaces/imágenes inline y definiciones; siguen sin equivaler a un parser Markdown completo.
+
+| Lote | Posiciones en los 103 Markdown ordenados | Archivos leídos | Entradas detectadas |
+|---|---|---:|---:|
+| 1 (registrado en §4.7) | 1–12 | 12 | 46 |
+| 2 | 13–24 | 12 | 10 |
+| 3 | 25–36 | 12 | 19 |
+| **Acumulado** | **1–36** | **36/103** | **75** |
+
+Ejemplos verificables del lote 2: `docs/01-investigacion/security/README.md`, blob `dcb6044a6f1886a6760e35f46772294b6e762875`, línea 8 → `isolation.md`; `docs/02-diseno/README.md`, blob `6b144c2755034d27a29754e69442eb160cc3d288`, línea 9 → `adr/README.md`. Ejemplo del lote 3: `docs/02-diseno/adr/README.md`, blob `4851c4ae84eea30ea34784f34865ce00a1104bcf`, línea 15 → `0001-security-first-trust-boundaries.md`.
+
+**Pendiente:** 67 documentos del corte, persistencia de **todas** las entradas como manifiesto, columnas exactas, detección de referencias indirectas y comprobación independiente. `regex_entries_detected=75` es una métrica de extracción parcial, **no** 75 enlaces validados ni un PASS.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
