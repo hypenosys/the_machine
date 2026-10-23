@@ -83,7 +83,7 @@ IDs distintos y citas coincidentes no demuestran independencia. `dependency_stat
 | FINCH-05 | recorded_time retrodatado sin testigo independiente | No demostrar precedencia histórica | Retrodatación |
 | FINCH-06 | Solicitud de supresión con copia hipotética en backup | No afirmar borrado físico por ocultación | Privacidad falsa |
 
-Ninguna fila constituye PASS técnico. Son oráculos de razonamiento para discusión y deben armonizarse con F-01..F-12, E-01..E-12, R-01..R-08 y SEM-T01..12 antes de ejecución.
+Ninguna fila constituye PASS técnico. Son oráculos de razonamiento para discusión y deben armonizarse con los casos originales F-01..F-10 y E-01..E-10, los criterios R-01..R-08 y SEM-T01..12. F-11/E-11 y F-12/E-12 son **propuestas sin fixture ni oráculo aprobados**, no una extensión vigente de las series originales. Todo ello debe resolverse antes de cualquier ejecución autorizada.
 
 ## 6. Definición honesta de «documentación terminada»
 
