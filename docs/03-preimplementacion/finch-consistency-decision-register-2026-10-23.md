@@ -91,6 +91,14 @@ Esta matriz **clasifica** lo contrastado en los documentos enlazados; no pretend
 
 **Regla de cierre:** no convertir `ALINEADO_EDITORIALMENTE` en `RATIFIED` ni `VERIFIED`. Las filas `DECISION_PENDING` y `BLOCKED_*` permanecen abiertas; la ausencia de nuevas discrepancias en esta muestra no demuestra ausencia universal de contradicciones. Los identificadores MAT-* son de seguimiento editorial, no sustituyen GAP, DEC, REV o SEC.
 
+## 4.2. Comprobación puntual de referencias de la matriz (23-10-2026)
+
+**Método observado:** se leyeron 11 archivos relevantes para MAT-01..08 en la rama `docs/finch-consistency-consolidation-20261023`; se extrajeron sus enlaces Markdown relativos y se contrastaron los destinos normalizados con el árbol GitHub de la misma rama. Nueve destinos quedaban fuera de la muestra inicial de 11 archivos; **los nueve existen** en el árbol completo. El árbol consultado contenía 113 entradas (archivos y directorios).
+
+**Resultado limitado:** no se detectaron destinos inexistentes entre los enlaces relativos examinados de esos 11 archivos. No se comprobaron fragmentos `#anchor`, enlaces externos, enlaces de otras páginas, rutas construidas dinámicamente, semántica de los documentos enlazados ni el conjunto de Markdown del repositorio. Tampoco se ejecutó un validador local independiente ni una revisión de seguridad.
+
+**Conclusión:** `SAMPLE_RELATIVE_TARGETS_PRESENT`, no `FULL_LINK_AUDIT_PASS` ni `ZERO_CONTRADICTIONS`. Repetir sobre el árbol completo y fijar la revisión exacta antes de cualquier afirmación de cobertura integral.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
