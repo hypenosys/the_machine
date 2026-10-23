@@ -58,8 +58,20 @@ Para impedir que un mismo enlace obtenga resultados diferentes según el auditor
 
 **Identidad del hallazgo:** registrar un identificador derivado de `source_blob`, posición del nodo, tipo de referencia y destino literal. Un cambio de blob exige reconciliar el hallazgo con su antecesor; no asumir que conservar la misma línea garantiza identidad.
 
+## Registro de cortes y regla contra denominadores móviles
+
+Una auditoría de cobertura debe contener una tabla de cortes **append-only** con `commit_sha`, `tree_sha` (si está disponible), `md_count`, `scope`, `method_version`, `evaluated_count`, `unknown_count` y `evidence_location`. Un número sin commit y método es **dato histórico no comparable**, no evidencia de cierre.
+
+- **Corte A:** `025c69eb9183d8ef96855bab184e1b4fe5193332`; 100 Markdown; reconciliación histórica de rutas, con métodos heterogéneos. No hay validación uniforme.
+- **Corte B:** `96dddefa060c64c4329a22d9f26e2aef2327c910`; 101 Markdown; base documental para este protocolo. No hay validación uniforme.
+- **Corte C:** `0df30863669354665a288956b88e6dfac2ee326d`; 102 Markdown; inventario obtenido mediante árbol Git antes de esta edición. No hay validación uniforme.
+
+**Invariante:** `evaluated_count <= md_count` solo es una comprobación aritmética; `evaluated_count == md_count` no demuestra cobertura de enlaces ni de afirmaciones. El universo de enlaces y su denominador se derivan del parser y del corte, no del número de archivos.
+
+**Política de publicación:** los informes que cambian la propia rama producen un nuevo commit y **no pueden certificar retrospectivamente ese commit sin inspeccionarlo**. El cierre requerirá un corte de evaluación posterior, evidencia congelada y reproducción independiente. No se reescriben cifras históricas como si fueran mediciones actuales.
+
 ## Puerta de cierre
 
 **`LINKS_READY_FOR_REVIEW`** requiere un manifiesto del corte completo, política de parser y anchors fijada, todas las referencias locales del alcance evaluadas, cero destinos o anclas inexistentes sin disposición, y reproducción independiente. Las externas pueden quedar `EXTERNAL_UNCHECKED` **solo si** el alcance excluye expresamente su validación. Esta puerta **no** concede `PASS_GLOBAL` semántico ni altera HOLD/NO-GO.
 
-**Estado presente:** `NOT_READY`. No se ha ejecutado una validación uniforme de LNK-01..08 en los 101 documentos del corte. No se ha autorizado implementar ni ejecutar un verificador de software.
+**Estado presente:** `NOT_READY`. La cifra de **101** corresponde exclusivamente al commit `96dddefa060c64c4329a22d9f26e2aef2327c910` citado al principio de este documento. En la comprobación de la rama anterior a esta enmienda (`0df30863669354665a288956b88e6dfac2ee326d`) constaban **102 documentos Markdown**. No se ha ejecutado una validación uniforme de LNK-01..08 en ninguno de esos cortes. No se ha autorizado implementar ni ejecutar un verificador de software.
