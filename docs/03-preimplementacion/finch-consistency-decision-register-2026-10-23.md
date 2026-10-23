@@ -119,6 +119,14 @@ Tras el barrido de §4.3 se inspeccionaron las líneas fuente que produjeron avi
 
 **Resultado de adjudicación de avisos:** 1 destino válido y 10 referencias literales, **0 avisos clasificados como `MISSING_TARGET`**. Esta cifra se refiere solo a los **once avisos emitidos por el detector preliminar**, no a todos los posibles enlaces reales. El barrido de §4.3 se conserva como registro histórico del estado antes de la adjudicación. Siguen `NOT_EVALUATED` los enlaces omitidos por regex, anclas, referencias indirectas y URL externas. La auditoría integral con parser y pruebas reproducibles sigue pendiente.
 
+## 4.5. Muestreo de anclas locales y control de método (23-10-2026)
+
+**Corte consultado:** `d3c4b17794a1c06896a5380d37bc27c5111d797f`. Se leyeron seis documentos de control: `README.md`, `GOVERNANCE.md`, `docs/03-preimplementacion/README.md`, este registro Finch, `docs/04-auditorias/pr33-reference-integrity-protocol-candidate-2026-10-23.md` y `docs/04-auditorias/pr33-inline-link-coverage-reconciliation-2026-10-23.md`. Un cribado de enlaces con fragmento local de la forma `](#fragmento)`, excluyendo líneas dentro de bloques delimitados por tres backticks, devolvió **0 coincidencias**.
+
+**Interpretación:** `NO_LOCAL_FRAGMENT_MATCHES_IN_SIX_FILE_SAMPLE` no es una comprobación satisfactoria de LNK-03: el denominador de anclas evaluadas es **cero**, no seis, y quedan sin cubrir `archivo.md#fragmento`, HTML, referencias indirectas, sintaxis compleja y el resto del corpus. No se han fijado todavía las reglas del renderizador de GitHub para generar IDs ni ejecutado un parser compatible. La categoría de integridad de anclas continúa `NOT_EVALUATED` / `RENDERER_UNKNOWN` según proceda.
+
+**Siguiente control concreto:** producir un manifiesto reproducible por blob y nodo conforme a V-01..V-08 del [protocolo de integridad](../04-auditorias/pr33-reference-integrity-protocol-candidate-2026-10-23.md). No convertir muestras vacías en un PASS ni cambiar autorizaciones.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
