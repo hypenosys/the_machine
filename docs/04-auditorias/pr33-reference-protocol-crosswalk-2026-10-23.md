@@ -37,6 +37,14 @@ Los códigos `REGEX_FALSE_POSITIVE`, `REGEX_MISSED_LINK`, `PARSER_UNSUPPORTED`, 
 - **R-04 — Cobertura de HTML y tablas:** el cribado secundario de patrones no equivale a parser GFM. **Estado:** `NOT_EVALUATED`.
 - **R-05 — Fragmentos:** no se detectaron anclas locales en las 162 filas; esto no constituye una prueba positiva de resolución de anchors. **Estado:** `NOT_EVALUATED` para la cobertura AST de anclas.
 
+## 3.1. Adjudicación factual del único enlace a directorio
+
+**Fuente inmutable:** `README.md`, blob `7901086d459e96aba598820739c80ed47a757fc6`, línea **73** del corte `3ff2f14fbc96c3f73768f1e870491155f36144b6`. Texto: «Inspeccione las propuestas ADR» con destino relativo `docs/02-diseno/adr/`.
+
+**Árbol del mismo corte:** el prefijo `docs/02-diseno/adr/` contiene `README.md`, `TEMPLATE.md` y cinco propuestas `0001`–`0005`. El destino **existe como directorio lógico del árbol Git**, y existe un candidato explícito a índice: `docs/02-diseno/adr/README.md`.
+
+**Adjudicación:** `DIRECTORY_EXISTS_WITH_README_INDEX_CANDIDATE`, **no** `MISSING_TARGET`. La validez de navegación sigue `POLICY_UNKNOWN` bajo LNK-07: no se ha fijado ni comprobado el comportamiento del renderizador GitHub para el enlace con barra final. La propuesta de normalizar a `docs/02-diseno/adr/README.md` sería una **edición editorial reversible pendiente de decisión**, no una corrección obligatoria demostrada. No reescribir el README original ni el inventario histórico como si fueran defectuosos.
+
 ## 4. Condiciones mínimas para cerrar estas ambigüedades
 
 1. Fijar parser, extensiones y política de directorios/anchors para el mismo commit.
