@@ -184,6 +184,12 @@ Ejemplos verificables del lote 2: `docs/01-investigacion/security/README.md`, bl
 
 **Calificación estricta:** `FULL_CORPUS_READ_REGEX_SCREEN`, no `FULL_REFERENCE_MANIFEST`. Se registraron conteos y ejemplos, **no** las 162 filas íntegras con posición y SHA. `parser_nodes_verified=0`, `links_validated=0`; el extractor puede omitir o interpretar mal construcciones Markdown, y el corte no incluye commits posteriores. La cobertura de lectura del corpus es 103/103, pero la cobertura comprobada de enlaces permanece indeterminada. El siguiente entregable debe ser un manifiesto completo de nodos con parser, anclas y política fijados, y revisión independiente; no declarar `LINKS_READY_FOR_REVIEW` antes de ello.
 
+## 4.10. Persistencia de los nueve manifiestos regex y cotejo de filas (23-10-2026)
+
+**Corpus fuente inmutable:** `3ff2f14fbc96c3f73768f1e870491155f36144b6` (103 Markdown). Se han creado nueve archivos `docs/04-auditorias/pr33-reference-manifest-regex-batch-01-2026-10-23.md` a `...-09-2026-10-23.md`, cada uno con ruta, SHA de blob fuente, línea, clase y destino literal para las coincidencias del extractor. El cotejo posterior **releyó los nueve manifiestos ya guardados en GitHub** y contó las filas de datos: `46+10+19+26+1+39+10+8+3=162`. Este recuento coincide con las 162 detecciones de §4.9 y cubre los lotes de lectura 1–9.
+
+**Resultado:** `REGEX_MANIFEST_PERSISTED_AND_ROW_COUNTS_RECONCILED`. Se han persistido 162 filas; no se ha verificado todavía igualdad campo a campo mediante segunda extracción independiente, integridad de enlaces, posición de columna, cobertura de construcciones complejas ni exactitud del parser. El corpus congelado excluye los manifiestos añadidos después, que requieren nuevo corte si se pretende auditar el estado actual de la rama. **No elevar** a `LINKS_READY_FOR_REVIEW` ni alterar `HOLD/NO-GO`.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
