@@ -52,13 +52,19 @@
 
 **Alcance:** este asentimiento respalda preparar la versión para decisión y su revisión; no resuelve por sí solo las condiciones de eficacia que el paquete establece. No se debe transformar en `RATIFIED` o `ACCEPTED` sin evidencia de autoridad conforme al mecanismo que acuerden ambos cotitulares.
 
+## 4.2. Evidencia adicional: revisión GitHub
+
+**Verificación posterior:** la API de revisiones de la PR #33 devuelve una revisión de la cuenta GitHub `Axlfc` con estado `APPROVED` y comentario «Okay, proceed». También devuelve una revisión `COMMENTED` de `TopperH4rley`, referida a una revisión documental anterior del commit `9936fbe0`. La aprobación GitHub de Axlfc constituye **evidencia atribuida a su cuenta** sobre la PR; no equivale por sí sola a una firma específica del texto de DEC-GOV-010 y DEC-GATE-003, ni demuestra que TopperH4rley haya ratificado esas decisiones. Las revisiones pueden corresponder a estados anteriores del diff; comprobar su commit de referencia antes de utilizarlas como aprobación de una revisión exacta.
+
+**Regla de lectura:** `PR_REVIEW_APPROVED_BY_AXLFC` es evidencia más fuerte que `ASSENT_REPORTED_IN_CONVERSATION` para identidad de cuenta, pero ninguna de las dos etiquetas se convierte automáticamente en `JOINT_RATIFIED`. Mantener el acta de ratificación separada.
+
 ## 5. Acta de ratificación — deliberadamente vacía
 
 | Declaración requerida | Estado | Evidencia |
 |---|---|---|
-| @Axlfc expresa conformidad con DEC-GOV-010 propuesta | CONFORMIDAD DECLARADA, identidad no verificada | Mensaje de conversación 2026-10-23; versión exacta y mecanismo de ratificación aún pendientes |
+| @Axlfc expresa conformidad con DEC-GOV-010 propuesta | CONFORMIDAD DECLARADA + REVISIÓN PR APPROVED | Conversación 2026-10-23 y revisión GitHub de PR #33; ratificación específica de versión pendiente |
 | @TopperH4rley acepta DEC-GOV-010 versión exacta | PENDIENTE | — |
-| @Axlfc expresa conformidad con DEC-GATE-003 propuesta | CONFORMIDAD DECLARADA, identidad no verificada | Mensaje de conversación 2026-10-23; versión exacta y mecanismo de ratificación aún pendientes |
+| @Axlfc expresa conformidad con DEC-GATE-003 propuesta | CONFORMIDAD DECLARADA + REVISIÓN PR APPROVED | Conversación 2026-10-23 y revisión GitHub de PR #33; ratificación específica de versión pendiente |
 | @TopperH4rley acepta DEC-GATE-003 versión exacta | PENDIENTE | — |
 | @Axlfc acepta asumir la delegación, si se ratifica | CONFORMIDAD DECLARADA, activación pendiente | Mensaje de conversación 2026-10-23; falta ratificación competente |
 | Identidad, consentimiento y mecanismo de revocación verificados | PENDIENTE | — |
