@@ -34,5 +34,8 @@ No se infiere que la existencia de un enlace cubra operacionalmente una amenaza,
 ## Gates
 G0/G1: documentación e investigación; G2: diseño; G3: implementación; G4: despliegue; G5: operación. Ningún gate queda automáticamente superado por fusionar documentos.
 
+> **Aclaración de trazabilidad (23-10-2026, propuesta no ratificada):** «G3: implementación» es una etiqueta de fase en esta matriz, no una definición suficiente del control ni una autorización. [security-gates.md](security-gates.md) establece históricamente G3 antes de fusionar código ejecutable; el [protocolo por etapas](../../03-preimplementacion/staged-authorization-protocol-v1.md) propone G3 antes de iniciar Rust. La [propuesta DEC-GATE-003](../../03-preimplementacion/finch-gap010-g3-ratification-package-candidate-2026-10-23.md) conservaría el control pre-merge y separaría `AUT-CODE`, `AUT-EXEC` y `AUT-MERGE`. Ninguna propuesta está ratificada; **HOLD / NO-GO**. La cobertura nominal de amenazas no acredita ejecución ni superación de pruebas.
+
+
 ## Política de revisión
 Antes de aceptar un ADR, comprobar que cada amenaza relevante tiene al menos un requisito y cada requisito tiene una prueba negativa. La cobertura de enlaces es necesaria pero no suficiente.
