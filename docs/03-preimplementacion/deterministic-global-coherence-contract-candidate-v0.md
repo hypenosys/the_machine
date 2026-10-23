@@ -65,6 +65,32 @@ Para un mismo par de afirmaciones, aplicar **en este orden** las siguientes regl
 
 **Cierre documental vs cierre normativo:** `READY_FOR_DOCUMENTARY_REVIEW` solo significa que el paquete puede someterse a revisión; no es `PASS_GLOBAL`, `GO`, permiso, ni resolución de GAP-010. La recomendación `CONDITIONAL GO` tampoco es una ratificación. Las decisiones abiertas pueden quedar **documentalmente bien caracterizadas** y seguir bloqueando la coherencia normativa global.
 
+## 3.3. Esquema de resultados y puertas de verificación (propuesta)
+
+El manifiesto futuro debe distinguir **inventario**, **hallazgos** y **veredicto**, evitando convertir un recuento de archivos en cobertura de afirmaciones.
+
+| Campo | Semántica y condición |
+|---|---|
+| `snapshot.commit` | SHA completo inmutable; prohibido usar nombre de rama como identificador de corte |
+| `snapshot.tree_digest` | Digest de la lista ordenada de rutas y blob SHA del árbol inspeccionado |
+| `method.ruleset_id` | Versión inmutable de estas reglas y de sus criterios de desempate |
+| `method.extractor_id` | Versión del parser y su configuración; `UNSPECIFIED` mientras no exista |
+| `coverage.files_total` | Archivos Markdown del corte; no se infiere de la suma de lotes |
+| `coverage.files_inspected` | Conjunto **deduplicado** de rutas y blob SHA realmente examinados |
+| `coverage.claims_total` | Número de afirmaciones relevantes bajo criterio de inclusión explícito |
+| `coverage.claims_evaluated` | Afirmaciones con evidencia, disposición y revisión registrada |
+| `findings[]` | ID estable, fuentes, regla aplicada, clasificación, dependencia y responsable de cierre |
+| `decision_dependencies[]` | Autoridad, acto requerido, estado, evidencia y efecto sobre gates |
+| `verdict` | `PASS_GLOBAL`, `NOT_READY` o `INDETERMINATE`, con justificación |
+
+**Valores desconocidos:** usar `UNKNOWN` o `NOT_EVALUATED`, nunca `0` como sustituto de ausencia de medición. No usar un porcentaje de archivos como porcentaje de coherencia semántica.
+
+**Puerta de reproducción:** una segunda persona debe obtener el mismo manifiesto para el mismo commit y reglas, sin confiar en el resultado previo; la mera revisión del texto del manifiesto no constituye reproducción independiente.
+
+**Puerta de cambios:** cualquier cambio de archivo auditado, regla, alcance, autoridad o dependencia invalida el veredicto para el nuevo corte. Un documento añadido durante la auditoría exige congelar un nuevo commit antes de hablar de cobertura completa.
+
+**Puerta de falsación:** el verificador deberá reconocer explícitamente controles que deben fallar: (a) mismo texto con identidad externa distinta, (b) afirmación de ratificación sin acto atribuible, (c) fixture propuesto contado como PASS, (d) recomendación de auditoría convertida en permiso, (e) documento nuevo no inventariado y (f) enlaces literales dentro de código tratados erróneamente como enlaces reales. Estos controles son **casos propuestos, no ejecutados**.
+
 ## 4. Reglas invariantes
 
 **INV-01 — Identidad:** coincidencia textual no demuestra identidad de sujetos externos.
