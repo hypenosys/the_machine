@@ -20,6 +20,14 @@
 
 No se infiere que la existencia de un enlace cubra operacionalmente una amenaza, ni que SEC-015..017 estén aprobados. Las demás pruebas permanecen sujetas a sus condiciones originales.
 
+## Contratos parciales y falsadores (aclaración documental; no ratificada)
+
+La cobertura nominal de `TH-011 → SEC-REQ-010 → SEC-010` **no** equivale a idempotencia remota: el oráculo actual solo contempla un ejecutor local sintético. Un reintento tras efecto con recibo perdido puede dejar un resultado `UNKNOWN`; sin reconciliación, no debe declararse éxito ni repetirse ciegamente una operación irreversible. `ADR-0004` exige idempotencia o intervención humana, mientras `ADR-0005` exige no duplicar efectos tras reiniciar; su interacción necesita contrato aprobado y evidencia antes de considerarse verificada.
+
+La cobertura `TH-019 → SEC-REQ-016 → SEC-016` es **propuesta, no asignación ratificada**: la columna de prueba de `SEC-REQ-016` permanece `Pendiente`. La matriz de autorización exige separación de deberes para cambiar políticas, pero aún no define identidad efectiva, independencia entre proponente y aprobador, alcance, caducidad ni catálogo de operaciones sensibles. Una aprobación por dos cuentas controladas por el mismo actor no demuestra independencia.
+
+Los [oráculos falsables propuestos](../../04-auditorias/pr33-falsifiable-idempotency-and-separation-contracts-2026-10-23.md) y la [aclaración de la matriz de autorización](authorization-matrix.md) documentan estos límites. **No hay pruebas ejecutadas, contratos ratificados ni gates superados**; se mantiene `HOLD / NO-GO`.
+
 ## Estados separados
 | Estado | Significado |
 |---|---|
