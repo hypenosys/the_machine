@@ -127,6 +127,14 @@ Tras el barrido de §4.3 se inspeccionaron las líneas fuente que produjeron avi
 
 **Siguiente control concreto:** producir un manifiesto reproducible por blob y nodo conforme a V-01..V-08 del [protocolo de integridad](../04-auditorias/pr33-reference-integrity-protocol-candidate-2026-10-23.md). No convertir muestras vacías en un PASS ni cambiar autorizaciones.
 
+## 4.6. Comprobación dirigida de referencias indirectas y fragmentos (23-10-2026)
+
+**Corte:** `48580e13775754e95d266687c5d1b37d5fc19a81`. Se leyeron cuatro archivos existentes: `README.md`, `docs/03-preimplementacion/README.md`, `docs/04-auditorias/pr33-reference-integrity-protocol-candidate-2026-10-23.md` y este registro Finch. Se excluyeron bloques delimitados por tres backticks y ejemplos inline de un backtick, y se buscaron enlaces inline con `#` en el destino y definiciones de referencias `[clave]: destino`.
+
+**Resultado del cribado:** cero coincidencias en cuatro archivos; **cero referencias de estas clases evaluadas**. Este resultado **no** verifica los enlaces indirectos de uso `[texto][clave]`, anclas HTML ni la totalidad del corpus. El directorio `docs/04-auditorias/` no contiene un `README.md` en el corte consultado: una tentativa de leer ese índice devolvió `NOT_FOUND`, pero no se ha observado ningún enlace que lo requiera y **no se clasifica como enlace roto**.
+
+**Decisión metodológica:** detener muestreos que produzcan denominadores vacíos y priorizar V-01/V-02 del protocolo: inventario de todos los nodos y definiciones del árbol congelado, con `source_blob`, `source_span` y tipos de referencia. Solo después abordar LNK-02/LNK-03 con política de parser y anchors fijada. Estado `NOT_EVALUATED`, sin PASS.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
