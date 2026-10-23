@@ -190,6 +190,20 @@ Ejemplos verificables del lote 2: `docs/01-investigacion/security/README.md`, bl
 
 **Resultado:** `REGEX_MANIFEST_PERSISTED_AND_ROW_COUNTS_RECONCILED`. Se han persistido 162 filas; no se ha verificado todavía igualdad campo a campo mediante segunda extracción independiente, integridad de enlaces, posición de columna, cobertura de construcciones complejas ni exactitud del parser. El corpus congelado excluye los manifiestos añadidos después, que requieren nuevo corte si se pretende auditar el estado actual de la rama. **No elevar** a `LINKS_READY_FOR_REVIEW` ni alterar `HOLD/NO-GO`.
 
+## 4.11. Resolución de destinos de las 162 entradas persistidas (23-10-2026)
+
+**Corte del corpus:** `3ff2f14fbc96c3f73768f1e870491155f36144b6`; árbol Git de 113 entradas, con rutas de blobs y directorios. Se releyeron los nueve manifiestos regex persistidos en la rama y se interpretaron sus cinco columnas (ruta origen, SHA de blob, línea, clase y destino). Para cada destino sin esquema externo se retiraron `?` y `#` si aparecían, se aplicó percent-decoding y se normalizaron segmentos relativos `.`/`..` respecto al directorio del archivo de origen. Se comprobó la pertenencia de la ruta resultante al conjunto de archivos o directorios **del mismo commit**, no al estado mutable de la rama.
+
+| Clasificación de destino | Número |
+|---|---:|
+| Entradas regex persistidas y procesadas | 162 |
+| Rutas locales cuyo destino existe en el árbol | **158** |
+| URLs externas no comprobadas por red | **4** |
+| Rutas locales inexistentes detectadas | **0** |
+| Entradas no interpretadas por el lector de manifiestos | **0** |
+
+**Conclusión limitada:** `LOCAL_PATH_TARGETS_PRESENT_IN_REGEX_MANIFEST` para las 158 entradas locales de este corte. No equivale a `LINKS_READY_FOR_REVIEW`: no se ha validado con parser la completitud de detección, las referencias por identificador, los fragmentos de encabezados, los atributos HTML, las rutas complejas ni el significado de los enlaces. Las cuatro URLs externas quedan `EXTERNAL_UNCHECKED`. El algoritmo de resolución empleado fue una comprobación puntual del inventario, **no** un verificador incorporado al proyecto ni una prueba de su software. Mantener `HOLD/NO-GO`.
+
 ## 5. Falsadores documentales adicionales (no ejecutados)
 
 | Caso | Premisa sintética | Resultado exigido en papel | Fallo que detectaría |
