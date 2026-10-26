@@ -41,3 +41,11 @@
 Se puede cerrar **la organización de los 29 informes** mediante este índice; **no** se puede declarar cierre de seguridad, gobernanza, integridad de enlaces ni ausencia de contradicciones de todo el repositorio. Los siguientes cambios documentales deben atacar un pendiente de la tabla o una contradicción nueva comprobada, no generar un informe redundante.
 
 **Estado final:** `REPORTS_INDEXED = 29`; `GLOBAL_CONSISTENCY_CERTIFIED = NO`; `TESTS_EXECUTED = 0` en esta iteración; `MERGE = NO`; `HOLD / NO-GO`.
+
+## Muestreo incremental de enlaces sobre HEAD posterior (26-10-2026)
+
+**Corte inspeccionado:** `c67b90f8cd5607350ba752dcb426db2187df4987`. Se cotejaron contra el árbol GitHub de ese commit las referencias con forma `] (destino)` —sin el espacio, expresión regular simple— de siete documentos: `docs/03-preimplementacion/README.md`, `docs/02-diseno/security/{verification-plan,traceability,authorization-matrix}.md`, `docs/03-preimplementacion/finch-consistency-decision-register-2026-10-23.md`, `docs/04-auditorias/{readiness-assessment,gap-register}.md`.
+
+**Observación reproducible dentro de ese alcance:** 74 coincidencias de referencias relativas aparentes; 6 destinos no encontrados en el árbol como blobs: `ruta` (dos apariciones), `destino`, `archivo.md`, `img.png`, `no-existe.md`. Las seis coincidencias aparecen en el registro Finch de consistencia, cuyo texto explica expresamente que son ejemplos históricos literales de rutas inexistentes. **No se acredita que sean enlaces activos rotos.** El conteo es de coincidencias regex, no de nodos Markdown.
+
+**Límites:** no se inspeccionaron todos los 129 archivos Markdown del corte; no se resolvieron anchors, directorios, referencias definidas, HTML, escapes ni la semántica CommonMark. El estado del chequeo integral sigue **PENDIENTE / NOT VERIFIED**; no extrapolar el muestreo a un `PASS` global ni mezclarlo con los conteos congelados de otros SHA. Este muestreo no requirió ejecutar código del repositorio ni alterar archivos de producción.
