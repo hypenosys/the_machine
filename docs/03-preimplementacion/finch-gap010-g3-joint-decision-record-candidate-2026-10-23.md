@@ -36,6 +36,21 @@
 
 **Nota:** este modelo solo facilita una manifestación atribuible; el método de autenticación, acuerdo conjunto y revisión independiente continúa pendiente de aceptación competente. No insertar respuestas simuladas en nombre de los titulares.
 
+## Control de versión para evitar ratificaciones sobre un HEAD móvil (26-10-2026)
+
+**Riesgo identificado:** pedir que ambos titulares acepten «la versión actual de la PR» o que indiquen el SHA del HEAD mientras se siguen editando documentos puede producir declaraciones sobre objetos diferentes. Un commit posterior de carácter editorial no debe reinterpretarse automáticamente como aceptación del nuevo contenido.
+
+**Protocolo candidato de congelación, sin efecto normativo actual:**
+
+1. La persona que convoque la revisión seleccionará un **commit de corte inmutable** y anotará por separado los **blob SHA** del paquete Finch y de esta acta. La rama es solo un localizador mutable; no constituye el objeto de aceptación.
+2. Los titulares revisarán el mismo par de blobs, con un resumen explícito de `DEC-GOV-010` y `DEC-GATE-003`, sus reservas y la fecha de efecto propuesta. Se podrán registrar decisiones distintas para cada ID.
+3. Las declaraciones deberán citar los identificadores del corte y de los blobs. Si se modifica cualquier cláusula material, se preparará una versión nueva y se solicitará aceptación de la nueva versión; no se trasladarán votos por equivalencia presumida.
+4. El registro final de decisiones, de existir, será un **artefacto posterior y separado** que enlace las dos declaraciones. No exigirá que una firma anterior mencione el SHA de un commit que todavía no existía; así se evita una dependencia circular.
+5. Un revisor diferente del autor del registro comprobará la correspondencia de los blobs, las declaraciones y las reservas. Si no se acredita independencia, se marcará `REVIEW_NOT_INDEPENDENT` y se mantendrá pendiente la condición que la requiera.
+6. Las revisiones `APPROVED` y los comentarios generales de GitHub no se reutilizarán como aceptación específica de un blob que no identificaron.
+
+**Estado de aplicación:** `FREEZE_NOT_PERFORMED`; `BLOB_REFERENCES_NOT_ACCEPTED`; `JOINT_RATIFICATION_PENDING`. Este protocolo es candidato y no sustituye el acuerdo de autoridad exigido por `GAP-010`.
+
 ## Revalidación de evidencia GitHub — 26-10-2026
 
 **Consulta directa de la PR #33 (antes de este cambio):** HEAD `4c2fd688ec20f4cc21e9e7efd2bc6dd46f15fdbe`, `state=open`, `draft=true`; última actualización registrada de la PR `2026-10-23T09:55:45Z`.
