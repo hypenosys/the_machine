@@ -36,6 +36,19 @@
 
 **Nota:** este modelo solo facilita una manifestación atribuible; el método de autenticación, acuerdo conjunto y revisión independiente continúa pendiente de aceptación competente. No insertar respuestas simuladas en nombre de los titulares.
 
+## Revalidación de evidencia GitHub — 26-10-2026
+
+**Consulta directa de la PR #33 (antes de este cambio):** HEAD `4c2fd688ec20f4cc21e9e7efd2bc6dd46f15fdbe`, `state=open`, `draft=true`; última actualización registrada de la PR `2026-10-23T09:55:45Z`.
+
+- Revisión `COMMENTED` de `TopperH4rley` referida al commit `9936fbe0d11127ff9c08789157e2502d80ecaa82` (23-10-2026).
+- Revisión `APPROVED` de `Axlfc` referida al commit `7c7fc642c7144d81f221bc106b1b8ba0765c9655` (23-10-2026), con comentario «Okay, proceed».
+- Comentario de PR de `TopperH4rley` titulado «solicitud de ratificación explícita de GAP-010 y G3», cuerpo «OK», última edición registrada `2026-10-23T07:00:58Z`.
+- Consulta de `/commits/4c2fd688.../status`: `state=pending`, `total_count=0`. Esto solo informa sobre la API de estados para ese commit, no sobre todas las comprobaciones posibles ni el HEAD creado posteriormente.
+
+**Resultado:** las dos revisiones son anteriores a esta acta candidata y al HEAD examinado. Ninguna especifica la aceptación versionada de las cláusulas exactas de `DEC-GOV-010` y `DEC-GATE-003`. No se observó una ratificación conjunta nueva en las superficies consultadas. **Estado `PENDING`**, sin afirmar que sea imposible que existan declaraciones fuera de GitHub.
+
+**Criterio de siguiente revisión:** contrastar dos declaraciones atribuibles sobre la misma versión documental, confirmar el mecanismo acordado de identidad y decisión, comprobar reservas y revocación, y separar una eventual ratificación normativa de los permisos operativos. No interpretar `APPROVED`, `OK` ni la ausencia de estados como autorización.
+
 ## Condición de cierre
 
 `GAP-010` y `G3` solo pasarán a `RATIFIED` tras verificar identidad, alcance, versión, autoridad, aceptación de ambos titulares según el mecanismo acordado, reservas, independencia y fecha de efecto. **No** cerrar por un `APPROVED` de PR o un comentario `OK` sin alcance inequívoco.
