@@ -49,3 +49,15 @@ Se puede cerrar **la organización de los 29 informes** mediante este índice; *
 **Observación reproducible dentro de ese alcance:** 74 coincidencias de referencias relativas aparentes; 6 destinos no encontrados en el árbol como blobs: `ruta` (dos apariciones), `destino`, `archivo.md`, `img.png`, `no-existe.md`. Las seis coincidencias aparecen en el registro Finch de consistencia, cuyo texto explica expresamente que son ejemplos históricos literales de rutas inexistentes. **No se acredita que sean enlaces activos rotos.** El conteo es de coincidencias regex, no de nodos Markdown.
 
 **Límites:** no se inspeccionaron todos los 129 archivos Markdown del corte; no se resolvieron anchors, directorios, referencias definidas, HTML, escapes ni la semántica CommonMark. El estado del chequeo integral sigue **PENDIENTE / NOT VERIFIED**; no extrapolar el muestreo a un `PASS` global ni mezclarlo con los conteos congelados de otros SHA. Este muestreo no requirió ejecutar código del repositorio ni alterar archivos de producción.
+
+## Revisión incremental de rutas en seguridad, ADR y primeros pasos (26-10-2026)
+
+**Corte GitHub:** `1acbbcb8cfa39aafaddf8702a0d8659acbefea09`. Se compararon las rutas relativas extraídas por la expresión `\\]\\(([^)\\n]+)\\)` con las rutas de archivos y directorios presentes en el árbol del mismo commit; se excluyeron destinos con esquema y referencias sin componente de ruta.
+
+| Grupo examinado | Markdown leídos | Referencias relativas aparentes | Destinos ausentes del árbol |
+|---|---:|---:|---:|
+| `docs/02-diseno/security/` | 13 | 30 | 0 |
+| `docs/00-empezar/` y `docs/02-diseno/adr/` | 11 | 23 | 0 |
+| **Total de estos dos lotes** | **24** | **53** | **0** |
+
+**Alcance del resultado:** no se detectaron destinos ausentes en estas 53 coincidencias bajo la normalización de rutas aplicada. No significa que todos los enlaces estén activos o que los anchors resuelvan. El método regex no implementa CommonMark y puede confundir ejemplos literales con enlaces, o no detectar referencias definidas, enlaces HTML, títulos o destinos escapados. El corte contiene 129 documentos Markdown; **no se ha realizado auditoría integral**. Los resultados son independientes del muestreo anterior de siete documentos y no deben sumarse como si no hubiera solapamientos.
