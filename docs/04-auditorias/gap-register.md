@@ -166,7 +166,7 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 ### GAP-010 — Indefinición del proceso normativo de consolidación de especificaciones
 - **ID:** GAP-010
 - **Dominio:** Gobernanza
-- **Hallazgo:** Documentos kandidatos de especificación conviven con propuestas sin un estado normativo claramente definido.
+- **Hallazgo:** Documentos candidatos de especificación conviven con propuestas sin un estado normativo claramente definido.
 - **Evidencia:** `docs/03-preimplementacion/contract-authority-map.md`.
 - **Impacto:** Confusión sobre cuál especificación es vinculante.
 - **Severidad:** Medium
