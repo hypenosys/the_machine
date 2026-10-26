@@ -52,6 +52,20 @@
 
 **Nota de trazabilidad:** SEC-015..017 son diseños candidatos para cubrir requisitos que estaban sin prueba asignada; no se han ejecutado, no constituyen controles implementados ni cierran GAP-002. La numeración de estas propuestas requiere revisión frente a la auditoría histórica antes de ratificarse.
 
+## Criterios de aceptación independientes para REV-19 (candidatos, no ejecutados)
+
+Las tres brechas de alcance anteriores se convierten aquí en **condiciones falsables y observables** sin asignarles IDs `SEC-###`, sin modificar la cobertura histórica y sin presuponer que un laboratorio sintético equivale a validación operativa.
+
+| Oráculo candidato | Preparación / estímulo | Evidencia mínima exigible | Condición de fallo falsable | Límite de la conclusión |
+|---|---|---|---|---|
+| `O-TH008` — contradicción oculta | Dos afirmaciones sobre el mismo objeto/predicado y ventanas `valid_time` comparables, con procedencias distintas; generar vista derivada y aplicar filtros | Entradas originales, reglas de comparabilidad, linaje de la vista, salidas antes/después del filtro y estado explícito de cada afirmación | Una vista declara `SUPPORTED` sin señalar la contradicción comparable que conserva en su linaje, salvo exclusión autorizada y trazable | No prueba exhaustividad frente a todas las transformaciones posibles; `INSUFFICIENT` y `NOT_COMPARABLE` no son contradicciones |
+| `O-TH017` — retención vencida | Política versionada con plazos, reloj de ensayo controlado, inventario de copias y excepción legal de retención explícita | Instante de inicio, versión de política, cálculo del vencimiento, inventario de cachés/copias/backups y evidencias de borrado o bloqueo de acceso | Una copia sujeta a la política permanece accesible después del vencimiento sin excepción válida, o no se puede explicar su estado | Una prueba sintética no acredita borrado físico de soportes ni descubre copias fuera del inventario |
+| `O-TH014` — interrupción y recuperación | Estado duradero conocido, secuencia de escrituras y puntos de fallo controlados antes/durante/después de confirmación | Prefijo íntegro anterior, punto de fallo, confirmaciones, resultado recuperado y registro de efectos externos `UNKNOWN` cuando proceda | Recuperación acepta un estado corrupto como íntegro, pierde un prefijo confirmado según el contrato, o repite ciegamente un efecto irreversible de resultado incierto | Fallo simulado no equivale a pérdida real de alimentación, pruebas de hardware ni garantías universales de durabilidad |
+
+**Reglas de adjudicación propuestas:** `PASS` solo si se ejecuta el estímulo autorizado y la evidencia satisface íntegramente el oráculo; `FAIL` cuando se observa su condición de falsación; `INCONCLUSIVE` cuando faltan observaciones; `NOT_RUN` cuando no se ha ejecutado. `NOT_APPLICABLE` requiere justificación explícita de alcance y no se suma a `PASS`. No confundir diseño del oráculo con resultado de ensayo.
+
+**Independencia y autorización:** la persona que proponga las expectativas no debe presentarse automáticamente como verificadora independiente. Antes de cualquier ejecución se necesitan versión congelada de entradas, reglas de comparación, política de retención, contrato de durabilidad, entorno autorizado y mecanismo de revisión. En esta iteración los tres oráculos quedan `PROPOSED / NOT_RUN`; `HOLD / NO-GO`.
+
 ## Evidencia mínima por ejecución
 Commit, versión del compilador, plataforma, entorno aislado, datos de prueba, comando exacto, resultado, logs redactados, hash de artefacto, responsable y fecha.
 
