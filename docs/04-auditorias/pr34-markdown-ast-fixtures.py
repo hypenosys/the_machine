@@ -37,6 +37,7 @@ with tempfile.TemporaryDirectory(prefix='pr34-fixture-') as temp:
 <img src="assets/logo.png">
 <video src="assets/video.mp4"><source src="assets/audio.ogg"></video>
 <link href="style.css">
+<a href="http://[">invalid URL</a>
 </div>
 
 [escape](space%20name.md) [traversal](../outside.md) [bad](broken%ZZ.md)
@@ -83,10 +84,13 @@ with tempfile.TemporaryDirectory(prefix='pr34-fixture-') as temp:
     assert entry('html_src', 'assets/video.mp4')['local_target_status'] == 'EXISTS_FILE'
     assert entry('html_src', 'assets/audio.ogg')['local_target_status'] == 'EXISTS_FILE'
     assert entry('html_href', 'style.css')['local_target_status'] == 'EXISTS_FILE'
+    assert entry('html_href', 'http://[')['local_target_status'] == 'INVALID_URL'
     assert entry('link', 'space%20name.md')['local_target_status'] == 'EXISTS_FILE'
     assert entry('link', '../outside.md')['local_target_status'] == 'OUTSIDE_REPOSITORY'
     assert entry('link', 'broken%25ZZ.md')['local_target_status'] == 'MISSING_PATH'
     assert all(e['parsed_target'] != 'no.md' for e in rows), 'literal code extracted'
+    assert any(d['source_path'] == 'a.md' and d['parsed_target'] == 'http://[' and
+               d['local_target_status'] == 'INVALID_URL' for d in manifest['diagnostics'])
     assert len([e for e in rows if e['syntax_kind'] == 'link' and e['parsed_target'] == 'b.md']) == 2
     assert entry('html_src', 'assets/logo.png')['occurrence_in_source_order'] < entry('link', 'space%20name.md')['occurrence_in_source_order']
     comparison = manifest['historical_regex_comparison']
@@ -94,4 +98,4 @@ with tempfile.TemporaryDirectory(prefix='pr34-fixture-') as temp:
     assert comparison['same_blob_observations_found_as_rendered_links'] == 1
     assert comparison['same_blob_observations_unmatched'] == 1
     assert comparison['observations_on_changed_or_absent_blobs_not_comparable'] == 1
-    print('PASS: paths, target anchors, literal code, references, images, HTML, order, encoding, traversal, multiplicity and determinism')
+    print('PASS: paths, target anchors, literal code, references, images, HTML, invalid URLs, order, encoding, traversal, multiplicity and determinism')
