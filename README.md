@@ -70,7 +70,7 @@ Asimismo, el informe de auditoría (`docs/04-auditorias/architecture-review.md`)
 ### Ruta 2: Arquitectura y especificaciones previas a código
 1. Revise la especificación candidata en [`docs/03-preimplementacion/unified-specification-candidate-v0.md`](docs/03-preimplementacion/unified-specification-candidate-v0.md).
 2. Analice la evaluación crítica de arquitectura en [`docs/04-auditorias/architecture-review.md`](docs/04-auditorias/architecture-review.md).
-3. Inspeccione las propuestas ADR en [`docs/02-diseno/adr/`](docs/02-diseno/adr/).
+3. Inspeccione las propuestas ADR en [`docs/02-diseno/adr/README.md`](docs/02-diseno/adr/README.md).
 
 ### Ruta 3: Seguridad y análisis de amenazas
 1. Consulte el Informe de Auditoría de Seguridad en [`docs/04-auditorias/security-review.md`](docs/04-auditorias/security-review.md).
