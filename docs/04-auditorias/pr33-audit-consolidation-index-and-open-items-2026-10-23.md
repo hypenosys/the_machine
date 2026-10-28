@@ -73,3 +73,11 @@ Se puede cerrar **la organización de los 29 informes** mediante este índice; *
 **Corte examinado:** `0deb7ee0f5dca187d1ebb633b5c94987b681990e`. Con la cuenta `Axlfc` se leyeron los **48 archivos Markdown** de `docs/03-preimplementacion/` en tres lotes de 16. El extractor regex de destinos `[texto](ruta)` identificó **75 referencias relativas aparentes**: 19 + 47 + 9. La comparación con el árbol del mismo SHA marcó **7 destinos ausentes aparentes**: uno `ruta` en `deterministic-global-coherence-contract-candidate-v0.md` y seis en `finch-consistency-decision-register-2026-10-23.md` (`ruta` dos veces, `destino`, `archivo.md`, `img.png`, `no-existe.md`). La inspección contextual muestra que son **ejemplos literales**, no enlaces de navegación activos; no se acreditó una rotura real en este barrido.
 
 **Límites de evidencia:** regex no es parser CommonMark; no se comprobaron fragmentos `#anchor`, enlaces de referencia, HTML ni escapes. Los siete avisos no son fallos confirmados; no equivale a un `PASS` de integridad documental. No se ejecutó código del repositorio.
+
+## Barrido regex de referencias en auditorías (28-10-2026)
+
+**Corte:** `769754c71f1e044e494a1f50755c4259b4bad4f8`; cuenta `Axlfc`. Se leyeron los **40 documentos Markdown** de `docs/04-auditorias/` en lotes de 14, 14 y 12. Se detectaron **45 coincidencias de referencias relativas aparentes** (9 + 33 + 3) y **35 destinos ausentes aparentes** (1 + 34 + 0), cotejados con el árbol del mismo commit.
+
+Los avisos se concentran en documentos que describen expresamente **fixtures y ejemplos literales de enlaces**, incluyendo `pr33-independent-markdown-parser-acceptance-contract-2026-10-23.md`, `pr33-parser-literal-fixtures-candidate-2026-10-23.md`, `pr33-reference-integrity-protocol-candidate-2026-10-23.md` y otros informes de cobertura regex. Por tanto, **35 no es un recuento de enlaces rotos reales**. No se ha adjudicado individualmente cada coincidencia con un parser CommonMark, por lo que no se declara ni `PASS` ni `FAIL` de integridad semántica.
+
+**Pendiente:** clasificación AST de enlaces efectivos, fragmentos/anchors, referencias definidas y destinos escapados sobre un SHA congelado; validación independiente de fixtures positivos y negativos. No se ejecutó código del repositorio.
