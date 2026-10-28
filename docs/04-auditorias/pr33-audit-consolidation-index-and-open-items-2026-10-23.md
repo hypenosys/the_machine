@@ -89,3 +89,9 @@ Los avisos se concentran en documentos que describen expresamente **fixtures y e
 **Mejora publicada:** el enlace de navegación en `README.md` ahora apunta directamente a `docs/02-diseno/adr/README.md`, commit `16c9aced59f4ae63623f1f84a1360c8693414b6d`. No se afirma que el enlace anterior fuese necesariamente inválido en GitHub: el cambio elimina la ambigüedad entre navegación de directorio e índice Markdown.
 
 **Limitaciones:** regex y existencia de rutas; no parser CommonMark, no validación global de anchors ni ejecución de tests. Las estadísticas pertenecen al corte indicado, antes de la mejora del README.
+
+## Reconciliación de alcance tras nuevo informe sintético (28-10-2026)
+
+**Corte comprobado:** `75123b5f6c2b59d4289e92386cca58826fb7d263` (HEAD de PR #33 en la consulta). El árbol GitHub contiene **130 blobs `.md`**, no 129: el incremento se debe a la incorporación del informe `docs/04-auditorias/pr33-external-parser-synthetic-smoke-2026-10-28.md` mediante el commit `d148c0da5635e8447b6d8cac12b49edd14ef1f6b`. Las cifras históricas de 129 y 103 Markdown corresponden a otros cortes y **no deben emplearse como inventario del HEAD actual**.
+
+El contraste con `markdown-it-py` descrito en ese informe afecta **solo a fixtures sintéticas**; el manifiesto AST del corpus real de 130 documentos sigue **NOT_RUN**. La ausencia de estados de CI en GitHub no se interpreta como prueba superada. La revisión `APPROVED` que figura en el historial de la PR no constituye por sí sola ratificación conjunta de GAP-010, DEC-08 o las decisiones reservadas en `GOVERNANCE.md`. **HOLD / NO-GO** sin cambios.
