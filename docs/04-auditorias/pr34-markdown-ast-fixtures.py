@@ -38,6 +38,9 @@ with tempfile.TemporaryDirectory(prefix='pr34-fixture-') as temp:
 <video src="assets/video.mp4"><source src="assets/audio.ogg"></video>
 <link href="style.css">
 <a href="http://[">invalid URL</a>
+<a href="http://[::1">invalid IPv6</a>
+<a href="https://example.com：443">invalid NFKC</a>
+<a href="https://[::1]/ok">valid IPv6</a>
 </div>
 
 [escape](space%20name.md) [traversal](../outside.md) [bad](broken%ZZ.md)
@@ -85,6 +88,16 @@ with tempfile.TemporaryDirectory(prefix='pr34-fixture-') as temp:
     assert entry('html_src', 'assets/audio.ogg')['local_target_status'] == 'EXISTS_FILE'
     assert entry('html_href', 'style.css')['local_target_status'] == 'EXISTS_FILE'
     assert entry('html_href', 'http://[')['local_target_status'] == 'INVALID_URL'
+    assert entry('html_href', 'http://[::1')['local_target_status'] == 'INVALID_URL'
+    assert entry('html_href', 'https://example.com：443')['local_target_status'] == 'INVALID_URL'
+    assert entry('html_href', 'https://[::1]/ok')['local_target_status'] == 'EXTERNAL_SCHEME'
+    source_blob = next(x['blob_sha'] for x in manifest['inventory'] if x['path'] == 'a.md')
+    for target in ['http://[', 'http://[::1', 'https://example.com：443']:
+        hit = entry('html_href', target)
+        assert hit['source_blob_sha'] == source_blob and hit['source_line_start'] is not None
+        assert any(d['source_blob_sha'] == source_blob and d['parsed_target'] == target and
+                   d['local_target_status'] == 'INVALID_URL' for d in manifest['diagnostics'])
+    assert entry('link', 'space%20name.md')['occurrence_in_source_order'] > entry('html_href', 'http://[')['occurrence_in_source_order']
     assert entry('link', 'space%20name.md')['local_target_status'] == 'EXISTS_FILE'
     assert entry('link', '../outside.md')['local_target_status'] == 'OUTSIDE_REPOSITORY'
     assert entry('link', 'broken%25ZZ.md')['local_target_status'] == 'MISSING_PATH'
