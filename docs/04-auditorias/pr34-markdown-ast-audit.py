@@ -140,12 +140,21 @@ def main() -> None:
             snippet = "\n".join(lines[line_map[0]:line_map[1]]) if line_map else ""
             raw_target_status = "TEXT_MATCH_IN_BLOCK_POSITION_UNPROVEN" if target and target in snippet else "NOT_EXPOSED_OR_NOT_FOUND"
             raw_target = target if raw_target_status == "TEXT_MATCH_IN_BLOCK_POSITION_UNPROVEN" else None
-            parsed = urlsplit(target)
+            try:
+                parsed = urlsplit(target)
+                invalid_url = False
+            except ValueError:
+                # Preserve the occurrence and report a malformed URL instead of
+                # aborting the entire corpus without source attribution.
+                parsed = urlsplit("")
+                invalid_url = True
             scheme = parsed.scheme.lower()
             local_status = "NOT_APPLICABLE"
             resolved_path = None
             fragment_status = "NOT_APPLICABLE"
-            if scheme or target.startswith("//"):
+            if invalid_url:
+                local_status = "INVALID_URL"
+            elif scheme or target.startswith("//"):
                 local_status = "EXTERNAL_SCHEME"
             else:
                 raw_path = unquote(parsed.path, errors="replace")
@@ -251,7 +260,7 @@ def main() -> None:
     status_counts: dict[str, int] = {}
     for item in entries:
         status_counts[item["local_target_status"]] = status_counts.get(item["local_target_status"], 0) + 1
-        if item["local_target_status"] in {"MISSING_PATH", "OUTSIDE_REPOSITORY", "INVALID_PERCENT_ENCODING"}:
+        if item["local_target_status"] in {"MISSING_PATH", "OUTSIDE_REPOSITORY", "INVALID_PERCENT_ENCODING", "INVALID_URL"}:
             diagnostics.append({k: item[k] for k in (
                 "source_path", "source_blob_sha", "source_line_start", "syntax_kind",
                 "parsed_target", "normalized_path", "local_target_status")})
