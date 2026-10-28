@@ -40,3 +40,9 @@
 5. No se hicieron dos ejecuciones canónicas ni se compararon hashes; **reproducibilidad independiente: NOT_VERIFIED**.
 
 **Resultado:** `SYNTHETIC_PARSER_SMOKE_OBSERVED`; `REPOSITORY_AST_AUDIT_NOT_RUN`; `LINKS_READY_FOR_REVIEW=NO`. La evidencia no sustituye la revisión independiente requerida por la PR.
+
+## Verificación independiente adicional (28-10-2026)
+
+Se **repitió efectivamente** la prueba sintética en un entorno Python **3.13.5** con `markdown-it-py 4.2.0` y `MarkdownIt('commonmark')`. Las veinte entradas FX-01 a FX-19 (incluidas FX-18A y FX-18B) se reconstruyeron manualmente según el documento de fixtures. Para cada entrada se recorrieron recursivamente los tokens y sus hijos, extrayendo `href` de `link_open`, `src` de `image` y contando nodos `html_*`. **Las veinte filas del cuadro anterior se reprodujeron**, incluido FX-09 (2 nodos HTML), FX-16 (`a%25ZZ.md`) y FX-18B (`destino%20con%20espacio.md`).
+
+**Alcance preciso:** esta segunda ejecución confirma los resultados de la tabla sintética, pero **no** proporciona un manifiesto canónico serializado, un hash, un script versionado, un parser GFM ni una ejecución sobre los 129 Markdown del HEAD. Se mantiene `REPOSITORY_AST_AUDIT_NOT_RUN` y `LINKS_READY_FOR_REVIEW=NO`. La afirmación de reproducibilidad global del contrato sigue siendo `NOT_VERIFIED`.
