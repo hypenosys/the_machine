@@ -35,12 +35,15 @@ with tempfile.TemporaryDirectory(prefix='pr34-fixture-') as temp:
 
 <div>
 <img src="assets/logo.png">
+<video src="assets/video.mp4"><source src="assets/audio.ogg"></video>
+<link href="style.css">
 </div>
 
 [escape](space%20name.md) [traversal](../outside.md) [bad](broken%ZZ.md)
 '''
     files = {'a.md': source, 'b.md': '# Target heading\n\n<a id="explicit"></a>\n',
-             'space name.md': '# Space\n', 'unique.md': '# Unique\n', 'assets/logo.png': 'png'}
+             'space name.md': '# Space\n', 'unique.md': '# Unique\n', 'assets/logo.png': 'png',
+             'assets/video.mp4': 'video', 'assets/audio.ogg': 'audio', 'style.css': 'css'}
     for name, content in files.items():
         path = root / name
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -77,6 +80,9 @@ with tempfile.TemporaryDirectory(prefix='pr34-fixture-') as temp:
     assert entry('image', 'assets/logo.png')['local_target_status'] == 'EXISTS_FILE'
     assert entry('html_href', 'b.md')['local_target_status'] == 'EXISTS_FILE'
     assert entry('html_src', 'assets/logo.png')['local_target_status'] == 'EXISTS_FILE'
+    assert entry('html_src', 'assets/video.mp4')['local_target_status'] == 'EXISTS_FILE'
+    assert entry('html_src', 'assets/audio.ogg')['local_target_status'] == 'EXISTS_FILE'
+    assert entry('html_href', 'style.css')['local_target_status'] == 'EXISTS_FILE'
     assert entry('link', 'space%20name.md')['local_target_status'] == 'EXISTS_FILE'
     assert entry('link', '../outside.md')['local_target_status'] == 'OUTSIDE_REPOSITORY'
     assert entry('link', 'broken%25ZZ.md')['local_target_status'] == 'MISSING_PATH'

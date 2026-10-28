@@ -47,9 +47,9 @@ class HTMLCollector(html.parser.HTMLParser):
             self.ids.append(values["id"] or "")
         if tag.lower() == "a" and values.get("name"):
             self.ids.append(values["name"] or "")
-        if tag.lower() == "a" and values.get("href") is not None:
+        if values.get("href") is not None:
             self.links.append(("html_href", values["href"] or ""))
-        if tag.lower() == "img" and values.get("src") is not None:
+        if values.get("src") is not None:
             self.links.append(("html_src", values["src"] or ""))
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
