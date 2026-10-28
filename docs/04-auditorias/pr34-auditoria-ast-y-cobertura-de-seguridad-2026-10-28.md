@@ -42,6 +42,8 @@ Una segunda extracción ad hoc con el mismo parser contrastó el multiconjunto `
 
 **Corrección posterior a PR #35:** el auditor integrado en `14366c2d901ea3025a89a2c39b20bb9cfeb5214d` terminaba con `ValueError: Invalid IPv6 URL` al encontrar `<a href="http://[">`, sin dejar una incidencia atribuida al archivo en el manifiesto. La fixture reproduce el caso y ahora exige una entrada y un diagnóstico `INVALID_URL` con ruta, blob y bloque de origen. La salida anterior era un fallo visible, no un éxito falso. El corpus congelado no contenía ese caso: los únicos cambios de contenido del manifiesto real son el hash del propio auditor. La versión integrada previamente tuvo SHA-256 de auditor `4a9d48798ecc2f65fa239751522828cf21061ad712b4e1833d54fbfd14f36beb` y de manifiesto `3fabf200f0235bd1dbd05371cc75bbca83d442601405f8578792983d332ce3c5`; esta corrección no altera esa evidencia histórica.
 
+**Alcance de `INVALID_URL`:** esta categoría indica exclusivamente que `urllib.parse.urlsplit` lanzó `ValueError` al descomponer el destino. No es una validación completa de la URL: otros destinos malformados pueden no causar esa excepción y quedar como `EXTERNAL_SCHEME`, estado que tampoco certifica su validez ni disponibilidad. No se consulta la red ni se valida, por ejemplo, el puerto de todos los destinos externos.
+
 Las fixtures ejecutadas cubren además inline y referencias, imágenes, HTML `href/src`, código literal, escapes, percent-encoding, traversal, directorios, anclas y dos serializaciones idénticas. Son ejemplos sintéticos, no prueba universal del comportamiento de GitHub. Los scripts se ejecutaron fuera de THE MACHINE; no se importó ni ejecutó código del producto.
 
 ### Comparación acotada con las 162 observaciones regex históricas
