@@ -61,3 +61,9 @@ Se puede cerrar **la organización de los 29 informes** mediante este índice; *
 | **Total de estos dos lotes** | **24** | **53** | **0** |
 
 **Alcance del resultado:** no se detectaron destinos ausentes en estas 53 coincidencias bajo la normalización de rutas aplicada. No significa que todos los enlaces estén activos o que los anchors resuelvan. El método regex no implementa CommonMark y puede confundir ejemplos literales con enlaces, o no detectar referencias definidas, enlaces HTML, títulos o destinos escapados. El corte contiene 129 documentos Markdown; **no se ha realizado auditoría integral**. Los resultados son independientes del muestreo anterior de siete documentos y no deben sumarse como si no hubiera solapamientos.
+
+## Revisión incremental de rutas en investigación (28-10-2026)
+
+**Corte:** `b011be82b038057be0b2f9ab11e6f746387c2905`. Cuenta de lectura: `Axlfc`. Se leyeron los ocho archivos Markdown de `docs/01-investigacion/` y se compararon los destinos de siete coincidencias de enlaces relativos aparentes contra el árbol del mismo commit: **0 destinos ausentes**.
+
+**Limitación:** comprobación de existencia de rutas mediante expresión regular, no análisis CommonMark ni validación de fragmentos `#anchor`. No se afirma cobertura global ni se ejecutaron tests. El resultado se registra por separado de lotes anteriores y no se suma sin deduplicar archivos y referencias.
