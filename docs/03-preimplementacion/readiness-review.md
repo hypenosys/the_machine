@@ -1,5 +1,7 @@
 # Readiness review — corte del 21 de octubre de 2026
 
+> **Nota de coherencia posterior (23-10-2026, propuesta no ratificada):** la fila histórica «G3 Implementación» describe el estado de la fase de implementación en este corte, **no fija por sí sola el criterio normativo de G3**. La fuente histórica [security-gates.md](../02-diseno/security/security-gates.md) sitúa G3 antes de fusionar código ejecutable; el [protocolo por etapas](staged-authorization-protocol-v1.md) propone situarlo antes de comenzar Rust. La propuesta [DEC-GATE-003](finch-gap010-g3-ratification-package-candidate-2026-10-23.md) preservaría G3 pre-merge y distinguiría AUT-CODE/AUT-EXEC/AUT-MERGE. La discrepancia permanece pendiente de ratificación; `NO INICIADO` no implica permiso de iniciar código ni resultado PASS de G3. **HOLD / NO-GO**.
+
 ## Evaluación por gate
 | Gate | Resultado | Motivo |
 |---|---|---|

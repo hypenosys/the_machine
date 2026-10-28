@@ -161,10 +161,12 @@ Cada brecha identificada en THE MACHINE se cataloga con un identificador estable
 
 ---
 
+> **Seguimiento documental (23-10-2026, PR #33):** la propuesta de cierre de GAP-010 está descrita en el [paquete Finch DEC-GOV-010 / DEC-GATE-003](../03-preimplementacion/finch-gap010-g3-ratification-package-candidate-2026-10-23.md). Existen manifestaciones favorables documentadas de ambas cuentas, pero todavía falta acreditar la ratificación conjunta de una versión exacta y su mecanismo de autoridad/revocación. Por ello, **GAP-010 permanece Open**, y el procedimiento de adopción de ADR relacionado con GAP-005 no se considera aprobado por transitividad. La discrepancia sobre G3 tampoco se cierra por esta anotación. No cambiar la severidad/prioridad históricas ni conceder permisos AUT-*.
+
 ### GAP-010 — Indefinición del proceso normativo de consolidación de especificaciones
 - **ID:** GAP-010
 - **Dominio:** Gobernanza
-- **Hallazgo:** Documentos kandidatos de especificación conviven con propuestas sin un estado normativo claramente definido.
+- **Hallazgo:** Documentos candidatos de especificación conviven con propuestas sin un estado normativo claramente definido.
 - **Evidencia:** `docs/03-preimplementacion/contract-authority-map.md`.
 - **Impacto:** Confusión sobre cuál especificación es vinculante.
 - **Severidad:** Medium

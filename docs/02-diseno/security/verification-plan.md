@@ -38,7 +38,35 @@
 
 **Límite SEC-013:** en el estado HOLD / NO-GO la revisión de dependencias solo puede especificarse documentalmente; no se autoriza resolver, descargar o compilar crates. Una futura evaluación técnica requeriría inventario versionado, origen, licencia, revisión de seguridad y permiso específico del titular; su mera enumeración no supone aprobación.
 
+**Diferencia de alcance amenaza–prueba (REV-19; aclaración documental):** tres requisitos enumeran dos amenazas mientras su prueba nominal enumera una sola. Esto no invalida automáticamente la prueba, pero **prohíbe declarar cobertura verificada de ambas amenazas** sin un oráculo específico:
+
+| Requisito | Amenazas del requisito | Amenaza explícita en prueba | Brecha de alcance pendiente |
+|---|---|---|---|
+| `SEC-REQ-006` | `TH-006, TH-008` | `SEC-006 → TH-006` | La conservación de afirmaciones incompatibles puede detectar contradicciones ocultas, pero no verifica todos los mecanismos por los que podrían ocultarse (`TH-008`). |
+| `SEC-REQ-008` | `TH-009, TH-017` | `SEC-008 → TH-009` | Supresión sintética no demuestra que la política de retención y sus plazos se apliquen a todas las copias (`TH-017`). |
+| `SEC-REQ-011` | `TH-013, TH-014` | `SEC-011 → TH-013` | Truncamiento de registro local no demuestra durabilidad ni recuperación tras corte real de energía (`TH-014`). |
+
+**Acción candidata, no ratificada:** mantener intactos los IDs y la asignación actual, definir por separado escenarios falsables para `TH-008`, `TH-017` y `TH-014`, y someterlos a aprobación antes de afirmar cobertura de esas amenazas. No añadir amenazas a la columna de una prueba si su estímulo y oráculo no las cubren. **Cero pruebas ejecutadas; HOLD / NO-GO.**
+
+**Extensiones falsables de REV-19 (solo candidatas):** [O-TH008, O-TH017 y O-TH014](../../04-auditorias/pr33-three-partial-threat-falsification-oracles-2026-10-23.md) delimitan respectivamente contradicciones ocultas, vencimiento de retención y recuperación tras pérdida de energía. No tienen número `SEC-###` asignado, no sustituyen ni amplían retroactivamente `SEC-006`, `SEC-008` o `SEC-011`, y no han sido aprobadas ni ejecutadas. **HOLD / NO-GO**.
+
 **Nota de trazabilidad:** SEC-015..017 son diseños candidatos para cubrir requisitos que estaban sin prueba asignada; no se han ejecutado, no constituyen controles implementados ni cierran GAP-002. La numeración de estas propuestas requiere revisión frente a la auditoría histórica antes de ratificarse.
+
+## Criterios de aceptación independientes para REV-19 (candidatos, no ejecutados)
+
+Las tres brechas de alcance anteriores se convierten aquí en **condiciones falsables y observables** sin asignarles IDs `SEC-###`, sin modificar la cobertura histórica y sin presuponer que un laboratorio sintético equivale a validación operativa.
+
+| Oráculo candidato | Preparación / estímulo | Evidencia mínima exigible | Condición de fallo falsable | Límite de la conclusión |
+|---|---|---|---|---|
+| `O-TH008` — contradicción oculta | Dos afirmaciones sobre el mismo objeto/predicado y ventanas `valid_time` comparables, con procedencias distintas; generar vista derivada y aplicar filtros | Entradas originales, reglas de comparabilidad, linaje de la vista, salidas antes/después del filtro y estado explícito de cada afirmación | Una vista presenta certeza única pese a evidencia comparable incompatible todavía retenible, omite el estado `CONFLICTED` o pierde su procedencia; una supresión autorizada debe respetarse y no obliga a conservar contenido eliminado | No prueba exhaustividad frente a todas las transformaciones posibles; `INSUFFICIENT` y `NOT_COMPARABLE` no son contradicciones |
+| `O-TH017` — retención vencida | Política versionada con plazos, reloj de ensayo controlado, inventario de copias y excepción legal de retención explícita | Instante de inicio, versión de política, cálculo del vencimiento, inventario de cachés/copias/backups y evidencias de borrado o bloqueo de acceso | Una copia sujeta a la política permanece accesible después del vencimiento sin excepción válida, o no se puede explicar su estado | Una prueba sintética no acredita borrado físico de soportes ni descubre copias fuera del inventario |
+| `O-TH014` — interrupción y recuperación | Estado duradero conocido, secuencia de escrituras y puntos de fallo controlados antes/durante/después de confirmación | Prefijo íntegro anterior, punto de fallo, confirmaciones, resultado recuperado y registro de efectos externos `UNKNOWN` cuando proceda | Recuperación acepta un estado corrupto como íntegro, pierde un prefijo confirmado según el contrato, o repite ciegamente un efecto irreversible de resultado incierto | Fallo simulado no equivale a pérdida real de alimentación, pruebas de hardware ni garantías universales de durabilidad |
+
+**Precedencia de supresión para `O-TH008`:** el oráculo de contradicción no impone conservar datos cuya supresión esté autorizada o exigida. La trazabilidad debe respetar la política aplicable, sin reconstruir ni exponer contenido borrado; si la eliminación impide verificar el conflicto, el resultado es `INCONCLUSIVE` o el estado de alcance justificado, nunca un `PASS` fabricado. Esta aclaración mantiene el mismo alcance que el [oráculo candidato de REV-19](../../04-auditorias/pr33-three-partial-threat-falsification-oracles-2026-10-23.md).
+
+**Reglas de adjudicación propuestas:** `PASS` solo si se ejecuta el estímulo autorizado y la evidencia satisface íntegramente el oráculo; `FAIL` cuando se observa su condición de falsación; `INCONCLUSIVE` cuando faltan observaciones; `NOT_RUN` cuando no se ha ejecutado. `NOT_APPLICABLE` requiere justificación explícita de alcance y no se suma a `PASS`. No confundir diseño del oráculo con resultado de ensayo.
+
+**Independencia y autorización:** la persona que proponga las expectativas no debe presentarse automáticamente como verificadora independiente. Antes de cualquier ejecución se necesitan versión congelada de entradas, reglas de comparación, política de retención, contrato de durabilidad, entorno autorizado y mecanismo de revisión. En esta iteración los tres oráculos quedan `PROPOSED / NOT_RUN`; `HOLD / NO-GO`.
 
 ## Evidencia mínima por ejecución
 Commit, versión del compilador, plataforma, entorno aislado, datos de prueba, comando exacto, resultado, logs redactados, hash de artefacto, responsable y fecha.

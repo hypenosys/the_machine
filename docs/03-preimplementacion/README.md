@@ -3,6 +3,19 @@
 **Estado: HOLD / NO-GO para implementar.** Documentos candidatos de análisis y deliberación; **sin autorización de escribir, compilar o ejecutar código**. La ausencia de código o de `Cargo.toml` en todas las ramas no queda certificada por este documento.
 
 
+## Decisiones conjuntas preparadas, todavía pendientes
+
+- [Paquete Finch GAP-010 / G3](finch-gap010-g3-ratification-package-candidate-2026-10-23.md): propuesta de jerarquía por competencia y estado, delegación limitada y separación de permisos `AUT-CODE`, `AUT-EXEC`, `AUT-MERGE`.
+- [Acta candidata de decisión conjunta](finch-gap010-g3-joint-decision-record-candidate-2026-10-23.md): dos decisiones independientes, campos de versión y consentimiento de ambos cotitulares, revisión y revocación. **Todos los campos de aceptación siguen pendientes**; el documento no contiene votos ni firmas.
+- [Índice consolidado de auditorías de PR #33](../04-auditorias/pr33-audit-consolidation-index-and-open-items-2026-10-23.md): evidencia por cortes históricos, límites y bloqueos sin declarar verificación integral.
+
+La presencia de estos documentos **no ratifica G2.1/G3 ni autoriza código, ejecución, merge o despliegue**. `HOLD / NO-GO`.
+
+## Registro transversal de coherencia (propuesta, no ratificada)
+
+- [Registro Finch de coherencia y dependencias — 23-10-2026](finch-consistency-decision-register-2026-10-23.md): distingue verticales de arquitecturas, reconcilia estados de readiness, explicita dependencias de G3/DEC-08 y enumera bloqueos sin declarar cero contradicciones ni permisos.
+- [Contrato candidato de coherencia global determinista](deterministic-global-coherence-contract-candidate-v0.md): fija invariantes, disposiciones, oráculos en papel y condiciones necesarias para un cierre reproducible; estado actual NOT_READY, sin ratificación.
+
 ## Contratos conceptuales derivados (sin ejecución)
 
 - [Matriz de garantías de procedencia](provenance-assurance-matrix-v0.md): separa integridad, clave, identidad, origen y verdad; casos de falsación en papel.
@@ -71,6 +84,9 @@ Para orientar la deliberación formal de los cotitulares (@Axlfc y @TopperH4rley
 **Recomendación provisional de alcance: corte A (laboratorio de evidencia offline)**, con entrada estrictamente sintética, sin red, sin secretos, sin efectos externos y sin almacenamiento persistente en la primera prueba. **Esta letra A identifica un corte funcional, no la selección de la arquitectura R1 / «Opción A» de seis entidades** descrita en otros informes; R1, R2, C y D siguen sin ganador ratificado. Esto **no** autoriza implementarlo: primero decidir contratos, criterios y licencia.
 
 ---
+
+
+**Paquete de ratificación pendiente (GAP-010 / G3):** [Decisión Finch sobre autoridad documental, delegación y permisos separados](finch-gap010-g3-ratification-package-candidate-2026-10-23.md). Es una propuesta para deliberación conjunta, **no un acta aprobada**; conserva HOLD / NO-GO, no concede AUT-CODE, AUT-EXEC ni AUT-MERGE y no reemplaza los gates históricos.
 
 ## Regla de Parada y Prohibiciones
 No abrir PR de código, no crear crates, no añadir dependencias, no ejecutar pruebas invasivas y no aceptar ADR por inercia. La siguiente intervención debe ser una revisión consciente por parte de los cotitulares del paquete de decisión v1.
