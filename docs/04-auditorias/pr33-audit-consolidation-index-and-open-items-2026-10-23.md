@@ -81,3 +81,11 @@ Se puede cerrar **la organización de los 29 informes** mediante este índice; *
 Los avisos se concentran en documentos que describen expresamente **fixtures y ejemplos literales de enlaces**, incluyendo `pr33-independent-markdown-parser-acceptance-contract-2026-10-23.md`, `pr33-parser-literal-fixtures-candidate-2026-10-23.md`, `pr33-reference-integrity-protocol-candidate-2026-10-23.md` y otros informes de cobertura regex. Por tanto, **35 no es un recuento de enlaces rotos reales**. No se ha adjudicado individualmente cada coincidencia con un parser CommonMark, por lo que no se declara ni `PASS` ni `FAIL` de integridad semántica.
 
 **Pendiente:** clasificación AST de enlaces efectivos, fragmentos/anchors, referencias definidas y destinos escapados sobre un SHA congelado; validación independiente de fixtures positivos y negativos. No se ejecutó código del repositorio.
+
+## Revisión de enlaces de raíz y diseño (28-10-2026)
+
+**Corte leído:** `9e836d0760a4955220d02c7ac69e76551b550941`. Se revisaron los siete Markdown de raíz (`AGENTS.md`, `CONTRIBUTING.md`, `GLOSSARY.md`, `GOVERNANCE.md`, `LICENSE.md`, `PHILOSOPHY.md`, `README.md`) y dos de `docs/02-diseno/` (`README.md`, `contrato-evidencia.md`): **9 documentos, 31 coincidencias de referencias relativas aparentes**. Una coincidencia enlazaba a un directorio (`docs/02-diseno/adr/`), no a un blob; las demás rutas de archivo estaban presentes en el árbol. No se encontraron enlaces con fragmento `#` en este lote por el extractor aplicado.
+
+**Mejora publicada:** el enlace de navegación en `README.md` ahora apunta directamente a `docs/02-diseno/adr/README.md`, commit `16c9aced59f4ae63623f1f84a1360c8693414b6d`. No se afirma que el enlace anterior fuese necesariamente inválido en GitHub: el cambio elimina la ambigüedad entre navegación de directorio e índice Markdown.
+
+**Limitaciones:** regex y existencia de rutas; no parser CommonMark, no validación global de anchors ni ejecución de tests. Las estadísticas pertenecen al corte indicado, antes de la mejora del README.
