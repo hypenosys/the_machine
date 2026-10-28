@@ -175,6 +175,16 @@ Esperado AST: 1 enlace al documento actual con fragmento `seccion`; ancla pendie
 
 Esperado AST: 1 enlace y 2 encabezados. Existencia de `igual-1`: `RENDERER_UNKNOWN` hasta fijar generador de IDs y versión.
 
+### FX-19 — Destino de directorio con índice
+
+```text
+[ADR](../02-diseno/adr/)
+```
+
+Esperado AST: 1 enlace renderizado con destino literal `../02-diseno/adr/`. La normalización debe clasificar el destino como **directorio** y no como archivo ausente solo porque no exista un blob cuyo nombre termine en `/`. Para decidir `VALID_DIRECTORY` se requiere un árbol sintético con ese directorio y una política explícita sobre navegación de directorios del proveedor (GitHub web, renderer local, etc.). La existencia de `README.md` dentro del directorio puede mejorar la navegación, pero **no convierte por sí sola** cualquier URL de directorio en enlace válido en todos los renderizadores. Si no se conoce el renderizador, `RENDERER_UNKNOWN`; nunca `MISSING_FILE` por comparación exclusiva con blobs.
+
+**Motivación observada:** en el barrido de raíz del corte `9e836d0760a4955220d02c7ac69e76551b550941` apareció un enlace de `README.md` a `docs/02-diseno/adr/`, posteriormente sustituido por el índice explícito `docs/02-diseno/adr/README.md` (commit `16c9aced59f4ae63623f1f84a1360c8693414b6d`). El cambio es una mejora de navegación, no evidencia de que el enlace previo estuviera roto.
+
 ## 5. Puerta de admisión
 
 Antes de ejecutar o adjudicar estas fixtures se requiere: perfil/versiones de parser CommonMark/GFM, estrategia de extracción HTML, política de URL/percent-decoding, árbol sintético explícito para comprobación de destinos, y algoritmo de anchors. Los casos con resultado condicionado deben permanecer `NOT_EVALUATED` o `RENDERER_UNKNOWN`, no `PASS`. Este archivo no constituye evidencia de ejecución ni autorización.
