@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+from collections import Counter
 import html.parser
 import json
 import os
@@ -68,19 +69,22 @@ def main() -> None:
     os.chdir(root)
     tree = git("ls-tree", "-r", "-z", SOURCE_COMMIT)
     files: list[dict[str, str]] = []
+    tracked_paths: set[str] = set()
     for record in tree.split(b"\0"):
         if not record:
             continue
         meta, path_bytes = record.split(b"\t", 1)
         mode, kind, oid = meta.decode().split()
         path = path_bytes.decode("utf-8", "surrogateescape")
+        if kind == "blob":
+            tracked_paths.add(path)
         if kind == "blob" and path.endswith(".md"):
             files.append({"path": path, "blob_sha": oid})
     files.sort(key=lambda item: item["path"])
-    file_set = {item["path"] for item in files}
+    file_set = tracked_paths
     dir_set = set()
-    for item in files:
-        parts = item["path"].split("/")[:-1]
+    for tracked_path in tracked_paths:
+        parts = tracked_path.split("/")[:-1]
         for i in range(1, len(parts) + 1):
             dir_set.add("/".join(parts[:i]))
     md = MarkdownIt("default", {"html": True, "linkify": True, "typographer": False})
@@ -88,16 +92,21 @@ def main() -> None:
     diagnostics: list[dict] = []
     totals = {"link": 0, "image": 0, "html_href": 0, "html_src": 0}
 
-    for file in files:
-        path, blob = file["path"], file["blob_sha"]
-        source = git("show", f"{SOURCE_COMMIT}:{path}").decode("utf-8", "replace")
-        tokens = md.parse(source)
+    anchor_cache: dict[str, tuple[list[str], set[str]]] = {}
+
+    def anchors(target_path: str) -> tuple[list[str], set[str]]:
+        if target_path in anchor_cache:
+            return anchor_cache[target_path]
+        if target_path not in {item["path"] for item in files}:
+            return [], set()
+        target_source = git("show", f"{SOURCE_COMMIT}:{target_path}").decode("utf-8", "replace")
+        parsed_tokens = md.parse(target_source)
         headings: list[str] = []
         explicit_ids: set[str] = set()
         duplicate_counts: dict[str, int] = {}
-        for i, token in enumerate(tokens):
-            if token.type == "heading_open" and i + 1 < len(tokens) and tokens[i + 1].type == "inline":
-                inline = tokens[i + 1]
+        for i, token in enumerate(parsed_tokens):
+            if token.type == "heading_open" and i + 1 < len(parsed_tokens) and parsed_tokens[i + 1].type == "inline":
+                inline = parsed_tokens[i + 1]
                 title = "".join(child.content for child in (inline.children or [])
                                if child.type in {"text", "code_inline", "html_inline"})
                 base = slugify(title)
@@ -115,6 +124,13 @@ def main() -> None:
                 collector.feed(token.content)
                 explicit_ids.update(collector.ids)
 
+        anchor_cache[target_path] = (headings, explicit_ids)
+        return headings, explicit_ids
+
+    for file in files:
+        path, blob = file["path"], file["blob_sha"]
+        source = git("show", f"{SOURCE_COMMIT}:{path}").decode("utf-8", "replace")
+        tokens = md.parse(source)
         def add(kind: str, target: str, token, occurrence: int) -> None:
             totals[kind] += 1
             line_map = token.map
@@ -149,7 +165,8 @@ def main() -> None:
                             local_status = "EXISTS_FILE"
                         else:
                             local_status = "MISSING_PATH"
-                if parsed.fragment:
+                if parsed.fragment and resolved_path is not None:
+                    headings, explicit_ids = anchors(resolved_path)
                     fragment = unquote(parsed.fragment, errors="replace")
                     if fragment in explicit_ids:
                         fragment_status = "EXISTS_EXPLICIT_ID"
@@ -171,28 +188,26 @@ def main() -> None:
 
         occurrence = 0
         for token in tokens:
-            if token.type != "inline":
-                continue
-            for child in token.children or []:
-                if child.type == "link_open":
-                    occurrence += 1
-                    add("link", child.attrGet("href") or "", token, occurrence)
-                elif child.type == "image":
-                    occurrence += 1
-                    add("image", child.attrGet("src") or "", token, occurrence)
-                elif child.type in {"html_inline", "html_block"}:
-                    collector = HTMLCollector()
-                    collector.feed(child.content)
-                    for kind, target in collector.links:
-                        occurrence += 1
-                        add(kind, target, token, occurrence)
-        for token in tokens:
             if token.type == "html_block":
                 collector = HTMLCollector()
                 collector.feed(token.content)
                 for kind, target in collector.links:
                     occurrence += 1
                     add(kind, target, token, occurrence)
+            elif token.type == "inline":
+                for child in token.children or []:
+                    if child.type == "link_open":
+                        occurrence += 1
+                        add("link", child.attrGet("href") or "", token, occurrence)
+                    elif child.type == "image":
+                        occurrence += 1
+                        add("image", child.attrGet("src") or "", token, occurrence)
+                    elif child.type == "html_inline":
+                        collector = HTMLCollector()
+                        collector.feed(child.content)
+                        for kind, target in collector.links:
+                            occurrence += 1
+                            add(kind, target, token, occurrence)
 
     entries.sort(key=lambda e: (e["source_path"], e["source_line_start"] or 0,
                                 e["syntax_kind"], e["parsed_target"], e["occurrence_in_source_order"]))
@@ -208,12 +223,18 @@ def main() -> None:
             if match:
                 historical_rows.append((match.group(1), match.group(2), match.group(5).replace(r"\|", "|")))
     current_blobs = {item["path"]: item["blob_sha"] for item in files}
-    rendered_targets = {(item["source_path"], item["source_blob_sha"], item["parsed_target"])
-                        for item in entries if item["syntax_kind"] == "link"}
+    rendered_targets = Counter((item["source_path"], item["source_blob_sha"], item["parsed_target"])
+                               for item in entries if item["syntax_kind"] == "link")
     comparable_rows = [row for row in historical_rows if current_blobs.get(row[0]) == row[1]]
     changed_blob_rows = [row for row in historical_rows if current_blobs.get(row[0]) != row[1]]
-    matched_comparable = [row for row in comparable_rows if row in rendered_targets]
-    unmatched_comparable = [row for row in comparable_rows if row not in rendered_targets]
+    matched_comparable = []
+    unmatched_comparable = []
+    for row in comparable_rows:
+        if rendered_targets[row] > 0:
+            matched_comparable.append(row)
+            rendered_targets[row] -= 1
+        else:
+            unmatched_comparable.append(row)
     historical_comparison = {
         "historical_source_commit": "3ff2f14fbc96c3f73768f1e870491155f36144b6",
         "historical_markdown_denominator": 103,
@@ -247,7 +268,7 @@ def main() -> None:
             "Not GitHub's renderer: HTML tag filtering, GitHub-specific heading slugs and rendering equivalence are not certified.",
             "HTML href/src extracted from rendered HTML AST tokens; raw source lexemes may be unavailable.",
             "Child-token source coordinates are not provided by parser; reported positions are containing block ranges only.",
-            "Local path existence is checked against tracked files/directories at the frozen Git tree; external URLs are not fetched.",
+            "Local path existence is checked against tracked blobs/directories at the frozen Git tree; external URLs are not fetched.",
             "Anchor checks are candidate-only; no anchor is certified against GitHub rendering."
         ],
         "inventory_count": len(files), "inventory": files,

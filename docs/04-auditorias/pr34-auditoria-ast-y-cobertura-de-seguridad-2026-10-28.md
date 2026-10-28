@@ -4,7 +4,7 @@
 
 ## 1. REF-01 — inventario y resultado del parser
 
-Se parsearon los **130 blobs `.md`** del árbol congelado. El manifiesto íntegro, con `(path, blob_sha)` ordenado y cada nodo de enlace, está en [`pr34-markdown-ast-manifest-80db1db1.json`](pr34-markdown-ast-manifest-80db1db1.json). El auditor read-only reproducible es [`pr34-markdown-ast-audit.py`](pr34-markdown-ast-audit.py); SHA-256 del script: `ade82bf789b308dd5391eb6181237d56b9fa250607cb3a90768e3e7a233212d2`. **SHA-256 del manifiesto:** `b71aaccb4f43e9e032aec2d7437824a9016979b45f879b2f550aa7d233dac765`.
+Se parsearon los **130 blobs `.md`** del árbol congelado. El manifiesto íntegro, con `(path, blob_sha)` ordenado y cada nodo de enlace, está en [`pr34-markdown-ast-manifest-80db1db1.json`](pr34-markdown-ast-manifest-80db1db1.json). El auditor read-only reproducible es [`pr34-markdown-ast-audit.py`](pr34-markdown-ast-audit.py); SHA-256 del script: `57ee4e4f4ee435ffc69ad2f9b6ce39dcb11c32b8d3a697e1266c9c260ef55079`. **SHA-256 del manifiesto:** `a0aac532d19a5362546b68445b070a66ad984455abdc9591a1593503e6d7f23e`.
 
 | Recuento del corte `80db1db` | Resultado |
 |---|---:|
@@ -19,19 +19,28 @@ Se parsearon los **130 blobs `.md`** del árbol congelado. El manifiesto íntegr
 | Enlaces a directorio observados | 0 |
 | Diagnósticos de destino local | **0** |
 
-**Parser/configuración:** Python `3.11.2`; `markdown-it-py 4.2.0`, `linkify-it-py 2.0.3`, `mdurl 0.1.2`, `uc-micro-py 2.0.0`; `MarkdownIt('default', html=True, linkify=True, typographer=False)`. El perfil CommonMark usa las extensiones estilo GFM activadas por el preset `default` (incluidas tablas/strikethrough) y autolinks de `linkify`. Se mantuvo HTML activado y se extrajeron `href/src` de nodos HTML renderizados cuando estaban presentes. El inventario contiene cero casos HTML/imágenes/fragmentos/directorios, por lo que sus recuentos cero describen este corpus y **no validan esos tipos con fixtures positivas**.
+**Parser/configuración:** Python `3.12.14`; `markdown-it-py 4.2.0`, `linkify-it-py 2.0.3`, `mdurl 0.1.2`, `uc-micro-py 2.0.0`; `MarkdownIt('default', html=True, linkify=True, typographer=False)`. El perfil CommonMark usa las extensiones estilo GFM activadas por el preset `default` (incluidas tablas/strikethrough) y autolinks de `linkify`. Se mantuvo HTML activado y se extrajeron `href/src` de nodos HTML renderizados cuando estaban presentes. El inventario contiene cero casos HTML/imágenes/fragmentos/directorios: sus recuentos cero describen este corpus. Las fixtures sintéticas comprueban ejemplos concretos de estos tipos, sin demostrar exhaustividad.
 
 Instalación aislada y dos invocaciones idénticas (ningún módulo del producto se importó):
 
 ```sh
 python3 -m pip install --target /tmp/the-machine-md-audit \
   markdown-it-py==4.2.0 linkify-it-py==2.0.3 mdurl==0.1.2 uc-micro-py==2.0.0
+PYTHONPATH=/tmp/the-machine-md-audit python3 docs/04-auditorias/pr34-markdown-ast-fixtures.py
 PYTHONPATH=/tmp/the-machine-md-audit python3 docs/04-auditorias/pr34-markdown-ast-audit.py /tmp/manifest-1.json
 PYTHONPATH=/tmp/the-machine-md-audit python3 docs/04-auditorias/pr34-markdown-ast-audit.py /tmp/manifest-2.json
 sha256sum /tmp/manifest-1.json /tmp/manifest-2.json
 ```
 
-Ambas ejecuciones produjeron SHA-256 `b71aaccb4f43e9e032aec2d7437824a9016979b45f879b2f550aa7d233dac765`, 130 archivos, 196 nodos y cero diagnósticos. Es una repetición reproducible en el mismo entorno/host; no se afirma una segunda máquina independiente.
+Ambas ejecuciones del auditor corregido produjeron SHA-256 `a0aac532d19a5362546b68445b070a66ad984455abdc9591a1593503e6d7f23e`, 130 archivos, 196 nodos y cero diagnósticos. La repetición se hizo en un mismo entorno/host. El manifiesto incluye la versión de Python: otra versión puede producir otro digest aun cuando los resultados semánticos sean iguales.
+
+Una segunda extracción ad hoc con el mismo parser contrastó el multiconjunto `(ruta, destino)` de los 196 nodos `link`, el inventario de 130 blobs y la existencia en el árbol de los destinos `EXISTS_FILE`. Comparte el parser y no prueba equivalencia con GitHub ni independencia humana.
+
+**Reproducción independiente del HEAD anterior `b8490ec5fc414fc080b2c9ace48358e5de95dff3`:** se verificaron los hashes originales del script (`ade82bf789b308dd5391eb6181237d56b9fa250607cb3a90768e3e7a233212d2`) y manifiesto (`b71aaccb4f43e9e032aec2d7437824a9016979b45f879b2f550aa7d233dac765`). Dos ejecuciones con Python `3.12.14` y las cuatro versiones de dependencia anteriores produjeron `c2c2a96988ec04989507036e11ab2d30fa20a84133188a711cb55df1eea3c61f`; el único campo JSON distinto respecto del manifiesto publicado con Python `3.11.2` fue `python_version`. Se trata de una ejecución independiente, no de una revisión humana independiente atribuida a otro cotitular.
+
+**Correcciones comprobadas con [`pr34-markdown-ast-fixtures.py`](pr34-markdown-ast-fixtures.py):** el auditor anterior calificaba como ausentes un archivo `assets/logo.png` y un directorio `assets/` existentes si no eran Markdown; ahora inventaría todos los blobs para resolver destinos. Para `a.md → b.md#source-heading` consultaba el encabezado de `a.md` en vez de `b.md`; ahora consulta el destino y mantiene los slugs como candidatos no certificados. El orden de ocurrencia de HTML en bloque seguía a todos los enlaces inline en vez del orden del documento; se corrigió. La comparación histórica anterior reutilizaba una misma coincidencia AST para varias filas idénticas; ahora consume ocurrencias una a una. La fixture incluye dos filas históricas iguales para una sola ocurrencia AST y verifica 1/2 coincidencias, además de excluir un blob cambiado. En el corpus real no cambiaron los 80/80, el inventario ni las 196 entradas.
+
+Las fixtures ejecutadas cubren además inline y referencias, imágenes, HTML `href/src`, código literal, escapes, percent-encoding, traversal, directorios, anclas y dos serializaciones idénticas. Son ejemplos sintéticos, no prueba universal del comportamiento de GitHub. Los scripts se ejecutaron fuera de THE MACHINE; no se importó ni ejecutó código del producto.
 
 ### Comparación acotada con las 162 observaciones regex históricas
 
@@ -50,10 +59,10 @@ El detalle de esta reconciliación está también en `historical_regex_compariso
 1. El parser no es el renderizador GitHub. La equivalencia de GFM, filtrado de HTML y la política de slug/anchors de GitHub **no se certifican**. No había enlaces con `#` que resolver en este corte.
 2. Los enlaces de red no se abrieron ni se verificó su disponibilidad externa.
 3. El parser no expone posición por nodo inline: cada incidencia conserva el rango de líneas del bloque padre, no una línea/columna exacta. En tres entradas no se pudo preservar el lexema original desde el AST; el manifiesto deja `raw_target=null` y registra el destino parseado. El emparejamiento de texto en las otras entradas tampoco finge una columna exacta.
-4. No hubo observaciones de imagen, atributos HTML, fragmentos ni rutas a directorio en el corpus. Su tratamiento por el extractor está implementado, pero estos casos quedan sin fixture positiva ejecutada sobre el árbol.
-5. Los destinos locales se comprobaron contra los blobs/directorios del mismo árbol Git, no contra un renderizador/servidor de GitHub. No se afirma una validación universal de enlaces externos o semántica visual.
+4. No hubo observaciones de imagen, atributos HTML, fragmentos ni rutas a directorio en el corpus real; sus fixtures son sintéticas y no demuestran cobertura exhaustiva.
+5. Los destinos locales se comprobaron contra los blobs/directorios del mismo árbol Git, no contra un renderizador/servidor de GitHub. No se afirma una validación universal de enlaces externos o semántica visual. El parser normaliza destinos: por ejemplo, `broken%ZZ.md` puede llegar como `broken%25ZZ.md`; no se certifica la detección de todos los escapes inválidos del lexema fuente. La decodificación UTF-8 usa reemplazo y la comparación histórica depende de las filas reconocidas por la expresión regular.
 
-**Estado REF-01:** `AST_AUDIT_REPRODUCED_WITH_EXPLICIT_LIMITS`; cero destinos locales problemáticos detectados en este alcance; **pendiente de revisión independiente** antes de `LINKS_READY_FOR_REVIEW`. No se afirma `0 contradicciones` ni integridad universal.
+**Estado REF-01:** `AST_AUDIT_REPRODUCED_WITH_EXPLICIT_LIMITS`; cero destinos locales problemáticos detectados en este alcance; pendiente la revisión de la versión corregida y la independencia exigida por CLOSE-01 antes de `LINKS_READY_FOR_REVIEW`. No se afirma `0 contradicciones` ni integridad universal.
 
 ## 2. SEC-01 — clasificación de cobertura documental
 
@@ -73,6 +82,6 @@ La evidencia en `verification-plan.md`, `traceability.md`, el registro de orácu
 
 ## 3. Gobernanza y cierre del issue
 
-La casilla GOV-01 del issue estaba marcada como completada, pero la evidencia versionada no respalda ese estado: el acta candidata conserva `NOT_RATIFIED` y los comentarios/revisiones de PR #33 no aceptan de forma específica los blobs para `DEC-GOV-010` y `DEC-GATE-003`. La revisión `APPROVED`/comentario `OK` anteriores no sustituyen la decisión conjunta atribuible. **La casilla debe volver a pendiente; no se imputan votos a los cotitulares.**
+La casilla GOV-01 del issue se corrigió a pendiente; la evidencia versionada no respalda la marca anterior de completada: el acta candidata conserva `NOT_RATIFIED` y los comentarios/revisiones de PR #33 no aceptan de forma específica los blobs para `DEC-GOV-010` y `DEC-GATE-003`. La revisión `APPROVED`/comentario `OK` anteriores no sustituyen la decisión conjunta atribuible. **No se imputan votos a los cotitulares.**
 
-CLOSE-01 también sigue abierto: esta iteración no cuenta con un revisor independiente distinto del autor que contraste el mismo manifiesto/corte. Por ello, aunque REF-01 y SEC-01 tienen evidencia nueva y reproducible, no se cierra ni se marca íntegramente resuelto el issue. `AUT-CODE`, `AUT-EXEC`, `AUT-MERGE` y `DEC-08` permanecen fuera de alcance y no concedidos.
+CLOSE-01 también sigue abierto: la reproducción técnica independiente no acredita por sí sola la identidad de un revisor humano distinto del autor ni una aprobación de la versión corregida. Por ello, aunque REF-01 y SEC-01 tienen evidencia nueva y reproducible, no se cierra ni se marca íntegramente resuelto el issue. `AUT-CODE`, `AUT-EXEC`, `AUT-MERGE` y `DEC-08` permanecen fuera de alcance y no concedidos.
