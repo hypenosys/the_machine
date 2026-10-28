@@ -67,3 +67,9 @@ Se puede cerrar **la organización de los 29 informes** mediante este índice; *
 **Corte:** `b011be82b038057be0b2f9ab11e6f746387c2905`. Cuenta de lectura: `Axlfc`. Se leyeron los ocho archivos Markdown de `docs/01-investigacion/` y se compararon los destinos de siete coincidencias de enlaces relativos aparentes contra el árbol del mismo commit: **0 destinos ausentes**.
 
 **Limitación:** comprobación de existencia de rutas mediante expresión regular, no análisis CommonMark ni validación de fragmentos `#anchor`. No se afirma cobertura global ni se ejecutaron tests. El resultado se registra por separado de lotes anteriores y no se suma sin deduplicar archivos y referencias.
+
+## Barrido de rutas relativas de preimplementación (28-10-2026)
+
+**Corte examinado:** `0deb7ee0f5dca187d1ebb633b5c94987b681990e`. Con la cuenta `Axlfc` se leyeron los **48 archivos Markdown** de `docs/03-preimplementacion/` en tres lotes de 16. El extractor regex de destinos `[texto](ruta)` identificó **75 referencias relativas aparentes**: 19 + 47 + 9. La comparación con el árbol del mismo SHA marcó **7 destinos ausentes aparentes**: uno `ruta` en `deterministic-global-coherence-contract-candidate-v0.md` y seis en `finch-consistency-decision-register-2026-10-23.md` (`ruta` dos veces, `destino`, `archivo.md`, `img.png`, `no-existe.md`). La inspección contextual muestra que son **ejemplos literales**, no enlaces de navegación activos; no se acreditó una rotura real en este barrido.
+
+**Límites de evidencia:** regex no es parser CommonMark; no se comprobaron fragmentos `#anchor`, enlaces de referencia, HTML ni escapes. Los siete avisos no son fallos confirmados; no equivale a un `PASS` de integridad documental. No se ejecutó código del repositorio.
